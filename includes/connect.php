@@ -3,11 +3,12 @@
 //set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 $server = "localhost";
-$dbusername = "starter";
-$password = "nrA]bGqSaMOpGh/v";
-$db = "starter";
+$dbusername = "root";
+$password = "";
+$db = "pos-cps353";
 $debug = "true";
 
+//database connector (can be called)
 $dbconn = mysqli_connect($server, $dbusername, $password, $db);
 
 if ($dbconn->connect_error) {
