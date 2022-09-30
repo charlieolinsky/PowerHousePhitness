@@ -1,12 +1,13 @@
 <?php
-//$path = '/includes';
-//set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+
+// $path = '../includes/connect.php';
+// set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 $server = "localhost";
 $dbusername = "root";
 $password = "";
 $db = "pos-cps353";
-$debug = "true";
+$debug = "false";
 
 //database connector (can be called)
 $dbconn = mysqli_connect($server, $dbusername, $password, $db);
