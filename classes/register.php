@@ -11,7 +11,7 @@
         $sql = "INSERT INTO users (username, email, hashPassword) VALUES ('$username', '$email', '$password')";
 
         if ($dbconn->query($sql) === TRUE) {
-            echo "New record created successfully";
+            header("location: ../forms/login.html");
         } 
         else {
             echo "Error: " . $sql . "<br>" . $dbconn->error;
