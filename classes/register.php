@@ -1,6 +1,7 @@
 <?php 
 
     include_once("../includes/connect.php"); 
+    include_once("../classes/User.php"); 
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
