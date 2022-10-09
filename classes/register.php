@@ -1,6 +1,7 @@
 <?php 
 
     include_once("../includes/connect.php"); 
+    include_once("../classes/User.php"); 
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
@@ -11,7 +12,7 @@
         $sql = "INSERT INTO users (username, email, hashPassword) VALUES ('$username', '$email', '$password')";
 
         if ($dbconn->query($sql) === TRUE) {
-            echo "New record created successfully";
+            header("location: ../forms/login.html");
         } 
         else {
             echo "Error: " . $sql . "<br>" . $dbconn->error;
