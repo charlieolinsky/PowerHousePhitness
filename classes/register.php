@@ -1,16 +1,10 @@
 <?php 
 
-    include_once("../includes/connect.php"); 
-    
+    include_once("../sql/connect.php"); 
 
-    $username = $_POST['uname'];
-    $email = $_POST['email'];
-    $password = $_POST['pword'];
-
-
-    require_once("../classes/User.php"); 
-    $testUser = new User();
-    $testUser->createUser($username, $email, $password); 
+    // require_once("../classes/User.php"); 
+    // $testUser = new User();
+    // $testUser->createUser($username, $email, $password); 
 
 
     // if ($_SERVER['REQUEST_METHOD'] == 'POST') {

@@ -3,7 +3,7 @@ Against values found in the DB.  -->
 
 <?php 
 
-    include_once("../includes/connect.php"); 
+    include_once("../sql/connect.php"); 
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
