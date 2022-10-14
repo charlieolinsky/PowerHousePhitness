@@ -61,17 +61,35 @@ https://www.tooplate.com/view/2119-gymso-fitness
   }
 
 
-  body {
-    background: var(--white-color);
+   body {
+    background: var(--white-color); 
     font-family: var(--base-font-family);
-  }
+  } 
 
+  .flex-container {
+    display: flex; 
+    flex-direction: row;
+    background-color: about;
+  }
+  
+  .flex-container > div {
+    background: var(--white-color);
+    border-radius: 0 0 2px 2px;
+    box-shadow: 6px 0 38px rgba(20,20,20,0.10);
+    padding: 35px;
+    position:relative;
+    width: 100%;
+    margin: 10px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 30px;
+  }
 
   /*---------------------------------------
      TYPOGRAPHY              
   -----------------------------------------*/
 
-  h1,h2,h3,h4,h5,h6 {
+  h1,h2,h3,h3_1,h4,h5,h6 {
     font-weight: var(--font-weight-thin);
     line-height: normal;
   }
@@ -493,7 +511,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
   }
 
   .team-thumb {
-    position: relative;
+    position: abs;
   }
 
   .team-info {
@@ -518,7 +536,6 @@ https://www.tooplate.com/view/2119-gymso-fitness
   .team-info .social-icon li {
     display: block;
   }
-
 
   /*---------------------------------------
      CONTACT              
