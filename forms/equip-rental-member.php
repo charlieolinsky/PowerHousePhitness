@@ -65,8 +65,7 @@ aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
 <main> 
 <h1>Equiptment Rental Portal</h1>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus beatae nesciunt ipsa! Est rem voluptate ullam
-dolores culpa cum suscipit sapiente omnis explicabo, quibusdam qui repellendus, delectus officiis ex pariatur.
+<p>Need to rent equipment while visiting our facility? We have a variety of options from basketballs to shoot hoops, to frisbees to toss around our open gym!
 </p>
 
 <div class = "rental-products">
@@ -80,6 +79,8 @@ include_once("../include/load-data.php");
                 <th>Name</th>
                 <th>Description</th>
                 <th>Price</th>
+                <th>Quantity</th>
+
             </tr>
             <!-- PHP CODE TO FETCH DATA FROM ROWS -->
             <?php
@@ -91,8 +92,11 @@ include_once("../include/load-data.php");
                 <!-- FETCHING DATA FROM EACH
                     ROW OF EVERY COLUMN -->
                 <td><?php echo $rows['prod_name'];?></td>
-                <td><?php echo $rows['prod_desc'];?></td>
                 <td><?php echo $rows['prod_price'];?></td>
+                <td><?php echo $rows['prod_desc'];?></td>
+                <td><?php echo $rows['prod_quantity'];?></td>
+
+
             </tr>
             <?php
                 }
