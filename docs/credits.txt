@@ -1,0 +1,12 @@
+========================================================================================================================================================================================================
+SECURITY & SESSIONS - Charles Olinsky
+
+    Sources: 
+
+    Youtube: CodeSignal 
+    https://www.youtube.com/playlist?list=PLfdtiltiRHWFsPxAGO-SVPGhCbCwKWF_N
+
+    Section: "CSRF Protection in PHP"
+    https://www.section.io/engineering-education/csrf-protection-in-php/#step-4-security-service-to-generate-insert-validate-csrf-token
+
+========================================================================================================================================================================================================
