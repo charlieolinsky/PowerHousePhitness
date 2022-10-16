@@ -1,9 +1,9 @@
 <?php
 
-// $path = '../includes/connect.php';
+// $path = '../sql/connect.php';
 // set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
-$server = "localhost";
+$server = "127.0.0.1"; //changed from localhost bc local host doesnt work on mac
 $dbusername = "root";
 $password = "";
 $db = "pos-cps353";

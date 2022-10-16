@@ -1,7 +1,11 @@
 <?php 
 
-    include_once("../includes/connect.php"); 
-    include_once("../classes/User.php"); 
+    include_once("../sql/connect.php"); 
+
+    // require_once("../classes/User.php"); 
+    // $testUser = new User();
+    // $testUser->createUser($username, $email, $password); 
+
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
