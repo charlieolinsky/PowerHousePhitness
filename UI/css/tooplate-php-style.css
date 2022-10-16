@@ -377,6 +377,60 @@ https://www.tooplate.com/view/2119-gymso-fitness
     top: 8px;
   }
 
+  /* Dropdown Addition */
+  .dropdown {
+    float: left;
+    overflow: visible;
+  }
+
+  .dropdown .dropbtn {
+    border: none;
+    outline: none;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+    color: var(--white-color)!important;
+    font-size: var(--menu-font-size);
+    font-weight: var(--font-weight-normal);
+    text-transform: uppercase;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background: var(--dark-color);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    color: var(--white-color);
+    font-size: var(--menu-font-size);
+    font-weight: var(--font-weight-normal);
+    text-transform: uppercase;
+    padding: 2px 6px;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .dropdown:hover .dropdown-content {
+     display: block; 
+  }
+
+  .dropdown-content a:hover {
+    background-color: var(--primary-color)!important;
+  }
+
+  .dropbtn:hover{
+    color: var(--primary-color)!important;
+  }
+
+
   /*---------------------------------------
      HERO              
   -----------------------------------------*/
@@ -659,6 +713,11 @@ https://www.tooplate.com/view/2119-gymso-fitness
     .navbar-collapse,
     .site-footer {
       text-align: center;
+    }
+
+    .dropdown-content{
+      text-align: center;
+      margin-left: 50%;
     }
 
     .schedule-table {
