@@ -52,6 +52,26 @@
     
         //more research needed
 
-    /*****************************User defined file includes*******************************************/
+    
+    
+    /*****************************SQL Injection*******************************************/
+
+    $db = new PDO('mysql:host=127.0.0.1;dbname=test', 'root', '');
+
+    $email = "fakeemail@pos.com"; //Assume this comes from POST
+    $attackEmail = "'';DROP TABLE testtable;"; 
+
+    //this option allows SQL Injection:
+    //$unsafe = $db->query("SELECT * FROM testtable WHERE email ='{$email}'");
+
+    //this option protects against SQL Injections by using a PDO prepare statement and placeholder.
+    
+    $safe = $db->prepare("SELECT * FROM testtable WHERE email =:email");
+
+    $safe->execute([
+        'email' => $email,
+    ]);
+    
+    /*****************************SQL Injection*******************************************/
 
 ?>
