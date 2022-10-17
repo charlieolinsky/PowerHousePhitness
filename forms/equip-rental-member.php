@@ -110,7 +110,7 @@ include_once("../include/load-data.php");
                 <td><?php echo $rows['prod_name'];?></td>
                 <td><?php echo $rows['prod_price'];?></td>
                 <td><?php echo $rows['prod_desc'];?></td>
-                <td><?php echo $rows['prod_quantity'];?> add to cart button</td>
+                <td><?php echo $rows['prod_quantity'];?></td>
 
 
             </tr>
