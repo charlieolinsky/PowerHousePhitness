@@ -23,7 +23,7 @@
                 
                 <div class="col-50">
                     <h1>Checkout</h1>
-                    <h3>Billing Address</h3>
+                    <h3>Shipping Address</h3>
                     <label for="fname"><i class="fa fa-user"></i> First Name </label>
                     <input type="text" id="fname" name="firstname" placeholder="First Name"><br><br>
                     <label for="lname"><i class="fa fa-user"></i> Last Name </label>
