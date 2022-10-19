@@ -21,7 +21,7 @@
 <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
 
-            <a class="navbar-brand" href="index.html"><span style="color: var(--primary-color)">P</span>ower <span style="color: var(--primary-color)">H</span>ouse <span style="color: var(--primary-color)">P</span>hitness</a>
+            <a class="navbar-brand" href="../UI/index.html"><span style="color: var(--primary-color)">P</span>ower <span style="color: var(--primary-color)">H</span>ouse <span style="color: var(--primary-color)">P</span>hitness</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -44,8 +44,8 @@
                         </button>
 
                         <div class="dropdown-content">
-                            <a href="#classesMembership">Classes </a>
-                            <a href="#classesMembership">Membership </a>
+                            <a href="../UI/schedule.html">Classes </a>
+                            <a href="../UI/services.html">Memberships </a>
                             <a href="equip-rental-member.php">Equipment </a>
                         </div> 
                     </li>
@@ -55,7 +55,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="../UI/index.html#contact" class="nav-link smoothScroll">Contact</a>
+                        <a href="../UI/#contact" class="nav-link smoothScroll">Contact</a>
                     </li>
                 </ul>
 
@@ -64,7 +64,7 @@
                 </ul>
 
                 <ul class="social-icon ml-lg-3">
-                    <li><a href="#" class="fa fa-shopping-cart"></a></li>
+                    <li><a href="../forms/shoppingcart.html" class="fa fa-shopping-cart"></a></li>
                 </ul>
 
                 <!-- <ul class="social-icon ml-lg-3">
