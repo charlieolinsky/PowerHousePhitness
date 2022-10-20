@@ -7,7 +7,7 @@ if(!session_id()){
 
 class ShoppingCart {
 
-    private $cart_contents = array();
+    protected $cart_contents = array();
 
     public function __construct()
     {
