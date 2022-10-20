@@ -18,6 +18,7 @@ class ShoppingCart {
     }
 
     // returns the entire cart array
+    
     public function contents()
     {
         // rearrange the newest first 
