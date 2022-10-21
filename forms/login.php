@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") { //method becomes 'post' once the us
     
     include_once("../sql/connect.php");
     
-    $sql = sprintf("SELECT * FROM basic_users
+    $sql = sprintf("SELECT * FROM user_data
                     WHERE email = 'email'"); 
 
                   // $mysqli->real_escape_string($_POST["email"]));
