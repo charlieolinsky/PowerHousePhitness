@@ -11,16 +11,24 @@
     </head>
     <body>
         <h1>Register</h1>
-        <form action="../classes/User.php" method="POST">    
-       
-           <!--method="POST"... onsubmit="return createUser()" -->
-            
+        <form action= <?php 
+            include_once("../classes/User.php");
+
+            $fname = $_POST["fname"];
+            $lname = $_POST["lname"];
+            $email = $_POST["email"];
+            $pword = $_POST["pword"];
+
+            $user = new User($fname, $lname, $email, $pword); 
+            $user -> createUser(); 
+        ?> method="POST">    
+
             First Name: <input type="text" name="fname"><br>
             Last Name: <input type="text" name="lname"><br>
             Email: <input type="email" name="email"><br>
             New Password: <input type="password" name="pword"><br>
             Verify Password: <input type="password" name="vpword"><br>
-            <button type="submit">Create</button>
+            <button type="submit"> Create</button>
 
         </form>
     </body>

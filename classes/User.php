@@ -25,63 +25,65 @@ public function _User($n, $ln, $em, $pass)
 }
 function createUser(){
 
-    if (empty($_POST["fname"])) {
-        die("Name is required");
-    }
-    if (empty($_POST["lname"])) {
-        die("Name is required");
-    }
-    if ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-        die("Valid email is required");
-    }
+    echo "create user method"; 
     
-    if (strlen($_POST["pword"]) < 8) {
-        die("Password must be at least 8 characters");
-    }
+    // if (empty($_POST["fname"])) {
+    //     die("Name is required");
+    // }
+    // if (empty($_POST["lname"])) {
+    //     die("Name is required");
+    // }
+    // if ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+    //     die("Valid email is required");
+    // }
     
-    if ( ! preg_match("/[a-z]/i", $_POST["pword"])) {
-        die("Password must contain at least one letter");
-    }
+    // if (strlen($_POST["pword"]) < 8) {
+    //     die("Password must be at least 8 characters");
+    // }
     
-    if ( ! preg_match("/[0-9]/", $_POST["pword"])) {
-        die("Password must contain at least one number");
-    }
+    // if ( ! preg_match("/[a-z]/i", $_POST["pword"])) {
+    //     die("Password must contain at least one letter");
+    // }
     
-    if ($_POST["pword"] !== $_POST["vword"]) {
-        die("Passwords must match");
-    }
+    // if ( ! preg_match("/[0-9]/", $_POST["pword"])) {
+    //     die("Password must contain at least one number");
+    // }
     
-    $password_hash = password_hash($_POST["pword"], PASSWORD_DEFAULT);
+    // if ($_POST["pword"] !== $_POST["vword"]) {
+    //     die("Passwords must match");
+    // }
     
-    $mysqli = require __DIR__ . "/connect.php";
+    // $password_hash = password_hash($_POST["pword"], PASSWORD_DEFAULT);
     
-    $sql = "INSERT INTO basic_users (id, firstName, lastName, address, email, phoneNumber, password, lockerNumber, lockerCombo, membershipLevel)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    // $mysqli = require __DIR__ . "/connect.php";
+    
+    // $sql = "INSERT INTO basic_users (id, firstName, lastName, address, email, phoneNumber, password, lockerNumber, lockerCombo, membershipLevel)
+    //         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             
-    $stmt = $mysqli->stmt_init();
+    // $stmt = $mysqli->stmt_init();
     
-    if ( ! $stmt->prepare($sql)) {
-        die("SQL error: " . $mysqli->error);
-    }
+    // if ( ! $stmt->prepare($sql)) {
+    //     die("SQL error: " . $mysqli->error);
+    // }
     
-    $stmt->bind_param("sss",
-                      $_POST["name"],
-                      $_POST["email"],
-                      $password_hash);
+    // $stmt->bind_param("sss",
+    //                   $_POST["name"],
+    //                   $_POST["email"],
+    //                   $password_hash);
                       
-    if ($stmt->execute()) {
+    // if ($stmt->execute()) {
     
-        header("Location: signup-success.html");
-        exit;
+    //     header("Location: signup-success.html");
+    //     exit;
         
-    } else {
+    // } else {
         
-        if ($mysqli->errno === 1062) {
-            die("email already taken");
-        } else {
-            die($mysqli->error . " " . $mysqli->errno);
-        }
-    }
+    //     if ($mysqli->errno === 1062) {
+    //         die("email already taken");
+    //     } else {
+    //         die($mysqli->error . " " . $mysqli->errno);
+    //     }
+    // }
 }
 // setters/getters
 function getFirstName()
