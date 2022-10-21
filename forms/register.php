@@ -14,13 +14,15 @@
         <form action= <?php 
             include_once("../classes/User.php");
 
-            $fname = $_POST["fname"];
-            $lname = $_POST["lname"];
-            $email = $_POST["email"];
-            $pword = $_POST["pword"];
+            if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                $fname = $_POST["fname"];
+                $lname = $_POST["lname"];
+                $email = $_POST["email"];
+                $pword = $_POST["pword"];
 
-            $user = new User($fname, $lname, $email, $pword); 
-            $user -> createUser(); 
+                $user = new User($fname, $lname, $email, $pword); 
+                $user -> createUser(); 
+            }
         ?> method="POST">    
 
             First Name: <input type="text" name="fname"><br>
