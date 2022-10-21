@@ -88,11 +88,12 @@
 <!-- where the inventory list for rentals will appear with buttons on how to work -->
 <!-- FILE TO QUERY DATA  -->
 <?php 
-include_once("../include/load-data.php");
+include_once("../include/load-product-rentals.php");
 ?>
 <table>
             <tr>
                 <th>Name</th>
+                <th>Image</th>
                 <th>Price</th>
                 <th>Description</th>
                 <th>Quantity</th>
@@ -108,6 +109,7 @@ include_once("../include/load-data.php");
                 <!-- FETCHING DATA FROM EACH
                     ROW OF EVERY COLUMN -->
                 <td><?php echo $rows['prod_name'];?></td>
+                <td><?php echo "<img src=$rows[prod_image]>"?></td>                
                 <td><?php echo $rows['prod_price'];?></td>
                 <td><?php echo $rows['prod_desc'];?></td>
                 <td><?php echo $rows['prod_quantity'];?></td>
@@ -117,6 +119,7 @@ include_once("../include/load-data.php");
             <?php
                 }
             ?>
+   
     </table>
 </div>
 </main>
