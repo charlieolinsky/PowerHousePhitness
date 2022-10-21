@@ -18,12 +18,12 @@
 
     <div class="col-75">
         <div class="container">
-            <form action="checkout.php">
+            <!-- <form action="placeorder.php"> -->
 
                 
                 <div class="col-50">
                     <h1>Checkout</h1>
-                    <h3>Billing Address</h3>
+                    <h3>Shipping Address</h3>
                     <label for="fname"><i class="fa fa-user"></i> First Name </label>
                     <input type="text" id="fname" name="firstname" placeholder="First Name"><br><br>
                     <label for="lname"><i class="fa fa-user"></i> Last Name </label>
@@ -85,8 +85,12 @@
                     <input type="text" id="zip" name="zip" placeholder="12561" disabled><br><br>
                 </label><br><br>
 
-                <input type="submit" value="Continue to checkout" class="btn">
-            </form>
+                <form action="placeorder.php">
+                    <input type="submit" value="Place Order" class="btn">
+                </form>
+                
+               
+            <!-- </form> -->
         </div>
     </div>
     <div class="col-25">
@@ -101,7 +105,7 @@
             <P><a href="#">Product 2</a> <span class="price">$5</span></P>
 
             <hr>
-            <p>Total <span class="price" style="color:black"><b>$x</b></span></p>
+            <p>Subtotal <span class="price" style="color:black"><b>$x</b></span></p>
         </div>
     </div>
 

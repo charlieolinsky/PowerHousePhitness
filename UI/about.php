@@ -22,11 +22,11 @@ Tooplate 2119 Gymso Fitness
 https://www.tooplate.com/view/2119-gymso-fitness
 --> </head>
 <body data-spy="scroll" data-target="#navbarNav" data-offset="50"></body>
-    <!-- MENU BAR -->  
-    <nav class="navbar navbar-expand-lg fixed-top">
+     <!-- MENU BAR -->
+     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
 
-            <a class="navbar-brand" href="index.html">Power House Phitness</a>
+            <a class="navbar-brand" href="index.html"><span style="color: var(--primary-color)">P</span>ower <span style="color: var(--primary-color)">H</span>ouse <span style="color: var(--primary-color)">P</span>hitness</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -43,18 +43,41 @@ https://www.tooplate.com/view/2119-gymso-fitness
                         <a href="about.html" class="nav-link">About Us</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="#class" class="nav-link smoothScroll">Classes</a>
+                    <li class="dropdown">
+                        <button class="dropbtn" id="dropdownMenuButton" data-toggle="dropdown"> Services
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+
+                        <div class="dropdown-content">
+                            <a href="services.html">Classes </a>
+                            <a href="services.html#membership">Memberships </a>
+                            <a href="..\forms\equip-rental-member.php">Equipment </a>
+                        </div> 
                     </li>
 
                     <li class="nav-item">
-                        <a href="#schedule" class="nav-link smoothScroll">Schedules</a>
+                        <a href="schedule.html" class="nav-link">Schedule</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="#contact" class="nav-link smoothScroll">Contact</a>
+                        <a href="index.html#contact" class="nav-link smoothScroll">Contact</a>
                     </li>
                 </ul>
+
+                <ul class="social-icon ml-lg-3">
+                    <li><a href="#" class="fa fa-user"></a></li>
+                </ul>
+
+                <ul class="social-icon ml-lg-3">
+                    <li><a href="../forms/shoppingcart.html" class="fa fa-shopping-cart"></a></li>
+                </ul>
+
+                <!-- <ul class="social-icon ml-lg-3">
+                    <li><a href="https://fb.com/tooplate" class="fa fa-facebook"></a></li>
+                    <li><a href="#" class="fa fa-twitter"></a></li>
+                    <li><a href="#" class="fa fa-instagram"></a></li>
+                </ul> -->
+
             </div>
 
         </div>
@@ -67,7 +90,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                     <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
                         <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Hello, we are PHP!</h2>
-
+                       
                         <p data-aos="fade-up" data-aos-delay="400">You are NOT allowed to redistribute this HTML template downloadable ZIP file on any template collection site. You are allowed to use this template for your personal or business websites.</p>
 
                         <p data-aos="fade-up" data-aos-delay="500">If you have any question regarding <a rel="nofollow" href="https://www.tooplate.com/view/2119-gymso-fitness" target="_parent">Gymso Fitness HTML template</a>, you can <a rel="nofollow" href="https://www.tooplate.com/contact" target="_parent">contact Tooplate</a> immediately. Thank you.</p>

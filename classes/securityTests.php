@@ -31,14 +31,47 @@
     var_dump($result)."\n\n"; 
 
 
+    /*******************************HTTP ONLY COOKIES***************************************/
 
+    //The below example is NOT an HTTP only cookie. Any user will have access to 
+    //document.cookie
 
-    /***************************DIRECTORY LISTING*******************************/
+    /*
+    $week = new DateTime('+1 week'); 
+    setcookie('key', 'value', $week->getTimestamp());
+    */
 
-    //NOTE: this only applies to Apache servers. 
+    //The below example is an HTTP cookie. doccument.cookie cannot be accessed. Only the developer can see it; echoed below. 
+    $week = new DateTime('+1 week');
+    setcookie('key', 'value', $week->getTimestamp(), '/', null, null, true);
+    echo $_COOKIE['key'];
 
     
 
+    /*****************************CSFR Protection*******************************************/
+    
+        //more research needed
 
+    
+    
+    /*****************************SQL Injection*******************************************/
+
+    $db = new PDO('mysql:host=127.0.0.1;dbname=test', 'root', '');
+
+    $email = "fakeemail@pos.com"; //Assume this comes from POST
+    $attackEmail = "'';DROP TABLE testtable;"; 
+
+    //this option allows SQL Injection:
+    //$unsafe = $db->query("SELECT * FROM testtable WHERE email ='{$email}'");
+
+    //this option protects against SQL Injections by using a PDO prepare statement and placeholder.
+    
+    $safe = $db->prepare("SELECT * FROM testtable WHERE email =:email");
+
+    $safe->execute([
+        'email' => $email,
+    ]);
+    
+    /*****************************SQL Injection*******************************************/
 
 ?>

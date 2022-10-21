@@ -10,8 +10,7 @@
 <link rel="stylesheet" href="../UI/css/bootstrap.min.css">
 <link rel="stylesheet" href="../UI/css/font-awesome.min.css">
 <link rel="stylesheet" href="../UI/css/aos.css">
-<link rel="stylesheet" href="../UI/css/tooplate-gymso-style.css">
-
+<link rel="stylesheet" href="../UI/css/tooplate-php-style.css">
 
 
 
@@ -20,47 +19,64 @@
 <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
 <!-- MENU BAR -->
 <nav class="navbar navbar-expand-lg fixed-top">
-<div class="container">
+        <div class="container">
 
-<a class="navbar-brand" href="index.html">Power House Phitness</a>
+            <a class="navbar-brand" href="index.html"><span style="color: var(--primary-color)">P</span>ower <span style="color: var(--primary-color)">H</span>ouse <span style="color: var(--primary-color)">P</span>hitness</a>
 
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<div class="collapse navbar-collapse" id="navbarNav">
-<ul class="navbar-nav ml-lg-auto">
-<li class="nav-item">
-<a href="#home" class="nav-link smoothScroll">Home</a>
-</li>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <a href="../UI/index.html" class="nav-link smoothScroll">Home</a>
+                    </li>
 
-<li class="nav-item">
-<a href="about.html" class="nav-link">About Us</a>
-</li>
+                    <li class="nav-item">
+                        <a href="../UI/about.html" class="nav-link">About Us</a>
+                    </li>
 
-<li class="nav-item">
-<a href="#class" class="nav-link smoothScroll">Classes</a>
-</li>
+                    <li class="dropdown">
+                        <button class="dropbtn" id="dropdownMenuButton" data-toggle="dropdown"> Services
+                            <i class="fa fa-caret-down"></i>
+                        </button>
 
-<li class="nav-item">
-<a href="#schedule" class="nav-link smoothScroll">Schedules</a>
-</li>
+                        <div class="dropdown-content">
+                            <a href="#classesMembership">Classes </a>
+                            <a href="#classesMembership">Membership </a>
+                            <a href="equip-rental-member.php">Equipment </a>
+                        </div> 
+                    </li>
 
-<li class="nav-item">
-<a href="#contact" class="nav-link smoothScroll">Contact</a>
-</li>
-</ul>
+                    <li class="nav-item">
+                        <a href="../UI/schedule.html" class="nav-link">Schedule</a>
+                    </li>
 
-<ul class="social-icon ml-lg-3">
-<li><a href="https://fb.com/tooplate" class="fa fa-facebook"></a></li>
-<li><a href="#" class="fa fa-twitter"></a></li>
-<li><a href="#" class="fa fa-instagram"></a></li>
-</ul>
-</div>
+                    <li class="nav-item">
+                        <a href="../UI/index.html#contact" class="nav-link smoothScroll">Contact</a>
+                    </li>
+                </ul>
 
-</div>
-</nav>
+                <ul class="social-icon ml-lg-3">
+                    <li><a href="#" class="fa fa-user"></a></li>
+                </ul>
+
+                <ul class="social-icon ml-lg-3">
+                    <li><a href="#" class="fa fa-shopping-cart"></a></li>
+                </ul>
+
+                <!-- <ul class="social-icon ml-lg-3">
+                    <li><a href="https://fb.com/tooplate" class="fa fa-facebook"></a></li>
+                    <li><a href="#" class="fa fa-twitter"></a></li>
+                    <li><a href="#" class="fa fa-instagram"></a></li>
+                </ul> -->
+
+            </div>
+
+        </div>
+    </nav>
 <br><br><br>
 
 <main> 
@@ -72,13 +88,14 @@ aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 <!-- where the inventory list for rentals will appear with buttons on how to work -->
 <!-- FILE TO QUERY DATA  -->
 <?php 
-include_once("../include/load-data.php");
+include_once("../include/load-product-rentals.php");
 ?>
 <table>
             <tr>
                 <th>Name</th>
-                <th>Description</th>
+                <th>Image</th>
                 <th>Price</th>
+                <th>Description</th>
                 <th>Quantity</th>
 
             </tr>
@@ -92,6 +109,7 @@ include_once("../include/load-data.php");
                 <!-- FETCHING DATA FROM EACH
                     ROW OF EVERY COLUMN -->
                 <td><?php echo $rows['prod_name'];?></td>
+                <td><?php echo "<img src=$rows[prod_image]>"?></td>                
                 <td><?php echo $rows['prod_price'];?></td>
                 <td><?php echo $rows['prod_desc'];?></td>
                 <td><?php echo $rows['prod_quantity'];?></td>
@@ -101,6 +119,7 @@ include_once("../include/load-data.php");
             <?php
                 }
             ?>
+   
     </table>
 </div>
 </main>

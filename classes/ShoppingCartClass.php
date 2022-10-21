@@ -2,12 +2,12 @@
 // start session 
 if(!session_id()){ 
     session_start(); 
-} 
+}
 
 
 class ShoppingCart {
 
-    private $cart_contents = array();
+    protected $cart_contents = array();
 
     public function __construct()
     {
@@ -18,6 +18,7 @@ class ShoppingCart {
     }
 
     // returns the entire cart array
+    
     public function contents()
     {
         // rearrange the newest first 
