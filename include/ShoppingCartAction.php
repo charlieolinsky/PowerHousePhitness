@@ -24,7 +24,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
  
         $itemData = array( 
             'PROD_ID' => $productRow['PROD_ID'], 
-            'image' => $productRow['image'], 
+            'prod_image' => $productRow['image'], 
             'prod_name' => $productRow['prod_name'], 
             'prod_price' => $productRow['prod_price'], 
             'prod_quantity' => 1 
@@ -34,25 +34,25 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         $insertItem = $cart->insert($itemData); 
          
         // Redirect to cart page 
-        $redirectURL = $insertItem?'viewCart.php':'index.php'; 
-    }elseif($_REQUEST['action'] == 'updateCartItem' && !empty($_REQUEST['id'])){ 
+        $redirectURL = $insertItem?'../forms/shopping.php':'../UI/index.php'; 
+    }elseif($_REQUEST['action'] == 'updateCartItem' && !empty($_REQUEST['PROD_ID'])){ 
         // Update item data in cart 
         $itemData = array( 
-            'rowid' => $_REQUEST['id'], 
-            'qty' => $_REQUEST['qty'] 
+            'rowid' => $_REQUEST['PROD_ID'], 
+            'qty' => $_REQUEST['prod_quantity'] 
         ); 
         $updateItem = $cart->update($itemData); 
          
         // Return status 
         echo $updateItem?'ok':'err';die; 
-    }elseif($_REQUEST['action'] == 'removeCartItem' && !empty($_REQUEST['id'])){ 
+    }elseif($_REQUEST['action'] == 'removeCartItem' && !empty($_REQUEST['PROD_ID'])){ 
         // Remove item from cart 
-        $deleteItem = $cart->remove($_REQUEST['id']); 
+        $deleteItem = $cart->remove($_REQUEST['PROD_ID']); 
          
         // Redirect to cart page 
-        $redirectURL = 'viewCart.php'; 
+        $redirectURL = '../forms/shopping.php'; 
     }elseif($_REQUEST['action'] == 'placeOrder' && $cart->total_items() > 0){ 
-        $redirectURL = 'checkout.php'; 
+        $redirectURL = '../forms/checkout.php'; 
          
         // Store post data 
         $_SESSION['postData'] = $_POST; 
@@ -82,7 +82,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
          
         if(empty($errorMsg)){ 
             // Insert customer data into the database 
-            $sqlQ = "INSERT INTO customers (first_name,last_name,email,phone,address,created,modified) VALUES (?,?,?,?,?,NOW(),NOW())"; 
+            $sqlQ = "INSERT INTO user_data (first_name,last_name,email,phone,address,created,modified) VALUES (?,?,?,?,?,NOW(),NOW())"; 
             $stmt = $db->prepare($sqlQ); 
             $stmt->bind_param("sssss", $db_first_name, $db_last_name, $db_email, $db_phone, $db_address); 
             $db_first_name = $first_name; 
@@ -117,8 +117,8 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                         foreach($cartItems as $item){ 
                             $stmt->bind_param("ids", $db_order_id, $db_product_id, $db_quantity); 
                             $db_order_id = $orderID; 
-                            $db_product_id = $item['id']; 
-                            $db_quantity = $item['qty']; 
+                            $db_product_id = $item['PROD_ID']; 
+                            $db_quantity = $item['prod_quantity']; 
                             $stmt->execute(); 
                         } 
                          
