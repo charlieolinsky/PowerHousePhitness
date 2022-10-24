@@ -23,7 +23,7 @@ public function _User($n, $ln, $em, $pass)
     $this->email = $em;
     $this->password = $pass;
 }
-function createUser(){
+public function createUser(){
 
     echo "create user method"; 
     
