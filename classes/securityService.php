@@ -30,11 +30,23 @@
             
         }
 
+        //XSS Protection 
         public function xss_safe($data) //protects data from XSS Attacks
         {
             return htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
         }
 
+        //Password Hashing and Verification 
+        public function hashPassword($pass)
+        {
+            return password_hash($pass, PASSWORD_DEFAULT, ['cost' => 12]);
+        }
+        public function verifyHashPassword($attempt, $password)
+        {
+            return password_verify($attempt, $password); 
+        }
+
+        //CSRF Protection 
         public function getCSRFToken()
         {
             //generate random CSRF Token. 
