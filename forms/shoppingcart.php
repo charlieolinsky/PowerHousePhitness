@@ -1,10 +1,4 @@
-<?php
- require_once("../include/config.php");
- require_once("../sql/connect.php");
 
- include_once("../classes/ShoppingCartClass.php");
- $cart = new Cart();
-?>
 
 <html>
     <head>
@@ -23,21 +17,24 @@
     </div>
 
     <main>
-        <div class="Cart-Items">
-        
 
-        <table>
-            <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                
-            </tr>
-
-           
-
-        </table>
+    <div class="Cart-Items">
+    <?php
+    include_once("../include/config.php");
+//  require_once("../sql/connect.php");
+//  include_once("../classes/ShoppingCartClass.php");
+    // $cart = new Cart();
+    ?> 
+    
+    <table>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            
+        </tr>
+    </table>
 
         <hr>
             <p>Subtotal:   <span class="price" style="color:black"><b>$x</b></span></p>
