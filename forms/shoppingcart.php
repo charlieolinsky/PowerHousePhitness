@@ -1,4 +1,14 @@
+<?php
+        require_once("../sql/connect.php");
+        include_once("../classes/ShoppingCartClass.php");
+        $cart = new Cart();
 
+        
+        $sqlQ = "SELECT * FROM product_data"; 
+        $stmt = $dbconn->prepare($sqlQ); 
+        $stmt->execute(); 
+        $result = $stmt->get_result(); 
+?> 
 
 <html>
     <head>
@@ -19,12 +29,7 @@
     <main>
 
     <div class="Cart-Items">
-    <?php
-    include_once("../include/config.php");
-//  require_once("../sql/connect.php");
-//  include_once("../classes/ShoppingCartClass.php");
-    // $cart = new Cart();
-    ?> 
+    
     
     <table>
         <tr>

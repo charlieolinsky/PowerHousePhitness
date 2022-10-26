@@ -126,7 +126,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                         $cart->destroy(); 
                          
                         // Redirect to the status page 
-                        $redirectURL = 'orderSuccess.php?id='.base64_encode($orderID); 
+                        $redirectURL = '../forms/placeorder.php?id='.base64_encode($orderID); 
                     }else{ 
                         $sessData['status']['type'] = 'error'; 
                         $sessData['status']['msg'] = 'Something went wrong, please try again.'; 
