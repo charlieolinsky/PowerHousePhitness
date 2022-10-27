@@ -23,37 +23,41 @@ public function _User($n, $ln, $em, $pass)
     $this->email = $em;
     $this->password = $pass;
 }
+
 public function createUser(){
 
-    echo "create user method"; 
+    echo "Create User Method Called"; 
     
-    // if (empty($_POST["fname"])) {
-    //     die("Name is required");
-    // }
-    // if (empty($_POST["lname"])) {
-    //     die("Name is required");
-    // }
-    // if ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-    //     die("Valid email is required");
-    // }
+    if (empty($_POST["fname"])) {
+        die("Name is required");
+    }
+    if (empty($_POST["lname"])) {
+        die("Name is required");
+    }
+    if ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+        die("Valid email is required");
+    }
     
-    // if (strlen($_POST["pword"]) < 8) {
-    //     die("Password must be at least 8 characters");
-    // }
+    if (strlen($_POST["pword"]) < 8) {
+        die("Password must be at least 8 characters");
+    }
     
-    // if ( ! preg_match("/[a-z]/i", $_POST["pword"])) {
-    //     die("Password must contain at least one letter");
-    // }
+    if ( ! preg_match("/[a-z]/i", $_POST["pword"])) {
+        die("Password must contain at least one letter");
+    }
     
-    // if ( ! preg_match("/[0-9]/", $_POST["pword"])) {
-    //     die("Password must contain at least one number");
-    // }
+    if ( ! preg_match("/[0-9]/", $_POST["pword"])) {
+        die("Password must contain at least one number");
+    }
     
-    // if ($_POST["pword"] !== $_POST["vword"]) {
-    //     die("Passwords must match");
-    // }
+    if ($_POST["pword"] !== $_POST["vpword"]) {
+        die("Passwords must match");
+    }
     
-    // $password_hash = password_hash($_POST["pword"], PASSWORD_DEFAULT);
+    //Hashing object 
+    //or
+    //hashing in session class 
+    $password_hash = password_hash($_POST["pword"], PASSWORD_DEFAULT);
     
     // $mysqli = require __DIR__ . "/connect.php";
     
@@ -84,6 +88,9 @@ public function createUser(){
     //         die($mysqli->error . " " . $mysqli->errno);
     //     }
     // }
+
+    echo "User Created Successfully!!!";
+
 }
 // setters/getters
 function getFirstName()
