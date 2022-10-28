@@ -71,22 +71,27 @@ public function createUser(){
     $stmt->bind_param("ss",
                       $_POST["email"],
                       $password_hash);
-    if ($stmt->execute()) {
-    
-        header("Location: login.php");
-        exit;
-        
-    } else {
-        
-        if ($mysqli->errno === 1062) {
-            die("email already taken");
-        } else {
-            die($mysqli->error . " " . $mysqli->errno);
-        }
-    }
      
-    //echo "User Created Successfully!!!";
+                      try {
+                        $stmt->execute();
+                    } catch (mysqli_sql_exception $e) {
+                        if ($e->getCode() == 1062) {
+                            die("The email you entered is already in use");
+                        }
+                    }                  
+    // if ($stmt->execute()) {
 
+    // header("Location: login.php");
+    // exit;
+                        
+    // } else {
+                        
+    // if ($mysqli->errno === 1062) { 
+    //     die("The email you entered is already in use.");
+    //     } else {
+    //      die($mysqli->error . " " . $mysqli->errno);
+    //      }
+    // }
 }
 // setters/getters
 function getFirstName()
