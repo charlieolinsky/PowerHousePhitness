@@ -24,10 +24,8 @@ public function _User($n, $ln, $em, $pass)
     $this->password = $pass;
 }
 
-public function createUser(){
+public function createUserLogin(){
 
-    echo "Create User Method Called"; 
-    
     if (empty($_POST["fname"])) {
         die("Name is required");
     }
@@ -59,38 +57,42 @@ public function createUser(){
     //hashing in session class 
     $password_hash = password_hash($_POST["pword"], PASSWORD_DEFAULT);
     
-    // $mysqli = require __DIR__ . "/connect.php";
+    include_once("../sql/connect.php");
+    $mysqli = new mysqli ($server, $dbusername, $password, $db);  
     
-    // $sql = "INSERT INTO basic_users (id, firstName, lastName, address, email, phoneNumber, password, lockerNumber, lockerCombo, membershipLevel)
-    //         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            
-    // $stmt = $mysqli->stmt_init();
+    $sql = "INSERT INTO user_login (email, passcode)
+            VALUES (?,?)";
+
+   $stmt = $mysqli->stmt_init();
     
-    // if ( ! $stmt->prepare($sql)) {
-    //     die("SQL error: " . $mysqli->error);
-    // }
+    if ( ! $stmt->prepare($sql)) {   
+        die("SQL error: " . $mysqli->error);
+    }
     
-    // $stmt->bind_param("sss",
-    //                   $_POST["name"],
-    //                   $_POST["email"],
-    //                   $password_hash);
+    $stmt->bind_param("ss",
+                      $_POST["email"],
+                      $password_hash);
                       
-    // if ($stmt->execute()) {
+    if ($stmt->execute()) {
     
-    //     header("Location: signup-success.html");
-    //     exit;
+        header("Location: login.php");
+        exit;
         
-    // } else {
+    } else {
         
-    //     if ($mysqli->errno === 1062) {
-    //         die("email already taken");
-    //     } else {
-    //         die($mysqli->error . " " . $mysqli->errno);
-    //     }
-    // }
+        if ($mysqli->errno === 1062) {
+            die("email already taken");
+        } else {
+            die($mysqli->error . " " . $mysqli->errno);
+        }
+    }
+     
+    //echo "User Created Successfully!!!";
 
-    echo "User Created Successfully!!!";
-
+}
+public function createUserData()
+{
+    echo "";
 }
 // setters/getters
 function getFirstName()
