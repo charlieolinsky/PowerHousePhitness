@@ -12,7 +12,8 @@
         $pword = $_POST["pword"];
 
         $user = new User($fname, $lname, $email, $pword); 
-        $user -> createUser(); 
+       // $user -> createUserData();
+        $user -> createUserLogin(); 
     }
 ?>
 
