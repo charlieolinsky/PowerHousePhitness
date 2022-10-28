@@ -12,7 +12,7 @@ if(isset($prod_name )){
 
 
 
-$query = "INSERT INTO product_data (`prod_name`) VALUES ('chicken')";
+$query = "INSERT INTO prod_data (`prod_name`) VALUES ('$prod_name')";
 
 if ($dbconn->query($query) === TRUE) {
 	echo "New record created successfully";
