@@ -1,16 +1,19 @@
-<?php
-        require_once("../sql/connect.php");
-        include_once("../classes/ShoppingCartClass.php");
-        $cart = new Cart();
+<!DOCTYPE html>
+    <?php
+        echo "Hello world";
+        // require_once("../sql/connect.php");
+        // include_once("../classes/ShoppingCart_Class.php");
+       // $cart = new ShoppingCart();
 
         
-        $sqlQ = "SELECT * FROM product_data"; 
-        $stmt = $dbconn->prepare($sqlQ); 
-        $stmt->execute(); 
-        $result = $stmt->get_result(); 
-?> 
+        // $sqlQ = "SELECT * FROM product_data"; 
+        // $stmt = $dbconn->prepare($sqlQ); 
+        // $stmt->execute(); 
+        // $result = $stmt->get_result(); 
+    ?>  
 
-<html>
+    
+    <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,7 +48,7 @@
             <p>Subtotal:   <span class="price" style="color:black"><b>$x</b></span></p>
 
         <form action="checkout.php">
-            <input type="submit" value="Continue to Check Out" class="btn">
+            <input type="submit" value="Continue to Check Out" class="btn" name="checkout">
         </form>
     </div>
     </main>

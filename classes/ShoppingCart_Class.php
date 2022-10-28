@@ -1,20 +1,21 @@
 <?php
-// start session 
+//start session 
 if(!session_id()){ 
     session_start(); 
 }
 
 
 class ShoppingCart {
-
+    echo("I'm in shopping cart");
     protected $cart_contents = array();
 
-    public function __construct()
+    public function __ShoppingCart()
     {
         // get the shopping cart array from the session 
         $this->cart_contents = !empty($_SESSION['cart_contents'])?$_SESSION['cart_contents']:NULL; 
         if ($this->cart_contents === NULL){ 
             $this->cart_contents = array('cart_total' => 0, 'total_items' => 0); 
+        }
     }
 
     // returns the entire cart array
@@ -70,7 +71,7 @@ class ShoppingCart {
                 // prep the price 
                 $item['price'] = (float) $item['price']; 
                 // create a unique identifier for the item being inserted into the cart 
-                $rowid = md5($item['id']); 
+                $rowid = $item['id']; 
                 // get quantity if it's already there and add it on 
                 $old_qty = isset($this->cart_contents[$rowid]['qty']) ? (int) $this->cart_contents[$rowid]['qty'] : 0; 
                 // re-create the entry with unique identifier and updated quantity 

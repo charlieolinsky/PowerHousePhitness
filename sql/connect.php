@@ -3,7 +3,7 @@
 // $path = '../sql/connect.php';
 // set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
-$server = "127.0.0.1"; //changed from localhost bc local host doesnt work on mac
+$server = "localhost"; //changed from localhost bc local host doesnt work on mac
 $dbusername = "root";
 $password = "";
 $db = "pos-cps353";
@@ -20,6 +20,7 @@ if ($dbconn->connect_error) {
 	echo nl2br("\n Connected successfully\n");
 }
 
+// echo("database connected");
 //You can use the command below to set the default database to another db.
 //mysqli_select_db($dbconn, "webiii");
 

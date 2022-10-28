@@ -86,6 +86,32 @@
     <div class="rental-products">
         <!-- FILE TO QUERY DATA  -->
         <?php
+
+        //start session 
+        //TESTING CODE TO ADD ITEM TO AN INDIVIDUALS CLASS
+        // session_start();
+        // if (isset($_POST['add'])) {
+        //     if (isset($_SESSION['cart'])) {
+        //         $item_array_id = array_column($_SESSION['cart'], "prod_id");
+        //         $count = count($_SESSION['cart']);
+        //         $item_array = array(
+        //             'prod_id' => $_POST['prod_id']
+        //         );
+        //         $_SESSION['cart'][$count] = $item_array;
+        //     } else {
+        //         $item_array = array(
+        //             'prod_id' => $_POST['prod_id']
+        //         );
+        //         //create new session
+        //         $_SESSION['cart'][0] = $item_array;
+        //         print_r($_SESSION['cart']);
+        //     }
+        // }
+        //END OF CODE TESTING 
+        // session_destroy();
+
+
+
         include_once("../include/load-product-rentals.php");
         ?>
 
@@ -95,7 +121,7 @@
         while ($rows = $result->fetch_assoc()) {
         ?>
             <div>
-                <form action="index.php" method="post">
+                <form action="equip-rental-member.php" method="post">
                     <div>
                         <div>
                             <?php echo "<img src=$rows[prod_image]>" ?>
@@ -109,7 +135,7 @@
                                 <span><?php echo $rows['prod_price']; ?></span>
                             </h5>
                             <button type="submit" name="add">Add to Cart </button>
-                            <input type='hidden' name='product_id' value='$productid'>
+                            <input type='hidden' name='prod_id' value="<?php echo $rows['PROD_ID'] ?>">
                         </div>
                     </div>
                 </form>
