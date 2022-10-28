@@ -1,5 +1,9 @@
 <!-- This is a test file designed to determine if redirections are successful -->
+<?php
 
+include "../classes/roles.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,4 +15,4 @@
 <body>
     <h1>Redirect Success!</h1>
 </body>
-</html>
+</html >
