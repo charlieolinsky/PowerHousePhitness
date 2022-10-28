@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <!-- code to hold the what will appear on the admin-inventory page  -->
 
 <html lang="en">
@@ -10,7 +12,8 @@
 </head>
 
 <body>
-
+<main> 
+   
     <div class="add_inventory">
         <h1> this is the admin inventory page </h1>
 
@@ -19,7 +22,7 @@
         ?>
 
 
-        <form action="../include/add-products.php" method="post">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
             <label for="prod_name"> Item Name</label><br>
             <input name="prod_name" id="prod_name" type="text"><br><br>
@@ -31,6 +34,7 @@
 
     </div>
 
+</main> 
 
 
 </body>
