@@ -24,8 +24,7 @@ public function _User($n, $ln, $em, $pass)
     $this->password = $pass;
 }
 
-public function createUserLogin(){
-
+public function createUser(){
     if (empty($_POST["fname"])) {
         die("Name is required");
     }
@@ -72,7 +71,6 @@ public function createUserLogin(){
     $stmt->bind_param("ss",
                       $_POST["email"],
                       $password_hash);
-                      
     if ($stmt->execute()) {
     
         header("Location: login.php");
@@ -89,10 +87,6 @@ public function createUserLogin(){
      
     //echo "User Created Successfully!!!";
 
-}
-public function createUserData()
-{
-    echo "";
 }
 // setters/getters
 function getFirstName()

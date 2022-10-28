@@ -19,21 +19,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     //exit;
     
     if ($user) {
-           echo "inside 2nd if....";
-        if (password_verify($_POST["password"], $user["passcode"])) {
+        if (password_verify($_POST['password'], $user['passcode'])) {
             
-            echo "password matched!";
-            //session_start();
+            session_start();
             
-            //session_regenerate_id();
+            session_regenerate_id();
             
-            //$_SESSION["user_id"] = $user["id"];
+            $_SESSION["user_id"] = $user["id"];
             
-           // header("Location: ../forms/welcome.html");
-            //exit;
+           header("Location: ../forms/welcome.html");
+            exit;
         }
     }
-    echo "password did not match :(";
     $is_invalid = true;
 }
 
