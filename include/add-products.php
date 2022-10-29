@@ -1,6 +1,6 @@
 
 <?php
-var_dump($_POST); //to confirm that the data was added 
+// var_dump($_POST); //to confirm that the data was added 
 
 include_once("../sql/connect.php");
 
@@ -30,15 +30,13 @@ include_once("../sql/connect.php");
                     
                     )";
 
-
 if ($dbconn->query($sql) === TRUE) {
 	echo "New record created successfully";
   } else {
-	echo "Error: " . $sql . "<br>" . $conn->error;
+	echo "Error: " . $sql . "<br>" . $dbconn->error;
   }
 // }
 
 
 $dbconn->close();
-echo (" end of add");
 ?>
