@@ -80,7 +80,11 @@
 
 <main>
     <h1>Equiptment Rental Portal</h1>
-    <p>Need to rent equipment while visiting our facility? We have a variety of options from basketballs to shoot hoops, to frisbees to toss around our open gym!
+    <h4>Need to rent equipment while visiting our facility? We have a variety of options from basketballs 
+        to shoot hoops, to frisbees to toss around our open gym!
+</h4>
+    <p>Rentals must be returned before close on the day item was checked out.
+        Please visit our front desk to pick up and return your items.
     </p>
 
     <div class="rental-products">
