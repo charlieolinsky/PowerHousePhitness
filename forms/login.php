@@ -1,24 +1,25 @@
 <?php
-// attempting to connect login to user db
-$is_invalid = false; //variable initialized to false 
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") { //method becomes 'post' once the user submits the form
+$is_invalid = false;
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     include_once("../sql/connect.php");
+    $mysqli = new mysqli ($server, $dbusername, $password, $db);  
     
-    $sql = sprintf("SELECT * FROM user_data
-                    WHERE email = 'email'"); 
+    $sql = sprintf("SELECT * FROM user_login
+                    WHERE email = '%s'",
+                   $mysqli->real_escape_string($_POST["email"]));
+    
+    $result = $mysqli->query($sql);
+    
+    $user = $result->fetch_assoc();
 
-                  // $mysqli->real_escape_string($_POST["email"]));
-    
-    //$result = $mysqli->query($sql);
-    $result = mysqli_query($dbconn, $sql);
-    
-    $user = $result->fetch_assoc(); // return the record as associated array
+    //var_dump($user);
+    //exit;
     
     if ($user) {
-        
-        if (password_verify($_POST["password"], $user["password"])) {
+        if (password_verify($_POST['password'], $user['passcode'])) {
             
             session_start();
             
@@ -26,23 +27,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") { //method becomes 'post' once the us
             
             $_SESSION["user_id"] = $user["id"];
             
-            header("location: ../forms/welcome.html");
+           header("Location: ../forms/welcome.html");
             exit;
         }
     }
-    
-    $is_invalid = true; // if we reach this point, email or pass invalid, throws error in html
+    $is_invalid = true;
 }
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login</title>
     <meta charset="UTF-8">
-    <!-- <link rel="stylesheet" href="../css/"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 <body>
-
+    
     <h1>Login</h1>
     
     <?php if ($is_invalid): ?>
@@ -61,4 +62,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") { //method becomes 'post' once the us
     </form>
     
 </body>
-</html
+</html>
