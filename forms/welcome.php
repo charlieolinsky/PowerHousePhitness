@@ -4,6 +4,7 @@
 session_start();
 
 include "../classes/roles.php";
+access('freeMember');
 
 ?>
 <!DOCTYPE html>
@@ -16,7 +17,7 @@ include "../classes/roles.php";
 </head>
 <body>
     <?php 
-        if(isset($_SESSION['user_id']))
+        if(isset($_SESSION['user_name']))
         {
             echo "Hi, " . $_SESSION['user_name'];
         }

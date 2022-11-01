@@ -24,17 +24,15 @@ $_SESSION["ACCESS"]["admin"] = isset($_SESSION['role']) && $_SESSION['role'] == 
 
 function access($rank)
 { 
-    if(!isset($_SESSION["ACCESS"]))
+    if(isset($_SESSION["ACCESS"]) && !$_SESSION["ACCESS"][$rank])
     {
         header("Location: denied.php");
         die;
     }
-    if(!$_SESSION["ACCESS"]["ADMIN"])
-    {
-        header("Location: denied.php");
-        die;
-    }
-
 }
+
+// the above function can be called in the pages for admin, finance, etc
+// include "access.php";
+// access('admin');
 
 ?>
