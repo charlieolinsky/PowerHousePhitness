@@ -38,6 +38,8 @@
             <button type="submit" name="submit"> Create</button>
 
         </form>
+        <a href = "../forms/login.php" >
+           <button class = "btn btn-primary btn-lg"> Already registered? Login </button> 
     </body>
 
 </html>
