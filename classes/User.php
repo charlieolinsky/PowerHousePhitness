@@ -74,6 +74,8 @@ public function createUser(){
      
                       try {
                         $stmt->execute();
+                        header("Location: welcome.php");
+                        exit;
                     } catch (mysqli_sql_exception $e) {
                         if ($e->getCode() == 1062) {
                             die("The email you entered is already in use");
