@@ -1,6 +1,8 @@
 <!-- This is a test file designed to determine if redirections are successful -->
 <?php
 
+session_start();
+
 include "../classes/roles.php";
 
 ?>
@@ -13,6 +15,12 @@ include "../classes/roles.php";
     <title>Welcome!</title>
 </head>
 <body>
+    <?php 
+        if(isset($_SESSION['user_id']))
+        {
+            echo "Hi, " . $_SESSION['user_name'];
+        }
+    ?>
     <h1>Redirect Success!</h1>
 </body>
 </html >
