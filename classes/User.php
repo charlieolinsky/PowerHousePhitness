@@ -83,19 +83,6 @@ public function createUser(){
                             die("The email you entered is already in use");
                         }
                     }                  
-    // if ($stmt->execute()) {
-
-    // header("Location: login.php");
-    // exit;
-                        
-    // } else {
-                        
-    // if ($mysqli->errno === 1062) { 
-    //     die("The email you entered is already in use.");
-    //     } else {
-    //      die($mysqli->error . " " . $mysqli->errno);
-    //      }
-    // }
 }
 // setters/getters
 function getFirstName()
@@ -138,7 +125,7 @@ function getMembershipLevel()
 {   return $this->membershipLevel;
 
 }
-function setFirstName($n)
+public function setFirstName($n)
 {
     $this->firstName = $n;
 }

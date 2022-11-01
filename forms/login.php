@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             session_regenerate_id();
             
             $_SESSION["user_id"] = $user["USER_ID"];
-            $_SESSION["user_name"] = $user["email"];
+            $_SESSION["email"] = $user["email"];
             $_SESSION["role"] = $user["roles"]; //global var from db
             $_SESSION["fname"] = $user["fname"];
             $_SESSION["lname"] = $user["lname"];
