@@ -59,8 +59,8 @@ public function createUser(){
     include_once("../sql/connect.php");
     $mysqli = new mysqli ($server, $dbusername, $password, $db);  
     
-    $sql = "INSERT INTO user_login (email, passcode)
-            VALUES (?,?)";
+    $sql = "INSERT INTO user_login (email, passcode, fname, lname)
+            VALUES (?,?,?,?)";
 
    $stmt = $mysqli->stmt_init();
     
@@ -68,13 +68,15 @@ public function createUser(){
         die("SQL error: " . $mysqli->error);
     }
     
-    $stmt->bind_param("ss",
+    $stmt->bind_param("ssss",
                       $_POST["email"],
-                      $password_hash);
+                      $password_hash,
+                      ucfirst($_POST["fname"]),
+                      ucfirst($_POST["lname"])); // upper case first letter 
      
                       try {
                         $stmt->execute();
-                        header("Location: welcome.php");
+                        header("Location: login.php");
                         exit;
                     } catch (mysqli_sql_exception $e) {
                         if ($e->getCode() == 1062) {

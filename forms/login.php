@@ -28,6 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["user_id"] = $user["USER_ID"];
             $_SESSION["user_name"] = $user["email"];
             $_SESSION["role"] = $user["roles"]; //global var from db
+            $_SESSION["fname"] = $user["fname"];
+            $_SESSION["lname"] = $user["lname"];
             
            header("Location: ../forms/welcome.php"); //ui/index.php
             exit;

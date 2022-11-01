@@ -4,7 +4,7 @@
 session_start();
 
 include "../classes/roles.php";
-access('freeMember');
+access('freeMember'); // if not a freeMember access denied 
 
 ?>
 <!DOCTYPE html>
@@ -17,9 +17,9 @@ access('freeMember');
 </head>
 <body>
     <?php 
-        if(isset($_SESSION['user_name']))
+        if(isset($_SESSION['fname']))
         {
-            echo "Hi, " . $_SESSION['user_name'];
+            echo "Hi, " . $_SESSION['fname'];
         }
     ?>
     <h1>Redirect Success!</h1>
