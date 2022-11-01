@@ -1,16 +1,5 @@
 <!DOCTYPE html>
-    <?php
-        echo "Hello world";
-        // require_once("../sql/connect.php");
-        // include_once("../classes/ShoppingCart_Class.php");
-       // $cart = new ShoppingCart();
-
-        
-        // $sqlQ = "SELECT * FROM product_data"; 
-        // $stmt = $dbconn->prepare($sqlQ); 
-        // $stmt->execute(); 
-        // $result = $stmt->get_result(); 
-    ?>  
+   
 
     
     <html lang="en">
@@ -33,7 +22,8 @@
 
     <div class="Cart-Items">
     
-    
+
+
     <table>
         <tr>
             <th>Image</th>
@@ -52,6 +42,19 @@
         </form>
     </div>
     </main>
+
+    <?php
+       
+        // require_once("../sql/connect.php");
+        include_once("../classes/ShoppingCart_Class.php");
+       // $cart = new ShoppingCart();
+
+        
+        // $sqlQ = "SELECT * FROM product_data"; 
+        // $stmt = $dbconn->prepare($sqlQ); 
+        // $stmt->execute(); 
+        // $result = $stmt->get_result(); 
+    ?>  
     </body>
     
 
