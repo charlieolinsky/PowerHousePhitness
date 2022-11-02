@@ -1,7 +1,11 @@
 <!-- This is a test file designed to determine if redirections are successful -->
 <?php
 
+session_start();
+
 include "../classes/roles.php";
+include_once("../classes/User.php");
+access('freeMember'); // if not a freeMember access denied 
 
 ?>
 <!DOCTYPE html>
@@ -13,6 +17,13 @@ include "../classes/roles.php";
     <title>Welcome!</title>
 </head>
 <body>
+    <?php 
+        if(isset($_SESSION['fname']))
+        {
+            echo "Hi, " . $_SESSION['fname'];
+            //$user ->  setFirstName('katie'); // trying to see if set works 
+        }
+    ?>
     <h1>Redirect Success!</h1>
 </body>
 </html >

@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-
-
-
 <?php 
     include_once("../classes/User.php");
 
@@ -13,6 +10,8 @@
 
         $user = new User($fname, $lname, $email, $pword); 
         $user -> createUser();
+        //$user -> createUserData();
+
 
     }
 ?>
