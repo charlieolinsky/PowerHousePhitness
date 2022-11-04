@@ -25,9 +25,6 @@ public function _User($n, $ln, $em, $pass)
 }
 
 public function createUser(){
-
-    echo "Create User Method Called"; 
-    
     if (empty($_POST["fname"])) {
         die("Name is required");
     }
@@ -59,38 +56,33 @@ public function createUser(){
     //hashing in session class 
     $password_hash = password_hash($_POST["pword"], PASSWORD_DEFAULT);
     
-    // $mysqli = require __DIR__ . "/connect.php";
+    include_once("../sql/connect.php");
+    $mysqli = new mysqli ($server, $dbusername, $password, $db);  
     
-    // $sql = "INSERT INTO basic_users (id, firstName, lastName, address, email, phoneNumber, password, lockerNumber, lockerCombo, membershipLevel)
-    //         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            
-    // $stmt = $mysqli->stmt_init();
-    
-    // if ( ! $stmt->prepare($sql)) {
-    //     die("SQL error: " . $mysqli->error);
-    // }
-    
-    // $stmt->bind_param("sss",
-    //                   $_POST["name"],
-    //                   $_POST["email"],
-    //                   $password_hash);
-                      
-    // if ($stmt->execute()) {
-    
-    //     header("Location: signup-success.html");
-    //     exit;
-        
-    // } else {
-        
-    //     if ($mysqli->errno === 1062) {
-    //         die("email already taken");
-    //     } else {
-    //         die($mysqli->error . " " . $mysqli->errno);
-    //     }
-    // }
+    $sql = "INSERT INTO user_login (email, passcode, fname, lname)
+            VALUES (?,?,?,?)";
 
-    echo "User Created Successfully!!!";
-
+   $stmt = $mysqli->stmt_init();
+    
+    if ( ! $stmt->prepare($sql)) {   
+        die("SQL error: " . $mysqli->error);
+    }
+    
+    $stmt->bind_param("ssss",
+                      $_POST["email"],
+                      $password_hash,
+                      ucfirst($_POST["fname"]),
+                      ucfirst($_POST["lname"])); // upper case first letter 
+     
+                      try {
+                        $stmt->execute();
+                        header("Location: login.php");
+                        exit;
+                    } catch (mysqli_sql_exception $e) {
+                        if ($e->getCode() == 1062) {
+                            die("The email you entered is already in use");
+                        }
+                    }                  
 }
 // setters/getters
 function getFirstName()
@@ -133,7 +125,7 @@ function getMembershipLevel()
 {   return $this->membershipLevel;
 
 }
-function setFirstName($n)
+public function setFirstName($n)
 {
     $this->firstName = $n;
 }

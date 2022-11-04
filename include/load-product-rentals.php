@@ -2,7 +2,7 @@
 <?php
 include_once("../sql/connect.php");
 
-$query = "SELECT * FROM product_data;";
+$query = "SELECT * FROM `prod-data`;";
 $result = $dbconn->query($query);
 
 

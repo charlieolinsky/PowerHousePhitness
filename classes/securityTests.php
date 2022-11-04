@@ -74,4 +74,11 @@
     
     /*****************************SQL Injection*******************************************/
 
+
+    /*****************************IP Spoofing ************************************************/
+    
+    // IP spoofing, or IP address spoofing, refers to the creation of Internet Protocol (IP) 
+    // packets with a false source IP address to impersonate another computer system. 
+    // IP spoofing allows cybercriminals to carry out malicious actions, often without detection.
+
 ?>

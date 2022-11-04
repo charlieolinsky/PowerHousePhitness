@@ -1,62 +1,42 @@
 
 <?php
-
-echo ("i am in add-prods");
+// var_dump($_POST); //to confirm that the data was added 
 
 include_once("../sql/connect.php");
 
+// $prod_name = $_POST["prod_name"];
+// if(isset($prod_name )){
 
+// need to add validation for price, quantity, purchase cost. 
+// need to figure out how to get an upload image 
 
-$prod_name = $_POST["prod_name"];
-if(isset($prod_name )){
+    $sql = "INSERT INTO `prod-data` 
+						(`prod_name`, 
+                        `prod_desc`,
+                        `prod_image`, 
+                        `prod_price`, 
+                        `prod_quantity`, 
+                        `VENDOR_ID`, 
+                        `prod_date_purchased`,
+                        `prod_purchase_cost`)
+    		VALUES ('".$_POST['prod_name']."', 
+                    '".$_POST['prod_desc']."',
+                    '".$_POST['prod_image']."',
+                    '".$_POST['prod_price']."', 
+                    '".$_POST['prod_quantity']."',
+                    '".$_POST['VENDOR_ID']."',
+                    '".$_POST['prod_date_purchased']."',
+                    '".$_POST['prod_purchase_cost']."'
+                    
+                    )";
 
-
-
-$query = "INSERT INTO product_data (`prod_name`) VALUES ('chicken')";
-
-if ($dbconn->query($query) === TRUE) {
+if ($dbconn->query($sql) === TRUE) {
 	echo "New record created successfully";
-} 
-else {
-	echo "Error: " . $query . "<br>" . $dbconn->error;
-}
+  } else {
+	echo "Error: " . $sql . "<br>" . $dbconn->error;
+  }
+// }
 
-}
 
 $dbconn->close();
-echo ("end of add");
 ?>
-
-
-
-
-
-
-
-
-<!-- // if(isset($_POST['submit'])){
-
-	//Load connecter
-	// include_once('../sql/connect.php');
-
-    // $query = "INSERT INTO 'product_data' (`prod_name')
-    //     VALUES ('".$_POST['prod_name']."')";
-
-	//Setup query
-    // $query = "INSERT INTO `product_data` (`prod_name`, `prod_price`, `prod_desc`, `prod_quantity`, `VENDOR_ID`, `prod_data_purchased`, `prod_purchase_cost`)
-    // 				VALUES ('".$_POST['prod_name']."', '".$_POST['prod_price']."', '".$_POST['prod_desc']."', '".$_POST['prod_desc']."', '".$_POST['prod_quantity']."', '".$_POST['vendor_id']."', '".$_POST['prod_date_purchased']."', '".$_POST['prod_purchase_cost']."')";
-
-
-	// if ($dbconn->query($query) === TRUE) {
-	// 	echo "New record created successfully";
-	// } 
-	// else {
-	// 	echo "Error: " . $query . "<br>" . $dbconn->error;
-	// }
-
-	//Fetch the results
-	// $result = mysqli_query($dbconn, $query)
-	// 	or die("Couldn't execute query.");
-
-// } -->
-

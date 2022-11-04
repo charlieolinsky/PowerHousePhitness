@@ -1,4 +1,8 @@
-<!-- code for where a member will check out equipment -->
+<?php
+session_start();
+
+include "../classes/roles.php"; 
+?>
 <html lang="en">
 
 <head>
@@ -67,16 +71,26 @@ aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 <h1>My Account</h1>
 <p>Need to rent equipment while visiting our facility? We have a variety of options from basketballs to shoot hoops, to frisbees to toss around our open gym!
 </p>
-
+// needs an edit button with a form 
 <div class = "account-info">
     <dl>
-        <dt>User ID: </dt>
-        <dt>Name: </dd>
-        <dt>Email: </dt>
+        <dt>User ID: 
+        <?php
+          echo $_SESSION['user_id'];
+        ?>
+        </dt>
+        <dt>Name: 
+        <?php
+          echo $_SESSION['fname'] . " " . $_SESSION['lname'];
+        ?>
+        </dd>
+        <dt>Email:
+        <?php
+          echo $_SESSION['email'];
+        ?> </dt>
         <dt>Address: </dt>
         <dt>Phone Number: </dt>
         <dt>Member Ship Level: </dt>
-        <dt>Locker Number: </dt>
       </dl>
 </div>
 </main>
