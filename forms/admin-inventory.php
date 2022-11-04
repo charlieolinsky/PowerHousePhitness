@@ -65,10 +65,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
             <h1> this is the admin inventory page </h1>
 
-            <!-- this line lets the data validation work but does not add to DB -->
-            <!-- <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">  -->
+            <!-- this line works!  -->
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST"> 
             <!-- this line doesnt do datavalidation but DOES insert into b -->
-                <form action="../include/add-products.php" method="POST">
+                <!-- <form action="../include/add-products.php" method="POST"> -->
 
 
                 <!-- the name="__" field is what connects this form to the querying file -->
