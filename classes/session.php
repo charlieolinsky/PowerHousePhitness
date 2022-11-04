@@ -1,55 +1,215 @@
 <?php 
+/**
+ * Usage Example:
+ * <?php
+ * try {
+ *     Session::write('foo', 'bar');
+ * 
+ *     echo Session::read('foo');
+ * }
+ * catch (Exception $e) {
+ *     // do something
+ * }
+ */
 
-    class Session {
+include_once 'CustomException.php';
 
-        private $session_data; 
+if ( !class_exists('CustomException') ) {
+    class CustomException extends Exception {}
+}
+class SessionHandlerException extends CustomException {}
+class SessionDisabledException extends SessionHandlerException {}
+class InvalidArgumentTypeException extends SessionHandlerException {}
+class ExpiredSessionException extends SessionHandlerException {}
+class SessionUseOnlyCookiesException extends SessionHandlerException {}
+class SessionHttpOnlyCookieException extends SessionHandlerException {}
+class SessionCookieSecureException extends SessionHandlerException {}
+//defined('CHECK_ACCESS') or die('Direct access is not allowed.');
 
-        //begin by:
-        //1. utilize collected data to create session cookies. It will be stored in an array. Cookies help to avoid IP Spoofing. 
-        // You can check for matching cookies to verify users.  
-        //2.
-
-        public function _Session(){
-
-            $this->session_data = []; 
-
+class Session
+{
+    protected static $SESSION_AGE = 1800; //The number of seconds of inactivity before a session expires.
+    
+    /**********************CONSTRUCTORS********************/
+    
+    //Initializes a new secure session or resumes an existing session.
+    private static function init()
+    {
+        if (function_exists('session_status'))
+        {
+            if (session_status() == PHP_SESSION_DISABLED){
+                throw new SessionDisabledException();
+            }
         }
+        
+        if ( '' === session_id() )
+        {
+            $secure = true;
+            $httponly = true;
 
+            // Disallow session passing as a GET parameter.
+            if (ini_set('session.use_only_cookies', 1) === false) {
+                throw new SessionUseOnlyCookiesException();
+            }
 
+            // Mark the cookie as accessible only through the HTTP protocol.
+            if (ini_set('session.cookie_httponly', 1) === false) {
+                throw new SessionHttpOnlyCookieException();
+            }
 
-        public function startSession(){
+            // Ensure that session cookies are only sent using SSL.
+            // Requires a properly installed SSL certificate.
+            $params = session_get_cookie_params();
+            session_set_cookie_params(
+                $params['lifetime'],
+                $params['path'], 
+                $params['domain'],
+                $secure, 
+                $httponly
+            );
 
-            session_start(); 
-        }
-        public function endSesssion(){
-
-        }
-
-        public function sessionTimeout() {
+            return session_start();
+            return session_regenerate_id(true);
+            // Helps prevent hijacking by resetting the session ID at every request.
+            // Might cause unnecessary file I/O overhead?
+            // TODO: create config variable to control regenerate ID behavior
             
-            //Store all session data 
-            //log off the user
-            //delete cookies / kill session
-
-            //use a simple javaScript pop up. alert(). 
-        }
-
-        //handle errors
-        //could make error handling class seperatly but the sessions class should throw errors. 
-        
-        //setting timer
-        
-        //ability to access DB 
-        //Ex. when something is added to the cart, the sessions class should call the shopping cart function that 
-        //adds it to the DB.
-
-        //https://gist.github.com/Nilpo/5449999
-
-        
-
-
-
-
+        }   
     }
+
+    
+    
+    /************************METHODS***********************/ 
+
+    //Writes a value to the current session data.
+    public static function write($key, $value)
+    {
+        if (!is_string($key)){
+            throw new InvalidArgumentTypeException('Session key must be string value');
+        }
+        self::init();
+        $_SESSION[$key] = $value;
+        self::age();
+        
+        return $value;
+    }
+    
+
+
+    //Reads a specific value from the current session data.
+    public static function read($key, $child = false)
+    {
+        if (!is_string($key)){
+            throw new InvalidArgumentTypeException('Session key must be string value');
+        }
+        
+        self::init();
+        
+        if (isset($_SESSION[$key]))
+        {
+            self::age();
+            
+            if (false == $child)
+            {
+                return $_SESSION[$key];
+            }
+            else
+            {
+                if (isset($_SESSION[$key][$child]))
+                {
+                    return $_SESSION[$key][$child];
+                }
+            }
+        }
+        return false;
+    }
+    
+
+
+    //Deletes a value from the current session data.
+    public static function delete($key)
+    {
+        if ( !is_string($key) )
+            throw new InvalidArgumentTypeException('Session key must be string value');
+        self::init();
+        unset($_SESSION[$key]);
+        self::age();
+    }
+    
+
+
+    //Echos current session data
+    public static function dump()
+    {
+        self::init();
+        echo nl2br(print_r($_SESSION));
+    }
+    
+
+
+    //Expires a session if it has been inactive for a specified amount of time.
+    private static function age()
+    {
+        $last = isset($_SESSION['LAST_ACTIVE']) ? $_SESSION['LAST_ACTIVE'] : false ;
+        
+        if (false !== $last && (time() - $last > self::$SESSION_AGE))
+        {
+            self::destroy();
+            throw new ExpiredSessionException();
+        }
+        $_SESSION['LAST_ACTIVE'] = time();
+    }
+    
+
+
+    //Returns current session cookie parameters or an empty array.
+    public static function params()
+    {
+        $r = array();
+        if ( '' !== session_id() )
+        {
+            $r = session_get_cookie_params();
+        }
+        return $r;
+    }
+    
+
+
+    //Closes the current session and releases session file lock.
+    public static function close()
+    {
+        if ( '' !== session_id() )
+        {
+            return session_write_close();
+        }
+        return true;
+    }
+    
+
+
+    //Removes session data/cookies and destroys the current session.
+    public static function destroy()
+    {
+        if ( '' !== session_id())
+        {
+            $_SESSION = array();
+
+            if (ini_get("session.use_cookies")) {
+                
+                $params = session_get_cookie_params();
+                setcookie(
+                    session_name(), 
+                    '', 
+                    time() - 42000,
+                    $params["path"], 
+                    $params["domain"],
+                    $params["secure"], 
+                    $params["httponly"]
+                );
+            }
+            session_destroy();
+        }
+    }    
+}
 
 ?>
