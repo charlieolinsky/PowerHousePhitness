@@ -15,9 +15,68 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="index.php"><span style="color: var(--primary-color)">P</span>ower <span style="color: var(--primary-color)">H</span>ouse <span style="color: var(--primary-color)">P</span>hitness</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <a href="../UI/index.php" class="nav-link smoothScroll">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../UI/about.php" class="nav-link">About Us</a>
+                    </li>
+
+                    <li class="dropdown">
+                        <button class="dropbtn" id="dropdownMenuButton" data-toggle="dropdown"> Services
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+
+                        <div class="dropdown-content">
+                            <a href="../UI/services.php">Classes </a>
+                            <a href="../UI/services.php#membership">Memberships </a>
+                            <a href="equip-rental-member.php">Equipment </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../UI/schedule.php" class="nav-link">Schedule</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../UI/index.php#contact" class="nav-link smoothScroll">Contact</a>
+                    </li>
+                </ul>
+
+                <ul class="social-icon ml-lg-3">
+                    <li><a href="#" class="fa fa-user"></a></li>
+                </ul>
+
+                <ul class="social-icon ml-lg-3">
+                    <li><a href="shoppingcart.php" class="fa fa-shopping-cart"></a></li>
+                </ul>
+
+                <!-- <ul class="social-icon ml-lg-3">
+                    <li><a href="https://fb.com/tooplate" class="fa fa-facebook"></a></li>
+                    <li><a href="#" class="fa fa-twitter"></a></li>
+                    <li><a href="#" class="fa fa-instagram"></a></li>
+                </ul> -->
+
+            </div>
+
+        </div>
+    </nav>
+<br><br><br>
     <div>
         <a href="admin-inventory-new.php"> <button> Add New Inventory Item</button></a>
-        <a href="admin-inventory-update.php"> <button> Update Current Inventory Item</button></a>
+        <!-- <a href="admin-inventory-update.php"> <button> Update Current Inventory Item</button></a> -->
         <div class="rental-products">
             <!-- FILE TO QUERY DATA  -->
             <?php include_once("../include/load-product-rentals.php"); ?>
@@ -29,35 +88,36 @@
             ?>
                 <div>
                     <!-- <form action="equip-rental-member.php" method="post"> -->
+                    <div>
                         <div>
-                            <div>
-                                <?php echo "<img src=$rows[prod_image]>" ?>
-                            </div>
-                            <div>
-                                <h5><?php echo $rows['prod_name']; ?></h5>
-                                <p>
-                                    <?php echo $rows['prod_desc']; ?>
-                                </p>
-                                <p>
-                                    <span><?php echo "$" . $rows['prod_price']; ?></span>
-                                </p>
-                                <p>
-                                    <?php echo "Quantity owned: " . $rows['prod_quantity']; ?>
-                                </p>
-                                <p>
-                                    <?php echo "Vendor purchased from: " .$rows['VENDOR_ID']; ?>
-                                </p>
-                                <p>
-                                    <?php echo "Last purchase date: " .$rows['prod_purchase_date']; ?>
-                                </p>
-                                <p>
-                                    <?php echo "Last purchase price: $" .$rows['prod_purchase_cost']; ?>
-                                </p>
-                                <a href="admin-inventory-update.php"> <button> Update Item</button></a>
-                                <!-- <button type="submit" name="add">Add to Cart </button> -->
-                                <!-- <input type='hidden' name='prod_id' value="<?php echo $rows['PROD_ID'] ?>"> -->
-                            </div>
+                            <?php echo "<img src=$rows[prod_image]>" ?>
                         </div>
+                        <div>
+                            <h5><?php echo $rows['prod_name']; ?></h5>
+                            <p>
+                                <?php echo $rows['prod_desc']; ?>
+                            </p>
+                            <p>
+                                <span><?php echo "$" . $rows['prod_price']; ?></span>
+                            </p>
+                            <p>
+                                <?php echo "Quantity owned: " . $rows['prod_quantity']; ?>
+                            </p>
+                            <p>
+                                <?php echo "Vendor purchased from: " . $rows['VENDOR_ID']; ?>
+                            </p>
+                            <p>
+                                <?php echo "Last purchase date: " . $rows['prod_purchase_date']; ?>
+                            </p>
+                            <p>
+                                <?php echo "Last purchase price: $" . $rows['prod_purchase_cost']; ?>
+                            </p>
+                            <a href="admin-inventory-update.php"> <button> Update Item</button></a>
+                            <button type="submit" name="update-prod">Update Prod </button>
+                            <input type="submit" value="update">
+                            <!-- <input type='hidden' name='prod_id' value="<?php echo $rows['PROD_ID'] ?>"> -->
+                        </div>
+                    </div>
                     </form>
                 <?php
             }
