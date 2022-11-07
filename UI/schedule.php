@@ -28,7 +28,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
      <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
 
-            <a class="navbar-brand" href="index.html"><span style="color: var(--primary-color)">P</span>ower <span style="color: var(--primary-color)">H</span>ouse <span style="color: var(--primary-color)">P</span>hitness</a>
+            <a class="navbar-brand" href="index.php"><span style="color: var(--primary-color)">P</span>ower <span style="color: var(--primary-color)">H</span>ouse <span style="color: var(--primary-color)">P</span>hitness</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -38,11 +38,11 @@ https://www.tooplate.com/view/2119-gymso-fitness
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-lg-auto">
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link smoothScroll">Home</a>
+                        <a href="index.php" class="nav-link smoothScroll">Home</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="about.html" class="nav-link">About Us</a>
+                        <a href="about.php" class="nav-link">About Us</a>
                     </li>
 
                     <li class="dropdown">
@@ -51,18 +51,18 @@ https://www.tooplate.com/view/2119-gymso-fitness
                         </button>
 
                         <div class="dropdown-content">
-                            <a href="services.html">Classes </a>
-                            <a href="services.html#membership">Memberships </a>
+                            <a href="services.php">Classes </a>
+                            <a href="services.php#membership">Memberships </a>
                             <a href="..\forms\equip-rental-member.php">Equipment </a>
                         </div> 
                     </li>
 
                     <li class="nav-item">
-                        <a href="schedule.html" class="nav-link">Schedule</a>
+                        <a href="schedule.php" class="nav-link">Schedule</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="index.html#contact" class="nav-link smoothScroll">Contact</a>
+                        <a href="index.php#contact" class="nav-link smoothScroll">Contact</a>
                     </li>
                 </ul>
 
