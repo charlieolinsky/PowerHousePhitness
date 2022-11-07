@@ -13,7 +13,7 @@ $sql = "INSERT INTO `prod-data`
             `prod_purchase_cost`)
 VALUES ('".$_POST['prod_name']."', 
         '".$_POST['prod_desc']."',
-        '".$_POST['prod_image']."',
+        '../UI/images/prod_images/".$_FILES['prod_image']['name']."',
         '".$_POST['prod_price']."', 
         '".$_POST['prod_quantity']."',
         '".$_POST['VENDOR_ID']."',
@@ -23,7 +23,7 @@ VALUES ('".$_POST['prod_name']."',
 
 
                   
-include_once("../forms/admin-inventory.php");
+include_once("../forms/admin-inventory-new.php");
 include_once("../sql/connect.php");
 
 
