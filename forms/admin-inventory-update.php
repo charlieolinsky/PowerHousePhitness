@@ -26,7 +26,7 @@
 
             <div>
                 <!-- Asking for Vendor ID -->
-                <label for="prod_name">Item: </label><br>
+                <label for="PROD_ID">Item: </label><br>
 
                 <?php
 
@@ -44,6 +44,13 @@
                 }
 
                 ?>
+            </div>
+
+            <div>
+                <!-- asking for prod description -->
+                <label for="prod_name"> Item name:</label><br>
+                <input type="text" id="prod_name" name="prod_name">
+                <br><br>
             </div>
 
             <div>
