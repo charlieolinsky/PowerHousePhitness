@@ -60,7 +60,13 @@ https://www.tooplate.com/view/2119-gymso-fitness
         <input type="text" class="form-control" name="Username" placeholder="Username" required>
         <input type="password" class="form-control" name="Password" placeholder="Password" required>
         <button type="submit" class="form-control" id="submit-button" name="submit">Login</button>
+        <!-- <label class="custom-control-label text-small text-muted" for="signup-agree"> <a href="#">Sign Up Now</a> -->
+        <label class="text-small text-muted" for="signup-agree"> <a href="registerUI.php">Create an account</a> 
+        <br>
+        <label class="text-small text-muted" for="signup-agree"> <a href="services.php#membership">Not a member? Click to join</a>
     </div>
+
+    
        
 
    <!-- SCRIPTS -->
