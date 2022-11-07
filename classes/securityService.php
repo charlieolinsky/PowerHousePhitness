@@ -37,11 +37,11 @@
         }
 
         //Password Hashing and Verification 
-        public function hashPassword($pass)
+        public function hp($pass)
         {
             return password_hash($pass, PASSWORD_DEFAULT, ['cost' => 12]);
         }
-        public function verifyHashPassword($attempt, $password)
+        public function vp($attempt, $password)
         {
             return password_verify($attempt, $password); 
         }
