@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Inventory</title>
+    <title>Add New Inventory Item </title>
 
     <link rel="stylesheet" href="../UI/css/bootstrap.min.css">
     <link rel="stylesheet" href="../UI/css/font-awesome.min.css">
@@ -149,7 +149,7 @@
 
                 <!-- Need to add a way to upload-->
                 <label for="prod_image"> Item Image: </label><br>
-                <input type="file" name="prod_image">";
+                <input type="file" name="prod_image">
                 <br><br>
 
                 <!-- need to add validation to be a # -->
