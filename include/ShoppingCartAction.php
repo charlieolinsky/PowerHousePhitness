@@ -14,7 +14,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         $product_id = $_REQUEST['PROD_ID']; 
  
         // Fetch product details from the database 
-        $sqlQ = "SELECT * FROM product_data WHERE PROD_ID=?"; 
+        $sqlQ = "SELECT * FROM 'prod-data' WHERE PROD_ID=?"; 
         $stmt = $db->prepare($sqlQ); 
         $stmt->bind_param("i", $db_id); 
         $db_id = $product_id; 
@@ -27,7 +27,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
             'prod_image' => $productRow['image'], 
             'prod_name' => $productRow['prod_name'], 
             'prod_price' => $productRow['prod_price'], 
-            'prod_quantity' => 1 
+            'qty' => 1 
         ); 
          
         // Insert item to cart 
@@ -39,7 +39,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         // Update item data in cart 
         $itemData = array( 
             'rowid' => $_REQUEST['PROD_ID'], 
-            'qty' => $_REQUEST['prod_quantity'] 
+            'qty' => $_REQUEST['qty'] 
         ); 
         $updateItem = $cart->update($itemData); 
          
@@ -50,7 +50,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         $deleteItem = $cart->remove($_REQUEST['PROD_ID']); 
          
         // Redirect to cart page 
-        $redirectURL = '../forms/shopping.php'; 
+        $redirectURL = '../forms/shoppingcart.php'; 
     }elseif($_REQUEST['action'] == 'placeOrder' && $cart->total_items() > 0){ 
         $redirectURL = '../forms/checkout.php'; 
          
@@ -82,11 +82,11 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
          
         if(empty($errorMsg)){ 
             // Insert customer data into the database 
-            $sqlQ = "INSERT INTO user_data (first_name,last_name,email,phone,address,created,modified) VALUES (?,?,?,?,?,NOW(),NOW())"; 
+            $sqlQ = "INSERT INTO user_data (fname, lname, email, phone, address,) VALUES (?,?,?,?,?)"; 
             $stmt = $db->prepare($sqlQ); 
-            $stmt->bind_param("sssss", $db_first_name, $db_last_name, $db_email, $db_phone, $db_address); 
-            $db_first_name = $first_name; 
-            $db_last_name = $last_name; 
+            $stmt->bind_param("sssss", $db_fname, $db_lname, $db_email, $db_phone, $db_address); 
+            $db_fname = $fname; 
+            $db_lname = $lname; 
             $db_email = $email; 
             $db_phone = $phone; 
             $db_address = $address; 
@@ -96,12 +96,14 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                 $custID = $stmt->insert_id; 
                  
                 // Insert order info in the database 
-                $sqlQ = "INSERT INTO orders (customer_id,grand_total,created,status) VALUES (?,?,NOW(),?)"; 
+                $sqlQ = "INSERT INTO order_data (ORDER_ID, USER_ID, order_date, order_time, grand_total) VALUES (?,?,NOW(), NOW(),?)"; 
                 $stmt = $db->prepare($sqlQ); 
-                $stmt->bind_param("ids", $db_customer_id, $db_grand_total, $db_status); 
-                $db_customer_id = $custID; 
+                $stmt->bind_param("ids", $db_order_id, $db_order_date, $db_order_time, $db_grand_total); 
+                $db_order_id = $orderID; 
+                date_default_timezone_set('America/New_York');
+                $db_order_date = date('m/d/y'); 
+                $db_order_time = time('h:i:s')
                 $db_grand_total = $cart->total(); 
-                $db_status = 'Pending'; 
                 $insertOrder = $stmt->execute(); 
              
                 if($insertOrder){ 
@@ -112,13 +114,13 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                      
                     // Insert order items in the database 
                     if(!empty($cartItems)){ 
-                        $sqlQ = "INSERT INTO order_items (order_id, product_id, quantity) VALUES (?,?,?)"; 
+                        $sqlQ = "INSERT INTO cart (ORDER_ID, PROD_ID, quantity, item_cost) VALUES (?,?,?,?)"; 
                         $stmt = $db->prepare($sqlQ); 
                         foreach($cartItems as $item){ 
-                            $stmt->bind_param("ids", $db_order_id, $db_product_id, $db_quantity); 
+                            $stmt->bind_param("ids", $db_order_id, $db_prod_id, $db_quantity, $db_item_cost); 
                             $db_order_id = $orderID; 
                             $db_product_id = $item['PROD_ID']; 
-                            $db_quantity = $item['prod_quantity']; 
+                            $db_quantity = $item['qty']; 
                             $stmt->execute(); 
                         } 
                          
