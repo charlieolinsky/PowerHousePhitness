@@ -71,7 +71,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                 </ul>
 
                 <ul class="social-icon ml-lg-3">
-                    <li><a href="../forms/shoppingcart.html" class="fa fa-shopping-cart"></a></li>
+                    <li><a href="../forms/shoppingcart.php" class="fa fa-shopping-cart"></a></li>
                 </ul>
 
                 <!-- <ul class="social-icon ml-lg-3">
@@ -140,7 +140,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                          <span>9:00 am - 10:30 am</span>
                                      </td>
                                      <td>
-                                         <strong>Areobics</strong>
+                                         <strong>Aerobics</strong>
                                          <span>9:00 am - 10:00 am</span>
                                      </td>
                                      <td></td>
@@ -159,7 +159,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                          <span>11:00 am - 2:00 pm</span>
                                      </td>
                                      <td>
-                                         <strong>Areobics</strong>
+                                         <strong>Aerobics</strong>
                                          <span>11:30 am - 3:30 pm</span>
                                      </td>
                                      <td></td>
