@@ -1,6 +1,5 @@
 
 <?php
-// need to figure out how to get an upload image 
 
 $sql = "INSERT INTO `prod-data` 
 (`prod_name`, 
