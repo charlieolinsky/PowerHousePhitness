@@ -73,11 +73,14 @@
 
         </div>
     </nav>
-<br><br><br>
+<br><br><br><br>
     <div>
         <a href="admin-inventory-new.php"> <button> Add New Inventory Item</button></a>
-        <!-- <a href="admin-inventory-update.php"> <button> Update Current Inventory Item</button></a> -->
+        <a href="admin-inventory-update.php"> <button> Update Current Inventory Item</button></a>
+        
+        
         <div class="rental-products">
+            <h2> VIEW CURRENT INVENTORY </h2>
             <!-- FILE TO QUERY DATA  -->
             <?php include_once("../include/load-product-rentals.php"); ?>
 
@@ -112,9 +115,9 @@
                             <p>
                                 <?php echo "Last purchase price: $" . $rows['prod_purchase_cost']; ?>
                             </p>
-                            <a href="admin-inventory-update.php"> <button> Update Item</button></a>
-                            <button type="submit" name="update-prod">Update Prod </button>
-                            <input type="submit" value="update">
+                            <!-- <a href="admin-inventory-update.php"> <button> Update Item</button></a> -->
+                            <!-- <button type="submit" name="update-prod">Update Prod </button> -->
+                            <!-- <input type="submit" value="update"> -->
                             <!-- <input type='hidden' name='prod_id' value="<?php echo $rows['PROD_ID'] ?>"> -->
                         </div>
                     </div>

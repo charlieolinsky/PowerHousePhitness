@@ -85,7 +85,7 @@
             <h1> Admin Inventory </h1>
 
             <!-- this line works! -- nvm this doesnt work anymore lmfao -->
-            <!-- <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST"> -->
+            <!-- <form action="<?php// echo $_SERVER['PHP_SELF']; ?>" method="POST"> -->
             <!-- this line doesnt do datavalidation but DOES insert into b -->
             <form action="../include/add-products.php" method="POST" enctype="multipart/form-data">
                 <!-- <form action="admin-inventory-new.php" method="POST"> -->
