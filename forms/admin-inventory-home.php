@@ -42,7 +42,7 @@
                         <div class="dropdown-content">
                             <a href="../UI/services.php">Classes </a>
                             <a href="../UI/services.php#membership">Memberships </a>
-                            <a href="equip-rental-member.php">Equipment </a>
+                            <a href="../forms/equip-rental-member.php">Equipment </a>
                         </div>
                     </li>
 
@@ -60,7 +60,7 @@
                 </ul>
 
                 <ul class="social-icon ml-lg-3">
-                    <li><a href="shoppingcart.php" class="fa fa-shopping-cart"></a></li>
+                    <li><a href="../forms/shoppingcart.php" class="fa fa-shopping-cart"></a></li>
                 </ul>
 
                 <!-- <ul class="social-icon ml-lg-3">
@@ -110,7 +110,7 @@
                                 <?php echo "Vendor purchased from: " . $rows['VENDOR_ID']; ?>
                             </p>
                             <p>
-                                <?php echo "Last purchase date: " . $rows['prod_purchase_date']; ?>
+                                <?php echo "Last purchase date: " . $rows['prod_date_purchased']; ?>
                             </p>
                             <p>
                                 <?php echo "Last purchase price: $" . $rows['prod_purchase_cost']; ?>
