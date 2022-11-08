@@ -45,7 +45,7 @@
                         <div class="dropdown-content">
                             <a href="../UI/services.php">Classes </a>
                             <a href="../UI/services.php#membership">Memberships </a>
-                            <a href="equip-rental-member.php">Equipment </a>
+                            <a href="../forms/equip-rental-member.php">Equipment </a>
                         </div>
                     </li>
 
@@ -63,7 +63,7 @@
                 </ul>
 
                 <ul class="social-icon ml-lg-3">
-                    <li><a href="shoppingcart.php" class="fa fa-shopping-cart"></a></li>
+                    <li><a href="../forms/shoppingcart.php" class="fa fa-shopping-cart"></a></li>
                 </ul>
 
                 <!-- <ul class="social-icon ml-lg-3">
@@ -82,10 +82,10 @@
 
         <div class="add_inventory">
 
-            <h1> Admin Inventory </h1>
+            <h1> Admin Inventory - Add New Item</h1>
 
             <!-- this line works! -- nvm this doesnt work anymore lmfao -->
-            <!-- <form action="<?php// echo $_SERVER['PHP_SELF']; ?>" method="POST"> -->
+            <!-- <form action="<?php // echo $_SERVER['PHP_SELF']; ?>" method="POST"> -->
             <!-- this line doesnt do datavalidation but DOES insert into b -->
             <form action="../include/add-products.php" method="POST" enctype="multipart/form-data">
                 <!-- <form action="admin-inventory-new.php" method="POST"> -->
@@ -189,6 +189,7 @@
                     $vendorquery = "SELECT * FROM vendor_id";
                     if ($r_set = $dbconn->query($vendorquery)) {
                         echo "<SELECT name='VENDOR_ID'>";
+                        echo "<option></option>";
                         while ($row = $r_set->fetch_assoc()) {
                             // echo"<option value=$row[VENDOR_ID]>Vendor $row[VENDOR_ID]: $row[v_name]</option>";
                             echo "<option value=" . $row['VENDOR_ID'] . ">" . $row['v_name'] . "</option>";
