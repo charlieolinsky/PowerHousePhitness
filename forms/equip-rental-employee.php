@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Portal - Rentals</title>
 
+    <link rel="stylesheet" href="../UI/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../UI/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../UI/css/aos.css">
+    <link rel="stylesheet" href="../UI/css/tooplate-php-style.css">
+
 </head>
 
 <body>
@@ -37,7 +42,7 @@
                         <div class="dropdown-content">
                             <a href="../UI/services.php">Classes </a>
                             <a href="../UI/services.php#membership">Memberships </a>
-                            <a href="equip-rental-member.php">Equipment </a>
+                            <a href="../forms/equip-rental-member.php">Equipment </a>
                         </div>
                     </li>
 
@@ -55,7 +60,7 @@
                 </ul>
 
                 <ul class="social-icon ml-lg-3">
-                    <li><a href="shoppingcart.php" class="fa fa-shopping-cart"></a></li>
+                    <li><a href="../forms/shoppingcart.php" class="fa fa-shopping-cart"></a></li>
                 </ul>
 
                 <!-- <ul class="social-icon ml-lg-3">
@@ -71,9 +76,11 @@
     <br><br><br>
 
     <div class="rental-products">
+        <h1>Equiptment Rental Employee Portal</h1>
+
         <!-- FILE TO QUERY DATA  -->
         <?php
-        include_once("../include/load-product-rentals.php");
+        include_once("../include/load-checked-prods.php");
         ?>
 
         <!-- PHP CODE TO FETCH DATA FROM ROWS -->
@@ -82,7 +89,7 @@
         while ($rows = $result->fetch_assoc()) {
         ?>
             <div>
-                <form action="equip-rental-member.php" method="post">
+                <form action="load-checked-prods.php" method="post">
                     <div>
                         <div>
                             <?php echo "<img src=$rows[prod_image]>" ?>
@@ -104,7 +111,7 @@
         }
             ?>
             </div>
-
+        
     </div>
 
 </body>

@@ -12,11 +12,9 @@
     <link rel="stylesheet" href="../UI/css/aos.css">
     <link rel="stylesheet" href="../UI/css/tooplate-php-style.css">
 
-
-
 </head>
 
-<body data-spy="scroll" data-target="#navbarNav" data-offset="50"></body>
+<body>
 <!-- MENU BAR -->
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
@@ -45,7 +43,7 @@
                     <div class="dropdown-content">
                         <a href="../UI/services.php">Classes </a>
                         <a href="../UI/services.php#membership">Memberships </a>
-                        <a href="equip-rental-member.php">Equipment </a>
+                        <a href="../forms/equip-rental-member.php">Equipment </a>
                     </div>
                 </li>
 
@@ -63,7 +61,7 @@
             </ul>
 
             <ul class="social-icon ml-lg-3">
-                <li><a href="shoppingcart.php" class="fa fa-shopping-cart"></a></li>
+                <li><a href="../forms/shoppingcart.php" class="fa fa-shopping-cart"></a></li>
             </ul>
 
             <!-- <ul class="social-icon ml-lg-3">
