@@ -15,7 +15,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
  
         // Fetch product details from the database 
         $sqlQ = "SELECT * FROM 'prod-data' WHERE PROD_ID=?"; 
-        $stmt = $db->prepare($sqlQ); 
+        $stmt = $dbconn->prepare($sqlQ); 
         $stmt->bind_param("i", $db_id); 
         $db_id = $product_id; 
         $stmt->execute(); 
@@ -83,7 +83,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         if(empty($errorMsg)){ 
             // Insert customer data into the database 
             $sqlQ = "INSERT INTO user_data (fname, lname, email, phone, address,) VALUES (?,?,?,?,?)"; 
-            $stmt = $db->prepare($sqlQ); 
+            $stmt = $dbconn->prepare($sqlQ); 
             $stmt->bind_param("sssss", $db_fname, $db_lname, $db_email, $db_phone, $db_address); 
             $db_fname = $fname; 
             $db_lname = $lname; 
@@ -97,12 +97,12 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                  
                 // Insert order info in the database 
                 $sqlQ = "INSERT INTO order_data (ORDER_ID, USER_ID, order_date, order_time, grand_total) VALUES (?,?,NOW(), NOW(),?)"; 
-                $stmt = $db->prepare($sqlQ); 
+                $stmt = $dbconn->prepare($sqlQ); 
                 $stmt->bind_param("ids", $db_order_id, $db_order_date, $db_order_time, $db_grand_total); 
                 $db_order_id = $orderID; 
                 date_default_timezone_set('America/New_York');
                 $db_order_date = date('m/d/y'); 
-                $db_order_time = time('h:i:s')
+                $db_order_time = time('h:i:s');
                 $db_grand_total = $cart->total(); 
                 $insertOrder = $stmt->execute(); 
              
@@ -115,7 +115,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                     // Insert order items in the database 
                     if(!empty($cartItems)){ 
                         $sqlQ = "INSERT INTO cart (ORDER_ID, PROD_ID, quantity, item_cost) VALUES (?,?,?,?)"; 
-                        $stmt = $db->prepare($sqlQ); 
+                        $stmt = $dbconn->prepare($sqlQ); 
                         foreach($cartItems as $item){ 
                             $stmt->bind_param("ids", $db_order_id, $db_prod_id, $db_quantity, $db_item_cost); 
                             $db_order_id = $orderID; 
