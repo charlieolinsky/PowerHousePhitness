@@ -64,10 +64,10 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         $address = strip_tags($_POST['address']); 
          
         $errorMsg = ''; 
-        if(empty($first_name)){ 
+        if(empty($fname)){ 
             $errorMsg .= 'Please enter your first name.<br/>'; 
         } 
-        if(empty($last_name)){ 
+        if(empty($lname)){ 
             $errorMsg .= 'Please enter your last name.<br/>'; 
         } 
         if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)){ 
@@ -79,22 +79,38 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         if(empty($address)){ 
             $errorMsg .= 'Please enter your address.<br/>'; 
         } 
+        if(empty($city)){ 
+            $errorMsg .= 'Please enter your city.<br/>'; 
+        } 
+        if(empty($state)){ 
+            $errorMsg .= 'Please enter your state.<br/>'; 
+        } 
+        if(empty($zip)){ 
+            $errorMsg .= 'Please enter your zip.<br/>'; 
+        } 
          
         if(empty($errorMsg)){ 
             // Insert customer data into the database 
-            $sqlQ = "INSERT INTO user_data (fname, lname, email, phone, address,) VALUES (?,?,?,?,?)"; 
+            $sqlQ = "INSERT INTO user_table (email, fname, lname) VALUES (?,?,?)"; 
             $stmt = $dbconn->prepare($sqlQ); 
-            $stmt->bind_param("sssss", $db_fname, $db_lname, $db_email, $db_phone, $db_address); 
+            $stmt->bind_param("sssss", $db_email, $db_fname, $db_lname);
+            $db_email = $email;  
             $db_fname = $fname; 
             $db_lname = $lname; 
-            $db_email = $email; 
-            $db_phone = $phone; 
-            $db_address = $address; 
+            $insertCust = $stmt->execute(); 
+            
+            $sqlQ = "INSERT INTO user_address (address1, city, state, zip) VALUES (?,?,?,?)"; 
+            $stmt = $dbconn->prepare($sqlQ); 
+            $stmt->bind_param("sssss", $db_address, $db_city, $db_state, $db_zip);
+            $db_address = $address;  
+            $db_city = $city; 
+            $db_state = $state; 
+            $db_zip = $zip; 
             $insertCust = $stmt->execute(); 
              
             if($insertCust){ 
                 $custID = $stmt->insert_id; 
-                 
+
                 // Insert order info in the database 
                 $sqlQ = "INSERT INTO order_data (ORDER_ID, USER_ID, order_date, order_time, grand_total) VALUES (?,?,NOW(), NOW(),?)"; 
                 $stmt = $dbconn->prepare($sqlQ); 
