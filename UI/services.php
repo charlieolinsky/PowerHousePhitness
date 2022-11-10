@@ -88,7 +88,6 @@ https://www.tooplate.com/view/2119-gymso-fitness
     <section class="class section" id="membership">
         <div class="container">
              <div class="row">
-
                      <div class="col-lg-12 col-12 text-center mb-5">
                          <h6 data-aos="fade-up">Become a member today</h6>
 
@@ -151,6 +150,16 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
         </div>
     </section>
+
+    <section class="class section" id="classes">
+        <div class="container">
+            <div class="column">
+                <h1>hi</h1>
+                <h1>hello</h1>
+                <h1>hey</h1>
+            </div>
+        </div>
+    </section>        
 
 
 
