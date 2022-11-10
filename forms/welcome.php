@@ -5,7 +5,7 @@ session_start();
 
 include "../classes/roles.php";
 include_once("../classes/User.php");
-access('freeMember'); // if not a freeMember access denied 
+access('1'); // if not a freeMember access denied 
 
 ?>
 <!DOCTYPE html>
@@ -21,7 +21,6 @@ access('freeMember'); // if not a freeMember access denied
         if(isset($_SESSION['fname']))
         {
             echo "Hi, " . $_SESSION['fname'];
-            //$user ->  setFirstName('katie'); // trying to see if set works 
         }
     ?>
     <h1>Redirect Success!</h1>
