@@ -51,7 +51,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                         </button>
 
                         <div class="dropdown-content">
-                            <a href="services.php">Classes </a>
+                            <a href="services.php#classes">Classes </a>
                             <a href="services.php#membership">Memberships </a>
                             <a href="..\forms\equip-rental-member.php">Equipment </a>
                         </div> 
@@ -67,11 +67,11 @@ https://www.tooplate.com/view/2119-gymso-fitness
                 </ul>
 
                 <ul class="social-icon ml-lg-3">
-                    <li><a href="#" class="fa fa-user"></a></li>
+                        <li><a href="#" class="fa fa-user"></a></li>
                 </ul>
 
                 <ul class="social-icon ml-lg-3">
-                    <li><a href="../forms/shoppingcart.php" class="fa fa-shopping-cart"></a></li>
+                        <li><a href="../forms/shoppingcart.php" class="fa fa-shopping-cart"></a></li>
                 </ul>
 
                 <!-- <ul class="social-icon ml-lg-3">
@@ -103,7 +103,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                                     <a href="#feature" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="600">Get started</a>
 
-                                    <a href="about.html" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="700">learn more</a>
+                                    <a href="about.php" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="700">learn more</a>
                                    
                               </div>
                          </div>
