@@ -1,77 +1,38 @@
+<!DOCTYPE html>
+
 <?php
+
 session_start();
-
-include "../classes/roles.php"; 
+include_once("../classes/User.php");
+include_once("../classes/roles.php");
+include_once("../sql/connect.php");
 ?>
-<html lang="en">
-
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Account Info</title>
-
-<link rel="stylesheet" href="../UI/css/bootstrap.min.css">
-<link rel="stylesheet" href="../UI/css/font-awesome.min.css">
-<link rel="stylesheet" href="../UI/css/aos.css">
-<link rel="stylesheet" href="../UI/css/tooplate-gymso-style.css">
 
 
 
 
-</head>
+  <!-- The form -->
+  <!-- <div class="form-popup" id="myForm">
+          <form action="/action_page.php" class="form-container">
+            <h1>Edit Name</h1>
 
-<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
-<!-- MENU BAR -->
-<nav class="navbar navbar-expand-lg fixed-top">
-<div class="container">
+            <label for="fname"><b>Name</b></label>
+            <input type="name" placeholder="Enter new name" name="fname" required>
 
-<a class="navbar-brand" href="index.html">Power House Phitness</a>
+            <button type="submit" class="btn">Submit</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          </form>
+  </div> -->
 
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
 
-<div class="collapse navbar-collapse" id="navbarNav">
-<ul class="navbar-nav ml-lg-auto">
-<li class="nav-item">
-<a href="#home" class="nav-link smoothScroll">Home</a>
-</li>
 
-<li class="nav-item">
-<a href="about.html" class="nav-link">About Us</a>
-</li>
-
-<li class="nav-item">
-<a href="#class" class="nav-link smoothScroll">Classes</a>
-</li>
-
-<li class="nav-item">
-<a href="#schedule" class="nav-link smoothScroll">Schedules</a>
-</li>
-
-<li class="nav-item">
-<a href="#contact" class="nav-link smoothScroll">Contact</a>
-</li>
-</ul>
-
-<ul class="social-icon ml-lg-3">
-<li><a href="https://fb.com/tooplate" class="fa fa-facebook"></a></li>
-<li><a href="#" class="fa fa-twitter"></a></li>
-<li><a href="#" class="fa fa-instagram"></a></li>
-</ul>
-</div>
-
-</div>
-</nav>
-<br><br><br>
-
+<html>
+  <head>
+    <title>My Account Tab</title>
+  </head>
+<body>
 <main> 
 <h1>My Account</h1>
-<p>Need to rent equipment while visiting our facility? We have a variety of options from basketballs to shoot hoops, to frisbees to toss around our open gym!
-</p>
-// needs an edit button with a form 
 <div class = "account-info">
     <dl>
         <dt>User ID: 
@@ -83,14 +44,67 @@ aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <?php
           echo $_SESSION['fname'] . " " . $_SESSION['lname'];
         ?>
-        </dd>
+          <!-- A button to open the popup form -->
+          <button class="open-button" onclick="openForm()">Edit</button>
+           <!-- The form -->
+      <div class="form-popup" id="myForm">
+          <form action="/action_page.php" class="form-container">
+            <h3>Edit Name</h3>
+
+            <label for="fname"><b>Name</b></label>
+            <input type="name" placeholder="Enter new name" name="fname" required>
+
+            <button type="submit" class="btn">Submit</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          </form>
+      </div>
+        </dt>
+
+
+
+
+
+
+
+
+
         <dt>Email:
         <?php
           echo $_SESSION['email'];
-        ?> </dt>
-        <dt>Address: </dt>
-        <dt>Phone Number: </dt>
-        <dt>Member Ship Level: </dt>
+        ?> 
+        <button type="button"> Edit </button>
+        </dt>
+        <dt>Address: 
+        <button type="button"> Edit </button>
+        </dt>
+        <dt>Phone Number: 
+        <button type="button"> Edit </button>
+        </dt>
+        <dt>Member Ship Level: 
+        <?php
+          if($_SESSION['role'] == 1)
+          {
+            echo "Free Member";
+          }
+          else if($_SESSION['role'] == 2)
+          {
+            echo "Premium Member";
+          }
+          else if($_SESSION['role'] == 3)
+          {
+            echo "Representative"; 
+          }
+          else if($_SESSION['role'] == 4)
+          {
+            echo "Finance Personnel";
+          }
+          else if($_SESSION['role'] == 5)
+          {
+            echo "Admin";
+          }
+        ?>
+        <button type="button"> Edit </button>
+        </dt>
       </dl>
 </div>
 </main>
