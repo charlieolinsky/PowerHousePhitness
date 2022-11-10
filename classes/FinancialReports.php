@@ -1,19 +1,42 @@
 <?php
-class FinancialReports {
-// should this be a class? how to make it automatically store daily reports? 
-//getZreport method?
-//properties
-private $creditSales;
-private $debitSales;
-private $membershipSales;
-private $classSales;
-private $apparelSales;
-private $lockerSales;
-private $rentalSales;
 
-function getCreditSales()
+class FinancialReports {
+    // need pdf for financial reports 
+    // z report, weekly, ytd, monthly subscriptins? Automatic? 
+
+// properties
+private $equipmentSales;
+private $rentalSales;
+private $classSales;
+private $membershipSales;
+private $TotalSales;
+
+
+function getEquipmentSales()
 {
-    //database 
+   
+}
+function getRentalSales()
+{
+
+}
+function getClassSales()
+{
+
+}
+function getMembershipSales()
+{
+
+}
+function getTotalSales(){
+
+    include_once("../sql/connect.php");
+
+    $sql = sprintf("SELECT SUM(grand_total) FROM order_data");
+    
+    $result = $mysqli->query($sql);
+
+    $this->totalSales = $result;
 }
 
 }
