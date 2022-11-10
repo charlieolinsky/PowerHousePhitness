@@ -84,90 +84,56 @@ public function createUser(){
                         }
                     }                  
 }
-// setters/getters
-function getFirstName()
+// require forms on admin page 
+public function removeUser($id) //move this to admin page ?
 {
-    return $this->firstName;
+    include_once("../sql/connect.php");
+    $mysqli = new mysqli ($server, $dbusername, $password, $db); 
+    $sql = "DELETE FROM user_login WHERE USER_ID = ?";
 }
-function getLastName()
-{
-    return $this->lastName;
-}
-function getId()
-{
-    return  $this->id;
-}
-function getAddress()
-{
-    return $this->getAddress;
-}
-function getEmail()
-{
-    return $this->email;
-}
-function getPhoneNumber()
-{   return $this->phoneNumber;
+public function setFirstName()
+{  
+    include_once("../sql/connect.php");
+    $mysqli = new mysqli ($server, $dbusername, $password, $db);  
+    
+    $sql = "UPDATE user_login SET fname = ? WHERE user_id = ?";   
 
 }
-function getPassword()
-{   return $this->password;
-
+function setLastName()
+{ 
+      include_once("../sql/connect.php");
+      $mysqli = new mysqli ($server, $dbusername, $password, $db);  
+      
+      $sql = "UPDATE user_login SET lname = ? WHERE user_id = ?";  
 }
-function getLockerNumber()
-{   return $this->lockerNumber;
-
-}
-function getLockerCombo()
-{   return $this->lockerCombo;
-
-}
-function getMembershipLevel()
-{   return $this->membershipLevel;
-
-}
-public function setFirstName($n)
+function setEmail()
 {
-    $this->firstName = $n;
+      include_once("../sql/connect.php");
+      $mysqli = new mysqli ($server, $dbusername, $password, $db);  
+      
+      $sql = "UPDATE user_login SET email = ? WHERE user_id = ?";  
 }
-function setLastName($n)
-{
-    $this->lastName = $n;
+function setPassword()
+{      
+  include_once("../sql/connect.php");
+  $mysqli = new mysqli ($server, $dbusername, $password, $db);  
+  
+  $sql = "UPDATE user_login SET passcode = ? WHERE user_id = ?";  
 }
-function setId($id)
-{
-    $this->id = $id;
+function setMembershipLevel()
+{    
+  include_once("../sql/connect.php");
+  $mysqli = new mysqli ($server, $dbusername, $password, $db);  
+  
+  $sql = "UPDATE user_login SET roles = ? WHERE user_id = ?";  
 }
-function setAddress($add)
-{
-    $this->address = $add;
-}
-function setEmail($em)
-{
-    $this->email = $em;
-}
-function setPhoneNumber($pn)
-{
-    $this->phoneNumber = $pn;
-}
-function setPassword($pass)
-{   $this->password = $pass;
-
-}
-function setLockerNumber($pass)
-{   $this->password = $pass;
-
-}
-function setLockerCombo($pass)
-{   $this->password = $pass;
-
-}
-function setMembershipLevel($pass)
-{   $this->password = $pass;
-
-}
-function userDetails() // make this echo?
-{
-    return "Name: $this->name\n ID: $this->id\n Address: $this->address\n Email: $this->email\n Phone Number: $this->phoneNumber\n";
+// 
+function setAddress()
+{   
+    include_once("../sql/connect.php");
+    $mysqli = new mysqli ($server, $dbusername, $password, $db);  
+    
+    $sql = "UPDATE user_address SET .................. = ? WHERE user_id = ?";  
 }
 }
 ?>
