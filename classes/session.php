@@ -1,5 +1,6 @@
 <?php 
 
+
     class Session
     {
         protected static $SESSION_AGE = 1800; //The number of seconds of inactivity before a session expires.
@@ -7,7 +8,13 @@
         /**********************CONSTRUCTORS********************/
         
         //Initializes a new secure session or resumes an existing session.
-        private static function init()
+        public function __construct()
+        {
+            self::start(); 
+        }
+        
+        /************************METHODS***********************/
+        private static function start()
         {
             if (function_exists('session_status'))
             {
@@ -50,10 +57,7 @@
                 
             }   
         }
-
         
-        
-        /************************METHODS***********************/ 
 
         //Writes a value to the current session data.
         public static function write($key, $value)
@@ -61,7 +65,7 @@
             if (!is_string($key)){
                 throw new Exception('Invalid Argument Type Exception: Session key must be string value');
             }
-            self::init();
+            self::start();
             $_SESSION[$key] = $value;
             self::age();
             
@@ -77,7 +81,7 @@
                 throw new Exception('Invalid Argument Type Exception: Session key must be string value');
             }
             
-            self::init();
+            self::start();
             
             if (isset($_SESSION[$key]))
             {
@@ -97,25 +101,23 @@
             }
             return false;
         }
+
         
-
-
         //Deletes a value from the current session data.
         public static function delete($key)
         {
             if ( !is_string($key) )
                 throw new Exception('Invalid Argument Type Exception: Session key must be string value');
-            self::init();
+            self::start();
             unset($_SESSION[$key]);
             self::age();
         }
         
 
-
         //Echos current session data
         public static function dump()
         {
-            self::init();
+            self::start();
             echo nl2br(print_r($_SESSION));
         }
         
