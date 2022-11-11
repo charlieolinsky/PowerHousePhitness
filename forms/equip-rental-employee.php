@@ -89,7 +89,7 @@
         while ($rows = $result->fetch_assoc()) {
         ?>
             <div>
-                <form action="load-checked-prods.php" method="post">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                     <div>
                         <div>
                             <?php echo "<img src=$rows[prod_image]>" ?>
@@ -99,9 +99,14 @@
                             <p>
                                 <?php echo $rows['prod_desc']; ?>
                             </p>
-                            <h5>
+                            
+                            <!-- <h5>
                                 <span><?php echo "$" . $rows['prod_price']; ?></span>
+                            </h5> -->
+                            <h5>
+                                <span><?php echo "Total Checked out: " . $rows['total_rented']; ?></span>
                             </h5>
+
                             <button type="submit" name="checked_out">Return Item </button>
                             <!-- <input type='hidden' name='prod_id' value="<?php echo $rows['PROD_ID'] ?>"> -->
                         </div>

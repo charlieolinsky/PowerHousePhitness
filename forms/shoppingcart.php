@@ -2,7 +2,7 @@
        
     require_once("../sql/connect.php");
     include_once("../classes/ShoppingCart_Class.php");
-    $cart = new Cart;
+    $cart = new ShoppingCart();
 ?>  
 
 <!DOCTYPE html>
@@ -47,7 +47,7 @@
 
                     <tbody>
                     <?php 
-                        if($cart->total_items() > 0){ 
+                        if($cart->totalItems() > 0){ 
                             // Get cart items from session 
                             $cartItems = $cart->contents(); 
                             foreach($cartItems as $item){
@@ -58,15 +58,16 @@
                         <td><img src="<?php echo $proImg; ?>" alt="..."></td>
                         <td><?php echo $item["prod_name"]; ?></td>
                         <td><?php echo '$'.$item["prod_price"].' '.'USD'; ?></td>
-                        <td><input class="form-control" type="number" value="<?php echo $item["qty"]; ?>" onchange="updateCartItem(this, '<?php echo $item["rowid"]; ?>')"/></td>
-                        <td><?php echo $.$item["subtotal"].' '.CURRENCY; ?></td>
+                        <td><input class="form-control" type="number" value="<?php echo $item["qty"]; ?>" onchange="updateCartItem(this, <?php echo $item['rowid'] ?>)"></td>
+                        <td><?php echo '$'.$item["subtotal"].' '.'USD'; ?></td>
+                        
                         <td><button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to remove cart item?')?window.location.href='ShoppingCartAction.php?action=removeCartItem&id=<?php echo $item["rowid"]; ?>':false;" title="Remove Item"><i class="itrash"></i> </button> </td>
                     </tr>
 
                     <?php } }else{ ?>
                             <tr><td colspan="6"><p>Your cart is empty.....</p></td>
                         <?php } ?>
-                        <?php if($cart->total_items() > 0){ ?>
+                        <?php if($cart->totalItems() > 0){ ?>
 
                             <tr>
                                 <td></td>
@@ -85,7 +86,7 @@
             </div>
 
             <div class="row">
-                <?php if($cart->total_items() > 0){ ?>
+                <?php if($cart->totalItems() > 0){ ?>
                 <a href="../forms/checkout.php" class="btn btn-block btn-primary">Proceed to Checkout</a>
                 <?php } ?>
             </div>

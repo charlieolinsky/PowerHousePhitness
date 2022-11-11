@@ -1,4 +1,3 @@
-<!-- CODE FOR EQUIP-RENTAL-MEMBER.PHP WITH UI -->
 <!-- code for where a member will check out equipment -->
 <html lang="en">
 

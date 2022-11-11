@@ -2,39 +2,43 @@
 // Includes the database connection file
 require_once("../sql/connect.php"); 
 
-require_once("../forms/ShoppingCartClass.php");
-$cart = new Cart;
+require_once("../classes/ShoppingCart_Class.php");
+$cart = new ShoppingCart();
+echo "hello 4"; //this shows up
+
 
 // Default redirect URL
-$redirectURL = "../UI/index.php";
+// $redirectURL = "../UI/index.php";
 
 // Process request based on the specified action 
 if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){ 
     if($_REQUEST['action'] == 'addToCart' && !empty($_REQUEST['PROD_ID'])){ 
         $product_id = $_REQUEST['PROD_ID']; 
- 
+        echo "hello 3"; //this doesnt show 
+
         // Fetch product details from the database 
         $sqlQ = "SELECT * FROM 'prod-data' WHERE PROD_ID=?"; 
         $stmt = $dbconn->prepare($sqlQ); 
         $stmt->bind_param("i", $db_id); 
-        $db_id = $product_id; 
+        // $db_id = $product_id; 
         $stmt->execute(); 
         $result = $stmt->get_result(); 
         $productRow = $result->fetch_assoc(); 
- 
+        echo "hello 2"; //this doesnt show 
+
         $itemData = array( 
             'PROD_ID' => $productRow['PROD_ID'], 
-            'prod_image' => $productRow['image'], 
+            'prod_image' => $productRow['prod_image'], 
             'prod_name' => $productRow['prod_name'], 
             'prod_price' => $productRow['prod_price'], 
             'qty' => 1 
         ); 
-         
         // Insert item to cart 
         $insertItem = $cart->insert($itemData); 
-         
+        echo "hello 1"; //this doesnt show 
+
         // Redirect to cart page 
-        $redirectURL = $insertItem?'../forms/shopping.php':'../UI/index.php'; 
+        $redirectURL = $insertItem?'../forms/shoppingcart.php':'../UI/index.php'; 
     }elseif($_REQUEST['action'] == 'updateCartItem' && !empty($_REQUEST['PROD_ID'])){ 
         // Update item data in cart 
         $itemData = array( 
@@ -51,7 +55,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
          
         // Redirect to cart page 
         $redirectURL = '../forms/shoppingcart.php'; 
-    }elseif($_REQUEST['action'] == 'placeOrder' && $cart->total_items() > 0){ 
+    }elseif($_REQUEST['action'] == 'placeOrder' && $cart->totalItems() > 0){ 
         $redirectURL = '../forms/checkout.php'; 
          
         // Store post data 
@@ -91,15 +95,15 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
          
         if(empty($errorMsg)){ 
             // Insert customer data into the database 
-            $sqlQ = "INSERT INTO user_table (email, fname, lname) VALUES (?,?,?)"; 
-            $stmt = $dbconn->prepare($sqlQ); 
-            $stmt->bind_param("sssss", $db_email, $db_fname, $db_lname);
-            $db_email = $email;  
-            $db_fname = $fname; 
-            $db_lname = $lname; 
-            $insertCust = $stmt->execute(); 
+            // $sqlQ = "INSERT INTO user_table (email, fname, lname) VALUES (?,?,?)"; 
+            // $stmt = $dbconn->prepare($sqlQ); 
+            // $stmt->bind_param("sssss", $db_email, $db_fname, $db_lname);
+            // $db_email = $email;  
+            // $db_fname = $fname; 
+            // $db_lname = $lname; 
+            // $insertCust = $stmt->execute(); 
             
-            $sqlQ = "INSERT INTO user_address (address1, city, state, zip) VALUES (?,?,?,?)"; 
+            $sqlQ = "INSERT INTO user_address ('address1', 'address2', 'city', 'state', 'zip') VALUES (?,?,?,?,?)"; 
             $stmt = $dbconn->prepare($sqlQ); 
             $stmt->bind_param("sssss", $db_address, $db_city, $db_state, $db_zip);
             $db_address = $address;  
@@ -110,11 +114,12 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
              
             if($insertCust){ 
                 $custID = $stmt->insert_id; 
+                echo $custID;
 
                 // Insert order info in the database 
                 $sqlQ = "INSERT INTO order_data (ORDER_ID, USER_ID, order_date, order_time, grand_total) VALUES (?,?,NOW(), NOW(),?)"; 
                 $stmt = $dbconn->prepare($sqlQ); 
-                $stmt->bind_param("ids", $db_order_id, $db_order_date, $db_order_time, $db_grand_total); 
+                $stmt->bind_param("issd", $db_order_id, $db_order_date, $db_order_time, $db_grand_total); 
                 $db_order_id = $orderID; 
                 date_default_timezone_set('America/New_York');
                 $db_order_date = date('m/d/y'); 
@@ -133,7 +138,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                         $sqlQ = "INSERT INTO cart (ORDER_ID, PROD_ID, quantity, item_cost) VALUES (?,?,?,?)"; 
                         $stmt = $dbconn->prepare($sqlQ); 
                         foreach($cartItems as $item){ 
-                            $stmt->bind_param("ids", $db_order_id, $db_prod_id, $db_quantity, $db_item_cost); 
+                            $stmt->bind_param("iiid", $db_order_id, $db_prod_id, $db_quantity, $db_item_cost); 
                             $db_order_id = $orderID; 
                             $db_product_id = $item['PROD_ID']; 
                             $db_quantity = $item['qty']; 
@@ -166,7 +171,8 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         $_SESSION['sessData'] = $sessData; 
     } 
 } 
- 
+echo "hello 5";  //this shows up
+
 // Redirect to the specific page 
 header("Location: $redirectURL"); 
 exit();
