@@ -123,7 +123,10 @@
         while ($rows = $result->fetch_assoc()) {
         ?>
             <div>
-                <form action="equip-rental-member.php" method="post">
+                <!-- <form action="equip-rental-member.php" method="post"> -->
+                <form action="../include/ShoppingCartAction.php?action=addToCart&prod_id=<?php echo $row['PROD_ID']; ?>" method="POST">
+                <!-- <form action="../include/ShoppingCartAction.php" method="POST"> -->
+
                     <div>
                         <div>
                             <?php echo "<img src=$rows[prod_image]>" ?>
@@ -136,7 +139,10 @@
                             <h5>
                                 <span><?php echo "$" . $rows['prod_price']; ?></span>
                             </h5>
-                            <button type="submit" name="add">Add to Cart </button>
+                            <!-- <a href="../include/ShoppingCartAction.php?action=addToCart&PROD_ID=<?php echo $row['PROD_ID']; ?>">Add to Cart </a> -->
+                            <!-- <button type="submit" name="addToCart">Add to Cart </button> -->
+                            <input type="submit" name="action" value="Add To Cart">
+
                             <input type='hidden' name='prod_id' value="<?php echo $rows['PROD_ID'] ?>">
                         </div>
                     </div>
