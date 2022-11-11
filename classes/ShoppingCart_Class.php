@@ -6,7 +6,6 @@ if(!session_id()){
 
 
 class ShoppingCart {
-    echo("I'm in shopping cart");
     protected $cart_contents = array();
 
     public function __ShoppingCart()

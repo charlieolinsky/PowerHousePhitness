@@ -3,7 +3,7 @@
 require_once("../sql/connect.php"); 
 
 require_once("../forms/ShoppingCartClass.php");
-$cart = new Cart;
+$cart = new ShoppingCart();
 
 // Default redirect URL
 $redirectURL = "../UI/index.php";
@@ -17,14 +17,14 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         $sqlQ = "SELECT * FROM 'prod-data' WHERE PROD_ID=?"; 
         $stmt = $dbconn->prepare($sqlQ); 
         $stmt->bind_param("i", $db_id); 
-        $db_id = $product_id; 
+        // $db_id = $product_id; 
         $stmt->execute(); 
         $result = $stmt->get_result(); 
         $productRow = $result->fetch_assoc(); 
  
         $itemData = array( 
             'PROD_ID' => $productRow['PROD_ID'], 
-            'prod_image' => $productRow['image'], 
+            'prod_image' => $productRow['prod_image'], 
             'prod_name' => $productRow['prod_name'], 
             'prod_price' => $productRow['prod_price'], 
             'qty' => 1 
@@ -51,7 +51,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
          
         // Redirect to cart page 
         $redirectURL = '../forms/shoppingcart.php'; 
-    }elseif($_REQUEST['action'] == 'placeOrder' && $cart->total_items() > 0){ 
+    }elseif($_REQUEST['action'] == 'placeOrder' && $cart->totalItems() > 0){ 
         $redirectURL = '../forms/checkout.php'; 
          
         // Store post data 
@@ -91,15 +91,15 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
          
         if(empty($errorMsg)){ 
             // Insert customer data into the database 
-            $sqlQ = "INSERT INTO user_table (email, fname, lname) VALUES (?,?,?)"; 
-            $stmt = $dbconn->prepare($sqlQ); 
-            $stmt->bind_param("sssss", $db_email, $db_fname, $db_lname);
-            $db_email = $email;  
-            $db_fname = $fname; 
-            $db_lname = $lname; 
-            $insertCust = $stmt->execute(); 
+            // $sqlQ = "INSERT INTO user_table (email, fname, lname) VALUES (?,?,?)"; 
+            // $stmt = $dbconn->prepare($sqlQ); 
+            // $stmt->bind_param("sssss", $db_email, $db_fname, $db_lname);
+            // $db_email = $email;  
+            // $db_fname = $fname; 
+            // $db_lname = $lname; 
+            // $insertCust = $stmt->execute(); 
             
-            $sqlQ = "INSERT INTO user_address (address1, city, state, zip) VALUES (?,?,?,?)"; 
+            $sqlQ = "INSERT INTO user_address (address1, address2, city, state, zip) VALUES (?,?,?,?,?)"; 
             $stmt = $dbconn->prepare($sqlQ); 
             $stmt->bind_param("sssss", $db_address, $db_city, $db_state, $db_zip);
             $db_address = $address;  
