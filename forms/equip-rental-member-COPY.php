@@ -1,4 +1,4 @@
-<!-- CODE FOR EQUIP-RENTAL-MEMBER.PHP WITH UI -->
+<!-- BEESANNE ORGINAL PHP CODE FOR EQUIP-RENTAL-MEMBER.PHP WITHOUT UI -->
 <!-- code for where a member will check out equipment -->
 <html lang="en">
 
@@ -78,18 +78,15 @@
 <br><br><br>
 
 <main>
-    <div class="equip-title">
-            <h1 style="color: var(--primary-color)">Equiptment Rental Portal</h1>
-            <h4>Need to rent equipment while visiting our facility? We have a variety of options from basketballs
-                to shoot hoops, to frisbees to toss around our open gym!
-            </h4>
-            <p>Rentals must be returned before close on the day item was checked out.
-               Please visit our front desk to pick up and return your items.
-            </p>
-        </div>
-    </div>
+    <h1>Equiptment Rental Portal</h1>
+    <h4>Need to rent equipment while visiting our facility? We have a variety of options from basketballs
+        to shoot hoops, to frisbees to toss around our open gym!
+    </h4>
+    <p>Rentals must be returned before close on the day item was checked out.
+        Please visit our front desk to pick up and return your items.
+    </p>
 
-    <!-- <div class="rental-products"> -->
+    <div class="rental-products">
         <!-- FILE TO QUERY DATA  -->
         <?php
 
@@ -124,39 +121,33 @@
         <!-- PHP CODE TO FETCH DATA FROM ROWS -->
         <?php
         // LOOP TILL END OF DATA
-            while ($rows = $result->fetch_assoc()) {
-            ?>
-                    <div class="equip-container">
-                        <div class="row">
-                            <form action="equip-rental-member.php" method="post">
-                                <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12">
-                                    <div class="equip-info">
-                                        <?php echo "<img src=$rows[prod_image]>" ?> 
-                                    </div>   
-                                </div>
-                                <div class="equip-description">
-                                    <h3 class="mb-1"> <?php echo $rows['prod_name'];?> </h3>
-                                    <p><?php echo $rows['prod_desc']; ?></p>
-                                    <h4 class="mb-1">
-                                        <span style="color: var(--primary-color)"><?php echo "$" . $rows['prod_price']; ?></span>
-                                    </h4>
-
-
-
-                                    <!-- <button type="submit" name="add">Add to Cart </button> -->
-                                    <!-- data-toggle="modal" data-target="#membershipForm" -->
-                                    <a href="#" class="btn cart-btn mt-3">Add to Cart</a>
-                                    <input type='hidden' name='prod_id' value="<?php echo $rows['PROD_ID'] ?>">
-                                </div>
-                            </form>
+        while ($rows = $result->fetch_assoc()) {
+        ?>
+            <div>
+                <form action="equip-rental-member.php" method="post">
+                    <div>
+                        <div>
+                            <?php echo "<img src=$rows[prod_image]>" ?>
                         </div>
-                    </div> 
-                <?php
-            }
+                        <div>
+                            <h5><?php echo $rows['prod_name']; ?></h5>
+                            <p>
+                                <?php echo $rows['prod_desc']; ?>
+                            </p>
+                            <h5>
+                                <span><?php echo "$" . $rows['prod_price']; ?></span>
+                            </h5>
+                            <button type="submit" name="add">Add to Cart </button>
+                            <input type='hidden' name='prod_id' value="<?php echo $rows['PROD_ID'] ?>">
+                        </div>
+                    </div>
+                </form>
+            <?php
+        }
             ?>
-        </div>
+            </div>
 
-    <!-- </div> -->
+    </div>
 
 
 
