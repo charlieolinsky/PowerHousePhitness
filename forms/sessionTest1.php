@@ -1,16 +1,26 @@
 <?php
-    include_once("../classes/Session.php"); 
+    include_once("../include/global_inc.php"); 
 
     $session = new Session(); 
 
-    echo "STATUS: ".session_status();
-    echo "ID: ".session_id(); 
+    echo "<h1>Test 1</h1><br>";
+    echo ("STATUS: ".session_status()."<br>"); 
+    echo ("ID: ".session_id()."<br>"); 
+
+    echo ("Cookie Parameters: <br>");
+
+    //setcookie();
+
+    $parameters = $session->params();
+    foreach($p as $value){
+        echo "$value <br>";
+    }
     
 
-    $session -> close(); 
+    // $session -> destroy();  
 
-    echo "STATUS: ".session_status()."\n";
-    echo "ID: ".session_id(); 
+    // echo (" STATUS: ".session_status()."<br>");
+    // echo (" ID: ".session_id()."<br>"); 
 
 
 
