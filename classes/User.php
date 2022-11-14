@@ -59,7 +59,7 @@ public function createUser(){
     include_once("../sql/connect.php");
     $mysqli = new mysqli ($server, $dbusername, $password, $db);  
     
-    $sql = "INSERT INTO user_login (email, passcode, fname, lname)
+    $sql = "INSERT INTO user_table (email, passcode, fname, lname)
             VALUES (?,?,?,?)";
 
    $stmt = $mysqli->stmt_init();
@@ -89,43 +89,53 @@ public function removeUser($id) //move this to admin page ?
 {
     include_once("../sql/connect.php");
     $mysqli = new mysqli ($server, $dbusername, $password, $db); 
-    $sql = "DELETE FROM user_login WHERE USER_ID = ?";
+    $sql = "DELETE FROM user_table WHERE USER_ID = ?";
 }
-public function setFirstName()
+public static function setFirstName($fn, $id)
 {  
     include_once("../sql/connect.php");
-    $mysqli = new mysqli ($server, $dbusername, $password, $db);  
+    //$mysqli = new mysqli ($server, $dbusername, $password, $db);  
     
-    $sql = "UPDATE user_login SET fname = ? WHERE user_id = ?";   
+   $sql = $dbconn -> prepare("UPDATE user_table SET fname = ? WHERE USER_ID = ?");   
 
+   $stmt = $mysqli->stmt_init();
+    
+    if ( ! $stmt->prepare($sql)) {   
+        die("SQL error: " . $mysqli->error);
+    }
+    
+    $stmt->bind_param("si", $fn, $id);
+                        $stmt->execute();
+                        header("Location: welcome.php");
+                        exit;
 }
-function setLastName()
+public function setLastName()
 { 
       include_once("../sql/connect.php");
       $mysqli = new mysqli ($server, $dbusername, $password, $db);  
       
-      $sql = "UPDATE user_login SET lname = ? WHERE user_id = ?";  
+      $sql = "UPDATE user_table SET lname = ? WHERE user_id = ?";  
 }
 function setEmail()
 {
       include_once("../sql/connect.php");
       $mysqli = new mysqli ($server, $dbusername, $password, $db);  
       
-      $sql = "UPDATE user_login SET email = ? WHERE user_id = ?";  
+      $sql = "UPDATE user_table SET email = ? WHERE user_id = ?";  
 }
 function setPassword()
 {      
   include_once("../sql/connect.php");
   $mysqli = new mysqli ($server, $dbusername, $password, $db);  
   
-  $sql = "UPDATE user_login SET passcode = ? WHERE user_id = ?";  
+  $sql = "UPDATE user_table SET passcode = ? WHERE user_id = ?";  
 }
 function setMembershipLevel()
 {    
   include_once("../sql/connect.php");
   $mysqli = new mysqli ($server, $dbusername, $password, $db);  
   
-  $sql = "UPDATE user_login SET roles = ? WHERE user_id = ?";  
+  $sql = "UPDATE user_table SET roles = ? WHERE user_id = ?";  
 }
 // 
 function setAddress()
