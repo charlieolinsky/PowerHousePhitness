@@ -96,18 +96,19 @@ public static function setFirstName($fn, $id)
     include_once("../sql/connect.php");
     //$mysqli = new mysqli ($server, $dbusername, $password, $db);  
     
-   $sql = $dbconn -> prepare("UPDATE user_table SET fname = ? WHERE USER_ID = ?");   
+   //$sql = $dbconn -> prepare("UPDATE user_table SET fname = $fn WHERE USER_ID = $id");   
+   $stmt = $dbconn ->prepare("UPDATE user_table SET fname = $fn WHERE USER_ID = $id");   
 
-   $stmt = $mysqli->stmt_init();
+   //$stmt = $mysqli->stmt_init();
     
-    if ( ! $stmt->prepare($sql)) {   
-        die("SQL error: " . $mysqli->error);
-    }
+    // if ( ! $stmt->prepare($sql)) {   
+    //     die("SQL error: " . $mysqli->error);
+    // }
     
-    $stmt->bind_param("si", $fn, $id);
-                        $stmt->execute();
-                        header("Location: welcome.php");
-                        exit;
+    // $stmt->bind_param("si", $fn, $id);
+    //                     $stmt->execute();
+    //                     header("Location: welcome.php");
+    //                     exit;
 }
 public function setLastName()
 { 
