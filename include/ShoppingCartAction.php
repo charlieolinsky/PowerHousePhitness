@@ -4,16 +4,19 @@ require_once("../sql/connect.php");
 
 require_once("../classes/ShoppingCart_Class.php");
 $cart = new ShoppingCart();
-echo "hello 4"; //this shows up
-
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// echo "hello 4"; //this shows up
+// echo htmlspecialchars($_REQUEST['prod_id']);
+// }
 
 // Default redirect URL
 // $redirectURL = "../UI/index.php";
 
 // Process request based on the specified action 
-if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){ 
-    if($_REQUEST['action'] == 'addToCart' && !empty($_REQUEST['PROD_ID'])){ 
-        $product_id = $_REQUEST['PROD_ID']; 
+if(isset($_POST['action']) && !empty($_POST['action'])){ 
+    echo $_POST['prod_id']; //this shows
+    if(($_POST['action'] == 'addToCart') && (!empty($_POST['PROD_ID']))){ 
+        $product_id = $_POST['PROD_ID']; 
         echo "hello 3"; //this doesnt show 
 
         // Fetch product details from the database 
@@ -61,8 +64,8 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         // Store post data 
         $_SESSION['postData'] = $_POST; 
      
-        $first_name = strip_tags($_POST['first_name']); 
-        $last_name = strip_tags($_POST['last_name']); 
+        $fname = strip_tags($_POST['fname']); 
+        $lname = strip_tags($_POST['lname']); 
         $email = strip_tags($_POST['email']); 
         $phone = strip_tags($_POST['phone']); 
         $address = strip_tags($_POST['address']); 
@@ -171,7 +174,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         $_SESSION['sessData'] = $sessData; 
     } 
 } 
-echo "hello 5";  //this shows up
+echo "hello 6";  //this shows up
 
 // Redirect to the specific page 
 header("Location: $redirectURL"); 

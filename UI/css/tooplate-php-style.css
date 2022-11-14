@@ -117,7 +117,6 @@ https://www.tooplate.com/view/2119-gymso-fitness
     transform: translate(-50%, -50%)
   }
 
-
   /*---------------------------------------
      TYPOGRAPHY              
   -----------------------------------------*/
@@ -670,7 +669,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
   -----------------------------------------*/
 
   .about {
-    background: var(--about-bg-color);
+    background: var(--dark-color);
   }
 
   .about-working-hours {
@@ -708,6 +707,73 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
   .team-info .social-icon li {
     display: block;
+  }
+
+  /* .flex-container-a{
+    display: flex; 
+    flex-direction: row;
+    background: var(--white-color);
+    border-radius: 0 0 2px 2px;
+    box-shadow: 6px 0 38px rgba(20,20,20,0.10);
+    padding: 35px;
+    position:relative;
+    width: 100%;
+    margin: 10px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 30px;
+  } */
+
+  .about-container{
+    display: inline-flex;
+    flex-direction: row; 
+    background: var(--dark-color);
+    border-radius: 0 0 2px 2px;
+    box-shadow: 6px 0 38px rgba(20,20,20,0.10);
+    padding: 35px;
+    margin: 5px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    width: min-content;
+    text-align: center;
+    align-items: center;
+  }
+
+  .about-info {
+    background: var(--dark-color);
+    position: relative;
+    border-radius: 0 0 2px 2px; 
+  }
+
+  .about-info img{
+    border-radius: 2px 2px 0 0;
+    /* position: relative; */
+    height: 360px;
+    border: 5px solid var(--white-color)
+  }
+
+  .about-title{
+      background: transparent;
+      flex-direction: column;
+      position: relative;
+      text-align: center;
+      padding-top: 10px;
+      width: 100%;
+      /* display: inline-flex; */
+  }
+
+  .full-container{
+    flex-direction: row; 
+    background: var(--dark-color);
+    border-radius: 0 0 2px 2px;
+    box-shadow: 6px 0 38px rgba(20,20,20,0.10);
+    padding: 35px;
+    margin: 5px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center;
+    align-items: center;
   }
 
   /*---------------------------------------

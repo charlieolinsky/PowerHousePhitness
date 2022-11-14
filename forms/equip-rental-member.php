@@ -145,8 +145,10 @@
 
                                     <!-- <button type="submit" name="add">Add to Cart </button> -->
                                     <!-- data-toggle="modal" data-target="#membershipForm" -->
-                                    <a href="#" class="btn cart-btn mt-3">Add to Cart</a>
-                                    <input type='hidden' name='prod_id' value="<?php echo $rows['PROD_ID'] ?>">
+                                    <a href="../include/ShoppingCartAction.php?action=addToCart&PROD_ID" class="btn cart-btn mt-3">Add to Cart</a>
+                                    <input type='hidden' name='prod_id' value="<?php $rows['PROD_ID'] ?>">
+                                    // submit button goes here. Name button addToCart
+                                    // Need submit button
                                 </div>
                             </form>
                         </div>
