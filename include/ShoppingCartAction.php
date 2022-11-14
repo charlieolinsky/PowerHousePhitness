@@ -4,10 +4,10 @@ require_once("../sql/connect.php");
 
 require_once("../classes/ShoppingCart_Class.php");
 $cart = new ShoppingCart();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-echo "hello 4"; //this shows up
-echo htmlspecialchars($_REQUEST['prod_id']);
-}
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// echo "hello 4"; //this shows up
+// echo htmlspecialchars($_REQUEST['prod_id']);
+// }
 
 // Default redirect URL
 // $redirectURL = "../UI/index.php";
