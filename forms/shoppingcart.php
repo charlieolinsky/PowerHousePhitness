@@ -82,7 +82,7 @@
                 </table>
             </div>
             <div class="row">
-                <a href="../UI/index.php" class="btn btn-block btn-secondary"></i>Continue Shopping</a>
+                <a href="../forms/equip-rental-member.php" class="btn btn-block btn-secondary"></i>Continue Shopping</a>
             </div>
 
             <div class="row">
