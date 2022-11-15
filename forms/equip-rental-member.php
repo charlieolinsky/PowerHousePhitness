@@ -129,9 +129,13 @@
                     <div class="equip-container">
                         <div class="row">
                             <!-- <form action="../classes/testCartClass.php" method="POST"> -->
-                            <!-- <form action="../include/ShoppingCartAction.php" method="POST"> -->
+                            <!-- <form action="../include/add-to-cart.php" method="POST"> -->
 
-                            <form action="../include/ShoppingCartAction.php?action=addToCart&PROD_ID" method="post">
+                            <!-- <form action="../include/ShoppingCartAction.php?action=addToCart&PROD_ID" method="post"> -->
+                            <!-- <form action="../include/add-to-cart.php?action=addToCart&PROD_ID" method="post"> -->
+                            <form action="../forms/bee-shopping-cart.php" method="post">
+
+
 
                                 <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12">
                                     <div class="equip-info">
@@ -151,6 +155,9 @@
                                     <!-- data-toggle="modal" data-target="#membershipForm" -->
                                     <!-- <a href="../include/ShoppingCartAction.php?action=addToCart&PROD_ID" class="btn cart-btn mt-3">Add to Cart</a> -->
                                     <input type="hidden" name="PROD_ID" value="<?php echo $rows['PROD_ID'] ?>">
+                                    <input type="hidden" name="prod_price" value="<?php echo $rows['prod_price'] ?>">
+                                    <input type="hidden" name="prod_name" value="<?php echo $rows['prod_name'] ?>">
+
                                     <!-- <input type="hidden" name="addToCard" value=> -->
                                     <!-- submit button goes here. Name button addToCart -->
                                     <!-- Need submit button -->
