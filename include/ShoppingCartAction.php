@@ -3,9 +3,9 @@
 require_once("../sql/connect.php"); 
 
 require_once("../classes/ShoppingCart_Class.php");
-
 $cart = new ShoppingCart();
 
+<<<<<<< HEAD
 if(isset($_POST['addToCart'])){
     // print_r($_POST['PROD_ID']);
     // $addcart = "INSERT INTO `cart` VALUES"
@@ -41,19 +41,15 @@ if(isset($_POST['addToCart'])){
 
 // Default redirect URL
 // $redirectURL = "../UI/index.php";
+=======
+>>>>>>> d7af12bee36fbe6043f8ec961eeb93e4e61a0b01
 
 // Process request based on the specified action 
-if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){ 
-    //echo $_POST['prod_id']; //this show
-// if(isset($_POST["addToCart"])){
-//     echo ($_POST['PROD_ID']);
-// }
-// }
-
-
-    if(($_POST['action'] == 'addToCart') && (!empty($_POST['action']))){ 
-        // $product_id = $_POST['PROD_ID']; 
-        // echo "hello 3"; //this doesnt show 
+if(isset($_POST['action']) && !empty($_POST['action'])){ 
+    echo $_POST['PROD_ID'];
+    if(($_POST['action'] == 'addToCart') && (!empty($_POST['PROD_ID']))){ 
+        $product_id = $_POST['PROD_ID']; 
+        echo "hello 3"; //this doesnt show 
 
         // Fetch product details from the database 
         $sqlQ = "SELECT * FROM 'prod-data' WHERE PROD_ID=?"; 
@@ -152,7 +148,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
             $insertCust = $stmt->execute(); 
              
             if($insertCust){ 
-                $custID = $stmt->insert_id; 
+                //$custID = $stmt->insert_id; 
                 echo $custID;
 
                 // Insert order info in the database 

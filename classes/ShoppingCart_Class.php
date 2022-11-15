@@ -13,7 +13,7 @@ class ShoppingCart {
         // get the shopping cart array from the session 
         $this->cart_contents = !empty($_SESSION['cart_contents'])?$_SESSION['cart_contents']:NULL; 
         if ($this->cart_contents === NULL){ 
-            $this->cart_contents = array('cart_total' => 0, 'total_items' => 0); 
+            $this->cart_contents = array('cart_total' => 0, 'totalItems' => 0); 
         }
     }
 
@@ -41,7 +41,7 @@ class ShoppingCart {
     //return total item count 
     public function totalItems()
     {
-        return $this->cart_contents['total_items']; 
+        return $this->cart_contents['totalItems']; 
     }
 
     // total price
@@ -56,7 +56,7 @@ class ShoppingCart {
         if(!is_array($item) OR count($item) === 0){ 
             return FALSE; 
         }else{ 
-            if(!isset($item['id'], $item['name'], $item['price'], $item['qty'])){ 
+            if(!isset($item['PROD_ID'], $item['prod_name'], $item['prod_price'], $item['qty'])){ 
                 return FALSE; 
             }else{ 
                 /* 
@@ -68,9 +68,9 @@ class ShoppingCart {
                     return FALSE; 
                 } 
                 // prep the price 
-                $item['price'] = (float) $item['price']; 
+                $item['prod_price'] = (float) $item['prod_price']; 
                 // create a unique identifier for the item being inserted into the cart 
-                $rowid = $item['id']; 
+                $rowid = $item['PROD_ID']; 
                 // get quantity if it's already there and add it on 
                 $old_qty = isset($this->cart_contents[$rowid]['qty']) ? (int) $this->cart_contents[$rowid]['qty'] : 0; 
                 // re-create the entry with unique identifier and updated quantity 
@@ -127,16 +127,16 @@ class ShoppingCart {
     //save the cart array to the session
     protected function save_cart()
     {
-        $this->cart_contents['total_items'] = $this->cart_contents['cart_total'] = 0; 
+        $this->cart_contents['totalItems'] = $this->cart_contents['cart_total'] = 0; 
         foreach ($this->cart_contents as $key => $val){ 
             // make sure the array contains the proper indexes 
-            if(!is_array($val) OR !isset($val['price'], $val['qty'])){ 
+            if(!is_array($val) OR !isset($val['prod_price'], $val['qty'])){ 
                 continue; 
             } 
       
-            $this->cart_contents['cart_total'] += ($val['price'] * $val['qty']); 
-            $this->cart_contents['total_items'] += $val['qty']; 
-            $this->cart_contents[$key]['subtotal'] = ($this->cart_contents[$key]['price'] * $this->cart_contents[$key]['qty']); 
+            $this->cart_contents['cart_total'] += ($val['prod_price'] * $val['qty']); 
+            $this->cart_contents['totalItems'] += $val['qty']; 
+            $this->cart_contents[$key]['subtotal'] = ($this->cart_contents[$key]['prod_price'] * $this->cart_contents[$key]['prod_quantity']); 
         } 
          
         // if cart empty, delete it from the session 
@@ -160,7 +160,7 @@ class ShoppingCart {
     //empty the cart and destroy the session
     public function destroy()
     {
-        $this->cart_contents = array('cart_total' => 0, 'total_items' => 0); 
+        $this->cart_contents = array('cart_total' => 0, 'totalItems' => 0); 
         unset($_SESSION['cart_contents']); 
     }
 
