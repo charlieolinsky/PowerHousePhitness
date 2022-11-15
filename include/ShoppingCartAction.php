@@ -4,17 +4,11 @@ require_once("../sql/connect.php");
 
 require_once("../classes/ShoppingCart_Class.php");
 $cart = new ShoppingCart();
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-// echo "hello 4"; //this shows up
-// echo htmlspecialchars($_REQUEST['prod_id']);
-// }
 
-// Default redirect URL
-// $redirectURL = "../UI/index.php";
 
 // Process request based on the specified action 
 if(isset($_POST['action']) && !empty($_POST['action'])){ 
-    echo $_POST['prod_id']; //this shows
+    echo $_POST['PROD_ID'];
     if(($_POST['action'] == 'addToCart') && (!empty($_POST['PROD_ID']))){ 
         $product_id = $_POST['PROD_ID']; 
         echo "hello 3"; //this doesnt show 
