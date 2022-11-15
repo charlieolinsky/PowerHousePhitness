@@ -10,9 +10,11 @@ if(isset($_POST['addToCart'])){
     // print_r($_POST['PROD_ID']);
     // $addcart = "INSERT INTO `cart` VALUES"
     $sql = "INSERT INTO `cart` 
-            (`PROD_ID`)
+            (`PROD_ID`,
+            `ORDER_ID`)
             VALUES 
-            ( '".$_POST['PROD_ID']."')";
+            ( '".$_POST['PROD_ID']."',
+            'int')";
    
 //    include_once("../sql/connect.php");
 
