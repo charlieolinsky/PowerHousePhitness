@@ -2,7 +2,7 @@
 <?php
 
 $sql = "INSERT INTO `prod-data` 
-(`prod_name`, 
+            (`prod_name`, 
             `prod_desc`,
             `prod_image`, 
             `prod_price`, 
@@ -10,7 +10,8 @@ $sql = "INSERT INTO `prod-data`
             `VENDOR_ID`, 
             `prod_date_purchased`,
             `prod_purchase_cost`)
-VALUES ('".$_POST['prod_name']."', 
+VALUES 
+        ( '".$_POST['prod_name']."', 
         '".$_POST['prod_desc']."',
         '../UI/images/prod_images/".$_FILES['prod_image']['name']."',
         '".$_POST['prod_price']."', 
@@ -38,3 +39,4 @@ if ($dbconn->query($sql) === TRUE) {
 
 $dbconn->close();
 ?>
+

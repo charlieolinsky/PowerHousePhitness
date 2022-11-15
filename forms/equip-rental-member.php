@@ -128,7 +128,11 @@
             ?>
                     <div class="equip-container">
                         <div class="row">
-                            <form action="equip-rental-member.php" method="post">
+                            <!-- <form action="../classes/testCartClass.php" method="POST"> -->
+                            <!-- <form action="../include/ShoppingCartAction.php" method="POST"> -->
+
+                            <form action="../include/ShoppingCartAction.php?action=addToCart&PROD_ID" method="post">
+
                                 <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12">
                                     <div class="equip-info">
                                         <?php echo "<img src=$rows[prod_image]>" ?> 
@@ -141,14 +145,15 @@
                                         <span style="color: var(--primary-color)"><?php echo "$" . $rows['prod_price']; ?></span>
                                     </h4>
 
+                                    <!-- <button type="submit" name="addToCart">Add  </button> -->
+                                    <input type="submit" name="addToCart" value="Add to Cart">
 
-
-                                    <!-- <button type="submit" name="add">Add to Cart </button> -->
                                     <!-- data-toggle="modal" data-target="#membershipForm" -->
-                                    <a href="../include/ShoppingCartAction.php?action=addToCart&PROD_ID" class="btn cart-btn mt-3">Add to Cart</a>
-                                    <input type='hidden' name='prod_id' value="<?php $rows['PROD_ID'] ?>">
-                                    // submit button goes here. Name button addToCart
-                                    // Need submit button
+                                    <!-- <a href="../include/ShoppingCartAction.php?action=addToCart&PROD_ID" class="btn cart-btn mt-3">Add to Cart</a> -->
+                                    <input type="hidden" name="PROD_ID" value="<?php echo $rows['PROD_ID'] ?>">
+                                    <!-- <input type="hidden" name="addToCard" value=> -->
+                                    <!-- submit button goes here. Name button addToCart -->
+                                    <!-- Need submit button -->
                                 </div>
                             </form>
                         </div>

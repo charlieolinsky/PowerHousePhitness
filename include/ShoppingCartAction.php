@@ -3,7 +3,35 @@
 require_once("../sql/connect.php"); 
 
 require_once("../classes/ShoppingCart_Class.php");
+
 $cart = new ShoppingCart();
+
+if(isset($_POST['addToCart'])){
+    // print_r($_POST['PROD_ID']);
+    // $addcart = "INSERT INTO `cart` VALUES"
+    $sql = "INSERT INTO `cart` 
+            (`PROD_ID`)
+            VALUES 
+            ( '".$_POST['PROD_ID']."')";
+   
+//    include_once("../sql/connect.php");
+
+    // echo "butts";
+    echo $_POST['PROD_ID'];
+
+    // var_dump($_POST); //to confirm that the data was added 
+    
+    if ($dbconn->query($sql) === TRUE) {
+        echo "New inventory item added successfully";
+      } else {
+        echo "Error: " . $sql . "<br>" . $dbconn->error;
+      }
+    
+    
+    
+    $dbconn->close();
+
+}
 // if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // echo "hello 4"; //this shows up
 // echo htmlspecialchars($_REQUEST['prod_id']);
@@ -13,11 +41,17 @@ $cart = new ShoppingCart();
 // $redirectURL = "../UI/index.php";
 
 // Process request based on the specified action 
-if(isset($_POST['action']) && !empty($_POST['action'])){ 
-    echo $_POST['prod_id']; //this shows
-    if(($_POST['action'] == 'addToCart') && (!empty($_POST['PROD_ID']))){ 
-        $product_id = $_POST['PROD_ID']; 
-        echo "hello 3"; //this doesnt show 
+if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){ 
+    //echo $_POST['prod_id']; //this show
+// if(isset($_POST["addToCart"])){
+//     echo ($_POST['PROD_ID']);
+// }
+// }
+
+
+    if(($_POST['action'] == 'addToCart') && (!empty($_POST['action']))){ 
+        // $product_id = $_POST['PROD_ID']; 
+        // echo "hello 3"; //this doesnt show 
 
         // Fetch product details from the database 
         $sqlQ = "SELECT * FROM 'prod-data' WHERE PROD_ID=?"; 
