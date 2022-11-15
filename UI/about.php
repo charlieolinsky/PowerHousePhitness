@@ -86,7 +86,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
     <!-- ABOUT PAGE -->
     <section class="about section" id="about">
         <div class="my-container">
-            <div class="row">
+            <div class="row" >
 
                     <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
                         <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Hello, we are PHP!</h2>
@@ -97,61 +97,106 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                     </div>
             </div>      
+        </div>  
+          
+                
+                <!-- ABOUT BEESANNE -->
+                <div class="full-container">
+                    <div class="about-container">
+                        <div class="row">
+                            <!-- <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"> -->
+                                <div class="about-info">
+                                    <img src="images/team/beesanne.jpg" alt="Beesanne Kurzum">
+                                </div>   
+                                <div class="about-title">
+                                    <h3 class="mb-1"> 
+                                        <span style="color: var(--primary-color)">Beesanne Kurzum</span>
+                                    </h3>
+                                    <h4 class="mb-1">
+                                        <span style="color: var(--white-color)">Inventory & Data Management</span>
+                                    </h4>
+                                </div>
+                             </div>
+                    </div>  
 
-            <div class="flex-container">
-                <!-- Beesanne -->
-                <div class="team-thumb" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/team/beesanne.jpg" class="img-fluid" alt="Beesanne Kurzum">
+                    <!-- ABOUT CHARLIE -->
+                    <div class="about-container">
+                        <div class="row">
+                            <!-- <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"> -->
+                                <div class="about-info">
+                                    <img src="images/team/charles.jpg" alt="Charles Olinsky">
+                                </div>   
+                                <div class="about-title">
+                                    <h3 class="mb-1"> 
+                                        <span style="color: var(--primary-color)">Charles Olinsky</span>
+                                    </h3>
+                                        <h4 class="mb-1">
+                                            <span style="color: var(--white-color)">Group Leader</span>
+                                            <br>
+                                            <span style="color: var(--white-color)">Security & Sessions</span>
+                                        </h4>
+                                </div>
+                             </div>
+                    </div>        
 
-                    <div class="team-info d-flex flex-column">
-                            <h3>Beesanne Kurzum</h3>
-                            <span>Inventory & Data Management</span>
-                    </div>
+                    <!-- ABOUT ERICA -->
+                    <div class="about-container">
+                        <div class="row">
+                            <!-- <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"> -->
+                                <div class="about-info">
+                                    <img src="images/team/erica.jpg" alt="Erica Dubie">
+                                </div>   
+                                <div class="about-title">
+                                    <h3 class="mb-1"> 
+                                        <span style="color: var(--primary-color)">Erica Dubie</span>
+                                    </h3>
+                                    <h4 class="mb-1">
+                                        <span style="color: var(--white-color)">User Interface & Services</span>
+                                    </h4>
+                                </div>
+                             </div>
+                    </div> 
+
+                    <!-- ABOUT OLAMIDE -->
+                    <div class="about-container">
+                        <div class="row">
+                            <!-- <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"> -->
+                                <div class="about-info">
+                                    <img src="images/team/olamide.jpg" alt="Olamide Kumapayi">
+                                </div>   
+                                <div class="about-title">
+                                    <h3 class="mb-1"> 
+                                        <span style="color: var(--primary-color)">Olamide Kumapayi</span>
+                                    </h3>
+                                    <h4 class="mb-1">
+                                        <span style="color: var(--white-color)">Shopping Cart & Receipts</span>
+                                    </h4>
+                                </div>
+                             </div>
+                    </div> 
+
+                    <!-- ABOUT CHRISTINA -->
+                    <div class="about-container">
+                        <div class="row">
+                            <!-- <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"> -->
+                                <div class="about-info">
+                                    <img src="images/team/christina.jpg" alt="Christina Rodriguez">
+                                </div>   
+                                <div class="about-title">
+                                    <h3 class="mb-1"> 
+                                        <span style="color: var(--primary-color)">Christina Rodriguez</span>
+                                    </h3>
+                                    <h4 class="mb-1">
+                                        <span style="color: var(--white-color)">Users & Financial Reports</span>
+                                    </h4>
+                                </div>
+                             </div>
+                    </div> 
                 </div>
 
-                <!--  Olamide -->
-                <div class="team-thumb" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/team/olamide.jpg" class="img-fluid" alt="Olamide Kumapayi">
-
-                    <div class="team-info d-flex flex-column">
-                            <h3>Olamide Kumapayi</h3>
-                            <span>Shopping Cart & Receipts</span>
-                    </div>
                 </div>
-
-                <!-- Christina  -->
-                <div class="team-thumb" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/team/christina.JPG" class="img-fluid" alt="Christina Rodriguez">
-
-                    <div class="team-info d-flex flex-column">
-                            <h3>Christina Rodriguez</h3>
-                            <span>Users & Financial Reports</span>
-                    </div>
-                </div> 
             </div>
-
-            <div class="flex-container">
-                <!-- Charlie -->
-                <div class="team-thumb" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/team/charles.jpg" class="img-fluid" alt="Charles Olinsky">
-
-                    <div class="team-info d-flex flex-column">
-                            <h3>Charles Olinsky</h3>
-                            <span>Security & Sessions</span>
-                    </div>
-                </div>
-
-                <!-- Erica -->
-                <div class="team-thumb" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/team/erica.JPG" class="img-fluid" alt="Erica Dubie">
-
-                    <div class="team-info d-flex flex-column">
-                            <h3>Erica Dubie</h3>
-                            <span>UI & Services</span>
-                    </div>
-                </div>
-            </div>
-
+        </div>
             
     </section> 
 

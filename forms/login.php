@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     include_once("../sql/connect.php");
     $mysqli = new mysqli ($server, $dbusername, $password, $db);  
     
-    $sql = sprintf("SELECT * FROM user_login
+    $sql = sprintf("SELECT * FROM user_table
                     WHERE email = '%s'",
                    $mysqli->real_escape_string($_POST["email"]));
     
@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["role"] = $user["roles"]; //global var from db
             $_SESSION["fname"] = $user["fname"];
             $_SESSION["lname"] = $user["lname"];
+            $_SESSION["pword"] = $user["passcode"];
             
            header("Location: ../forms/welcome.php"); //ui/index.php
             exit;

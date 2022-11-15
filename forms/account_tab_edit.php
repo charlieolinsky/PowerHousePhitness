@@ -9,13 +9,15 @@ include_once("../sql/connect.php");
 
 
 
-if (isset($_POST['newName'])) {
+if (isset($_POST['fn'])) {
     $name = $_POST["newName"];
     $id = $_SESSION['user_id'];
+    echo $name;
+    echo $id;
 
     //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
     //$user -> setFirstName($name, $id);
-    setFirstName($name, $id);
+    User::setFirstName($name, $id);
 }
 
 
@@ -37,13 +39,13 @@ if (isset($_POST['newName'])) {
         ?>
            <!-- The form -->
       <div class="form-popup" id="myForm">
-      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="POST">   
+      <form action="../forms/account_tab_edit.php" method="POST">   
             <h3>Edit First Name</h3>
 
             <label for="newName"><b>First Name</b></label>
             <input type="name" placeholder="Enter new first name" name="newName" required>
-
-            <button type="submit" class="btn">Submit</button>
+            <input type="submit" name = "fn" value = "submit">
+            <!-- <button type="submit" class="btn">Submit</button> -->
           </form>
       </div>
         </dt>

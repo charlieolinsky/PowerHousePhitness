@@ -31,11 +31,11 @@ class ShoppingCart {
         return $cart; 
     }
 
-    public function getItem($row_id)
+    public function getItem($PROD_ID)
     {
-        return (in_array($row_id, array('total_items', 'cart_total'), TRUE) OR ! isset($this->cart_contents[$row_id])) 
+        return (in_array($PROD_ID, array('total_items', 'cart_total'), TRUE) OR ! isset($this->cart_contents[$PROD_ID])) 
             ? FALSE 
-            : $this->cart_contents[$row_id]; 
+            : $this->cart_contents[$PROD_ID]; 
     }
     
     //return total item count 
