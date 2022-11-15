@@ -5,23 +5,29 @@ require_once("../sql/connect.php");
 require_once("../classes/ShoppingCart_Class.php");
 $cart = new ShoppingCart();
 
-<<<<<<< HEAD
+
+// session_start();
+// if(!(isset($_SESSION['addToCart']))){
+//     $_SESSION['addToCart'];
+// }
+// echo($_SESSION['addToCart']);
+
+//if the addToCart Button is clicked
 if(isset($_POST['addToCart'])){
-    // print_r($_POST['PROD_ID']);
-    // $addcart = "INSERT INTO `cart` VALUES"
+    // $PROD_ID = $_POST['PROD_ID'];
+
+    //generate a random number for order_id
+    $ORDER_ID =rand(1,99999);
+    while ($row['count'] > 0);
+   //insert order_id and selected prod into cart
     $sql = "INSERT INTO `cart` 
             (`PROD_ID`,
             `ORDER_ID`)
             VALUES 
             ( '".$_POST['PROD_ID']."',
-            'int')";
+            '$ORDER_ID')";
    
-//    include_once("../sql/connect.php");
 
-    // echo "butts";
-    echo $_POST['PROD_ID'];
-
-    // var_dump($_POST); //to confirm that the data was added 
     
     if ($dbconn->query($sql) === TRUE) {
         echo "New inventory item added successfully";
@@ -41,8 +47,6 @@ if(isset($_POST['addToCart'])){
 
 // Default redirect URL
 // $redirectURL = "../UI/index.php";
-=======
->>>>>>> d7af12bee36fbe6043f8ec961eeb93e4e61a0b01
 
 // Process request based on the specified action 
 if(isset($_POST['action']) && !empty($_POST['action'])){ 
@@ -206,7 +210,7 @@ if(isset($_POST['action']) && !empty($_POST['action'])){
         $_SESSION['sessData'] = $sessData; 
     } 
 } 
-echo "hello 6";  //this shows up
+// echo "hello 6";  //this shows up
 
 // Redirect to the specific page 
 header("Location: $redirectURL"); 
