@@ -110,7 +110,7 @@ if(isset($_POST['action']) && !empty($_POST['action'])){
             $insertCust = $stmt->execute(); 
              
             if($insertCust){ 
-                $custID = $stmt->insert_id; 
+                //$custID = $stmt->insert_id; 
                 echo $custID;
 
                 // Insert order info in the database 
