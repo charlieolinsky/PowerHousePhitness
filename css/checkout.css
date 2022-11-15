@@ -1,4 +1,4 @@
-.col-25 {
+/* .col-25 {
     -ms-flex: 25%;
     flex: 25%;
 }
@@ -17,9 +17,9 @@
 .col-50,
 .col-75 {
     padding: 0 - 16px;
-} 
+}  */
 
-.container {
+/* .container {
     background-color: white;
     padding: 5px 20px 15px 20px;
     border: 1px solid lightgray;
@@ -28,9 +28,9 @@
     height: 50px;
     border: 1px solid white;
 
-}
+} */
 
-.cart-container {
+/* .cart-container {
     padding: 5px 20px 15px 20px;
     border: 1px solid white;
     border-radius: 3px; 
@@ -38,23 +38,23 @@
     height: 300px;
     float: right;
     background-color: white;
-}
+} */
 
-input [type=text] {
+/* input [type=text] {
     width: 100%;
     margin-bottom: 20px;
     padding: 2px;
     border: 1px solid black;
     border-radius: 3px;
-}
+} */
 
-.icon-container {
+/* .icon-container {
     margin-bottom: 10px;
     padding: 7px 0;
     font-size: 24px;
-}
+} */
 
-.btn {
+/* .btn {
     background-color: green;
     color: white;
     padding: 12px;
@@ -64,18 +64,14 @@ input [type=text] {
     border-radius: 3px;
     cursor: pointer;
     font-size: 17px;
-}
+} */
 
-.btn-hover {
+/* .btn-hover {
     background-color: limegreen;
-}
+} */
 
 span.price {
     float: right;
     color: black;
     
-}
-
-input[type="text"]:disabled {
-    background: #ccc;
 }

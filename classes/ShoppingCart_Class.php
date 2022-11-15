@@ -25,17 +25,17 @@ class ShoppingCart {
         $cart = array_reverse($this->cart_contents); 
  
         // remove these so they don't create a problem when showing the cart table 
-        unset($cart['total_items']); 
+        unset($cart['totalItems']); 
         unset($cart['cart_total']); 
  
         return $cart; 
     }
 
-    public function getItem($PROD_ID)
+    public function getItem($row_id)
     {
-        return (in_array($PROD_ID, array('total_items', 'cart_total'), TRUE) OR ! isset($this->cart_contents[$PROD_ID])) 
+        return (in_array($row_id, array('totalItems', 'cart_total'), TRUE) OR ! isset($this->cart_contents[$row_id])) 
             ? FALSE 
-            : $this->cart_contents[$PROD_ID]; 
+            : $this->cart_contents[$row_id]; 
     }
     
     //return total item count 

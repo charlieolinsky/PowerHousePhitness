@@ -8,7 +8,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
-        <script src="https://kit.fontawesome.com/6c54e79b44.js" crossorigin="anonymous"></script>
+        <!-- <script src="https://kit.fontawesome.com/6c54e79b44.js" crossorigin="anonymous"></script> -->
 
         <link rel="stylesheet" href="../css/checkout.css">
     </head>
@@ -24,33 +24,35 @@
                 <div class="col-50">
                     <h1>Checkout</h1>
                     <h3>Shipping Address</h3>
-                    <label for="fname"><i class="fa fa-user"></i> First Name </label>
+                    <label for="fname"> First Name </label>
                     <input type="text" id="fname" name="firstname" placeholder="First Name"><br><br>
-                    <label for="lname"><i class="fa fa-user"></i> Last Name </label>
+                    <label for="lname"> Last Name </label>
                     <input type="text" id="lname" name="lastname" placeholder="Last Name"><br><br>
-                    <label for="email"><i class="fa fa-envelope"></i> Email </label>
+                    <label for="email"> Email </label>
                     <input type="text" id="email" name="email" placeholder="you@example.com"><br><br>
-                    <label for="adr"><i class="fa light fa-address-card"></i> Address </label>
+                    <label for="adr"> Address </label>
                     <input type="text" id="adr" name="address" placeholder="Address"><br><br>
-                    <label for="city"><i class="fa fa-city"></i> City </label>
+                    <label for="city"> City </label>
                     <input type="text" id="city" name="city" placeholder="New Paltz"><br><br>
-                    <label for="state"></i> State </label>
+                    <label for="state"> State </label>
                     <input type="text" id="state" name="state" placeholder="New York">
-                    <label for="zip"></i> Zip </label> 
+                    <label for="zip"> Zip </label> 
                     <input type="text" id="zip" name="zip" placeholder="12561"><br><br>
                 </div>
                 
 
                 
-                <h3>Payment</h3>
-                <label for="card">Accepted Cards</label>
-                <div class="icon-container">
+                <!-- <h3>Payment</h3>
+                <label for="card">Accepted Cards</label> -->
+                <!-- <div class="icon-container">
                     <i class="fa-brands fa-cc-visa" style="color:navy;"></i>
                     <i class="fa fa-cc-amex" style="color:gold;"></i>
                     <i class="fa-brands fa-cc-discover" style="color:brown"></i>
                     <i class="fa-brands fa-cc-mastercard" style="color:darkolivegreen"></i>
                     <i class="fa-brands fa-paypal" style="color:blue"></i>
-                </div>
+                </div> -->
+
+                <h3> Payment Information </h3>
                 <label for="cname">Name on Card</label>
                 <input type="text" id="cname" name="cardname" placeholder="John M Doe"><br><br>
                 <label for="cnum">Card number </label>
@@ -66,7 +68,7 @@
                 </div>
                 
 
-                <label>
+                <!-- <label>
                     <h3>Billing Address</h3>
                     <label for="billing-checkbox"> Shipping address same as Billing address: </label>
                     <input type="checkbox" id="billing-checkbox" checked="checked" />  <br><br>
@@ -83,7 +85,7 @@
                     <input type="text" id="state" name="state" placeholder="New York" disabled>
                     <label for="zip"> Zip </label> 
                     <input type="text" id="zip" name="zip" placeholder="12561" disabled><br><br>
-                </label><br><br>
+                </label><br><br> -->
 
                 <form action="placeorder.php">
                     <input type="submit" value="Place Order" class="btn">
@@ -96,9 +98,9 @@
     <div class="col-25">
         <div class="cart-container">
             <h4>Cart 
-                <span class="price" style="color:black">
+                <!-- <span class="price" style="color:black">
                     <i class="fa-sharp fa-solid fa-cart-shopping"></i>
-                    <b>4</b>
+                    <b>4</b> -->
                 </span>
             </h4>
             <P><a href="#">Product 1</a> <span class="price">$15</span></P>
