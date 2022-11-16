@@ -2,6 +2,8 @@
 
 // THIS INCLUDES ERROR HANDLING- password requirements, verify match, checks if a field was left empty 
 
+use SecurityService\SecurityService;
+
 class User {
 //properties
 private $id;
@@ -51,10 +53,11 @@ public function createUser(){
         die("Passwords must match");
     }
     
-    //Hashing object 
-    //or
-    //hashing in session class 
-    $password_hash = password_hash($_POST["pword"], PASSWORD_DEFAULT);
+    
+    //Security Service Class Password Hash 
+    $secure = new SecurityService(); 
+    $password_hash = $secure -> hp($_POST["pword"]);
+
     
     include_once("../sql/connect.php");
     $mysqli = new mysqli ($server, $dbusername, $password, $db);  
