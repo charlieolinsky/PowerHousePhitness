@@ -7,20 +7,70 @@ include_once("../classes/User.php");
 include_once("../classes/roles.php");
 include_once("../sql/connect.php");
 
-
-
+// calling method from user class to reset firstname
 if (isset($_POST['fn'])) {
-    $name = $_POST["newName"];
+    $fName = $_POST["newName"];
     $id = $_SESSION['user_id'];
-    echo $name;
-    echo $id;
 
     //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
     //$user -> setFirstName($name, $id);
-    User::setFirstName($name, $id);
+    //User::setFirstName($name, $id);
+      User::setFirstName($fName, $id);
 }
 
+// calling method from user class to reset lastname
+if (isset($_POST['ln'])) {
+  $lName = $_POST["newLname"];
+  $id = $_SESSION['user_id'];
 
+  //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
+  //$user -> setFirstName($name, $id);
+  //User::setFirstName($name, $id);
+    User::setLastName($lName, $id);
+}
+
+// calling method from user class to reset email
+if (isset($_POST['em'])) {
+  $email = $_POST["newEm"];
+  $id = $_SESSION['user_id'];
+
+  //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
+  //$user -> setFirstName($name, $id);
+  //User::setFirstName($name, $id);
+    User::setEmail($email, $id);
+}
+
+// calling method from user class to reset address
+if (isset($_POST['add'])) {
+  $address = $_POST["newAddress"];
+  $id = $_SESSION['user_id'];
+
+  //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
+  //$user -> setFirstName($name, $id);
+  //User::setFirstName($name, $id);
+    User::setFirstName($address, $id);
+}
+// calling method from user class to reset password
+if (isset($_POST['pass'])) {
+
+  if ($_POST["newPassword"] !== $_POST["vPass"]) {
+    die("Passwords must match");
+}
+  $pass = $_POST["newPassword"];
+  $id = $_SESSION['user_id'];
+
+  //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
+  //$user -> setFirstName($name, $id);
+  //User::setFirstName($name, $id);
+    User::setPassword($pass, $id);
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST")
+{
+  echo "hello";
+  $id = $_SESSION['user_id'];
+  User::removeUser($id);
+}
 
 ?>
 
@@ -44,7 +94,7 @@ if (isset($_POST['fn'])) {
 
             <label for="newName"><b>First Name</b></label>
             <input type="name" placeholder="Enter new first name" name="newName" required>
-            <input type="submit" name = "fn" value = "submit">
+            <input type="submit" name = "fn" value = "Submit">
             <!-- <button type="submit" class="btn">Submit</button> -->
           </form>
       </div>
@@ -58,13 +108,12 @@ if (isset($_POST['fn'])) {
         ?>
            <!-- The form -->
       <div class="form-popup" id="myForm">
-          <form action="/action_page.php" class="form-container">
+      <form action="../forms/account_tab_edit.php" method="POST">  
             <h3>Edit Last Name</h3>
 
-            <label for="fname"><b>Last Name</b></label>
-            <input type="name" placeholder="Enter new last name" name="fname" required>
-
-            <button type="submit" class="btn">Submit</button>
+            <label for="newLname"><b>Last Name</b></label>
+            <input type="name" placeholder="Enter new last name" name="newLname" required>
+            <input type="submit" name = "ln" value = "Submit">
           </form>
       </div>
         </dt>
@@ -78,13 +127,13 @@ if (isset($_POST['fn'])) {
         ?> 
            <!-- The form -->
       <div class="form-popup" id="myForm">
-          <form action="/action_page.php" class="form-container">
+      <form action="../forms/account_tab_edit.php" method="DELETE">  
             <h3>Edit Email</h3>
 
-            <label for="fname"><b>Email</b></label>
-            <input type="name" placeholder="Enter new email" name="fname" required>
+            <label for="newEm"><b>Email</b></label>
+            <input type="name" placeholder="Enter new email" name="newEm" required>
 
-            <button type="submit" class="btn">Submit</button>
+            <input type="submit" name = "em" value = "Submit">
           </form>
       </div>
         </dt>
@@ -97,15 +146,33 @@ if (isset($_POST['fn'])) {
         ?> 
            <!-- The form -->
       <div class="form-popup" id="myForm">
-          <form action="/action_page.php" class="form-container">
+      <form action="../forms/account_tab_edit.php" method="POST">  
             <h3>Edit Address</h3>
 
-            <label for="fname"><b>Address</b></label>
-            <input type="name" placeholder="Enter new address" name="fname" required>
+            <label for="newAddress"><b>Address</b></label>
+            <input type="name" placeholder="Enter new address" name="newAddress" required>
 
-            <button type="submit" class="btn">Submit</button>
+            <input type="submit" name = "add" value = "Submit">
           </form>
       </div>
+      <br>
+      Password: 
+           <!-- The form -->
+      <div class="form-popup" id="myForm">
+      <form action="../forms/account_tab_edit.php" method="POST">  
+            <h3>Change Password</h3>
+
+            <label for="newAddress"><b>Password</b></label>
+            <input type="password" placeholder="Enter new password" name="newPassword" required>
+            <input type="password" placeholder="Confirm password" name="vPass" required>
+
+            <input type="submit" name = "pass" value = "Submit">
+          </form>
+      </div>
+      <br>
+      <!-- <button class="btn delete account">Delete Account</button> -->
+      <form action="../forms/account_tab_edit.php" method="POST">  
+      <input type="submit" name = "Remove User" value = "Delete Account">
       </dl>
 </div>
 </main>

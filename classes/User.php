@@ -84,67 +84,115 @@ public function createUser(){
                         }
                     }                  
 }
-// require forms on admin page 
-public function removeUser($id) //move this to admin page ?
+public static function removeUser($id)
 {
-    include_once("../sql/connect.php");
-    $mysqli = new mysqli ($server, $dbusername, $password, $db); 
-    $sql = "DELETE FROM user_table WHERE USER_ID = ?";
+    include("../sql/connect.php");
+
+    $sql = "DELETE FROM user_table WHERE USER_ID = $id";
+        if ($dbconn->query($sql) === TRUE) {
+            //echo "Record updated successfully";
+            header("Location: ../forms/login.php"); //ui/index.php
+            exit;
+        } else {
+            echo "Error updating record: " . $dbconn->error;
+        }
 }
 public static function setFirstName($fn, $id)
 {  
-    include_once("../sql/connect.php");
-    //$mysqli = new mysqli ($server, $dbusername, $password, $db);  
-    
-   //$sql = $dbconn -> prepare("UPDATE user_table SET fname = $fn WHERE USER_ID = $id");   
-   $stmt = $dbconn ->prepare("UPDATE user_table SET fname = $fn WHERE USER_ID = $id");   
+    include("../sql/connect.php");
 
-   //$stmt = $mysqli->stmt_init();
+    $sql = "UPDATE user_table SET fname = '$fn' WHERE USER_ID = '$id'";
+        if ($dbconn->query($sql) === TRUE) {
+            //echo "Record updated successfully";
+            header("Location: ../forms/login.php"); //ui/index.php
+            exit;
+        } else {
+            echo "Error updating record: " . $dbconn->error;
+        }
+    
+    // Old code that gave errors 
+    // $sql = $dbconn -> prepare("UPDATE user_table SET fname = '$fn' WHERE USER_ID = '$id'");    
+ 
+    // $stmt = $mysqli->stmt_init();
     
     // if ( ! $stmt->prepare($sql)) {   
     //     die("SQL error: " . $mysqli->error);
-    // }
-    
+    // } 
     // $stmt->bind_param("si", $fn, $id);
     //                     $stmt->execute();
     //                     header("Location: welcome.php");
-    //                     exit;
+    //                     exit;                 
 }
-public function setLastName()
+public static function setLastName($ln, $id)
 { 
-      include_once("../sql/connect.php");
-      $mysqli = new mysqli ($server, $dbusername, $password, $db);  
-      
-      $sql = "UPDATE user_table SET lname = ? WHERE user_id = ?";  
+    include("../sql/connect.php");
+
+    $sql = "UPDATE user_table SET lname = '$ln' WHERE USER_ID = '$id'";
+        if ($dbconn->query($sql) === TRUE) {
+            //echo "Record updated successfully";
+            header("Location: ../forms/login.php"); //ui/index.php
+            exit;
+        } else {
+            echo "Error updating record: " . $dbconn->error;
+        }
 }
-function setEmail()
+public static function setEmail($em, $id)
 {
-      include_once("../sql/connect.php");
-      $mysqli = new mysqli ($server, $dbusername, $password, $db);  
-      
-      $sql = "UPDATE user_table SET email = ? WHERE user_id = ?";  
+    include("../sql/connect.php");
+
+    $sql = "UPDATE user_table SET fname = '$em' WHERE USER_ID = '$id'";
+        if ($dbconn->query($sql) === TRUE) {
+            //echo "Record updated successfully";
+            header("Location: ../forms/login.php"); //ui/index.php
+            exit;
+        } else {
+            echo "Error updating record: " . $dbconn->error;
+        } 
 }
-function setPassword()
+public static function setPassword($pass, $id)
 {      
-  include_once("../sql/connect.php");
-  $mysqli = new mysqli ($server, $dbusername, $password, $db);  
-  
-  $sql = "UPDATE user_table SET passcode = ? WHERE user_id = ?";  
+
+    include("../sql/connect.php");
+
+    $password_hash = password_hash($pass, PASSWORD_DEFAULT);
+
+    $sql = "UPDATE user_table SET passcode = '$password_hash' WHERE USER_ID = '$id'";
+        if ($dbconn->query($sql) === TRUE) {
+            //echo "Record updated successfully";
+            header("Location: ../forms/login.php"); //ui/index.php
+            exit;
+        } else {
+            echo "Error updating record: " . $dbconn->error;
+        } 
 }
-function setMembershipLevel()
+public static function setMembershipLevel()
 {    
-  include_once("../sql/connect.php");
-  $mysqli = new mysqli ($server, $dbusername, $password, $db);  
-  
-  $sql = "UPDATE user_table SET roles = ? WHERE user_id = ?";  
+    //NOT DONE
+    include("../sql/connect.php");
+
+    $sql = "UPDATE user_table SET fname = '$fn' WHERE USER_ID = '$id'";
+        if ($dbconn->query($sql) === TRUE) {
+            //echo "Record updated successfully";
+            header("Location: ../forms/login.php"); //ui/index.php
+            exit;
+        } else {
+            echo "Error updating record: " . $dbconn->error;
+        }
 }
 // 
-function setAddress()
+public static function setAddress()
 {   
-    include_once("../sql/connect.php");
-    $mysqli = new mysqli ($server, $dbusername, $password, $db);  
-    
-    $sql = "UPDATE user_address SET .................. = ? WHERE user_id = ?";  
+    //NOT DONE 
+    include("../sql/connect.php");
+
+    $sql = "UPDATE user_table SET fname = '$fn' WHERE USER_ID = '$id'";
+        if ($dbconn->query($sql) === TRUE) {
+            //echo "Record updated successfully";
+            header("Location: ../forms/login.php"); //ui/index.php
+            exit;
+        } else {
+            echo "Error updating record: " . $dbconn->error;
+        } 
 }
 }
 ?>
