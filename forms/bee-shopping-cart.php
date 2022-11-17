@@ -24,6 +24,8 @@ require_once("../sql/connect.php");
 <body>
     <div class="container">
         <h1> SHOPPING CART </h1>
+        <a href="../forms/equip-rental-member.php"> return to shopping</a> 
+
 
 
         <?php
@@ -40,12 +42,20 @@ require_once("../sql/connect.php");
 
         // $result = $dbconn->query($showCart);
         // echo $result;
+
+
         include_once("../include/add-to-cart2.php");
 
         while ($rows = $cartResult->fetch_assoc()) {
+<<<<<<< HEAD
             include_once("../include/load-product-rentals-cartt.php");
 
             while ($row = $result2->fetch_assoc()) {
+=======
+            // include_once("../include/load-product-rentals.php");
+
+            // while ($row = $prodResult->fetch_assoc()) {
+>>>>>>> 51ea3fb6181d5317c972f6fbf593df09a114e8b6
 
         ?>
                 <div>
@@ -55,7 +65,7 @@ require_once("../sql/connect.php");
                     <p>NAME: <?php echo $row['prod_name']; ?></p>
 
                     <p>Quantity: <?php echo $rows['quantity']; ?></p>
-                    <p>Price: <?php echo $row['prod_price']; ?></p>
+                    <p>Price: <?php echo $rows['item_cost']; ?></p>
 
 
 
@@ -67,8 +77,8 @@ require_once("../sql/connect.php");
 
                 <?php
             }
-        }
-
+        // }
+// 
                 ?>
 
                 <?php
