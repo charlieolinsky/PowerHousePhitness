@@ -124,7 +124,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                     <p data-aos="fade-up" data-aos-delay="200">This is free HTML template by <a rel="nofollow" href="https://www.tooplate.com" target="_parent">Tooplate</a> for your commercial website.</p>
 
-                    <a href="#" class="btn custom-btn bg-color mt-3" data-aos="fade-up" data-aos-delay="300" data-toggle="modal" data-target="#membershipForm">Become a member today</a>
+                    <a href="services.php#membership" class="btn custom-btn bg-color mt-3" data-aos="fade-up" data-aos-delay="300">Become a member today</a>
+                    <!-- data-toggle="modal" data-target="#membershipForm" -->
                 </div>
 
                 <div class="mr-lg-auto mt-3 col-lg-4 col-md-6 col-12">
