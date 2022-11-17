@@ -7,17 +7,22 @@
     echo ("STATUS: ".session_status()."<br>"); 
     echo ("ID: ".session_id()."<br>"); 
 
-    echo ("Cookie Parameters: <br>");
+    // echo ("Cookie Parameters: <br>");
 
     //setcookie();
 
-    $parameters = $session->params();
-    foreach($p as $value){
-        echo "$value <br>";
-    }
+    // $parameters = $session->params();
+    // foreach($p as $value){
+    //     echo "$value <br>";
+    // }
+
+    $session -> write("test", "Your mom");
+    $contains = $session -> containsKey("test");
+
+    echo "CONTAINS_KEY: ".$contains;  
     
 
-    // $session -> destroy();  
+    $session -> destroy();  
 
     // echo (" STATUS: ".session_status()."<br>");
     // echo (" ID: ".session_id()."<br>"); 
