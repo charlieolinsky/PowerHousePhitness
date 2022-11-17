@@ -210,4 +210,51 @@ https://www.tooplate.com/view/2119-gymso-fitness
     <script src="./js/smoothscroll.js"></script>
     <script src="./js/custom.js"></script>  
 
-</html>    
+</html>   
+
+<?php 
+
+    /*****************************************MEMBERSHIP**************************************/
+
+    //If user is not a free member, redirect them to login where they have the option to register as well. 
+    function access($rank)
+    { 
+        if(isset($_SESSION["role"]) && $_SESSION["role"] < $rank) 
+        {
+            header("Location: loginUI.php");
+            die;
+        }
+    }
+    $minRank = 1;
+    access($minRank);
+
+
+
+    //If the user is a member already, we need to upgrade their membership.
+    include_once("./include/global_inc.php");
+    
+    $userRank = $_SESSION['roles'];
+    $userID = $_SESSION['user_id'];
+
+    $sql = $dbconn -> query("UPDATE user_table SET roles = $userRank+1, WHERE USER_ID = $userID"); 
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+    
+
+
+
+    
+
+?>
