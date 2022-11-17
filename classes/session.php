@@ -135,8 +135,18 @@
             }
             $_SESSION['LAST_ACTIVE'] = time();
         }
-        
 
+        public static function containsKey($key): bool
+        {
+            if (!is_string($key))
+                throw new Exception('Invalid Argument Type Exception: Session key must be a string value');
+            
+            if(isset($_SESSION[$key])){
+                return true; 
+            }else { 
+                return false; 
+            }
+        }
 
         //Returns current session cookie parameters or an empty array.
         public static function params()
