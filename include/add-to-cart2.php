@@ -23,12 +23,13 @@ if (isset($_POST['addToCart'])) {
 
     //generate a random number for order_id
     $ORDER_ID = $_SESSION["user_id"];
-    while ($row['count'] > 0);
+    //while ($row['count'] > 0);
 
     $addtocart = "INSERT INTO `cart` (`PROD_ID`, `ORDER_ID`, `item_cost`, `quantity`) VALUES ( '$so','$ORDER_ID', '$cost', '$quantity')";
 
 
     if ($dbconn->query($addtocart) === TRUE) {
+        echo "<br>";
         echo "Item added to cart";
     } else {
         echo "Error: " . $addtocart . "<br>" . $dbconn->error;
@@ -39,8 +40,7 @@ if (isset($_POST['addToCart'])) {
 
 
     //code to see what is in the cart for a specific order ID 
-    $showCart = "SELECT * FROM `cart` WHERE ORDER_ID = $ORDER_ID";
-
+    $showCart = "SELECT * FROM cart WHERE ORDER_ID = '$ORDER_ID'";
     $cartResult = $dbconn->query($showCart);
     include_once("../forms/bee-shopping-cart.php");
 
@@ -49,6 +49,29 @@ if (isset($_POST['addToCart'])) {
     } else {
         echo "Error: " . $addtocart . "<br>" . $dbconn->error;
     }
+
+
+
+    // christina db cart
+
+
+
+    // $cart = $result->fetch_assoc();
+
+    // var_dump($cart);
+
+    // christina db cart
+
+
+
+
+
+
+
+
+
+
+
 
 
     //code to display images and names from prod-data cart 
