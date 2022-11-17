@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 
 // Includes the database connection file
 include_once("../sql/connect.php");
@@ -22,7 +22,7 @@ if (isset($_POST['addToCart'])) {
     $quantity = 1;
 
     //generate a random number for order_id
-    $ORDER_ID = rand(1, 99999);
+    $ORDER_ID = $_SESSION["user_id"];
     while ($row['count'] > 0);
 
     $addtocart = "INSERT INTO `cart` (`PROD_ID`, `ORDER_ID`, `item_cost`, `quantity`) VALUES ( '$so','$ORDER_ID', '$cost', '$quantity')";
