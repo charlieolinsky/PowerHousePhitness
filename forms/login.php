@@ -20,19 +20,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     if ($user) {
         if (password_verify($_POST['password'], $user['passcode'])) {
+            include_once('../include/global_inc.php');
             
-            session_start();
+            $session = new Session();
+            $session ->write("user_id", $user["USER_ID"]);
+            $session ->write("email", $user["email"]);
+            $session ->write("role", $user["role"]);
+            $session ->write("fname", $user["fname"]);
+            $session ->write("lname", $user["lname"]);
+            $session ->write("pword", $user["pword"]); 
+    
+            // $_SESSION["email"] = $user["email"];
+            // $_SESSION["role"] = $user["roles"]; //global var from db
+            // $_SESSION["fname"] = $user["fname"];
+            // $_SESSION["lname"] = $user["lname"];
+            // $_SESSION["pword"] = $user["passcode"];
             
-            session_regenerate_id();
-            
-            $_SESSION["user_id"] = $user["USER_ID"];
-            $_SESSION["email"] = $user["email"];
-            $_SESSION["role"] = $user["roles"]; //global var from db
-            $_SESSION["fname"] = $user["fname"];
-            $_SESSION["lname"] = $user["lname"];
-            $_SESSION["pword"] = $user["passcode"];
-            
-           header("Location: ../forms/welcome.php"); //ui/index.php
+            header("Location: ../UI/index.php"); //ui/index.php
             exit;
         }
     }
