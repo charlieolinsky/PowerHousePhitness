@@ -67,12 +67,14 @@ public function createUser(){
     if ( ! $stmt->prepare($sql)) {   
         die("SQL error: " . $mysqli->error);
     }
-    
+    $fname = ucfirst($_POST["fname"]);
+    $lname = ucfirst($_POST["lname"]);
+
     $stmt->bind_param("ssss",
                       $_POST["email"],
                       $password_hash,
-                      ucfirst($_POST["fname"]),
-                      ucfirst($_POST["lname"])); // upper case first letter 
+                       $fname,
+                       $lname); // upper case first letter 
      
                       try {
                         $stmt->execute();
@@ -104,7 +106,7 @@ public static function setFirstName($fn, $id)
     $sql = "UPDATE user_table SET fname = '$fn' WHERE USER_ID = '$id'";
         if ($dbconn->query($sql) === TRUE) {
             //echo "Record updated successfully";
-            header("Location: ../forms/login.php"); //ui/index.php
+            header("Location: ../forms/account_tab.php"); //ui/index.php
             exit;
         } else {
             echo "Error updating record: " . $dbconn->error;

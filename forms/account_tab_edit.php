@@ -9,20 +9,21 @@ include_once("../sql/connect.php");
 
 // calling method from user class to reset firstname
 if (isset($_POST['fn'])) {
-    $fName = $_POST["newName"];
+    $fName = ucfirst($_POST["newName"]);
     $id = $_SESSION['user_id'];
 
     //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
     //$user -> setFirstName($name, $id);
     //User::setFirstName($name, $id);
-      User::setFirstName($fName, $id);
+    $_SESSION["fname"] = $fName;
+    User::setFirstName($fName, $id);
 }
 
 // calling method from user class to reset lastname
 if (isset($_POST['ln'])) {
-  $lName = $_POST["newLname"];
+  $lName = ucfirst($_POST["newLname"]);
   $id = $_SESSION['user_id'];
-
+  $_SESSION["lname"] = $lName;
   //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
   //$user -> setFirstName($name, $id);
   //User::setFirstName($name, $id);
@@ -37,7 +38,8 @@ if (isset($_POST['em'])) {
   //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
   //$user -> setFirstName($name, $id);
   //User::setFirstName($name, $id);
-    User::setEmail($email, $id);
+  $_SESSION["email"] = $em;
+  User::setEmail($email, $id);
 }
 
 // calling method from user class to reset address
@@ -52,7 +54,17 @@ if (isset($_POST['add'])) {
 }
 // calling method from user class to reset password
 if (isset($_POST['pass'])) {
+  if (strlen($_POST["newPassword"]) < 8) {
+    die("Password must be at least 8 characters");
+}
 
+if ( ! preg_match("/[a-z]/i", $_POST["newPassword"])) {
+    die("Password must contain at least one letter");
+}
+
+if ( ! preg_match("/[0-9]/", $_POST["newPassword"])) {
+    die("Password must contain at least one number");
+}
   if ($_POST["newPassword"] !== $_POST["vPass"]) {
     die("Passwords must match");
 }
@@ -90,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
            <!-- The form -->
       <div class="form-popup" id="myForm">
       <form action="../forms/account_tab_edit.php" method="POST">   
-            <h3>Edit First Name</h3>
+            <h4>Edit First Name</h4>
 
             <label for="newName"><b>First Name</b></label>
             <input type="name" placeholder="Enter new first name" name="newName" required>
@@ -109,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
            <!-- The form -->
       <div class="form-popup" id="myForm">
       <form action="../forms/account_tab_edit.php" method="POST">  
-            <h3>Edit Last Name</h3>
+            <h4>Edit Last Name</h4>
 
             <label for="newLname"><b>Last Name</b></label>
             <input type="name" placeholder="Enter new last name" name="newLname" required>
@@ -121,21 +133,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
 
         <dt>
         <br>    
-        Email:
-        <?php
-          echo $_SESSION['email'];
-        ?> 
-           <!-- The form -->
-      <div class="form-popup" id="myForm">
-      <form action="../forms/account_tab_edit.php" method="DELETE">  
-            <h3>Edit Email</h3>
-
-            <label for="newEm"><b>Email</b></label>
-            <input type="name" placeholder="Enter new email" name="newEm" required>
-
-            <input type="submit" name = "em" value = "Submit">
-          </form>
-      </div>
         </dt>
 
         <dt>
@@ -147,7 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
            <!-- The form -->
       <div class="form-popup" id="myForm">
       <form action="../forms/account_tab_edit.php" method="POST">  
-            <h3>Edit Address</h3>
+            <h4>Edit Address</h4>
 
             <label for="newAddress"><b>Address</b></label>
             <input type="name" placeholder="Enter new address" name="newAddress" required>
@@ -155,12 +152,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
             <input type="submit" name = "add" value = "Submit">
           </form>
       </div>
-      <br>
-      Password: 
            <!-- The form -->
       <div class="form-popup" id="myForm">
       <form action="../forms/account_tab_edit.php" method="POST">  
-            <h3>Change Password</h3>
+            <h4>Change Password</h4>
 
             <label for="newAddress"><b>Password</b></label>
             <input type="password" placeholder="Enter new password" name="newPassword" required>
