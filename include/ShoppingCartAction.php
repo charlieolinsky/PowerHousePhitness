@@ -1,9 +1,34 @@
 <?php
-// Includes the database connection file
-require_once("../sql/connect.php"); 
+// $PROD_ID = isset($_GET['PROD_ID']) ? $_GET['PROD_ID'] : "";
+// $quantity = 1;
+ 
+// // Includes the database connection file
+// require_once("../sql/connect.php"); 
+// require_once("../classes/ShoppingCart_Class.php");
 
-require_once("../classes/ShoppingCart_Class.php");
-$cart = new ShoppingCart();
+// $cart = new ShoppingCart($dbconn);
+
+// $cart->ORDER_ID = 1; // we default to '1' because we do not have logged in user
+// $cart->PROD_ID = $PROD_ID;
+// $cart->quantity = $quantity;
+ 
+// // check if the item is in the cart, if it is, do not add
+// if ($cart->exists()) {
+//     // redirect to product list and tell the user it was added to cart
+//     header("Location: ../forms/equip-rental-member.php?action=exists");
+// }
+ 
+// // else, add the item to cart
+// else {
+//     // add to cart
+//     if ($cart->create()) {
+//         // redirect to product list and tell the user it was added to cart
+//         header("Location: ../forms/equip-rental-member.php?id={$PROD_ID}&action=added");
+//     } else {
+//         header("Location: ../forms/equip-rental-member.php?id={$PROD_ID}&action=unable_to_add");
+//     }
+// }
+
 
 
 // session_start();
@@ -12,7 +37,9 @@ $cart = new ShoppingCart();
 // }
 // echo($_SESSION['addToCart']);
 
-//if the addToCart Button is clicked
+// if the addToCart Button is clicked
+
+
 if(isset($_POST['addToCart'])){
     // $PROD_ID = $_POST['PROD_ID'];
 

@@ -1,3 +1,9 @@
+<?php
+       
+    require_once("../sql/connect.php");
+   
+?>  
+
 <!DOCTYPE html>
 
 <html>
@@ -12,8 +18,6 @@
 
         <link rel="stylesheet" href="../css/checkout.css">
     </head>
-
-
     
 
     <div class="col-75">

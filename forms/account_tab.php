@@ -34,6 +34,9 @@ include_once("../sql/connect.php");
         ?> 
         </dt>
         <dt>Address: 
+          <?php
+          
+          ?>
         <dt>Member Ship Level: 
         <?php
           if($_SESSION['role'] == 1)

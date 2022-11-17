@@ -2,8 +2,6 @@
 
 // THIS INCLUDES ERROR HANDLING- password requirements, verify match, checks if a field was left empty 
 
-use SecurityService\SecurityService;
-
 class User {
 //properties
 private $id;
@@ -53,11 +51,10 @@ public function createUser(){
         die("Passwords must match");
     }
     
-    
-    //Security Service Class Password Hash 
-    $secure = new SecurityService(); 
-    $password_hash = $secure -> hp($_POST["pword"]);
-
+    //Hashing object 
+    //or
+    //hashing in session class 
+    $password_hash = password_hash($_POST["pword"], PASSWORD_DEFAULT);
     
     include_once("../sql/connect.php");
     $mysqli = new mysqli ($server, $dbusername, $password, $db);  
@@ -70,12 +67,14 @@ public function createUser(){
     if ( ! $stmt->prepare($sql)) {   
         die("SQL error: " . $mysqli->error);
     }
-    
+    $fname = ucfirst($_POST["fname"]);
+    $lname = ucfirst($_POST["lname"]);
+
     $stmt->bind_param("ssss",
                       $_POST["email"],
                       $password_hash,
-                      ucfirst($_POST["fname"]),
-                      ucfirst($_POST["lname"])); // upper case first letter 
+                      $fname,
+                      $lname); // upper case first letter 
      
                       try {
                         $stmt->execute();
@@ -168,15 +167,16 @@ public static function setPassword($pass, $id)
             echo "Error updating record: " . $dbconn->error;
         } 
 }
-public static function setMembershipLevel()
+public static function setMembershipLevel($role, $id)
 {    
     //NOT DONE
+    var_dump($id);
     include("../sql/connect.php");
 
-    $sql = "UPDATE user_table SET fname = '$fn' WHERE USER_ID = '$id'";
+    $sql = "UPDATE user_table SET roles = '$role' WHERE USER_ID = '$id'";
         if ($dbconn->query($sql) === TRUE) {
-            //echo "Record updated successfully";
-            header("Location: ../forms/login.php"); //ui/index.php
+            echo "Record updated successfully";
+            //header("Location: ../forms/login.php"); //ui/index.php
             exit;
         } else {
             echo "Error updating record: " . $dbconn->error;
