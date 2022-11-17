@@ -47,15 +47,9 @@ require_once("../sql/connect.php");
         include_once("../include/add-to-cart2.php");
 
         while ($rows = $cartResult->fetch_assoc()) {
-<<<<<<< HEAD
-            include_once("../include/load-product-rentals-cartt.php");
+            include_once("../include/load-product-rentals.php");
 
-            while ($row = $result2->fetch_assoc()) {
-=======
-            // include_once("../include/load-product-rentals.php");
-
-            // while ($row = $prodResult->fetch_assoc()) {
->>>>>>> 51ea3fb6181d5317c972f6fbf593df09a114e8b6
+            while ($row = $result->fetch_assoc()) {
 
         ?>
                 <div>
@@ -77,7 +71,7 @@ require_once("../sql/connect.php");
 
                 <?php
             }
-        // }
+        }
 // 
                 ?>
 

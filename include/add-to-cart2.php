@@ -43,9 +43,9 @@ if (isset($_POST['addToCart'])) {
     $showCart = "SELECT * FROM cart WHERE ORDER_ID = '$ORDER_ID'";
     $cartResult = $dbconn->query($showCart);
     // $cart = $result->fetch_assoc();
-    $getProdID =  "SELECT PROD_ID FROM cart WHERE ORDER_ID = '$ORDER_ID'";
-    $prodIDArray = $dbconn->query($getProdID);
-    var_dump($prodIDArray);
+    // $getProdID =  "SELECT PROD_ID FROM cart WHERE ORDER_ID = '$ORDER_ID'";
+    // $prodIDArray = $dbconn->query($getProdID);
+    // var_dump($prodIDArray);
 
     include_once("../forms/bee-shopping-cart.php");
 
