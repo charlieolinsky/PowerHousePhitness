@@ -1,9 +1,10 @@
 <?php
 
 require_once("../sql/connect.php");
-include_once("../classes/ShoppingCart_Class.php");
+// include_once("./include/add-to-cart.php");
+// include_once("../classes/ShoppingCart_Class.php");
 
-$cart = new ShoppingCart();
+// $cart = new ShoppingCart();
 ?>
 
 <!DOCTYPE html>
@@ -26,36 +27,54 @@ $cart = new ShoppingCart();
 
 
         <?php
+        // include_once("./include/add-to-cart.php");
+
         // LOOP TILL END OF DATA
-        // $showCart = "SELECT * FROM cart WHERE ORDER_ID = $ORDER_ID";
-        // // $showCart = "SELECT 'cart.ORDER_ID', `prod-data.prod_name` FROM cart 
-        // // JOIN `prod-data` ON `cart.ORDER_ID` = `prod-data.prod_name` ";
+        // $order_id = ;
+        // $showCart = "SELECT * FROM `cart` WHERE ORDER_ID = '86735'";
+        // $showCart = "SELECT * FROM  cart A FULL OUTER JOIN `prod-data B` ON A.Key = B.Key WHERE ORDER_ID='86735'";
+        // $showCart = "SELECT `cart.ORDER_ID`, `prod-data.prod_name` FROM cart 
+        // JOIN `prod-data` ON `cart.ORDER_ID` = `prod-data.prod_name` ";
+
+        // $result = $dbconn->query($sql);
 
         // $result = $dbconn->query($showCart);
-        // // echo $showCart;
+        // echo $result;
+        include_once("../include/add-to-cart2.php");
 
-        // while ($rows = $result->fetch_assoc()) {
-        // ?>
-             <!-- <p>PROD_ID: <?php //echo $rows['PROD_ID']; ?></p> -->
-             <!-- <p>ORDER_ID: <?php //echo $rows['ORDER_ID']; ?></p> -->
+        while ($rows = $cartResult->fetch_assoc()) {
+            include_once("../include/load-product-rentals.php");
 
-        <!-- //     <p>NAME:<?php //echo $rows['prod_name']; ?></p> -->
-
-        <!-- //     <?php //echo "<img src=$rows[prod_image]>" ?>  -->
-
-
-
-        <?php
-        // }
-        ?>
-
-        <?php
-        // include_once("../include/load-product-rentals.php");
-        include("../include/add-to-cart.php");
-        echo "in include";
-
+            while ($row = $result->fetch_assoc()) {
 
         ?>
+                <div>
+                    <p>PROD_ID: <?php echo $rows['PROD_ID'];  ?></p>
+                    <p>ORDER_ID: <?php echo $rows['ORDER_ID']; ?></p>
+
+                    <p>NAME: <?php echo $row['prod_name']; ?></p>
+
+                    <p>Quantity: <?php echo $rows['quantity']; ?></p>
+                    <p>Price: <?php echo $row['prod_price']; ?></p>
+
+
+
+                    <?php echo "<img src=$row[prod_image]>"; ?>
+                    <div>
+
+
+
+
+                <?php
+            }
+        }
+
+                ?>
+
+                <?php
+
+
+                ?>
 
 
 </body>
