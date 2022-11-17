@@ -106,14 +106,14 @@
                     //Price Validation
                     if (empty($_POST['prod_price'])) {
                         $price_error = "Please enter a price";
-                    } else if (!is_double($_POST['prod_price'])) {
+                    } else if (!is_numeric($_POST['prod_price'])){
                         $price_error = "Invalid input, please enter a number.";
                     }
 
                     //Quantity Validation 
                     if (empty($_POST['prod_quantity'])) {
                         $quantity_error = "Please enter a quantity";
-                    } else if (!is_double($_POST['prod_quantity'])) {
+                    } else if (!is_numeric($_POST['prod_quantity'])) {
                         $quantity_error = "Invalid input, please enter a number.";
                     }
 
@@ -125,7 +125,7 @@
                     //Purchase Price Validation
                     if (empty($_POST['prod_purchase_cost'])) {
                         $purchase_cost_error = "Please enter a price";
-                    } else if (!is_double($_POST['prod_purchase_cost'])) {
+                    } else if (!is_numeric($_POST['prod_price'])) {
                         $purchase_cost_error = "Invalid input, please enter a number.";
                     }
                 }
@@ -134,7 +134,7 @@
                 <div>
                     <!-- the name="__" field is what connects this form to the querying file -->
                     <label for="prod_name"> Item Name:</label><br>
-                    <input type="text" id="prod_name" name="prod_name" value="<?php if (isset($_POST['prod_name'])) echo $_POST['prod_name']; ?>" required>
+                    <input type="text" id="prod_name" name="prod_name" value="<?php if (isset($_POST['prod_name'])) echo $_POST['prod_name']; ?>">
                     <br>
                     <span> <?php if (isset($name_error)) echo $name_error; ?> </span>
                     <br><br>
