@@ -43,9 +43,9 @@ require_once("../sql/connect.php");
         include_once("../include/add-to-cart2.php");
 
         while ($rows = $cartResult->fetch_assoc()) {
-            include_once("../include/load-product-rentals.php");
+            include_once("../include/load-product-rentals-cartt.php");
 
-            while ($row = $result->fetch_assoc()) {
+            while ($row = $result2->fetch_assoc()) {
 
         ?>
                 <div>
