@@ -52,18 +52,20 @@ https://www.tooplate.com/view/2119-gymso-fitness
         </div>
     </div> -->
     <div class = "login-container">
-        <!-- <div class="modal-content">
-            <div class="modal-header"> -->
-                <h2 class="modal-title" id="membershipFormLabel">Login</h2>
-            <!-- </div>
-        </div>  -->
-        <input type="text" class="form-control" name="Username" placeholder="Username" required>
-        <input type="password" class="form-control" name="Password" placeholder="Password" required>
-        <button type="submit" class="form-control" id="submit-button" name="submit">Login</button>
-        <!-- <label class="custom-control-label text-small text-muted" for="signup-agree"> <a href="#">Sign Up Now</a> -->
-        <label class="text-small text-muted" for="signup-agree"> <a href="registerUI.php">Create an account</a> 
-        <br>
-        <label class="text-small text-muted" for="signup-agree"> <a href="services.php#membership">Not a member? Click to join</a>
+        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+            <!-- <div class="modal-content">
+                <div class="modal-header"> -->
+                    <h2 class="modal-title" id="membershipFormLabel">Login</h2>
+                <!-- </div>
+            </div>  -->
+            <input type="text" class="form-control" name="Username" placeholder="Username" required>
+            <input type="password" class="form-control" name="Password" placeholder="Password" required>
+            <button type="submit" class="form-control" id="submit-button" name="submit">Login</button>
+            <!-- <label class="custom-control-label text-small text-muted" for="signup-agree"> <a href="#">Sign Up Now</a> -->
+            <label class="text-small text-muted" for="signup-agree"> <a href="registerUI.php">Create an account</a> 
+            <br>
+            <label class="text-small text-muted" for="signup-agree"> <a href="services.php#membership">Not a member? Click to join</a>
+        </form>
     </div>
 
     
@@ -77,5 +79,45 @@ https://www.tooplate.com/view/2119-gymso-fitness
    <script src="js/custom.js"></script>
 </body>
 </html>
+
+<?php
+
+$is_invalid = false;
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    
+    include_once("../sql/connect.php");
+    $mysqli = new mysqli ($server, $dbusername, $password, $db);  
+    
+    $sql = sprintf("SELECT * FROM user_table
+                    WHERE email = '%s'",
+                   $mysqli->real_escape_string($_POST["email"]));
+    
+    $result = $mysqli->query($sql);
+    $user = $result->fetch_assoc();
+
+    //var_dump($user);
+    //exit;
+    
+    if ($user) {
+        if (password_verify($_POST['password'], $user['passcode'])) {
+            include_once('../include/global_inc.php');
+            
+            $session = new Session();
+            $session ->write("user_id", $user["USER_ID"]);
+            $session ->write("email", $user["email"]);
+            $session ->write("role", $user["role"]);
+            $session ->write("fname", $user["fname"]);
+            $session ->write("lname", $user["lname"]);
+            $session ->write("pword", $user["pword"]);
+            
+            header("Location: ../UI/index.php"); //ui/index.php
+            exit;
+        }
+    }
+    $is_invalid = true;
+}
+
+?>
 
 
