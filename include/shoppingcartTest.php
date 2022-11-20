@@ -68,12 +68,12 @@ if (isset(($_POST['addToCart']))) {
 
 
 
-echo "<pre>";
-print_r($_SESSION['cart']);
-echo $PROD_ID;
-echo $quantity;
-echo "hello";
-echo "<pre>";
+// echo "<pre>";
+// print_r($_SESSION['cart']);
+// echo $PROD_ID;
+// echo $quantity;
+// echo "hello";
+// echo "<pre>";
 ?>
 
 <!DOCTYPE html>
@@ -95,6 +95,7 @@ echo "<pre>";
 
         <table>
             <tr>
+                <th>Image</th>
                 <th>Item</th>
                 <th>Price</th>
                 <th>Quantity</th>
@@ -122,8 +123,11 @@ echo "<pre>";
                     $sub = $val * $row['prod_price'];
                     $grand_total += $sub;
 
+                    // <td> <?php echo "<img src=$row[prod_image]>" </td>
+
                     echo "
                 <tr>
+                    <td><img src={$row['prod_image']}></td>
                     <td>{$row['prod_name']}</td>
                     <td>{$row['prod_price']}</td>
                     <td>$val</td>
@@ -136,7 +140,7 @@ echo "<pre>";
             if (empty($_SESSION['cart'])) {
                 echo "<tr><td colspan='4'> Your Cart is Empty </td></tr";
             } else {
-                echo "<tr><td colspan='4'> Grand Total: $grand_total </td></tr";
+                echo "<tr><td colspan='4'> Grand Total: $ $grand_total </td></tr";
             }
             ?>
         </table>
