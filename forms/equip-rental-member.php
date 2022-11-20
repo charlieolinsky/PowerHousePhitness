@@ -130,8 +130,8 @@
                 <div class="row">
                     <!-- <form action="../classes/testCartClass.php" method="POST"> -->
                     <!-- <form action="../include/add-to-cart2.php" method="POST"> -->
-                    <form action="../include/shoppingcartTest.php" method="POST">
-                    <!-- <form action="../forms/shopping-cart.php" method="POST"> -->
+                    <!-- <form action="../include/shoppingcartTest.php" method="POST"> -->
+                    <form action="../forms/shopping-cart.php" method="POST">
 
 
                             <!-- <form action="../include/ShoppingCartAction.php?action=addToCart&PROD_ID" method="post"> -->

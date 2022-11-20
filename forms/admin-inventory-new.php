@@ -80,7 +80,7 @@
     <br><br><br>
     <main>
 
-        <div class="add_inventory">
+        <div>
 
             <h1> Admin Inventory - Add New Item</h1>
 
