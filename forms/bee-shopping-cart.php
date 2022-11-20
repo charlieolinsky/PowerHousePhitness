@@ -24,7 +24,7 @@ require_once("../sql/connect.php");
 <body>
     <div class="container">
         <h1> SHOPPING CART </h1>
-        <a href="../forms/equip-rental-member.php"> return to shopping</a> 
+        <a href="../forms/equip-rental-member.php"> return to shopping</a>
 
 
 
@@ -44,12 +44,13 @@ require_once("../sql/connect.php");
         // echo $result;
 
 
+
         include_once("../include/add-to-cart2.php");
 
         while ($rows = $cartResult->fetch_assoc()) {
-            include_once("../include/load-product-rentals.php");
+            // include_once("../include/load-product-rentals.php");
 
-            while ($row = $result->fetch_assoc()) {
+            // while ($row = $result->fetch_assoc()) {
 
         ?>
                 <div>
@@ -71,14 +72,10 @@ require_once("../sql/connect.php");
 
                 <?php
             }
-        }
-// 
+        // }
+        // 
                 ?>
 
-                <?php
-
-
-                ?>
 
 
 </body>

@@ -131,6 +131,8 @@
                     <!-- <form action="../classes/testCartClass.php" method="POST"> -->
                     <!-- <form action="../include/add-to-cart2.php" method="POST"> -->
                     <form action="../include/shoppingcartTest.php" method="POST">
+                    <!-- <form action="../forms/test.php" method="POST"> -->
+
 
                             <!-- <form action="../include/ShoppingCartAction.php?action=addToCart&PROD_ID" method="post"> -->
                             <!-- <form action="../include/add-to-cart.php?action=addToCart&PROD_ID" method="post"> -->
@@ -152,7 +154,7 @@
 
                             <!-- <button type="submit" name="addToCart">Add  </button> -->
                             <input type="submit" class="btn cart-btn mt-3" name="addToCart" value="Add to Cart ">
-                            <!-- <a href='../include/add-to-cart.php?id={$id}&page={$page}'> Add to Cart 1 </a> -->
+                            <!-- <a href='../forms/test.php'> Add to Cart 1 </a> -->
 
                             <!-- data-toggle="modal" data-target="#membershipForm" -->
                             <!-- <a href="../include/add-to-cart.php?action=addToCart&PROD_ID" class="btn cart-btn mt-3">Add to Cart</a> -->

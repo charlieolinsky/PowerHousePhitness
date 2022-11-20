@@ -6,12 +6,12 @@ require_once("../sql/connect.php");
 
 // $cart = array();
 
-if(!isset($_SESSION['cart'])) {
+if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'];
 }
 
 //clear cart
-if(isset($_POST['clear'])) {
+if (isset($_POST['clear'])) {
     $_SESSION['cart'] = array();
 }
 
@@ -34,8 +34,7 @@ if(isset($_POST['clear'])) {
 $out = "";
 // $quantity = 1;
 // buy
-if(isset(($_POST['addToCart'])))
-{
+if (isset(($_POST['addToCart']))) {
     $so = $_POST['PROD_ID'];
     // $prod_quantity = $_GET['prod_quantity'];
     //quantity is the amount of a single item in the cart, has nothing to do with prod_quantity
@@ -44,18 +43,20 @@ if(isset(($_POST['addToCart'])))
     // echo $name;
 
 
-    if($quantity > 0 && filter_var($quantity, FILTER_VALIDATE_INT)){        //checks if quantity entered is an int
+    if ($quantity > 0 && filter_var($quantity, FILTER_VALIDATE_INT)) {        //checks if quantity entered is an int
         //buy
-        if(isset($_SESSION['cart'][$so])){     // check if prod is in array already
+        if (isset($_SESSION['cart'][$so])) {     // check if prod is in array already
             $_SESSION['cart'][$so] += $quantity;
-        }
-        else {
+        } else {
             $_SESSION['cart'][$so] = $quantity;
         }
-    }
-    else {
+    } else {
         $out = "Bad Input";
     } //bad input
+    
+    // //bee test table code
+    // $addtocart = "INSERT INTO `cart` (`PROD_ID`, `item_cost`, `quantity`) VALUES ( '$so', '$cost', '$quantity')";
+    // $dbconn->query($addtocart);
 
 }
 
@@ -76,6 +77,7 @@ echo "<pre>";
 ?>
 
 <!DOCTYPE html>
+
 <head>
     <title> Shopping Cart </title>
 </head>
@@ -84,7 +86,8 @@ echo "<pre>";
 
     <h2> Shopping Cart </h2>
 
-    <div class="cart-container"> 
+
+    <div class="cart-container">
         <form action="../include/shoppingcartTest.php" method="POST">
             <input type="submit" class="btn cart-btn mt-3" name="clear" value="Clear Cart">
         </form>
@@ -92,22 +95,34 @@ echo "<pre>";
 
         <table>
             <tr>
-                <th>Item</th><th>Price</th><th>Quantity</th><th>Subtotal</th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
             </tr>
 
             <?php
+
             $grand_total = 0;
 
-            foreach($_SESSION['cart'] as $key => $val) {
 
-                $sql = "SELECT * FROM 'prod-data' WHERE PROD_ID = $key ";
-                $result = $dbconn->query($sql);
-                $row = $result->fetch_assoc();
+            foreach ($_SESSION['cart'] as $key => $val) {
 
-                $sub = $val * $row['prod_price'];
-                $grand_total += $sub;
 
-                echo "
+                // $sql = "SELECT * FROM 'prod-data' WHERE PROD_ID = $key";
+                // $result = $dbconn->query($sql);
+                // $row = $result->fetch_assoc();
+
+                $query = "SELECT * FROM `prod-data` WHERE PROD_ID=$key;";
+                $result = $dbconn->query($query);
+                while ($row = $result->fetch_assoc()) {
+
+
+
+                    $sub = $val * $row['prod_price'];
+                    $grand_total += $sub;
+
+                    echo "
                 <tr>
                     <td>{$row['prod_name']}</td>
                     <td>{$row['prod_price']}</td>
@@ -115,13 +130,12 @@ echo "<pre>";
                     <td>$ $sub</td>
                 </tr>
                 ";
-
+                }
             }
 
-            if(empty($_SESSION['cart'])){
+            if (empty($_SESSION['cart'])) {
                 echo "<tr><td colspan='4'> Your Cart is Empty </td></tr";
-            }
-            else {
+            } else {
                 echo "<tr><td colspan='4'> Grand Total: $grand_total </td></tr";
             }
             ?>
@@ -131,9 +145,9 @@ echo "<pre>";
             <a href="../forms/equip-rental-member.php" class="btn btn-block btn-secondary"></i>Continue Shopping</a>
         </div>
     </div>
-    
 
-   
+
+
 
 </body>
 

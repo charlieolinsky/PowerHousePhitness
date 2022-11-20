@@ -22,7 +22,7 @@ if (isset($_POST['addToCart'])) {
     $quantity = 1;
 
     //generate a random number for order_id
-    $ORDER_ID = $_SESSION["user_id"];
+    $ORDER_ID = $_SESSION['user_id'];
     //while ($row['count'] > 0);
 
     $addtocart = "INSERT INTO `cart` (`PROD_ID`, `ORDER_ID`, `item_cost`, `quantity`) VALUES ( '$so','$ORDER_ID', '$cost', '$quantity')";
@@ -40,7 +40,7 @@ if (isset($_POST['addToCart'])) {
 
 
     //code to see what is in the cart for a specific order ID 
-    $showCart = "SELECT * FROM cart WHERE ORDER_ID = '$ORDER_ID'";
+    $showCart = "SELECT * FROM cart WHERE ORDER_ID = $ORDER_ID";
     $cartResult = $dbconn->query($showCart);
     // $cart = $result->fetch_assoc();
     // $getProdID =  "SELECT PROD_ID FROM cart WHERE ORDER_ID = '$ORDER_ID'";
@@ -49,10 +49,10 @@ if (isset($_POST['addToCart'])) {
 
     include_once("../forms/bee-shopping-cart.php");
 
-    if ($dbconn->query($addtocart) === TRUE) {
+    if ($dbconn->query($cartResult) === TRUE) {
         echo include_once("../forms/bee-shopping-cart.php");
     } else {
-        echo "Error: " . $addtocart . "<br>" . $dbconn->error;
+        echo "Error: " . $cartResult . "<br>" . $dbconn->error;
     }
 
 

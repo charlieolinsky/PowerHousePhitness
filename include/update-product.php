@@ -28,7 +28,7 @@ include_once("../sql/connect.php");
 include_once("../forms/admin-inventory-update.php");
 
 
-var_dump($_POST); //to confirm that the data was added 
+// var_dump($_POST); //to confirm that the data was added 
 
 
 if (!empty($prod_name)) {
