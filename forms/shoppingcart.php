@@ -3,6 +3,7 @@
     require_once("../sql/connect.php");
     include_once("../classes/ShoppingCart_Class.php");
     $cart = new ShoppingCart();
+
 ?>  
 
 <!DOCTYPE html>

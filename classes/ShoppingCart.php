@@ -1,10 +1,22 @@
 <?php
-if(!session_id()){ 
-    session_start(); 
-}
-require_once("../sql/connect.php");
 
-$item_count = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
+require_once("../include/global_inc.php");
+
+class ShoppingCart{
+
+    private $contents;
+    function __construct(){
+        $contents = array(); 
+    }
+
+    function addToCartButtonHandler(){
+
+        //Query
+
+        
+        header("location:  shoppingcart.php");
+    }
+}
 
 // class ShoppingCart{
 //     private $conn;

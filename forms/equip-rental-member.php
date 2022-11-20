@@ -129,14 +129,13 @@
             <div class="equip-container">
                 <div class="row">
                     <!-- <form action="../classes/testCartClass.php" method="POST"> -->
-                    <form action="../include/add-to-cart2.php" method="POST">
+                    <!-- <form action="../include/add-to-cart2.php" method="POST"> -->
+                    <form action="../include/shoppingcartTest.php" method="POST">
 
-                    <!-- <form action="../include/ShoppingCartAction.php?action=addToCart&PROD_ID" method="post"> -->
-                    <!-- <form action="../include/add-to-cart.php?action=addToCart&PROD_ID" method="post"> -->
-                    <!-- <form action="../include/add-to-cart.php" method="post"> -->
-                    <!-- <form action="../forms/bee-shopping-cart.php" method="post"> -->
-
-
+                            <!-- <form action="../include/ShoppingCartAction.php?action=addToCart&PROD_ID" method="post"> -->
+                            <!-- <form action="../include/add-to-cart.php?action=addToCart&PROD_ID" method="post"> -->
+                            <!-- <form action="../forms/bee-shopping-cart.php" method="post"> -->
+                            <!-- <form action="../include/shoppingcartTest.php" method="POST"> -->
 
 
                         <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12">
