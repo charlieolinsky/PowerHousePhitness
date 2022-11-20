@@ -35,8 +35,9 @@ if (isset(($_POST['addToCart']))) {
     } else {
         $out = "Bad Input";
     } //bad input
-    
+
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +47,7 @@ if (isset(($_POST['addToCart']))) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Shopping Cart </title>
-  
+
 </head>
 
 <body>
@@ -55,7 +56,7 @@ if (isset(($_POST['addToCart']))) {
 
 
     <div>
-        <form action="../forms/shopping-cart.php" method="POST">
+        <form action="../forms/shoppingcart.php" method="POST">
             <input type="submit" class="btn cart-btn mt-3" name="clear" value="Clear Cart">
         </form>
 
@@ -83,14 +84,16 @@ if (isset(($_POST['addToCart']))) {
 
                     $sub = $val * $row['prod_price'];
                     $grand_total += $sub;
-                ?>
-                <tr>
-                    <td> <?php echo "<img src=$row[prod_image]>" ?></td>
-                    <td> <?php echo $row['prod_name'] ?></td>
-                    <td> <?php echo "$" . $row['prod_price']?></td>
-                    <td> <?php echo $val ?></td>
-                    <td> <?php echo "$" . number_format($sub,2) ?></td>
-                </tr>
+            ?>
+
+                    <tr>
+                        <td> <?php echo "<img src=$row[prod_image]>" ?></td>
+                        <td> <?php echo $row['prod_name'] ?></td>
+                        <td> <?php echo "$" . $row['prod_price'] ?></td>
+                        <td> <?php echo $val ?></td>
+                        <td> <?php echo "$" . number_format($sub, 2) ?></td>
+                    </tr>
+
             <?php
                 }
             }
@@ -98,7 +101,7 @@ if (isset(($_POST['addToCart']))) {
             if (empty($_SESSION['cart'])) {
                 echo "<tr><td colspan='4'> Your Cart is Empty </td></tr";
             } else {
-                echo "<tr><td colspan='4'> Grand Total: $" .number_format($grand_total,2). "</td></tr";
+                echo "<tr><td colspan='4'> Grand Total: $" . number_format($grand_total, 2) . "</td></tr";
             }
             ?>
         </table>
@@ -108,9 +111,33 @@ if (isset(($_POST['addToCart']))) {
         </div>
     </div>
 
-
-
-
 </body>
 
 </html>
+<?php
+if (isset($_POST['addToCart'])) {
+    echo "in table";
+
+    $ORDER_ID = $_SESSION['user_id'];
+    $USER_ID = $_SESSION['user_id'];
+    $cost = $_POST['prod_price'];
+
+    // $createOrder = "INSERT INTO order_data (`ORDER_ID`, `USER_ID`, `order_date`, `order_time`, `grand_total`) 
+    //             VALUES($ORDER_ID, $USER_ID, '', '', $grand_total)";
+
+    // if ($dbconn->query($createOrder) === TRUE) {
+    //     echo "order created";
+    // } else {
+    //     echo "Error: " . $createOrder . "<br>" . $dbconn->error;
+    // }
+
+    $addtocart = "INSERT INTO `cart` (`PROD_ID`, `ORDER_ID`, `item_cost`, `quantity`) 
+                VALUES ( '$so','$ORDER_ID', '$cost', '$quantity')";
+
+    if ($dbconn->query($addtocart) === TRUE) {
+        echo "Item added to cart table";
+    } else {
+        echo "Error: " . $addtocart . "<br>" . $dbconn->error;
+    }
+}
+?>

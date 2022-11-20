@@ -128,17 +128,8 @@
         ?>
             <div class="equip-container">
                 <div class="row">
-                    <!-- <form action="../classes/testCartClass.php" method="POST"> -->
-                    <!-- <form action="../include/add-to-cart2.php" method="POST"> -->
-                    <!-- <form action="../include/shoppingcartTest.php" method="POST"> -->
-                    <form action="../forms/shopping-cart.php" method="POST">
-
-
-                            <!-- <form action="../include/ShoppingCartAction.php?action=addToCart&PROD_ID" method="post"> -->
-                            <!-- <form action="../include/add-to-cart.php?action=addToCart&PROD_ID" method="post"> -->
-                            <!-- <form action="../forms/bee-shopping-cart.php" method="post"> -->
-                            <!-- <form action="../include/shoppingcartTest.php" method="POST"> -->
-
+            
+                    <form action="../forms/shoppingcart.php" method="POST">                 
 
                         <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12">
                             <div class="equip-info">
@@ -152,12 +143,8 @@
                                 <span style="color: var(--primary-color)"><?php echo "$" . $rows['prod_price']; ?></span>
                             </h4>
 
-                            <!-- <button type="submit" name="addToCart">Add  </button> -->
                             <input type="submit" class="btn cart-btn mt-3" name="addToCart" value="Add to Cart ">
-                            <!-- <a href='../forms/test.php'> Add to Cart 1 </a> -->
-
-                            <!-- data-toggle="modal" data-target="#membershipForm" -->
-                            <!-- <a href="../include/add-to-cart.php?action=addToCart&PROD_ID" class="btn cart-btn mt-3">Add to Cart</a> -->
+                           
 
                             <input type="hidden" name="PROD_ID" value="<?php echo $rows['PROD_ID'] ?>">
                             <input type="hidden" name="prod_price" value="<?php echo $rows['prod_price'] ?>">
@@ -165,7 +152,6 @@
 
 
 
-                            <!-- <input type="hidden" name="addToCard" value=> -->
                             <!-- submit button goes here. Name button addToCart -->
                             <!-- Need submit button -->
                         </div>
@@ -178,7 +164,6 @@
 
         </div>
 
-        <!-- </div> -->
 
 
 
