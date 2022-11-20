@@ -114,30 +114,3 @@ if (isset(($_POST['addToCart']))) {
 </body>
 
 </html>
-<?php
-if (isset($_POST['addToCart'])) {
-    echo "in table";
-
-    $ORDER_ID = $_SESSION['user_id'];
-    $USER_ID = $_SESSION['user_id'];
-    $cost = $_POST['prod_price'];
-
-    // $createOrder = "INSERT INTO order_data (`ORDER_ID`, `USER_ID`, `order_date`, `order_time`, `grand_total`) 
-    //             VALUES($ORDER_ID, $USER_ID, '', '', $grand_total)";
-
-    // if ($dbconn->query($createOrder) === TRUE) {
-    //     echo "order created";
-    // } else {
-    //     echo "Error: " . $createOrder . "<br>" . $dbconn->error;
-    // }
-
-    $addtocart = "INSERT INTO `cart` (`PROD_ID`, `ORDER_ID`, `item_cost`, `quantity`) 
-                VALUES ( '$so','$ORDER_ID', '$cost', '$quantity')";
-
-    if ($dbconn->query($addtocart) === TRUE) {
-        echo "Item added to cart table";
-    } else {
-        echo "Error: " . $addtocart . "<br>" . $dbconn->error;
-    }
-}
-?>
