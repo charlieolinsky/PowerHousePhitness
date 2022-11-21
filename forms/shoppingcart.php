@@ -106,8 +106,14 @@ if (isset(($_POST['addToCart']))) {
             ?>
         </table>
 
-        <div class="row">
+        <div>
             <a href="../forms/equip-rental-member.php" class="btn btn-block btn-secondary"></i>Continue Shopping</a>
+        </div>
+
+        <div>
+            <form action="../forms/checkout.php" method="POST">
+            <input type="submit" class="btn cart-btn mt-3" name="checkout" value="Check Out">
+        </form>
         </div>
     </div>
 
