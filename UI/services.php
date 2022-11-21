@@ -99,13 +99,13 @@ https://www.tooplate.com/view/2119-gymso-fitness
                              <img src="images/class/yoga-class.jpg" class="img-fluid" alt="Class">
 
                              <div class="class-info">
-                                 <h3 class="mb-1">Free</h3>
+                                 <h3 class="mb-1">Basic</h3>
 
-                                 <span><strong>No monthly cost </strong></span>
+                                 <span><strong>Daily Fee</strong></span>
 
-                                 <span class="class-price">$0</span>
+                                 <span class="class-price">$15</span>
 
-                                 <p class="mt-3">No monthly membership fees! However, you are not allowed to use the gym, equipment, or register for classes without paying.</p>
+                                 <p class="mt-3">If you already have a PHP User account, no need to sign up! You may use the gym, rent equipment, and particpate in classes for a fee when you use PHP utilities.</p>
                              </div>
                          </div>
                      </div>
@@ -115,13 +115,14 @@ https://www.tooplate.com/view/2119-gymso-fitness
                              <img src="images/class/crossfit-class.jpg" class="img-fluid" alt="Class">
 
                              <div class="class-info">
-                                 <h3 class="mb-1">Basic</h3>
+                                 <h3 class="mb-1">Premium</h3>
 
                                  <span><strong>Monthly Payment</strong></span>
 
-                                 <span class="class-price">$20</span>
+                                 <span class="class-price">$25</span>
 
-                                 <p class="mt-3">Basic PHP members get access to the gym and equipment. Classes and other activities are not included, must pay separately.  </p>
+                                 <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>
+                                 <p class="mt-3"> Note: Membership fee will be due on the 1st of every month </p>
                              </div>
                          </div>
                      </div>
@@ -133,11 +134,15 @@ https://www.tooplate.com/view/2119-gymso-fitness
                              <div class="class-info">
                                  <h3 class="mb-1">Premium</h3>
 
-                                 <span><strong>Monthly Payment</strong></span>
+                                 <span><strong>Annual Payment</strong></span>
+                                 <br>
+                                 <span><strong>($22.50 per month)</strong></span>
 
-                                 <span class="class-price">$35</span>
 
-                                 <p class="mt-3">Premium PHP members recieve all benefits under the Basic Plan, in addition to free classes and access to personal trainers.</p>
+                                 <span class="class-price">$270</span>
+
+                                 <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees.</p>
+                                 <p class="mt-3"> Note: Save $30 a year with this plan </p>
                              </div>
                          </div>
                      </div>
@@ -183,17 +188,25 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                 <input type="email" class="form-control" name="cf-email" placeholder="Johndoe@gmail.com">
 
-                <input type="tel" class="form-control" name="cf-phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                <!-- <input type="tel" class="form-control" name="cf-phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> -->
 
-                <textarea class="form-control" rows="3" name="cf-message" placeholder="Additional Message"></textarea>
+                <!-- <textarea class="form-control" rows="3" name="cf-message" placeholder="Additional Message"></textarea> -->
+
+                <p class="mt-3">Select one:</p>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="monthly">
+                    <label class="custom-control-label text-small text-muted" for="monthly"> Premium (Monthly)</label>
+                </div>
+                
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="annual">
+                    <label class="custom-control-label text-small text-muted" for="annual"> Premium (Annual)</label>
+                </div>
+
 
                 <button type="submit" class="form-control" id="submit-button" name="submit">Submit Button</button>
 
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">I agree to the <a href="#">Terms &amp;Conditions</a>
-                    </label>
-                </div>
+                
             </form>
           </div>
 

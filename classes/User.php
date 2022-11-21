@@ -2,6 +2,8 @@
 
 // THIS INCLUDES ERROR HANDLING- password requirements, verify match, checks if a field was left empty 
 
+use SecurityService\SecurityService;
+
 class User {
 //properties
 private $id;
@@ -25,6 +27,8 @@ public function _User($n, $ln, $em, $pass)
 }
 
 public function createUser(){
+    
+    /********************Check Fields ***************/
     if (empty($_POST["fname"])) {
         die("Name is required");
     }
@@ -50,22 +54,22 @@ public function createUser(){
     if ($_POST["pword"] !== $_POST["vpword"]) {
         die("Passwords must match");
     }
-    
-    //Hashing object 
-    //or
-    //hashing in session class 
-    $password_hash = password_hash($_POST["pword"], PASSWORD_DEFAULT);
-    
-    include_once("../sql/connect.php");
-    $mysqli = new mysqli ($server, $dbusername, $password, $db);  
-    
-    $sql = "INSERT INTO user_table (email, passcode, fname, lname)
-            VALUES (?,?,?,?)";
 
-   $stmt = $mysqli->stmt_init();
+
+    /******Include Security Class*********************/
     
-    if ( ! $stmt->prepare($sql)) {   
-        die("SQL error: " . $mysqli->error);
+    include_once("../classes/securityService.php");
+    $secure = new SecurityService(null, null); 
+    $password_hash = $secure -> hp($_POST['pword']);
+    //echo "Password Hash Test: ".$password_hash;
+    
+    /***********Begin Query ************************/
+    include_once("../sql/connect.php");  
+    $stmt = $dbconn -> prepare("INSERT INTO user_table (email, passcode, fname, lname)
+            VALUES (?,?,?,?)");
+    
+    if (!$stmt){   
+        die("SQL error: " . $dbconn->error);
     }
     $fname = ucfirst($_POST["fname"]);
     $lname = ucfirst($_POST["lname"]);
@@ -83,9 +87,11 @@ public function createUser(){
                     } catch (mysqli_sql_exception $e) {
                         if ($e->getCode() == 1062) {
                             die("The email you entered is already in use");
+                            //header("Location: register.php"); 
                         }
                     }                  
 }
+
 public static function removeUser($id)
 {
     include("../sql/connect.php");
