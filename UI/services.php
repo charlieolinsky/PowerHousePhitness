@@ -188,17 +188,25 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                 <input type="email" class="form-control" name="cf-email" placeholder="Johndoe@gmail.com">
 
-                <input type="tel" class="form-control" name="cf-phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                <!-- <input type="tel" class="form-control" name="cf-phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> -->
 
-                <textarea class="form-control" rows="3" name="cf-message" placeholder="Additional Message"></textarea>
+                <!-- <textarea class="form-control" rows="3" name="cf-message" placeholder="Additional Message"></textarea> -->
+
+                <p class="mt-3">Select one:</p>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="monthly">
+                    <label class="custom-control-label text-small text-muted" for="monthly"> Premium (Monthly)</label>
+                </div>
+                
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="annual">
+                    <label class="custom-control-label text-small text-muted" for="annual"> Premium (Annual)</label>
+                </div>
+
 
                 <button type="submit" class="form-control" id="submit-button" name="submit">Submit Button</button>
 
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">I agree to the <a href="#">Terms &amp;Conditions</a>
-                    </label>
-                </div>
+                
             </form>
           </div>
 
