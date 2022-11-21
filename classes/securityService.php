@@ -5,25 +5,22 @@
     {
         private $formTokenLabel = 'csrf-token-label';
         private $sessionTokenLabel = 'csrf-sess-token-label';
-        private $session = [];
-        private $server = [];
+        private $session = array();
+        private $server = array();
 
-        public function __construct(&$session = null, &$server=null)
+        public function __construct($sess, $serv)
         {
 
-            if(! \is_null($server)) {
-                $this->server = &$server;
+            if(!isset($server)) {
+                $this->server = $serv;
             } 
             else {
-                $this->server = &$_SERVER;
+                throw new \Error('No server available');
             }
 
-            if(! \is_null($session)) {
-                $this->session = &$session; 
+            if(!isset($session)) {
+                $this->session = $sess; 
             } 
-            elseif(! \is_null($_SESSION) && isset($_SESSION)) {
-                $this->session = &$_SESSION; 
-            }
             else {
                 throw new \Error('No session available');
             }
