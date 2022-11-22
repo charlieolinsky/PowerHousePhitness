@@ -20,18 +20,28 @@
 
 //var_dump($_SESSION);
 
-// Each page should have access(x) where x is the minimum level needed to acces the page.
+// Each page should have access(x, s) where x is the minimum level needed to acces the page. and s is the destination string if denied. 
 // Ex) The financial report page should be accesssible to level 4 and 5, therefore it will say access(4),
 // The access function dies if your level is less then specified rank, and allows access if you are > or = to rank.
 
-function access($rank)
-{ 
-    if(isset($_SESSION["role"]) && $_SESSION["role"] < $rank) 
-    {
-        header("Location: denied.php");
-        die;
+
+    include_once("../include/global_inc.php");
+    class Roles {
+        public static function access($minRank, $loc)
+        {
+            if(!empty(session_id()))
+            {
+                if(Session::read("roles") < $minRank) 
+                {
+                    header("Location: ".$loc);
+                    die;
+                }
+            }
+            
+        }
     }
-}
+
+    
 
 
 ?>
