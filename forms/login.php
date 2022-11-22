@@ -23,12 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             include_once('../include/global_inc.php');
             
             $session = new Session();
-            $session ->write("user_id", $user["USER_ID"]);
-            $session ->write("email", $user["email"]);
-            $session ->write("role", $user["role"]);
-            $session ->write("fname", $user["fname"]);
-            $session ->write("lname", $user["lname"]);
-            $session ->write("pword", $user["pword"]); 
+            $session->write("user_id", $user["USER_ID"]);
+            $session->write("email", $user["email"]);
+            $session->write("roles", $user["roles"]);
+            $session->write("fname", $user["fname"]);
+            $session->write("lname", $user["lname"]);
+            $session->write("pword", $user["passcode"]); 
     
             // $_SESSION["email"] = $user["email"];
             // $_SESSION["role"] = $user["roles"]; //global var from db
