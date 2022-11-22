@@ -12,6 +12,21 @@ if (isset($_POST['clear'])) {
     $_SESSION['cart'] = array();
 }
 
+if (isset($_POST['PROD_ID'])) {
+    $so = $_POST['PROD_ID'];
+    $quantity = $_POST['quantity'];
+    // $quantity = 1;
+    if ($quantity > 0 && filter_var($quantity, FILTER_VALIDATE_INT)) {
+        $_SESSION['cart'][$so] = $quantity;
+    }
+    else if($quantity == 0){
+        unset($_SESSION['cart'][$so]);
+    }
+    // else {
+    //     echo "Bad Input";
+    // }
+}
+
 
 $out = "";
 // $quantity = 1;
@@ -90,7 +105,13 @@ if (isset(($_POST['addToCart']))) {
                         <td> <?php echo "<img src=$row[prod_image]>" ?></td>
                         <td> <?php echo $row['prod_name'] ?></td>
                         <td> <?php echo "$" . $row['prod_price'] ?></td>
-                        <td> <?php echo $val ?></td>
+                        <td> 
+                            <form action="../forms/shoppingcart.php" method='POST'>
+                                <input value='<?php echo $val ?>' name='quantity'>
+                                <input type='hidden' value='<?php echo $key ?>' name='PROD_ID'>
+                                <input type='submit'>
+                            </form>
+                        </td>
                         <td> <?php echo "$" . number_format($sub, 2) ?></td>
                     </tr>
 
