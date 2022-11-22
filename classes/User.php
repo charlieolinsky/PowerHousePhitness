@@ -111,25 +111,12 @@ public static function setFirstName($fn, $id)
 
     $sql = "UPDATE user_table SET fname = '$fn' WHERE USER_ID = '$id'";
         if ($dbconn->query($sql) === TRUE) {
-            //echo "Record updated successfully";
-            header("Location: ../forms/login.php"); //ui/index.php
+            echo "Record updated successfully";
+           // header("Location: ../forms/login.php"); //ui/index.php
             exit;
         } else {
             echo "Error updating record: " . $dbconn->error;
-        }
-    
-    // Old code that gave errors 
-    // $sql = $dbconn -> prepare("UPDATE user_table SET fname = '$fn' WHERE USER_ID = '$id'");    
- 
-    // $stmt = $mysqli->stmt_init();
-    
-    // if ( ! $stmt->prepare($sql)) {   
-    //     die("SQL error: " . $mysqli->error);
-    // } 
-    // $stmt->bind_param("si", $fn, $id);
-    //                     $stmt->execute();
-    //                     header("Location: welcome.php");
-    //                     exit;                 
+        }              
 }
 public static function setLastName($ln, $id)
 { 
@@ -137,25 +124,12 @@ public static function setLastName($ln, $id)
 
     $sql = "UPDATE user_table SET lname = '$ln' WHERE USER_ID = '$id'";
         if ($dbconn->query($sql) === TRUE) {
-            //echo "Record updated successfully";
-            header("Location: ../forms/login.php"); //ui/index.php
+            echo "Record updated successfully";
+           // header("Location: ../forms/login.php"); //ui/index.php
             exit;
         } else {
             echo "Error updating record: " . $dbconn->error;
         }
-}
-public static function setEmail($em, $id)
-{
-    include("../sql/connect.php");
-
-    $sql = "UPDATE user_table SET fname = '$em' WHERE USER_ID = '$id'";
-        if ($dbconn->query($sql) === TRUE) {
-            //echo "Record updated successfully";
-            header("Location: ../forms/login.php"); //ui/index.php
-            exit;
-        } else {
-            echo "Error updating record: " . $dbconn->error;
-        } 
 }
 public static function setPassword($pass, $id)
 {      
@@ -166,8 +140,8 @@ public static function setPassword($pass, $id)
 
     $sql = "UPDATE user_table SET passcode = '$password_hash' WHERE USER_ID = '$id'";
         if ($dbconn->query($sql) === TRUE) {
-            //echo "Record updated successfully";
-            header("Location: ../forms/login.php"); //ui/index.php
+            echo "Record updated successfully";
+            //header("Location: ../forms/login.php"); //ui/index.php
             exit;
         } else {
             echo "Error updating record: " . $dbconn->error;
@@ -175,8 +149,6 @@ public static function setPassword($pass, $id)
 }
 public static function setMembershipLevel($role, $id)
 {    
-    //NOT DONE
-    var_dump($id);
     include("../sql/connect.php");
 
     $sql = "UPDATE user_table SET roles = '$role' WHERE USER_ID = '$id'";

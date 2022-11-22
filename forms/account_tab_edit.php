@@ -77,9 +77,8 @@ if ( ! preg_match("/[0-9]/", $_POST["newPassword"])) {
     User::setPassword($pass, $id);
 }
 
-if ($_SERVER["REQUEST_METHOD"] === "POST")
+if (isset($_POST['remove_user']))
 {
-  echo "hello";
   $id = $_SESSION['user_id'];
   User::removeUser($id);
 }
@@ -128,30 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
             <input type="submit" name = "ln" value = "Submit">
           </form>
       </div>
-        </dt>
-
-
-        <dt>
         <br>    
-        </dt>
-
-        <dt>
-        <br>    
-        Address: 
-        <?php
-          //echo $_SESSION[''];
-        ?> 
-           <!-- The form -->
-      <div class="form-popup" id="myForm">
-      <form action="../forms/account_tab_edit.php" method="POST">  
-            <h4>Edit Address</h4>
-
-            <label for="newAddress"><b>Address</b></label>
-            <input type="name" placeholder="Enter new address" name="newAddress" required>
-
-            <input type="submit" name = "add" value = "Submit">
-          </form>
-      </div>
            <!-- The form -->
       <div class="form-popup" id="myForm">
       <form action="../forms/account_tab_edit.php" method="POST">  
@@ -167,8 +143,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
       <br>
       <!-- <button class="btn delete account">Delete Account</button> -->
       <form action="../forms/account_tab_edit.php" method="POST">  
-      <input type="submit" name = "Remove User" value = "Delete Account">
+      <input type="submit" name = "remove_user" value = "Delete Account">
       </dl>
+      <a href="account_tab_edit.php">Upgrade Membership</a>
 </div>
 </main>
 </body>
