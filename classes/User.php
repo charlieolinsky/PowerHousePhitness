@@ -2,8 +2,6 @@
 
 // THIS INCLUDES ERROR HANDLING- password requirements, verify match, checks if a field was left empty 
 
-use SecurityService\SecurityService;
-
 class User {
 //properties
 private $id;
@@ -58,7 +56,7 @@ public function createUser(){
 
     /******Include Security Class*********************/
     
-    include_once("../classes/securityService.php");
+    include_once("../classes/SecurityService.php");
     $secure = new SecurityService(null, null); 
     $password_hash = $secure -> hp($_POST['pword']);
     //echo "Password Hash Test: ".$password_hash;
