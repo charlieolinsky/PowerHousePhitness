@@ -51,9 +51,12 @@
 
                 return session_start();
                 return session_regenerate_id(true);
+
                 // Helps prevent hijacking by resetting the session ID at every request.
                 // Might cause unnecessary file I/O overhead?
                 // TODO: create config variable to control regenerate ID behavior
+
+                echo "DEBUG: session started";
                 
             }   
         }
@@ -118,7 +121,7 @@
         public static function dump()
         {
             self::start();
-            echo nl2br(print_r($_SESSION));
+            print_r($_SESSION);
         }
         
 
@@ -195,6 +198,7 @@
                 }
                 session_destroy();
             }
+            header("Location: ../UI/loginUI.php"); 
         }    
     }
 
