@@ -13,16 +13,17 @@
                 $this->server = $serv;
             } 
             else {
-                throw new \Error('No server available');
+                //throw new \Error('No server available');
+                $this->server = null; 
             }
 
             if(!isset($session)) {
                 $this->session = $sess; 
             } 
             else {
-                throw new \Error('No session available');
+                //throw new \Error('No session available');
+                $this->session = null; 
             }
-            
         }
 
         
@@ -44,7 +45,7 @@
 
 
         //Password Hashing and Verification 
-        public function hp($pass)
+        public static function hp($pass)
         {
             return password_hash($pass, PASSWORD_DEFAULT, ['cost' => 12]);
         }

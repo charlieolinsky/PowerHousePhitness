@@ -57,9 +57,8 @@ public function createUser(){
     /******Include Security Class*********************/
     
     include_once("../classes/SecurityService.php");
-    $secure = new SecurityService(null, null); 
-    $password_hash = $secure -> hp($_POST['pword']);
-    //echo "Password Hash Test: ".$password_hash;
+    $password_hash = SecurityService::hp($_POST['pword']);
+
     
     /***********Begin Query ************************/
     include_once("../sql/connect.php");  
@@ -80,7 +79,7 @@ public function createUser(){
      
                       try {
                         $stmt->execute();
-                        header("Location: login.php");
+                        header("Location: ../UI/loginUI.php");
                         exit;
                     } catch (mysqli_sql_exception $e) {
                         if ($e->getCode() == 1062) {
@@ -97,7 +96,7 @@ public static function removeUser($id)
     $sql = "DELETE FROM user_table WHERE USER_ID = $id";
         if ($dbconn->query($sql) === TRUE) {
             //echo "Record updated successfully";
-            header("Location: ../forms/login.php"); //ui/index.php
+            header("Location: ../UI/loginUI.php"); //ui/index.php
             exit;
         } else {
             echo "Error updating record: " . $dbconn->error;

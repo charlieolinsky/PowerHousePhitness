@@ -52,14 +52,14 @@ https://www.tooplate.com/view/2119-gymso-fitness
         </div>
     </div> -->
     <div class = "login-container">
-        <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
             <!-- <div class="modal-content">
                 <div class="modal-header"> -->
                     <h2 class="modal-title" id="membershipFormLabel">Login</h2>
                 <!-- </div>
             </div>  -->
-            <input type="text" class="form-control" name="Username" placeholder="Username" required>
-            <input type="password" class="form-control" name="Password" placeholder="Password" required>
+            <input type="text" class="form-control" name="email" placeholder="Email" required>
+            <input type="password" class="form-control" name="pword" placeholder="Password" required>
             <button type="submit" class="form-control" id="submit-button" name="submit">Login</button>
             <!-- <label class="custom-control-label text-small text-muted" for="signup-agree"> <a href="#">Sign Up Now</a> -->
             <label class="text-small text-muted" for="signup-agree"> <a href="registerUI.php">Create an account</a> 
@@ -94,27 +94,35 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                    $mysqli->real_escape_string($_POST["email"]));
     
     $result = $mysqli->query($sql);
+    
     $user = $result->fetch_assoc();
 
     //var_dump($user);
     //exit;
     
     if ($user) {
-        if (password_verify($_POST['password'], $user['passcode'])) {
+        if (password_verify($_POST['pword'], $user['passcode'])) {
             include_once('../include/global_inc.php');
             
             $session = new Session();
-            $session ->write("user_id", $user["USER_ID"]);
-            $session ->write("email", $user["email"]);
-            $session ->write("role", $user["role"]);
-            $session ->write("fname", $user["fname"]);
-            $session ->write("lname", $user["lname"]);
-            $session ->write("pword", $user["pword"]);
+            $session->write("user_id", $user["USER_ID"]);
+            $session->write("email", $user["email"]);
+            $session->write("roles", $user["roles"]);
+            $session->write("fname", $user["fname"]);
+            $session->write("lname", $user["lname"]);
+            $session->write("pword", $user["passcode"]); 
+    
+            // $_SESSION["email"] = $user["email"];
+            // $_SESSION["role"] = $user["roles"]; //global var from db
+            // $_SESSION["fname"] = $user["fname"];
+            // $_SESSION["lname"] = $user["lname"];
+            // $_SESSION["pword"] = $user["passcode"];
             
-            header("Location: ../UI/index.php"); //ui/index.php
+            header("Location: index.php"); //ui/index.php
             exit;
         }
     }
+    echo "LOGIN FAILED"; 
     $is_invalid = true;
 }
 
