@@ -12,20 +12,6 @@ if (isset($_POST['clear'])) {
     $_SESSION['cart'] = array();
 }
 
-if (isset($_POST['PROD_ID'])) {
-    $so = $_POST['PROD_ID'];
-    $quantity = $_POST['quantity'];
-    // $quantity = 1;
-    if ($quantity > 0 && filter_var($quantity, FILTER_VALIDATE_INT)) {
-        $_SESSION['cart'][$so] = $quantity;
-    }
-    else if($quantity == 0){
-        unset($_SESSION['cart'][$so]);
-    }
-    // else {
-    //     echo "Bad Input";
-    // }
-}
 
 
 $out = "";
@@ -51,6 +37,23 @@ if (isset(($_POST['addToCart']))) {
         $out = "Bad Input";
     } //bad input
 
+}
+else {
+    if (isset($_POST['PROD_ID'])) {
+        $so = $_POST['PROD_ID'];
+        $quantity = $_POST['quantity'];
+        // $quantity = 1;
+        if ($quantity > 0 && filter_var($quantity, FILTER_VALIDATE_INT)) {
+            $_SESSION['cart'][$so] = $quantity;
+        }
+        else if($quantity == 0){
+            unset($_SESSION['cart'][$so]);
+        }
+        // else {
+        //     echo "Bad Input";
+        // }
+    }
+    
 }
 
 ?>
