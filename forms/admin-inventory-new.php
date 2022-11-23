@@ -85,7 +85,8 @@
             <h1> Admin Inventory - Add New Item</h1>
 
             <!-- this line works! -- nvm this doesnt work anymore lmfao -->
-            <!-- <form action="<?php // echo $_SERVER['PHP_SELF']; ?>" method="POST"> -->
+            <!-- <form action="<?php // echo $_SERVER['PHP_SELF']; 
+                                ?>" method="POST"> -->
             <!-- this line doesnt do datavalidation but DOES insert into b -->
             <form action="../include/add-products.php" method="POST" enctype="multipart/form-data">
                 <!-- <form action="admin-inventory-new.php" method="POST"> -->
@@ -106,7 +107,7 @@
                     //Price Validation
                     if (empty($_POST['prod_price'])) {
                         $price_error = "Please enter a price";
-                    } else if (!is_numeric($_POST['prod_price'])){
+                    } else if (!is_numeric($_POST['prod_price'])) {
                         $price_error = "Invalid input, please enter a number.";
                     }
 
@@ -122,6 +123,12 @@
                         $purchase_date_error = "Please enter a purchase date";
                     }
 
+                    //Vendor Validation
+                    //Date Purchased Validation
+                    if (empty($_POST['VENDOR_ID'])) {
+                        $vendor_error = "Please select a Vendor";
+                    }
+
                     //Purchase Price Validation
                     if (empty($_POST['prod_purchase_cost'])) {
                         $purchase_cost_error = "Please enter a price";
@@ -130,7 +137,7 @@
                     }
                 }
                 ?>
-                
+
                 <div>
                     <!-- the name="__" field is what connects this form to the querying file -->
                     <label for="prod_name"> Item Name:</label><br>
@@ -196,8 +203,10 @@
                         }
                         echo "</select>";
                     }
-
                     ?>
+                    <br>
+                    <span> <?php if (isset($vendor_error)) echo $vendor_error; ?> </span>
+
                 </div>
 
 
