@@ -129,7 +129,9 @@
             <div class="equip-container">
                 <div class="row">
             
-                    <form action="../forms/shoppingcart.php" method="POST">                 
+                    <form action="../forms/shoppingcart.php" method="POST">
+                    <!-- <form action="../include/shoppingcartTest.php" method="POST">                  -->
+                 
 
                         <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12">
                             <div class="equip-info">
