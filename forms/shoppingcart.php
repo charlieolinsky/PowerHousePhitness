@@ -65,9 +65,9 @@ if (isset(($_POST['addToCart']))) { //updating the quantity from add to cart but
     <h2> Shopping Cart </h2>
 
 
-    <div class="cart-container">
+    <div>
         <form action="../forms/shoppingcart.php" method="POST">
-            <input type="submit" class="btn cart-btn mt-3" name="clear" value="Clear Cart">
+            <input type="submit" name="clear" value="Clear Cart">
         </form>
 
 
@@ -122,12 +122,12 @@ if (isset(($_POST['addToCart']))) { //updating the quantity from add to cart but
             ?>
         </table>
 
-        <div class="row">
-            <a href="../forms/equip-rental-member.php" class="btn btn-block btn-secondary"></i>Continue Shopping</a>
+        <div>
+            <a href="../forms/equip-rental-member.php"></i>Continue Shopping</a>
         </div>
         <div>
             <form action="../forms/checkout.php" method="POST">
-                <input type="submit" class="btn cart-btn mt-3" name="checkout" value="Check Out">
+                <input type="submit" name="checkout" value="Check Out">
             </form>
         </div>
     </div>
