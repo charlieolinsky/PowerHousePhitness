@@ -56,19 +56,14 @@
                 </li>
             </ul>
 
+            <!-- Add User icon -->
             <ul class="social-icon ml-lg-3">
-                <li><a href="#" class="fa fa-user"></a></li>
+                        <li><a href="../forms/account_tab.php" class="fa fa-user"></a></li>
             </ul>
 
             <ul class="social-icon ml-lg-3">
                 <li><a href="../forms/shoppingcart.php" class="fa fa-shopping-cart"></a></li>
             </ul>
-
-            <!-- <ul class="social-icon ml-lg-3">
-                    <li><a href="https://fb.com/tooplate" class="fa fa-facebook"></a></li>
-                    <li><a href="#" class="fa fa-twitter"></a></li>
-                    <li><a href="#" class="fa fa-instagram"></a></li>
-                </ul> -->
 
         </div>
 

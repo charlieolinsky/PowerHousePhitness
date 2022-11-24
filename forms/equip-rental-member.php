@@ -57,8 +57,9 @@
                     </li>
                 </ul>
 
+                <!-- Add User icon -->
                 <ul class="social-icon ml-lg-3">
-                    <li><a href="#" class="fa fa-user"></a></li>
+                        <li><a href="../forms/account_tab.php" class="fa fa-user"></a></li>
                 </ul>
 
                 <ul class="social-icon ml-lg-3">
