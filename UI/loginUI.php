@@ -23,45 +23,14 @@ https://www.tooplate.com/view/2119-gymso-fitness
 -->
 </head>
 
-<!-- <section class="login" id="login">
-    <p style="background-image:url('../images/login-bg.jpg') ;"
-     hero d-flex flex-column justify-content-center align-items-center  
-    <div class="bg-overlay">
-         <div class="center">
-            <div class="flex-container">
-                <div class="team-info">
-                    <input type="text" class="form-control" name="username" placeholder="Username">
-                    <input type="text" class="form-control" name="passoword" placeholder="Password">
-    
-                </div>
-            </div>
-         </div> 
-    </div>
- </section>  -->
-
 <body style="background-color:#171819"></body>
 <login-title>P H P</login-title>
-
-    <!-- <div class="flex-container">
-        <div class="modal-body">
-            <input type="text" class="form-control" name="Username" placeholder="Username" required>
-
-            <input type="tel" class="form-control" name="Password" placeholder="Password" required>
-
-            <button type="submit" class="form-control" id="submit-button" name="submit">Login</button>
-        </div>
-    </div> -->
     <div class = "login-container">
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-            <!-- <div class="modal-content">
-                <div class="modal-header"> -->
-                    <h2 class="modal-title" id="membershipFormLabel">Login</h2>
-                <!-- </div>
-            </div>  -->
+            <h2 class="modal-title" id="membershipFormLabel">Login</h2>
             <input type="text" class="form-control" name="email" placeholder="Email" required>
             <input type="password" class="form-control" name="pword" placeholder="Password" required>
             <button type="submit" class="form-control" id="submit-button" name="submit">Login</button>
-            <!-- <label class="custom-control-label text-small text-muted" for="signup-agree"> <a href="#">Sign Up Now</a> -->
             <label class="text-small text-muted" for="signup-agree"> <a href="registerUI.php">Create an account</a> 
             <br>
             <label class="text-small text-muted" for="signup-agree"> <a href="services.php#membership">Not a member? Click to join</a>

@@ -90,7 +90,6 @@ https://www.tooplate.com/view/2119-gymso-fitness
      <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
 
             <div class="bg-overlay"></div>
-
                <div class="container">
                     <div class="row">
 

@@ -106,6 +106,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                  <span class="class-price">$15</span>
 
                                  <p class="mt-3">If you already have a PHP User account, no need to sign up! You may use the gym, rent equipment, and particpate in classes for a fee when you use PHP utilities.</p>
+                                 <br>
                              </div>
                          </div>
                      </div>
@@ -142,7 +143,9 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                  <span class="class-price">$270</span>
 
                                  <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees.</p>
-                                 <p class="mt-3"> Note: Save $30 a year with this plan </p>
+                                 <!-- <p class="mt-3"> Note: Save $30 a year with this plan </p> -->
+                                 <br>
+                                 <br>
                              </div>
                          </div>
                      </div>
@@ -159,9 +162,19 @@ https://www.tooplate.com/view/2119-gymso-fitness
     <section class="class section" id="classes">
         <div class="container">
             <div class="column">
-                <h1>hi</h1>
-                <h1>hello</h1>
-                <h1>hey</h1>
+
+                <div class="class-signup">
+                    <div class="row">
+                        <h3 class="mb-1">Yoga</h3>
+                    </div>
+                </div>
+                
+                <div class="class-signup">
+                    <div class="row">
+                        <h3 class="mb-1">Power Fitness</h3>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </section>        

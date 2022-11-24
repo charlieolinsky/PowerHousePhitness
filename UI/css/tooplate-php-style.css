@@ -495,6 +495,16 @@ https://www.tooplate.com/view/2119-gymso-fitness
     position: relative;
   }
 
+  .register-bg{
+    background-image: url('../images/login-bg.jpg');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    min-height: 100vh;
+    position: relative;
+  }
+
    /*---------------------------------------
      LOGIN             
   -----------------------------------------*/
@@ -573,6 +583,15 @@ https://www.tooplate.com/view/2119-gymso-fitness
     border-radius: 0 0 2px 2px;
     padding: 1rem 2rem;
     position: relative;
+  }
+
+  .class-signup{
+      background: var(--white-color)!important;
+      box-shadow: 6px 0 38px rgba(20,20,20,0.10);
+      border-radius: 0 0 2px 2px;
+      padding: 1rem 2rem;
+      position: relative;
+      margin-bottom: 10px;
   }
 
   .class-info img {
