@@ -217,7 +217,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                 </div>
 
 
-                <button type="submit" class="form-control" id="submit-button" name="submit">Submit Button</button>
+                <button type="submit" class="form-control" id="submit-button" name="submit">Submit</button>
 
                 
             </form>

@@ -10,8 +10,6 @@
 
         $user = new User($fname, $lname, $email, $pword); 
         $user -> createUser();
-
-
     }
 ?>
 

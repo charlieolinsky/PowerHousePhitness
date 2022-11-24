@@ -1,19 +1,4 @@
 <!DOCTYPE html>
-<?php 
-    include_once("../classes/User.php");
-
-    if (isset($_POST['fname'])) {
-        $fname = $_POST["fname"];
-        $lname = $_POST["lname"];
-        $email = $_POST["email"];
-        $pword = $_POST["pword"];
-
-        $user = new User($fname, $lname, $email, $pword); 
-        $user -> createUser();
-
-
-    }
-?>
 
 <html lang="en">
     <head>
@@ -55,11 +40,11 @@
             <div class = "login-container">
                 `<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="POST">    
                     <h2 class="modal-title" id="membershipFormLabel">Register</h2>
-                    <input type="text" class="form-control" name="fName" placeholder="First Name" required>
-                    <input type="text" class="form-control" name="lName" placeholder="Last Name" required>
+                    <input type="text" class="form-control" name="fname" placeholder="First Name" required>
+                    <input type="text" class="form-control" name="lname" placeholder="Last Name" required>
                     <input type="text" class="form-control" name="email" placeholder="Email" required>
                     <input type="password" class="form-control" name="pword" placeholder="Password" required>
-                    <input type="password" class="form-control" name="pword2" placeholder="Re-type Password" required>
+                    <input type="password" class="form-control" name="vpword" placeholder="Re-type Password" required>
                     <button type="submit" class="form-control" id="submit-button" name="submit">Create Account</button>
                 </form>
             </div>`
@@ -67,3 +52,19 @@
     </body>
 
 </html>
+
+<?php 
+    include_once("../classes/User.php");
+
+    if (isset($_POST['fname'])) {
+        $fname = $_POST["fname"];
+        $lname = $_POST["lname"];
+        $email = $_POST["email"];
+        $pword = $_POST["pword"];
+
+        $user = new User($fname, $lname, $email, $pword); 
+        $user -> createUser();
+
+
+    }
+?>
