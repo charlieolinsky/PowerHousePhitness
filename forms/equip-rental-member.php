@@ -57,8 +57,9 @@
                     </li>
                 </ul>
 
+                <!-- Add User icon -->
                 <ul class="social-icon ml-lg-3">
-                    <li><a href="#" class="fa fa-user"></a></li>
+                        <li><a href="../forms/account_tab.php" class="fa fa-user"></a></li>
                 </ul>
 
                 <ul class="social-icon ml-lg-3">
@@ -87,7 +88,7 @@
                 Please visit our front desk to pick up and return your items.
             </p>
         </div>
-        </div>
+  
 
         <!-- <div class="rental-products"> -->
         <!-- FILE TO QUERY DATA  -->
@@ -145,17 +146,16 @@
                                 <span style="color: var(--primary-color)"><?php echo "$" . $rows['prod_price']; ?></span>
                             </h4>
 
-                            <input type="submit" class="btn cart-btn mt-3" name="addToCart" value="Add to Cart ">
                            
 
                             <input type="hidden" name="PROD_ID" value="<?php echo $rows['PROD_ID'] ?>">
                             <input type="hidden" name="prod_price" value="<?php echo $rows['prod_price'] ?>">
                             <input type="hidden" name="prod_name" value="<?php echo $rows['prod_name'] ?>">
 
-
-
                             <!-- submit button goes here. Name button addToCart -->
                             <!-- Need submit button -->
+                            <input type="submit" class="btn cart-btn mt-3" name="addToCart" value="Add to Cart ">
+                            
                         </div>
                     </form>
                 </div>

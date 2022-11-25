@@ -1,44 +1,27 @@
+<!-- Original copy of Christina's account_tab.php with no UI applied -->
 <?php
   include_once("../include/global_inc.php"); 
 ?>
 
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Rental Portal</title>
-
-    <link rel="stylesheet" href="../UI/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../UI/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../UI/css/aos.css">
-    <link rel="stylesheet" href="../UI/css/tooplate-php-style.css">
-
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account Tab</title>
 </head>
 
-  <body>
-  <!-- <main>  -->
-    <div class="equip-title">
-        <h1 style="color: var(--primary-color)">My Account</h1>
-    </div>
-   
-      <!-- <div class = "account-info"> -->
-      <div class="about-container">
-        <div class="about-info">
-          <h4>User ID: 
-                  <?php
-                    echo Session::read('user_id');
-                  ?>
-          </h4>
-        </div>
-      </div>
-          <!-- <dl>
+<body>
+  <main> 
+    <h1>My Account</h1>
+      <div class = "account-info">
+          <dl>
               <dt>User ID: 
                 <?php
                   echo Session::read('user_id');
                 ?>
-              </dt> -->
+              </dt>
               <dt>Name: 
                 <?php
                   echo Session::read('fname')." ".Session::read('lname');
@@ -53,7 +36,7 @@
                   <?php
                     //Session::dump(); 
                   ?>
-              <dt>Membership Level: 
+              <dt>Member Ship Level: 
                 <?php
                   if(Session::read('roles') == 1)
                   {
@@ -87,14 +70,6 @@
               </dt>
             </dl>
       </div>
-    <!-- </main> -->
-
-     <!-- SCRIPTS -->
-     <script src="js/jquery.min.js"></script>
-     <script src="js/bootstrap.min.js"></script>
-     <script src="js/aos.js"></script>
-     <script src="js/smoothscroll.js"></script>
-     <script src="js/custom.js"></script>
-
+    </main>
   </body>
 </html>
