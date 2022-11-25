@@ -1,6 +1,5 @@
 <?php 
 
-
     class Session
     {
         protected static $SESSION_AGE = 1800; //The number of seconds of inactivity before a session expires.
@@ -21,44 +20,42 @@
                 if (session_status() == PHP_SESSION_DISABLED){
                     throw new Exception("Session Disabled Exception");
                 }
-            }
-            
-            if ( '' === session_id() )
-            {
-                $secure = true;
-                $httponly = true;
 
-                // Disallow session passing as a GET parameter.
-                if (ini_set('session.use_only_cookies', 1) === false) {
-                    throw new Exception("Session Use Only Cookies Exception");
-                }
+                if (session_status() == PHP_SESSION_NONE)
+                {
+                    $secure = true;
+                    $httponly = true;
 
-                // Mark the cookie as accessible only through the HTTP protocol.
-                if (ini_set('session.cookie_httponly', 1) === false) {
-                    throw new Exception("Session HTTP-Only Cookie Exception");
-                }
+                    //Disallow session passing as a GET parameter.
+                    if (ini_set('session.use_only_cookies', 1) === false) {
+                        throw new Exception("Session Use Only Cookies Exception");
+                    }
 
-                // Ensure that session cookies are only sent using SSL.
-                // Requires a properly installed SSL certificate.
-                $params = session_get_cookie_params();
-                session_set_cookie_params(
-                    $params['lifetime'],
-                    $params['path'], 
-                    $params['domain'],
-                    $secure, 
-                    $httponly
-                );
+                    // Mark the cookie as accessible only through the HTTP protocol.
+                    if (ini_set('session.cookie_httponly', 1) === false) {
+                        throw new Exception("Session HTTP-Only Cookie Exception");
+                    }
 
-                return session_start();
-                return session_regenerate_id(true);
+                    // Ensure that session cookies are only sent using SSL.
+                    // Requires a properly installed SSL certificate.
+                    
+                    $params = session_get_cookie_params();
+                    session_set_cookie_params(
+                        $params['lifetime'],
+                        $params['path'], 
+                        $params['domain'],
+                        $secure, 
+                        $httponly
+                    );
+                    return session_start();
+                    return session_regenerate_id(true);
 
-                // Helps prevent hijacking by resetting the session ID at every request.
-                // Might cause unnecessary file I/O overhead?
-                // TODO: create config variable to control regenerate ID behavior
-
-                echo "DEBUG: session started";
-                
-            }   
+                    // Helps prevent hijacking by resetting the session ID at every request.
+                    // Might cause unnecessary file I/O overhead?
+                    // TODO: create config variable to control regenerate ID behavior
+                    
+                } 
+            }  
         }
         
 
@@ -74,8 +71,6 @@
             
             return $value;
         }
-        
-
 
         //Reads a specific value from the current session data.
         public static function read($key, $child = false)
@@ -139,7 +134,7 @@
             $_SESSION['LAST_ACTIVE'] = time();
         }
 
-        public static function containsKey($key): bool
+        public static function containsKey($key)
         {
             if (!is_string($key))
                 throw new Exception('Invalid Argument Type Exception: Session key must be a string value');
@@ -175,7 +170,6 @@
         }
         
 
-
         //Removes session data/cookies and destroys the current session.
         public static function destroy()
         {
@@ -199,7 +193,7 @@
                 session_destroy();
             }
             header("Location: ../UI/loginUI.php"); 
+            die();
         }    
     }
-
 ?>

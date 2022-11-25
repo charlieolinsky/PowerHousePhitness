@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // $_SESSION["pword"] = $user["passcode"];
             
             header("Location: ../UI/index.php"); //ui/index.php
-            exit;
+            die();
         }
     }
     $is_invalid = true;
