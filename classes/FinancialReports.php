@@ -1,7 +1,7 @@
 <?php
    include_once("../include/global_inc.php"); 
 
-   Roles::access(4, "../forms/denied.php");
+   Roles::minAccess(4, "../forms/denied.php");
 
    $sql ="SELECT SUM(grand_total) AS sum FROM cart";
    $result = mysqli_query($dbconn, $sql);
