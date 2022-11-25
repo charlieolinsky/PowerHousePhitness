@@ -109,7 +109,7 @@ public static function setFirstName($fn, $id)
     $sql = "UPDATE user_table SET fname = '$fn' WHERE USER_ID = '$id'";
         if ($dbconn->query($sql) === TRUE) {
             echo "Record updated successfully";
-           // header("Location: ../forms/login.php"); //ui/index.php
+            header("Location: ../forms/account_tab.php"); //ui/index.php
             exit;
         } else {
             echo "Error updating record: " . $dbconn->error;

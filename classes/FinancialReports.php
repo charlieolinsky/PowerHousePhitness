@@ -1,6 +1,8 @@
 <?php
-// add rounding
-   include_once("../sql/connect.php"); 
+   include_once("../include/global_inc.php"); 
+
+   Roles::access(4, "../forms/denied.php");
+
    $sql ="SELECT SUM(grand_total) AS sum FROM cart";
    $result = mysqli_query($dbconn, $sql);
    while($row = mysqli_fetch_assoc($result))
@@ -88,7 +90,7 @@ $result2 = $dbconn->query($query);
                     </td>
                     <td class="test-result-step-description-cell">
                         <?php
-                        echo "$" . $totalSales;
+                        echo "$" . round($totalSales, 2);
                         ?>
                     </td>
                 </tr>
@@ -98,7 +100,7 @@ $result2 = $dbconn->query($query);
                     </td>
                     <td class="test-result-step-description-cell">
                     <?php    
-                    echo "$" . $totalSales*.08; 
+                    echo "$" . round($totalSales*.08, 2); 
                     ?>              
                     </td>
                 </tr>
@@ -108,7 +110,7 @@ $result2 = $dbconn->query($query);
                     </td>
                     <td class="test-result-step-description-cell">
                         <?php 
-                         echo "$" . $totalSales*1.08;
+                         echo "$" . round($totalSales*1.08, 2);
                         ?>
                     </td>
                 </tr>
@@ -119,7 +121,7 @@ $result2 = $dbconn->query($query);
                     <td class="test-result-step-description-cell">
                         <!-- *debit total* -->
                         <?php 
-                        echo "$" . $totalSales*.7;
+                        echo "$" . round($totalSales*.7, 2);
                         ?>
                     </td>
                 </tr>
@@ -130,7 +132,7 @@ $result2 = $dbconn->query($query);
                     <td class="test-result-step-description-cell">
                         <!-- credit total* -->
                         <?php 
-                        echo "$" . $totalSales*.3;
+                        echo "$" . round($totalSales*.3, 2);
                         ?>
                     </td>
                 </tr>
@@ -141,7 +143,7 @@ $result2 = $dbconn->query($query);
                     <td class="test-result-step-description-cell">
                         <!-- *total discounts* -->
                         <?php 
-                        echo "$" . $totalSales*.10;
+                        echo "$" . round($totalSales*.10, 2);
                         ?>
                     </td>
                 </tr>
