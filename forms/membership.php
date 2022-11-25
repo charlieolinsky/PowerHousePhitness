@@ -7,6 +7,10 @@
 
         Roles::access(1, "../UI/loginUI.php"); 
 
+        if(!isset($_POST['cBox1']) && !isset($_POST['cBox2'])){
+            die("Please select a membership option");
+        }
+
         //Check email exists in DB
         $email = trim($_POST['cf-email']);
         $stmt = $dbconn -> prepare("SELECT * FROM user_table WHERE email=?");
@@ -34,6 +38,7 @@
         
         if($userRank == 1){ 
             $res = $dbconn -> query("UPDATE user_table SET roles = 2 WHERE USER_ID = $userID");
+            $s->write('roles', 2);
 
             if($res){
                 header("Location: memberSuccess.php");

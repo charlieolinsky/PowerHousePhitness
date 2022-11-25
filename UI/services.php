@@ -215,7 +215,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                 <p class="mt-3">Select one:</p>
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" name="cBox1" id="monthly" required>
+                    <input type="checkbox" class="custom-control-input" name="cBox1" id="monthly">
                     <label class="custom-control-label text-small text-muted" for="monthly"> Premium (Monthly)</label>
                 </div>
                 
