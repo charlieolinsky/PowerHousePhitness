@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+<body style = "text-align: center">
     <!-- NAV BAR -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">

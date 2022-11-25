@@ -21,11 +21,14 @@
 Tooplate 2119 Gymso Fitness
 https://www.tooplate.com/view/2119-gymso-fitness
 --> </head>
-<body data-spy="scroll" data-target="#navbarNav" data-offset="50"></body>
-     <!-- MENU BAR -->
-     <nav class="navbar navbar-expand-lg fixed-top">
+<!-- Implementing scroll -->
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+    <!-- NAV BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
 
+            <!-- PHP Logo -->
             <a class="navbar-brand" href="index.php"><span style="color: var(--primary-color)">P</span>ower <span style="color: var(--primary-color)">H</span>ouse <span style="color: var(--primary-color)">P</span>hitness</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -33,32 +36,38 @@ https://www.tooplate.com/view/2119-gymso-fitness
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+            <!-- Create list of links/buttons for different pages -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-lg-auto">
+                    <!-- Add and link Index page -->
                     <li class="nav-item">
                         <a href="index.php" class="nav-link smoothScroll">Home</a>
                     </li>
 
+                    <!-- Add and link About page -->
                     <li class="nav-item">
                         <a href="about.php" class="nav-link">About Us</a>
                     </li>
 
+                    <!-- Create dropdown menu -->
                     <li class="dropdown">
                         <button class="dropbtn" id="dropdownMenuButton" data-toggle="dropdown"> Services
                             <i class="fa fa-caret-down"></i>
                         </button>
 
                         <div class="dropdown-content">
-                            <a href="services.php">Classes </a>
+                            <a href="services.php#classes">Classes </a>
                             <a href="services.php#membership">Memberships </a>
                             <a href="..\forms\equip-rental-member.php">Equipment </a>
                         </div> 
                     </li>
 
+                    <!-- Add and link Schedule page -->
                     <li class="nav-item">
                         <a href="schedule.php" class="nav-link">Schedule</a>
                     </li>
 
+                    <!-- Add and link contact section -->
                     <li class="nav-item">
                         <a href="index.php#contact" class="nav-link smoothScroll">Contact</a>
                     </li>
@@ -69,22 +78,24 @@ https://www.tooplate.com/view/2119-gymso-fitness
                         <li><a href="../forms/account_tab.php" class="fa fa-user"></a></li>
                 </ul>
 
+                <!-- Add shopping cart icon with link -->
                 <ul class="social-icon ml-lg-3">
-                    <li><a href="../forms/shoppingcart.php" class="fa fa-shopping-cart"></a></li>
+                        <li><a href="../forms/shoppingcart.php" class="fa fa-shopping-cart"></a></li>
                 </ul>
-                
             </div>
 
         </div>
     </nav>
 
+
     <!-- ABOUT PAGE -->
     <section class="about section" id="about">
         <div class="my-container">
             <div class="row" >
-
                     <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
-                        <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Hello, we are PHP!</h2>
+                        <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">
+                            <span style="color: var(--primary-color)">Hello, we are PHP!</span>
+                        </h2>
                        
                         <p data-aos="fade-up" data-aos-delay="400">You are NOT allowed to redistribute this HTML template downloadable ZIP file on any template collection site. You are allowed to use this template for your personal or business websites.</p>
 
