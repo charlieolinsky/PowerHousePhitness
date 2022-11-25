@@ -27,18 +27,6 @@ if (isset($_POST['ln'])) {
     User::setLastName($lName, $id);
 }
 
-// calling method from user class to reset email
-if (isset($_POST['em'])) {
-  $email = $_POST["newEm"];
-  $id = $_SESSION['user_id'];
-
-  //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
-  //$user -> setFirstName($name, $id);
-  //User::setFirstName($name, $id);
-  $_SESSION["email"] = $em;
-  User::setEmail($email, $id);
-}
-
 // calling method from user class to reset address
 if (isset($_POST['add'])) {
   $address = $_POST["newAddress"];
@@ -142,7 +130,8 @@ if (isset($_POST['remove_user']))
       <form action="../forms/account_tab_edit.php" method="POST">  
       <input type="submit" name = "remove_user" value = "Delete Account">
       </dl>
-      <a href="../UI/services.php#membership">Upgrade Membership</a>
+      <a href="../UI/services.php#membership">Upgrade Your Membership</a>
+      <a href="cancelMembership.php">Cancel Your Membership</a>
 </div>
 </main>
 </body>

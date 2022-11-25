@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Rental Portal</title>
+    <title>My Account</title>
 
     <link rel="stylesheet" href="../UI/css/bootstrap.min.css">
     <link rel="stylesheet" href="../UI/css/font-awesome.min.css">
@@ -60,15 +60,15 @@
               <dt>Address: 
                   <?php
                     //Session::dump(); 
-                    $userID = $s->read('user_id');
+                    //$userID = $s->read('user_id');
                     //var_dump($userID);
-                    $sql = "SELECT address1, city, st, zip FROM `user_address` WHERE USER_ID = '$userID'";
-                    $result = mysqli_query($dbconn, $sql);
-                    $rows = $result->fetch_assoc();
+                    //$sql = "SELECT address1, city, st, zip FROM `user_address` WHERE USER_ID = '$userID'";
+                    //$result = mysqli_query($dbconn, $sql);
+                    //$rows = $result->fetch_assoc();
                     //var_dump($rows);
                     // $address = array($rows);
                     //    echo $address[0];
-                    echo $rows['address1'] .", ". $rows['city'] .", ". $rows['st'] .", ". $rows['zip'];
+                    //echo $rows['address1'] .", ". $rows['city'] .", ". $rows['st'] .", ". $rows['zip'];
                   ?>
               <dt>Membership Level: 
                 <?php

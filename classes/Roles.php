@@ -34,12 +34,12 @@
             
         }
 
-        public static function maxAccess($minRank, $loc)
+        public static function maxAccess($maxRank, $loc)
         {
             $s = new Session();
             if(session_status() == PHP_SESSION_ACTIVE)
             {
-                if(Session::read("roles") >  $minRank) 
+                if(Session::read("roles") >  $maxRank) 
                 {
                     header("Location: ".$loc);
                     die();
