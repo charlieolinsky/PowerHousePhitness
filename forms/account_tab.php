@@ -59,52 +59,36 @@
               </dt>
               <dt>Address: 
                   <?php
-                    //Query Address Table
-                    if ($dbconn -> connect_errno) {
-                      echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-                      exit();
-                    }
-
-                    $id = $s->read("user_id");
-                    $result = $dbconn -> query("SELECT * FROM user_address WHERE USER_ID=$id");
-
-                    //not sure, something like this
-                    if ($result->num_rows > 0) {
-                      echo "Address 1: ".$result[0]."<br>";
-                      echo "Address 2: <br>";
-                      echo "City: <br>";
-                      echo "State: <br>";
-                      echo "Zipcode: <br>";
-                      echo "Billing Address: ";
-                      while($row = $result->fetch_assoc()) {
-                        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-                      }
-                    } else {
-                      echo "No Address Info Found";
-                    }
-
-                    
-                    
+                    //Session::dump(); 
+                    $userID = $s->read('user_id');
+                    //var_dump($userID);
+                    $sql = "SELECT address1, city, st, zip FROM `user_address` WHERE USER_ID = '$userID'";
+                    $result = mysqli_query($dbconn, $sql);
+                    $rows = $result->fetch_assoc();
+                    //var_dump($rows);
+                    // $address = array($rows);
+                    //    echo $address[0];
+                    echo $rows['address1'] .", ". $rows['city'] .", ". $rows['st'] .", ". $rows['zip'];
                   ?>
               <dt>Membership Level: 
                 <?php
-                  if(Session::read('roles') == 1)
+                  if($s->read('roles') == 1)
                   {
                     echo "Free Member";
                   }
-                  else if(Session::read('roles') == 2)
+                  else if($s->read('roles') == 2)
                   {
                     echo "Premium Member";
                   }
-                  else if(Session::read('roles') == 3)
+                  else if($s->read('roles') == 3)
                   {
                     echo "Representative"; 
                   }
-                  else if(Session::read('roles') == 4)
+                  else if($s->read('roles') == 4)
                   {
                     echo "Finance Personnel";
                   }
-                  else if(Session::read('roles') == 5)
+                  else if($s->read('roles') == 5)
                   {
                     echo "Admin";
                   }
