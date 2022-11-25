@@ -18,7 +18,7 @@
 
     <script>
       <?php
-        Roles::access(1, "../UI/loginUI.php");
+        Roles::minAccess(1, "../UI/loginUI.php");
       ?>
 
     </script>

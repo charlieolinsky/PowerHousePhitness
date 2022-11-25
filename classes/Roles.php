@@ -17,12 +17,29 @@
 
 
     include_once("../include/global_inc.php");
+     
     class Roles {
-        public static function access($minRank, $loc)
+        
+        public static function minAccess($minRank, $loc)
         {
-            if(!empty(session_id()))
+            $s = new Session();
+            if(session_status() == PHP_SESSION_ACTIVE)
             {
-                if(Session::read("roles") < $minRank) 
+                if($s->read("roles") < $minRank) 
+                {
+                    header("Location: ".$loc);
+                    die();
+                }
+            }
+            
+        }
+
+        public static function maxAccess($minRank, $loc)
+        {
+            $s = new Session();
+            if(session_status() == PHP_SESSION_ACTIVE)
+            {
+                if(Session::read("roles") >  $minRank) 
                 {
                     header("Location: ".$loc);
                     die();

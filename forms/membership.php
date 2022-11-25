@@ -5,7 +5,7 @@
     
     if(session_status() == PHP_SESSION_ACTIVE){
 
-        Roles::access(1, "../UI/loginUI.php"); 
+        Roles::minAccess(1, "../UI/loginUI.php"); 
 
         if(!isset($_POST['cBox1']) && !isset($_POST['cBox2'])){
             die("Please select a membership option");
