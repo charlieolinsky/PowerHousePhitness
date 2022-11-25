@@ -3,9 +3,6 @@
 <?php
 
 session_start();
-include_once("../classes/User.php");
-include_once("../classes/roles.php");
-include_once("../sql/connect.php");
 
 // calling method from user class to reset firstname
 if (isset($_POST['fn'])) {
@@ -145,7 +142,7 @@ if (isset($_POST['remove_user']))
       <form action="../forms/account_tab_edit.php" method="POST">  
       <input type="submit" name = "remove_user" value = "Delete Account">
       </dl>
-      <a href="account_tab_edit.php">Upgrade Membership</a>
+      <a href="../UI/services.php#membership">Upgrade Membership</a>
 </div>
 </main>
 </body>
