@@ -29,19 +29,6 @@ if (isset($_POST['ln'])) {
   //User::setFirstName($name, $id);
     User::setLastName($lName, $id);
 }
-
-// calling method from user class to reset email
-if (isset($_POST['em'])) {
-  $email = $_POST["newEm"];
-  $id = $_SESSION['user_id'];
-
-  //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
-  //$user -> setFirstName($name, $id);
-  //User::setFirstName($name, $id);
-  $_SESSION["email"] = $em;
-  User::setEmail($email, $id);
-}
-
 // calling method from user class to reset address
 if (isset($_POST['add'])) {
   $address = $_POST["newAddress"];
@@ -101,9 +88,7 @@ if (isset($_POST['remove_user']))
            <!-- The form -->
       <div class="form-popup" id="myForm">
       <form action="../forms/account_tab_edit.php" method="POST">   
-            <h4>Edit First Name</h4>
-
-            <label for="newName"><b>First Name</b></label>
+            <label for="newName"><b>Edit First Name</b></label>
             <input type="name" placeholder="Enter new first name" name="newName" required>
             <input type="submit" name = "fn" value = "Submit">
             <!-- <button type="submit" class="btn">Submit</button> -->
@@ -120,9 +105,7 @@ if (isset($_POST['remove_user']))
            <!-- The form -->
       <div class="form-popup" id="myForm">
       <form action="../forms/account_tab_edit.php" method="POST">  
-            <h4>Edit Last Name</h4>
-
-            <label for="newLname"><b>Last Name</b></label>
+            <label for="newLname"><b>Edit Last Name</b></label>
             <input type="name" placeholder="Enter new last name" name="newLname" required>
             <input type="submit" name = "ln" value = "Submit">
           </form>
@@ -131,9 +114,7 @@ if (isset($_POST['remove_user']))
            <!-- The form -->
       <div class="form-popup" id="myForm">
       <form action="../forms/account_tab_edit.php" method="POST">  
-            <h4>Change Password</h4>
-
-            <label for="newAddress"><b>Password</b></label>
+            <label for="newAddress"><b>Change Password</b></label>
             <input type="password" placeholder="Enter new password" name="newPassword" required>
             <input type="password" placeholder="Confirm password" name="vPass" required>
 
@@ -145,7 +126,7 @@ if (isset($_POST['remove_user']))
       <form action="../forms/account_tab_edit.php" method="POST">  
       <input type="submit" name = "remove_user" value = "Delete Account">
       </dl>
-      <a href="account_tab_edit.php">Upgrade Membership</a>
+      <a href="../ui/services.php#membership">Upgrade Membership</a>
 </div>
 </main>
 </body>
