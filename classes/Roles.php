@@ -34,7 +34,7 @@
                 if(Session::read("roles") < $minRank) 
                 {
                     header("Location: ".$loc);
-                    die;
+                    die();
                 }
             }
             

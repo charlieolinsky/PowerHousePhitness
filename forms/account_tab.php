@@ -1,5 +1,6 @@
 <?php
-  include_once("../include/global_inc.php"); 
+  include_once("../include/global_inc.php");  
+  $s= new Session(); 
 ?>
 
 <html lang="en">
@@ -15,6 +16,13 @@
     <link rel="stylesheet" href="../UI/css/aos.css">
     <link rel="stylesheet" href="../UI/css/tooplate-php-style.css">
 
+    <script>
+      <?php
+        Roles::access(1, "../UI/loginUI.php");
+      ?>
+
+    </script>
+
 </head>
 
   <body>
@@ -28,7 +36,7 @@
         <div class="about-info">
           <h4>User ID: 
                   <?php
-                    echo Session::read('user_id');
+                    echo $s->read('user_id');
                   ?>
           </h4>
         </div>
@@ -36,22 +44,47 @@
           <!-- <dl>
               <dt>User ID: 
                 <?php
-                  echo Session::read('user_id');
+                  echo $s->read('user_id');
                 ?>
               </dt> -->
               <dt>Name: 
                 <?php
-                  echo Session::read('fname')." ".Session::read('lname');
+                  echo $s->read('fname')." ".$s->read('lname');
                 ?>
               </dt>
               <dt>Email:
                 <?php
-                  echo Session::read('email');
+                  echo $s->read('email');
                 ?> 
               </dt>
               <dt>Address: 
                   <?php
-                    //Session::dump(); 
+                    //Query Address Table
+                    if ($dbconn -> connect_errno) {
+                      echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+                      exit();
+                    }
+
+                    $id = $s->read("user_id");
+                    $result = $dbconn -> query("SELECT * FROM user_address WHERE USER_ID=$id");
+
+                    //not sure, something like this
+                    if ($result->num_rows > 0) {
+                      echo "Address 1: ".$result[0]."<br>";
+                      echo "Address 2: <br>";
+                      echo "City: <br>";
+                      echo "State: <br>";
+                      echo "Zipcode: <br>";
+                      echo "Billing Address: ";
+                      while($row = $result->fetch_assoc()) {
+                        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+                      }
+                    } else {
+                      echo "No Address Info Found";
+                    }
+
+                    
+                    
                   ?>
               <dt>Membership Level: 
                 <?php
@@ -80,10 +113,13 @@
                   }
                 ?>
               <br>
-              <a href="account_tab_edit.php">Edit</a>
 
+              <!-- Edit -->
+              <a href="account_tab_edit.php">Edit</a>
+              
               <!-- Logout -->
               <a href="logout.php">Logout</a>
+
               </dt>
             </dl>
       </div>
