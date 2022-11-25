@@ -59,16 +59,15 @@
               </dt>
               <dt>Address: 
                   <?php
-                    //Session::dump(); 
-                    //$userID = $s->read('user_id');
-                    //var_dump($userID);
-                    //$sql = "SELECT address1, city, st, zip FROM `user_address` WHERE USER_ID = '$userID'";
-                    //$result = mysqli_query($dbconn, $sql);
-                    //$rows = $result->fetch_assoc();
+                    $userID = $s->read('user_id');
+                   // var_dump($userID);
+                    $sql = "SELECT address1, city, st, zip FROM `user_address` WHERE USER_ID = '$userID'";
+                    $result = mysqli_query($dbconn, $sql);
+                    $rows = $result->fetch_assoc();
                     //var_dump($rows);
-                    // $address = array($rows);
-                    //    echo $address[0];
-                    //echo $rows['address1'] .", ". $rows['city'] .", ". $rows['st'] .", ". $rows['zip'];
+                    $address = array($rows);
+                    //echo $address[0];
+                    echo ucwords($rows['address1']) .", ". ucwords($rows['city']) .", ". strtoupper($rows['st']) .", ". $rows['zip'];
                   ?>
               <dt>Membership Level: 
                 <?php

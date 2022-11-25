@@ -3,6 +3,7 @@
 <?php
 
 session_start();
+include_once("../include/global_inc.php");
 
 // calling method from user class to reset firstname
 if (isset($_POST['fn'])) {

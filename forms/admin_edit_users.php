@@ -11,8 +11,8 @@ include_once("../sql/connect.php");
 // keeps rerunning through lines 13-21??
 // loses the value of 'id' and 'user'when hit submit 
 
-if (isset($_POST['getID'])) {
-    $id = $_POST['userID'];
+if (isset($_GET['getID'])) {
+    $id = $_GET['userID'];
     $sql = "SELECT * FROM user_table WHERE USER_ID = '$id'";
     $result = $dbconn->query($sql);
     $user = $result->fetch_assoc();
@@ -20,48 +20,48 @@ if (isset($_POST['getID'])) {
 }
 
 // calling method from user class to reset role 
-if (isset($_POST['role'])){
-    $id = $_POST["id"];
-    $role = $_POST["newRole"];
+if (isset($_GET['role'])){
+    $id = $_GET["id"];
+    $role = $_GET["newRole"];
     User::setMembershipLevel($role, $id);
 }
 // calling method from user class to reset firstname
-if (isset($_POST['fn'])) {
-    $id = $_POST["id"];
-    $fName = ucfirst($_POST["newName"]);
+if (isset($_GET['fn'])) {
+    $id = $_GET["id"];
+    $fName = ucfirst($_GET["newName"]);
     User::setFirstName($fName, $id);
 }
 
 // calling method from user class to reset lastname
-if (isset($_POST['ln'])) {
-  $id = $_POST["id"];
-  $lName = ucfirst($_POST["newLname"]);
+if (isset($_GET['ln'])) {
+  $id = $_GET["id"];
+  $lName = ucfirst($_GET["newLname"]);
   User::setLastName($lName, $id);
 }
 // calling method from user class to reset password
-if (isset($_POST['pass'])) {
-  if (strlen($_POST["newPassword"]) < 8) {
+if (isset($_GET['pass'])) {
+  if (strlen($_GET["newPassword"]) < 8) {
     die("Password must be at least 8 characters");
 }
 
-if ( ! preg_match("/[a-z]/i", $_POST["newPassword"])) {
+if ( ! preg_match("/[a-z]/i", $_GET["newPassword"])) {
     die("Password must contain at least one letter");
 }
 
-if ( ! preg_match("/[0-9]/", $_POST["newPassword"])) {
+if ( ! preg_match("/[0-9]/", $_GET["newPassword"])) {
     die("Password must contain at least one number");
 }
-  if ($_POST["newPassword"] !== $_POST["vPass"]) {
+  if ($_GET["newPassword"] !== $_GET["vPass"]) {
     die("Passwords must match");
 }
-  $id = $_POST["id"];
-  $pass = $_POST["newPassword"];
+  $id = $_GET["id"];
+  $pass = $_GET["newPassword"];
     User::setPassword($pass, $id);
 }
 
-if (isset($_POST['remove_user']))
+if (isset($_GET['remove_user']))
 {
-  $id = $_POST["id"];
+  $id = $_GET["id"];
   User::removeUser($id);
 }
 
@@ -88,7 +88,7 @@ if (isset($_POST['remove_user']))
         ?>   
            <!-- The form -->
       <div class="form-popup" id="myForm">
-      <form action="../forms/admin_edit_users.php" method="POST">   
+      <form action="../forms/admin_edit_users.php" method="GET">   
             <label for="newRole"><b>Edit Role</b></label>
             <input type="name" placeholder="Enter new role" name="newRole" required>
             <input type="name" placeholder="Confirm user ID" name="id" required>
@@ -103,7 +103,7 @@ if (isset($_POST['remove_user']))
         ?>
            <!-- The form -->
       <div class="form-popup" id="myForm">
-      <form action="../forms/admin_edit_users.php" method="POST">   
+      <form action="../forms/admin_edit_users.php" method="GET">   
             <label for="newName"><b>Edit First Name</b></label>
             <input type="name" placeholder="Enter new first name" name="newName" required>
             <input type="name" placeholder="Confirm user ID" name="id" required>
@@ -118,7 +118,7 @@ if (isset($_POST['remove_user']))
         ?>
            <!-- The form -->
       <div class="form-popup" id="myForm">
-      <form action="../forms/admin_edit_users.php" method="POST">  
+      <form action="../forms/admin_edit_users.php" method="GET">  
             <label for="newLname"><b>Edit Last Name</b></label>
             <input type="name" placeholder="Enter new last name" name="newLname" required>
             <input type="name" placeholder="Confirm user ID" name="id" required>
@@ -136,7 +136,7 @@ if (isset($_POST['remove_user']))
       </div>
       <br>
       <!-- <button class="btn delete account">Delete Account</button> -->
-      <form action="../forms/admin_edit_users.php" method="POST">  
+      <form action="../forms/admin_edit_users.php" method="GET">  
       <input type="name" placeholder="Confirm user ID" name="id" required>
       <input type="submit" name = "remove_user" value = "Delete Account">
       </dl>

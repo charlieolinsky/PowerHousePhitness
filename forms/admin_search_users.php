@@ -17,7 +17,7 @@ include_once("../include/global_inc.php");
 <h1>Account Info</h1>
 <div class = "account-info">
     <dl>
-    <form action="../forms/admin_edit_users.php" method="POST">   
+    <form action="../forms/admin_edit_users.php" method="GET">   
             <h3>Find a user</h3>
 
             <label for="userID"><b>User ID</b></label>
