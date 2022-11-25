@@ -179,14 +179,21 @@ $result2 = $dbconn->query($query);
             </thead>
             <tbody>
             <?php
-        // LOOP TILL END OF DATA
-        while (($rows = $result->fetch_assoc()) && ($rows2 = $result2->fetch_assoc())) {
+        while ($rows = $result->fetch_assoc()) {
+            $rows2 = $result2->fetch_assoc();
+            //var_dump($rows);
+            // echo $rows['PROD_ID'];
         ?>
         <div>
           <tbody>
                 <tr class="test-result-step-row test-result-step-row-altone">
                     <td class="test-result-step-command-cell">
-                    <h5><?php echo $rows['PROD_ID']; ?></h5>
+                    <h5><?php 
+
+                    $ids = array($rows['PROD_ID']);
+                    $index = 0;
+                    echo $ids[$index];
+                    ?></h5>
                     </td>
                     <td class="test-result-step-description-cell">
                     <h5><?php echo $rows['prod_name']; ?></h5>
@@ -197,15 +204,25 @@ $result2 = $dbconn->query($query);
                     <td class="test-result-step-result-cell">
                     <h5><?php 
                     
-                    
-                    echo $rows2['quantity']; ?></h5>
-
-
+                    $sql ="SELECT SUM(quantity) AS quant FROM cart_items WHERE PROD_ID = $ids[$index]";
+                    $result3 = mysqli_query($dbconn, $sql);
+                    while($row3 = mysqli_fetch_assoc($result3))
+                    {
+                        echo $row3['quant'];
+                    }
+                    ?></h5>
                     </td>
                     <td class="test-result-step-result-cell">
-                    <h5><?php echo $rows2['item_cost']; ?></h5>
+                    <h5><?php 
+                    $sql ="SELECT SUM(item_cost) AS total FROM cart_items WHERE PROD_ID = $ids[$index]";
+                    $result4 = mysqli_query($dbconn, $sql);
+                    while($row4 = mysqli_fetch_assoc($result4))
+                    {
+                        echo $row4['total'];
+                    }
+                    $index++;
+                    ?></h5>
                     </td>
-
                 </tr>
             </tbody>
                         </div>

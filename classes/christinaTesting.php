@@ -15,27 +15,11 @@
     echo "<br>";
     echo $totalSales*1.08;
     
+    echo "<br>";
+    $tens = array(10,20,30,40);
+    echo $tens[2];
 
 
-
-
-    // $test = $result['grand_total'];
-    // echo $test;
-
-    //echo strval($result);
-
-    // $row = fetch_assoc($result); 
-    // $sum = $row['sum'];
-
-    //$sum = $result->fetch_assoc();
-
-//     $stmt = $dbconn->prepare('SELECT SUM(grand_total) AS total_sales FROM order_data');
-//     $stmt->execute();
-
-//    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-//    $sum = $row['total_sales'];
-
-//    echo $sum;
 
 
 
