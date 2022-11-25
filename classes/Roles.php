@@ -39,7 +39,7 @@
             $s = new Session();
             if(session_status() == PHP_SESSION_ACTIVE)
             {
-                if(Session::read("roles") >  $maxRank) 
+                if($s->read("roles") > $maxRank) 
                 {
                     header("Location: ".$loc);
                     die();
