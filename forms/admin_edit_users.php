@@ -21,7 +21,6 @@ if (isset($_POST['getID'])) {
 
 // calling method from user class to reset role 
 if (isset($_POST['role'])){
-    //$id = 12;
     $id = $_POST["id"];
     $role = $_POST["newRole"];
     User::setMembershipLevel($role, $id);
