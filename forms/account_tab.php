@@ -52,6 +52,15 @@
               <dt>Address: 
                   <?php
                     //Session::dump(); 
+                    $userID = Session::read('user_id');
+                    //var_dump($userID);
+                    $sql = "SELECT address1, city, st, zip FROM `user_address` WHERE USER_ID = '$userID'";
+                    $result = mysqli_query($dbconn, $sql);
+                    $rows = $result->fetch_assoc();
+                    //var_dump($rows);
+                    // $address = array($rows);
+                    //    echo $address[0];
+                    echo $rows['address1'] .", ". $rows['city'] .", ". $rows['st'] .", ". $rows['zip'];
                   ?>
               <dt>Membership Level: 
                 <?php

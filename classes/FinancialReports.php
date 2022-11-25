@@ -11,10 +11,10 @@
    }
    
 // get product details
-$query = "SELECT PROD_ID, prod_name, prod_price FROM `prod-data`;";
+$query = "SELECT PROD_ID, prod_name, prod_price FROM `prod-data`";
 $result = $dbconn->query($query);
 // get sales 
-$query = "SELECT * FROM `cart_items`;";
+$query = "SELECT * FROM `cart_items`";
 $result2 = $dbconn->query($query);
 
 

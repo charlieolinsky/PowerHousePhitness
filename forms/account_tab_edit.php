@@ -3,9 +3,7 @@
 <?php
 
 session_start();
-include_once("../classes/User.php");
-include_once("../classes/roles.php");
-include_once("../sql/connect.php");
+include_once("../include/global_inc.php");
 
 // calling method from user class to reset firstname
 if (isset($_POST['fn'])) {
@@ -114,7 +112,7 @@ if (isset($_POST['remove_user']))
            <!-- The form -->
       <div class="form-popup" id="myForm">
       <form action="../forms/account_tab_edit.php" method="POST">  
-            <label for="newAddress"><b>Change Password</b></label>
+            <label for="newAddress"><b>Edit Password</b></label>
             <input type="password" placeholder="Enter new password" name="newPassword" required>
             <input type="password" placeholder="Confirm password" name="vPass" required>
 
