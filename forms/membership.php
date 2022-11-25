@@ -1,18 +1,11 @@
 <?php 
     /*****************************************MEMBERSHIP BACKEND**************************************/
-
     include_once("../include/global_inc.php");
     $s = new Session(); 
     
     if(session_status() == PHP_SESSION_ACTIVE){
 
         Roles::access(1, "../UI/loginUI.php"); 
-
-
-        //Check filled out. 
-        if (empty($_POST["cBox1"] && empty($_POST["cbox2"]))) {
-            die("Please select a membership option");
-        }
 
         //Check email exists in DB
         $email = trim($_POST['cf-email']);
@@ -43,7 +36,6 @@
             $res = $dbconn -> query("UPDATE user_table SET roles = 2 WHERE USER_ID = $userID");
 
             if($res){
-                //echo "DEBUG: HEADER REACHED";
                 header("Location: memberSuccess.php");
                 die();  
             }

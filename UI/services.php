@@ -197,26 +197,32 @@ https://www.tooplate.com/view/2119-gymso-fitness
           </div>
 
           <div class="modal-body">
-            <form class="membership-form webform" role="form">
-                <input type="text" class="form-control" name="cf-name" placeholder="John Doe">
-
-                <input type="email" class="form-control" name="cf-email" placeholder="Johndoe@gmail.com">
+            <form class="membership-form webform" action="../forms/membership.php" method="POST" role="form">
+                <input type="text" class="form-control" name="cf-fname" placeholder="First Name" required>
+                <input type="text" class="form-control" name="cf-lname" placeholder="Last Name" required>
+                <input type="email" class="form-control" name="cf-email" placeholder="Email">
 
                 <!-- <input type="tel" class="form-control" name="cf-phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> -->
 
                 <!-- <textarea class="form-control" rows="3" name="cf-message" placeholder="Additional Message"></textarea> -->
 
+
+                <h3> Payment Information </h3>
+                <input type="text" class="form-control" id="cname" name="cf-cardname" placeholder="Cardholder Name">
+                <input type="text" class="form-control" id="cnum" name="cf-cardnunmber" placeholder="1111-2222-3333-4444">
+                <input type="text" class="form-control" id="expdate" name="cf-expdate" placeholder="MM/YY">
+                <input type="text" class="form-control" id="cvv" name="cf-cvv" placeholder="CVV">
+
                 <p class="mt-3">Select one:</p>
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="monthly">
+                    <input type="checkbox" class="custom-control-input" name="cBox1" id="monthly" required>
                     <label class="custom-control-label text-small text-muted" for="monthly"> Premium (Monthly)</label>
                 </div>
                 
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="annual">
+                    <input type="checkbox" class="custom-control-input" name="cBox2" id="annual">
                     <label class="custom-control-label text-small text-muted" for="annual"> Premium (Annual)</label>
                 </div>
-
 
                 <button type="submit" class="form-control" id="submit-button" name="submit">Submit</button>
 
@@ -238,50 +244,3 @@ https://www.tooplate.com/view/2119-gymso-fitness
     <script src="./js/custom.js"></script>  
 
 </html>   
-
-<?php 
-
-    /*****************************************MEMBERSHIP**************************************/
-
-    //If user is not a free member, redirect them to login where they have the option to register as well. 
-    function access($rank)
-    { 
-        if(isset($_SESSION["role"]) && $_SESSION["role"] < $rank) 
-        {
-            header("Location: loginUI.php");
-            die;
-        }
-    }
-    $minRank = 1;
-    access($minRank);
-
-
-
-    //If the user is a member already, we need to upgrade their membership.
-    include_once("./include/global_inc.php");
-    
-    $userRank = $_SESSION['roles'];
-    $userID = $_SESSION['user_id'];
-
-    $sql = $dbconn -> query("UPDATE user_table SET roles = $userRank+1, WHERE USER_ID = $userID"); 
-
-
-
-
-
-
-    
-
-    
-
-
-
-
-
-    
-
-
-
-    
-
-?>
