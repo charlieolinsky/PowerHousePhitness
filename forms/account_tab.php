@@ -125,12 +125,13 @@
 
     <div class="options-container">
             <!-- Edit -->
-            <a href="account_tab_edit.php" style="color: var(--primary-color)">Edit</a>     
+            <a href="account_tab_edit.php" style="color: var(--primary-color)">Edit</a> 
             <!-- Return Home -->
-            <a href="../UI/index.php" style="color: var(--primary-color)">Home</a>
+            <a href="../UI/index.php" style="color: var(--primary-color)">Home</a>    
             <!-- Logout -->
             <a href="logout.php" style="color: var(--primary-color)">Logout</a>
         </div>
+
 
 
               
