@@ -177,5 +177,8 @@
             <button type="submit" class="form-control" id="submit-button" name="submit">Update</button>
         </div>
         </form>
+        <div style="margin-top:680px">
+            <a href="admin-inventory-home.php" class="btn custom-btn bg-color">Return to Admin Home</a>
+        </div>
 </body>
 </html>
