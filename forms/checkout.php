@@ -23,13 +23,13 @@ require_once("../classes/ShoppingCart.php");
         <h1>Checkout</h1>
         <div>
             <h3>Billing Address</h3>
-            <form action="placeorder.php"> 
+            <form name ="placeOrder" action="placeorder.php" onsubmit="submit()"> 
                     
                 <label for="fname"> First Name </label>
                 <input type="text" name="fname" placeholder="First Name" required><br><br>
 
                 <label for="lname"> Last Name </label>
-                <input type="text" name="lname" placeholder="Last Name"><br><br>
+                <input type="text" name="lname" placeholder="Last Name" required><br><br>
 
                 <label for="email"> Email </label>
                 <input type="text" name="email" placeholder="you@example.com"><br><br>
@@ -60,7 +60,7 @@ require_once("../classes/ShoppingCart.php");
                 <label for="cvv">CVV</label>
                 <input type="text" name="cvv" placeholder="123"><br><br>
 
-                <input type="submit" value="Place Order" onClick="submit()">
+                <input type="submit" value="Place Order" >
                     
             </form>                
                
@@ -121,11 +121,11 @@ require_once("../classes/ShoppingCart.php");
     <script>
         function submit()
         {
-            // if ($.trim($("firstname").val()) === "" )
-            var empt = document.forms['firstname'].value;
-            if (empt == "")
+            if ($.trim($("fname").val()) === "" || $.trim($("lname").val()) === "")
+            // var empt = document.forms['firstname'].value;
+            // if (empt == "")
             {
-                alert ('Fields are empty.');
+                alert ('Please fill out this field.');
                 return false;
             }
         }
