@@ -613,6 +613,19 @@ https://www.tooplate.com/view/2119-gymso-fitness
     padding-top: 10px;
   }
 
+  .inventory-container{
+    background: var(--white-color);
+    border-radius: 0 0 2px 2px;
+    box-shadow: 6px 0 38px rgba(20,20,20,0.10);
+    padding: 35px;
+    text-align: center;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+  }
+
   /*---------------------------------------
      CLASS               
   -----------------------------------------*/
