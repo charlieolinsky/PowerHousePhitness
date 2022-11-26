@@ -90,7 +90,8 @@ $result2 = $dbconn->query($query);
                     </td>
                     <td class="test-result-step-description-cell">
                         <?php
-                        echo "$" . round($totalSales, 2);
+                        // +750 from simulating memberships and classes
+                        echo "$" . round($totalSales+750, 2);
                         ?>
                     </td>
                 </tr>
@@ -100,7 +101,7 @@ $result2 = $dbconn->query($query);
                     </td>
                     <td class="test-result-step-description-cell">
                     <?php    
-                    echo "$" . round($totalSales*.08, 2); 
+                    echo "$" . round(($totalSales+750)*.08, 2); 
                     ?>              
                     </td>
                 </tr>
@@ -110,7 +111,7 @@ $result2 = $dbconn->query($query);
                     </td>
                     <td class="test-result-step-description-cell">
                         <?php 
-                         echo "$" . round($totalSales*1.08, 2);
+                         echo "$" . round(($totalSales+750)*1.08, 2);
                         ?>
                     </td>
                 </tr>
@@ -121,7 +122,7 @@ $result2 = $dbconn->query($query);
                     <td class="test-result-step-description-cell">
                         <!-- *debit total* -->
                         <?php 
-                        echo "$" . round($totalSales*.7, 2);
+                        echo "$" . round(($totalSales+750)*.7, 2);
                         ?>
                     </td>
                 </tr>
@@ -132,7 +133,7 @@ $result2 = $dbconn->query($query);
                     <td class="test-result-step-description-cell">
                         <!-- credit total* -->
                         <?php 
-                        echo "$" . round($totalSales*.3, 2);
+                        echo "$" . round(($totalSales+750)*.3, 2);
                         ?>
                     </td>
                 </tr>
@@ -144,6 +145,39 @@ $result2 = $dbconn->query($query);
                         <!-- *total discounts* -->
                         <?php 
                         echo "$" . round($totalSales*.10, 2);
+                        ?>
+                    </td>
+                </tr>
+                <tr class="test-result-step-row test-result-step-row-altone">
+                    <td class="test-result-step-command-cell">
+                        Equipment:
+                    </td>
+                    <td class="test-result-step-description-cell">
+                        <!-- *total from equp sales* -->
+                        <?php 
+                        echo "$" . round($totalSales, 2);
+                        ?>
+                    </td>
+                </tr>
+                <tr class="test-result-step-row test-result-step-row-altone">
+                    <td class="test-result-step-command-cell">
+                        Classes:
+                    </td>
+                    <td class="test-result-step-description-cell">
+                        <!-- *simulate amount from classes* -->
+                        <?php 
+                        echo "$220.00";
+                        ?>
+                    </td>
+                </tr>
+                <tr class="test-result-step-row test-result-step-row-altone">
+                    <td class="test-result-step-command-cell">
+                        Memberships:
+                    </td>
+                    <td class="test-result-step-description-cell">
+                        <!-- *simulate amount from memberships* -->
+                        <?php 
+                        echo "$530.00";
                         ?>
                     </td>
                 </tr>
