@@ -14,10 +14,12 @@
 </head>
 <body>
     <div>
-        <h3>Employee Portal - General Employee </h3>
+        <h1>Employee Portal</h1>
+
+        <h3>General Employee</h3>
         <a href="equip-rental-employee.php">Manage Equipment Rental</a><br>
 
-        <br><br><!--Hi Erica! I know how much you love these break statements xoxo -charlie -->
+        <br><br><br><!--Hi Erica! I know how much you love these break statements xoxo -charlie -->
         <a href="../UI/index.php">Return Home</a>
     </div> 
 

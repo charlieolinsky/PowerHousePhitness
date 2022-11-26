@@ -12,24 +12,14 @@
     $cDesc = $_POST['cDesc'];
 
     //Remove Foreign Key Constraint
-    $DB_EDIT_1 = $dbconn->query("SET FOREIGN_KEY_CHECKS=0");
+    $dbconn->query("SET FOREIGN_KEY_CHECKS=0");
 
     //prepare and bind
     $stmt = $dbconn->prepare(
         "INSERT INTO classes (class_name, iuid, class_description, class_image, class_max_capacity, start_time, end_time, class_day) 
         VALUES (?,?,?,?,?,?,?,?)"
     );
-    $stmt->bind_param("ssssssss", 
-        $cName,
-        $iuid,
-        $cDesc,
-        $cPic,
-        $mCap,
-        $sTime,
-        $eTime,
-        $cDay,
-        
-    );
+    $stmt->bind_param("ssssssss", $cName,$iuid,$cDesc,$cPic,$mCap, $sTime,$eTime,$cDay,);
     //Execute and handle error 
     try{
         $stmt->execute(); 
@@ -41,8 +31,8 @@
     //Add Foreign Key Constraint
     $dbconn->query("SET FOREIGN_KEY_CHECKS=1");
 
+    //Return to add another class 
     header("Location: admin_add_class.php");
-    echo"CLASS ADDED SUCCESSFULLY!";
     die(); 
 
 ?>

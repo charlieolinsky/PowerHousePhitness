@@ -16,9 +16,11 @@
 </head>
 <body>
     <div>
-        <h3>Employee Portal - Administrator </h3>
-        <a href="admin_search_users.php">Search for a User</a><br>
-        <a href="admin-inventory-home.php">View Inventory</a><br>
+        <h1>Admin Portal</h1>
+
+        <h3>Administrator</h3>
+        <a href="admin_search_users.php">Edit a User</a><br>
+        <a href="admin-inventory-home.php">Manage Inventory</a><br>
         <a href="admin_add_class.php">Add a Class</a>
 
         <br> <!--Hi Erica! I know how much you love these break statements xoxo -charlie -->
@@ -31,7 +33,7 @@
         <h3>Finance Personnel </h3>
         <a href="../classes/FinancialReports.php">Reports</a>
 
-        <br><br><!--Hi Erica! I know how much you love these break statements xoxo -charlie -->
+        <br><br><br><!--Hi Erica! I know how much you love these break statements xoxo -charlie -->
         <a href="../UI/index.php">Return Home</a>
     </div> 
     
