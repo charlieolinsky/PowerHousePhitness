@@ -223,9 +223,12 @@
                     <br>
 
                     <button type="submit" class="form-control" id="submit-button" name="submit">Submit Item</button>
-                    
                 </div>
                 </form>
+                <div style="margin-top:660px">
+                    <a href="admin-inventory-home.php" class="btn custom-btn bg-color">Return to Admin Home</a>
+                </div>
+                
     </main>
 </body>
 </html>
