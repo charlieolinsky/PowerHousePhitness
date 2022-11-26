@@ -79,6 +79,7 @@
     </nav>
 
 <br><br><br><br>
+
         <div class="admin-title">
             <h1 style="color: var(--primary-color)">CURRENT INVENTORY</h1>
         </div>
