@@ -18,7 +18,8 @@
     <div>
         <h3>Admin Privileges: </h3>
         <a href="admin_search_users.php">Search for a User</a><br>
-        <a href="admin-inventory-home.php">View Inventory</a>
+        <a href="admin-inventory-home.php">View Inventory</a><br>
+        <a href="admin_add_class.php">Add a Class</a>
 
         <br> <!--Hi Erica! I know how much you love these break statements xoxo -charlie -->
 
