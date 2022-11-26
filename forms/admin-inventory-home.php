@@ -122,7 +122,7 @@
                             </h5>
 
                             <h4 class="mb-1">
-                                <span style="color: var(--primary-color)"><?php echo "$" . $rows['prod_price']; ?></span>
+                                <span style="color: var(--primary-color)"><?php echo"Rental cost: $" . $rows['prod_price']; ?></span>
                             </h4>
                         </div>
                         </form>
