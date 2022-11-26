@@ -2,36 +2,36 @@
 
 <?php
 
-session_start();
 include_once("../include/global_inc.php");
+$s = new Session();
 
 // calling method from user class to reset firstname
 if (isset($_POST['fn'])) {
     $fName = ucfirst($_POST["newName"]);
-    $id = $_SESSION['user_id'];
+    $id = $s->read('user_id');
 
     //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
     //$user -> setFirstName($name, $id);
     //User::setFirstName($name, $id);
-    $_SESSION["fname"] = $fName;
+    $s->write('fname', $fName);
     User::setFirstName($fName, $id);
 }
 
 // calling method from user class to reset lastname
 if (isset($_POST['ln'])) {
   $lName = ucfirst($_POST["newLname"]);
-  $id = $_SESSION['user_id'];
-  $_SESSION["lname"] = $lName;
+  $id = $s->read('user_id');
+  $s->write('lname', $lName);
   //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
   //$user -> setFirstName($name, $id);
   //User::setFirstName($name, $id);
-    User::setLastName($lName, $id);
+  User::setLastName($lName, $id);
 }
 
 // calling method from user class to reset address
 if (isset($_POST['add'])) {
   $address = $_POST["newAddress"];
-  $id = $_SESSION['user_id'];
+  $id = $s->read('user_id');
 
   //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
   //$user -> setFirstName($name, $id);
@@ -55,7 +55,7 @@ if ( ! preg_match("/[0-9]/", $_POST["newPassword"])) {
     die("Passwords must match");
 }
   $pass = $_POST["newPassword"];
-  $id = $_SESSION['user_id'];
+  $id = $s->read('user_id');
 
   //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
   //$user -> setFirstName($name, $id);
@@ -65,7 +65,7 @@ if ( ! preg_match("/[0-9]/", $_POST["newPassword"])) {
 
 if (isset($_POST['remove_user']))
 {
-  $id = $_SESSION['user_id'];
+  $id = $s->read('user_id');
   User::removeUser($id);
 }
 
@@ -82,7 +82,7 @@ if (isset($_POST['remove_user']))
     <dl>
         <dt>First Name: 
         <?php
-          echo $_SESSION['fname'];
+          echo $s->read('fname');
         ?>
            <!-- The form -->
       <div class="form-popup" id="myForm">
@@ -101,7 +101,7 @@ if (isset($_POST['remove_user']))
         <br>    
         Last Name: 
         <?php
-          echo $_SESSION['lname'];
+          echo $s->read('lname');
         ?>
            <!-- The form -->
       <div class="form-popup" id="myForm">
