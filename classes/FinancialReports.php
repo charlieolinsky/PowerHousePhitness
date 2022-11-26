@@ -28,153 +28,129 @@ $result2 = $dbconn->query($query);
             h1 {
             padding-left: 190px;
             }
-        .test-result-table {
+        .table {
             border: 1px solid black;
             width: 500px;
         }
-        .test-result-table-header-cell {
+        .table-header-cell {
             border-bottom: 1px solid black;
             background-color: silver;
         }
-        .test-result-step-command-cell {
+        .cell {
             border-bottom: 1px solid gray;
         }
-        .test-result-step-description-cell {
+        .description-cell {
             border-bottom: 1px solid gray;
-        }
-        .test-result-step-result-cell-ok {
-            border-bottom: 1px solid gray;
-            background-color: white;
-        }
-        .test-result-step-result-cell-failure {
-            border-bottom: 1px solid gray;
-            background-color: white;
-        }
-        .test-result-step-result-cell-notperformed {
-            border-bottom: 1px solid gray;
-            background-color: white;
-        }
-        .test-result-describe-cell {
-            background-color: tan;
-            font-style: italic;
-        }
-        .test-cast-status-box-ok {
-            border: 1px solid black;
-            float: left;
-            margin-right: 10px;
-            width: 45px;
-            height: 25px;
-            background-color: green;
         }
         </style>
     </head>
     <body>
-        <h1 class="test-results-header">
+        <h1 class="header">
             Z Report
         </h1>
-        <table class="test-result-table" cellspacing="0">
+        <table class="table" cellspacing="0">
             <thead>
                 <tr>
-                    <td class="test-result-table-header-cell">
+                    <td class="table-header-cell">
                     Sales and Tax Summary
                     </td>
-                    <td class="test-result-table-header-cell">
+                    <td class="table-header-cell">
                         Daily Sales
                     </td>
                 </tr>
             </thead>
             <tbody>
-                <tr class="test-result-step-row test-result-step-row-altone">
-                    <td class="test-result-step-command-cell">
+                <tr class="values">
+                    <td class="cell">
                         Total net sales:
                     </td>
-                    <td class="test-result-step-description-cell">
+                    <td class="description-cell">
                         <?php
                         // +750 from simulating memberships and classes
                         echo "$" . round($totalSales+750, 2);
                         ?>
                     </td>
                 </tr>
-                <tr class="test-result-step-row test-result-step-row-alttwo">
-                    <td class="test-result-step-command-cell">
+                <tr class="values">
+                    <td class="cell">
                         Tax:
                     </td>
-                    <td class="test-result-step-description-cell">
+                    <td class="description-cell">
                     <?php    
                     echo "$" . round(($totalSales+750)*.08, 2); 
                     ?>              
                     </td>
                 </tr>
-                <tr class="test-result-step-row test-result-step-row-altone">
-                    <td class="test-result-step-command-cell">
+                <tr class="values">
+                    <td class="cell">
                         Total Sales:
                     </td>
-                    <td class="test-result-step-description-cell">
+                    <td class="description-cell">
                         <?php 
                          echo "$" . round(($totalSales+750)*1.08, 2);
                         ?>
                     </td>
                 </tr>
-                <tr class="test-result-step-row test-result-step-row-altone">
-                    <td class="test-result-step-command-cell">
+                <tr class="values">
+                    <td class="cell">
                         Debit:
                     </td>
-                    <td class="test-result-step-description-cell">
+                    <td class="description-cell">
                         <!-- *debit total* -->
                         <?php 
                         echo "$" . round(($totalSales+750)*.7, 2);
                         ?>
                     </td>
                 </tr>
-                <tr class="test-result-step-row test-result-step-row-altone">
-                    <td class="test-result-step-command-cell">
+                <tr class="values">
+                    <td class="cell">
                         Credit:
                     </td>
-                    <td class="test-result-step-description-cell">
+                    <td class="description-cell">
                         <!-- credit total* -->
                         <?php 
                         echo "$" . round(($totalSales+750)*.3, 2);
                         ?>
                     </td>
                 </tr>
-                <tr class="test-result-step-row test-result-step-row-altone">
-                    <td class="test-result-step-command-cell">
+                <tr class="values">
+                    <td class="cell">
                         Discounts:
                     </td>
-                    <td class="test-result-step-description-cell">
+                    <td class="description-cell">
                         <!-- *total discounts* -->
                         <?php 
                         echo "$" . round($totalSales*.10, 2);
                         ?>
                     </td>
                 </tr>
-                <tr class="test-result-step-row test-result-step-row-altone">
-                    <td class="test-result-step-command-cell">
+                <tr class="values">
+                    <td class="cell">
                         Equipment:
                     </td>
-                    <td class="test-result-step-description-cell">
+                    <td class="description-cell">
                         <!-- *total from equp sales* -->
                         <?php 
                         echo "$" . round($totalSales, 2);
                         ?>
                     </td>
                 </tr>
-                <tr class="test-result-step-row test-result-step-row-altone">
-                    <td class="test-result-step-command-cell">
+                <tr class="values">
+                    <td class="cell">
                         Classes:
                     </td>
-                    <td class="test-result-step-description-cell">
+                    <td class="description-cell">
                         <!-- *simulate amount from classes* -->
                         <?php 
                         echo "$220.00";
                         ?>
                     </td>
                 </tr>
-                <tr class="test-result-step-row test-result-step-row-altone">
-                    <td class="test-result-step-command-cell">
+                <tr class="values">
+                    <td class="cell">
                         Memberships:
                     </td>
-                    <td class="test-result-step-description-cell">
+                    <td class="description-cell">
                         <!-- *simulate amount from memberships* -->
                         <?php 
                         echo "$530.00";
@@ -189,26 +165,26 @@ $result2 = $dbconn->query($query);
     </head>
     <body>
 
-        <h1 class="test-results-header">
+        <h1 class="header">
          Sales by Item
         </h1>
 
-        <table class="test-result-table" cellspacing="0">
+        <table class="table" cellspacing="0">
             <thead>
                 <tr>
-                    <td class="test-result-table-header-cell">
+                    <td class="table-header-cell">
                         Item Code
                     </td>
-                    <td class="test-result-table-header-cell">
+                    <td class="table-header-cell">
                         Item Name
                     </td>
-                    <td class="test-result-table-header-cell">
+                    <td class="table-header-cell">
                         Price
                     </td>
-                    <td class="test-result-table-header-cell">
+                    <td class="table-header-cell">
                         Quantity
                     </td>
-                    <td class="test-result-table-header-cell">
+                    <td class="table-header-cell">
                         Total Amount
                     </td>
                 </tr>
@@ -222,8 +198,8 @@ $result2 = $dbconn->query($query);
         ?>
         <div>
           <tbody>
-                <tr class="test-result-step-row test-result-step-row-altone">
-                    <td class="test-result-step-command-cell">
+                <tr class="values">
+                    <td class="cell">
                     <h5><?php 
 
                     $ids = array($rows['PROD_ID']);
@@ -231,13 +207,13 @@ $result2 = $dbconn->query($query);
                     echo $ids[$index];
                     ?></h5>
                     </td>
-                    <td class="test-result-step-description-cell">
+                    <td class="description-cell">
                     <h5><?php echo $rows['prod_name']; ?></h5>
                     </td>
-                    <td class="test-result-step-result-cell">
+                    <td class="cell">
                     <h5><?php echo $rows['prod_price']; ?></h5>
                     </td>
-                    <td class="test-result-step-result-cell">
+                    <td class="cell">
                     <h5><?php 
                     
                     $sql ="SELECT SUM(quantity) AS quant FROM cart_items WHERE PROD_ID = $ids[$index]";
@@ -248,7 +224,7 @@ $result2 = $dbconn->query($query);
                     }
                     ?></h5>
                     </td>
-                    <td class="test-result-step-result-cell">
+                    <td class="cell">
                     <h5><?php 
                     $sql ="SELECT SUM(item_cost) AS total FROM cart_items WHERE PROD_ID = $ids[$index]";
                     $result4 = mysqli_query($dbconn, $sql);
