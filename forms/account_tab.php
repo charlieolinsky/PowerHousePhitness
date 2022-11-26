@@ -25,94 +25,115 @@
 
 </head>
 
-  <body>
+  <body style="background-color: var(--dark-color)">
   <!-- <main>  -->
     <div class="equip-title">
         <h1 style="color: var(--primary-color)">My Account</h1>
-        <a href="../UI/index.php">Return Home</a>
     </div>
    
-      <!-- <div class = "account-info"> -->
-      <div class="about-container">
-        <div class="about-info">
-          <h4>User ID: 
+  <!-- Login Information -->
+    <div class="profile-container">
+      <h2 style="color: var(--dark-color); font-size: 27px; margin-bottom: 20px; align-self: center">Login Information</h2>
+        <div class="profile-info">
+          <!-- USER ID -->
+          <h4 style="color: var(--dark-color)">
+                  User ID: 
                   <?php
                     echo $s->read('user_id');
                   ?>
           </h4>
-        </div>
-      </div>
-          <!-- <dl>
-              <dt>User ID: 
-                <?php
-                  echo $s->read('user_id');
-                ?>
-              </dt> -->
-              <dt>Name: 
+
+          <!-- NAME -->
+          <h4 style="color: var(--dark-color)">
+                Name: 
                 <?php
                   echo $s->read('fname')." ".$s->read('lname');
                 ?>
-              </dt>
-              <dt>Email:
+          </h4>
+
+          <!-- EMAIL -->
+          <h4 style="color: var(--dark-color)">
+                Email:
                 <?php
                   echo $s->read('email');
                 ?> 
-              </dt>
-              <dt>Address: 
+          </h4>
+        </div>
+    </div>
+
+    <!-- Membership Information -->
+    <div class="profile-container">
+      <h2 style="color: var(--dark-color); font-size: 27px; margin-bottom: 20px; align-self: center">Membership</h2>
+        <div class="profile-info">
+            <h4 style="color: var(--dark-color)">
+              Membership Level: 
                   <?php
-                    $userID = $s->read('user_id');
-                   // var_dump($userID);
-                    $sql = "SELECT address1, address2, city, st, zip FROM `user_address` WHERE USER_ID = '$userID'";
-                    $result = mysqli_query($dbconn, $sql);
-                    $rows = $result->fetch_assoc();
-                    //var_dump($rows);
-                    $address = array($rows);
-                    //echo $address[0];
-                    if (!$rows['address1']==NULL){
-                    echo ucwords($rows['address1']) . ucwords($rows['address2']) .", ". ucwords($rows['city']) .", ". strtoupper($rows['st']) .", ". $rows['zip'];
-                    }
-                    else 
+                    if($s->read('roles') == 1)
                     {
-                      echo "";
+                      echo "Free Member";
+                    }
+                    else if($s->read('roles') == 2)
+                    {
+                      echo "Premium Member";
+                    }
+                    else if($s->read('roles') == 3)
+                    {
+                      echo "Representative"; 
+                    }
+                    else if($s->read('roles') == 4)
+                    {
+                      echo "Finance Personnel";
+                    }
+                    else if($s->read('roles') == 5)
+                    {
+                      echo "Admin";
+                    }
+                    else {
+                      echo "Unregistered";
                     }
                   ?>
-              <dt>Membership Level: 
-                <?php
-                  if($s->read('roles') == 1)
-                  {
-                    echo "Free Member";
-                  }
-                  else if($s->read('roles') == 2)
-                  {
-                    echo "Premium Member";
-                  }
-                  else if($s->read('roles') == 3)
-                  {
-                    echo "Representative"; 
-                  }
-                  else if($s->read('roles') == 4)
-                  {
-                    echo "Finance Personnel";
-                  }
-                  else if($s->read('roles') == 5)
-                  {
-                    echo "Admin";
-                  }
-                  else {
-                    echo "Unregistered";
-                  }
-                ?>
-              <br>
+            </h4>
+          </div>
+    </div>
 
-              <!-- Edit -->
-              <a href="account_tab_edit.php">Edit</a>
+    <!--Shipping Information -->
+    <div class="profile-container">
+      <h2 style="color: var(--dark-color); font-size: 27px; margin-bottom: 20px; align-self: center">Shipping Information</h2>
+        <div class="profile-info">
+          <h4 style="color: var(--dark-color)">
+            Address: 
+                      <?php
+                        $userID = $s->read('user_id');
+                      // var_dump($userID);
+                        $sql = "SELECT address1, address2, city, st, zip FROM `user_address` WHERE USER_ID = '$userID'";
+                        $result = mysqli_query($dbconn, $sql);
+                        $rows = $result->fetch_assoc();
+                        //var_dump($rows);
+                        $address = array($rows);
+                        //echo $address[0];
+                        if (!$rows['address1']==NULL){
+                        echo ucwords($rows['address1']) . ucwords($rows['address2']) .", ". ucwords($rows['city']) .", ". strtoupper($rows['st']) .", ". $rows['zip'];
+                        }
+                        else 
+                        {
+                          echo "";
+                        }
+                      ?>
+          </h4>
+        </div>
+    </div> 
+
+    <div class="options-container">
+            <!-- Edit -->
+            <a href="account_tab_edit.php" style="color: var(--primary-color)">Edit</a>     
+            <!-- Return Home -->
+            <a href="../UI/index.php" style="color: var(--primary-color)">Home</a>
+            <!-- Logout -->
+            <a href="logout.php" style="color: var(--primary-color)">Logout</a>
+        </div>
+
+
               
-              <!-- Logout -->
-              <a href="logout.php">Logout</a>
-
-              </dt>
-            </dl>
-      </div>
     <!-- </main> -->
 
      <!-- SCRIPTS -->
