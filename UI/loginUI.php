@@ -63,11 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                    $mysqli->real_escape_string($_POST["email"]));
     
     $result = $mysqli->query($sql);
-    
     $user = $result->fetch_assoc();
-
-    //var_dump($user);
-    //exit;
     
     if ($user) {
         if (password_verify($_POST['pword'], $user['passcode'])) {
@@ -80,12 +76,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $session->write("fname", $user["fname"]);
             $session->write("lname", $user["lname"]);
             $session->write("pword", $user["passcode"]); 
-    
-            // $_SESSION["email"] = $user["email"];
-            // $_SESSION["role"] = $user["roles"]; //global var from db
-            // $_SESSION["fname"] = $user["fname"];
-            // $_SESSION["lname"] = $user["lname"];
-            // $_SESSION["pword"] = $user["passcode"];
             
             header("Location: index.php"); //ui/index.php
             die();

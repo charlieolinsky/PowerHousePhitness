@@ -26,7 +26,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
      <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
 
-            <a class="navbar-brand" href="index.php"><span style="color: var(--primary-color)">P</span>ower <span style="color: var(--primary-color)">H</span>ouse <span style="color: var(--primary-color)">P</span>hitness</a>
+            <a class="navbar-brand" href="../forms/adminDirectory.php"><span style="color: var(--primary-color)">P</span>ower <span style="color: var(--primary-color)">H</span>ouse <span style="color: var(--primary-color)">P</span>hitness</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -162,6 +162,36 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
     <section class="class section" id="classes">
         <div class="container">
+            
+            <div class="row">
+                <div class="col-lg-12 col-12 text-center mb-5">
+                    <h6 data-aos="fade-up">Schedule a Class With Us!</h6>
+                    <h2 data-aos="fade-up" data-aos-delay="200" href="schedule.php">Available Classes</h2>
+                </div>
+            </div>
+
+
+             <!----------------------------------------- CLASS BACKEND TEST --------------------------------------->
+
+            <div class="class-backend-test">
+                
+                <!-- Schedule Link -->
+                <a href="schedule.php">View Our Schedule</a>
+                
+                <!-- Example Class row -->
+                <div class="class-signup">
+                    <div class="row">
+                        <h3 class="mb-1">TEST: </h3>
+                        <input type="button" value="Make Reservation">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <!----------------------------------------------------------------------------------------------------->
+            
+
             <div class="column">
 
                 <div class="class-signup">
@@ -172,14 +202,61 @@ https://www.tooplate.com/view/2119-gymso-fitness
                 
                 <div class="class-signup">
                     <div class="row">
-                        <h3 class="mb-1">Power Fitness</h3>
+                        <h3 class="mb-1">Power-Fitness</h3>
+                    </div>
+                </div>
+
+                <div class="class-signup">
+                    <div class="row">
+                        <h3 class="mb-1">Boxing</h3>
+                    </div>
+                </div>
+
+                <div class="class-signup">
+                    <div class="row">
+                        <h3 class="mb-1">Aerobics</h3>
+                    </div>
+                </div>
+
+                <div class="class-signup">
+                    <div class="row">
+                        <h3 class="mb-1">Cardio</h3>
+                    </div>
+                </div>
+
+                <div class="class-signup">
+                    <div class="row">
+                        <h3 class="mb-1">Bodywork</h3>
+                    </div>
+                </div>
+
+                <div class="class-signup">
+                    <div class="row">
+                        <h3 class="mb-1">Zumba</h3>
+                    </div>
+                </div>
+
+                <div class="class-signup">
+                    <div class="row">
+                        <h3 class="mb-1">Power-Lifting</h3>
+                    </div>
+                </div>
+
+                <div class="class-signup">
+                    <div class="row">
+                        <h3 class="mb-1">Cross-Fit</h3>
+                    </div>
+                </div>
+
+                <div class="class-signup">
+                    <div class="row">
+                        <h3 class="mb-1">Meditation & Hot Yoga</h3>
                     </div>
                 </div>
                 
             </div>
         </div>
     </section>        
-
 
 
     <!-- Modal -->
@@ -233,6 +310,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
           <div class="modal-footer"></div>
 
         </div>
+
       </div>
     </div>
 
