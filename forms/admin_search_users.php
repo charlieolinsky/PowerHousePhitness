@@ -14,11 +14,11 @@ include_once("../include/global_inc.php");
   </head>
 <body>
 <main> 
-<h1>Account Info</h1>
+<h1>Find a User</h1>
 <div class = "account-info">
     <dl>
     <form action="../forms/admin_edit_users.php" method="GET">   
-            <h3>Find a user</h3>
+            <h3>Enter User ID</h3>
 
             <label for="userID"><b>User ID</b></label>
             <input type="name" placeholder="Enter a user ID" name="userID" required>
