@@ -68,7 +68,7 @@
                     //var_dump($rows);
                     $address = array($rows);
                     //echo $address[0];
-                    echo ucwords($rows['address1']) .", ". ucwords($rows['city']) .", ". strtoupper($rows['st']) .", ". $rows['zip'];
+                    echo ucwords($rows['address1']) . ", ". ucwords($rows['city']) .", ". ucwords($rows['city']) .", ". strtoupper($rows['st']) .", ". $rows['zip'];
                   ?>
               <dt>Membership Level: 
                 <?php
