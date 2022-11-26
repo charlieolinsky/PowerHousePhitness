@@ -87,9 +87,8 @@ if (isset($_POST['remove_user']))
            <!-- The form -->
       <div class="form-popup" id="myForm">
       <form action="../forms/account_tab_edit.php" method="POST">   
-            <h4>Edit First Name</h4>
 
-            <label for="newName"><b>First Name</b></label>
+            <label for="newName"><b>Edit First Name</b></label>
             <input type="name" placeholder="Enter new first name" name="newName" required>
             <input type="submit" name = "fn" value = "Submit">
             <!-- <button type="submit" class="btn">Submit</button> -->
@@ -106,9 +105,8 @@ if (isset($_POST['remove_user']))
            <!-- The form -->
       <div class="form-popup" id="myForm">
       <form action="../forms/account_tab_edit.php" method="POST">  
-            <h4>Edit Last Name</h4>
-
-            <label for="newLname"><b>Last Name</b></label>
+  
+            <label for="newLname"><b>Edit Last Name</b></label>
             <input type="name" placeholder="Enter new last name" name="newLname" required>
             <input type="submit" name = "ln" value = "Submit">
           </form>

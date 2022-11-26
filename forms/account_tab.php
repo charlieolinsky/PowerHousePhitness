@@ -62,13 +62,19 @@
                   <?php
                     $userID = $s->read('user_id');
                    // var_dump($userID);
-                    $sql = "SELECT address1, city, st, zip FROM `user_address` WHERE USER_ID = '$userID'";
+                    $sql = "SELECT address1, address2, city, st, zip FROM `user_address` WHERE USER_ID = '$userID'";
                     $result = mysqli_query($dbconn, $sql);
                     $rows = $result->fetch_assoc();
                     //var_dump($rows);
                     $address = array($rows);
                     //echo $address[0];
+                    if (!$rows['address1']==NULL){
                     echo ucwords($rows['address1']) . ucwords($rows['address2']) .", ". ucwords($rows['city']) .", ". strtoupper($rows['st']) .", ". $rows['zip'];
+                    }
+                    else 
+                    {
+                      echo "";
+                    }
                   ?>
               <dt>Membership Level: 
                 <?php
