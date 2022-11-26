@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Inventory Item </title>
+    <title>Add Inventory</title>
 
     <link rel="stylesheet" href="../UI/css/bootstrap.min.css">
     <link rel="stylesheet" href="../UI/css/font-awesome.min.css">
@@ -82,7 +82,6 @@
 
     <br><br><br>
     <main style="text-align: center">
-            <!-- <h1> Add Inventory Item</h1> -->
         <div class="admin-title">
             <h1 style="color: var(--primary-color)">Add Inventory Item</h1>
         </div>
@@ -226,118 +225,7 @@
                     <button type="submit" class="form-control" id="submit-button" name="submit">Submit Item</button>
                     
                 </div>
-            <!-- </div> -->
-
-
-
-
-
-
-
-
-
-
-              
-                    <!-- the name="__" field is what connects this form to the querying file -->
-                    <!-- <label for="prod_name"> Item Name:</label><br>
-                    <input type="text" id="prod_name" name="prod_name" value="<?php if (isset($_POST['prod_name'])) echo $_POST['prod_name']; ?>">
-                    <br>
-                    <span> <?php if (isset($name_error)) echo $name_error; ?> </span>
-                    <br> -->
-             
-
-                
-                    <!-- asking for prod description -->
-                    <!-- <label for="prod_desc"> Item Description:</label><br>
-                    <input type="text" id="prod_desc" name="prod_desc" value="<?php if (isset($_POST['prod_desc'])) echo $_POST['prod_desc']; ?>">
-                    <br>
-                    <span> <?php if (isset($desc_error)) echo $desc_error; ?> </span>
-                    <br> -->
-                
-
-               
-                    <!-- Need to add a way to upload-->
-                    <!-- <label for="prod_image"> Item Image: </label><br>
-                    <input type="file" name="prod_image">
-                    <br> -->
-               
-
-
-              
-
-                    <!-- need to add validation to be a # -->
-                    <!-- <label for="prod_price"> Item Price: </label><br>
-                    <input type="text" id="prod_price" name="prod_price" value="<?php if (isset($_POST['prod_price'])) echo $_POST['prod_price']; ?>">
-                    <br>
-                    <span> <?php if (isset($price_error)) echo $price_error; ?> </span>
-                    <br> -->
-                
-
-                
-                    <!-- need to add validation to be a # -->
-                    <!-- <label for="prod_quantity">Item Quantity: </label><br>
-                    <input type="text" id="prod_quantity" name="prod_quantity" value="<?php if (isset($_POST['prod_quantity'])) echo $_POST['prod_quantity']; ?>"> -->
-                    <!-- value is making the form hold its value after submit if there wa an error -->
-                    <!-- <br>
-                    <span> <?php if (isset($quantity_error)) echo $quantity_error; ?> </span>
-                    <br> -->
-              
-
-              
-                    <!-- Asking for Vendor ID -->
-                    <!-- <label for="VENDOR_ID">Vendor: </label><br>
-
-                    <?php
-
-                    include_once("../sql/connect.php");
-
-                    // query to get only the vendor ID for the dropdown menu
-                    $vendorquery = "SELECT * FROM vendor_id";
-                    if ($r_set = $dbconn->query($vendorquery)) {
-                        echo "<SELECT name='VENDOR_ID'>";
-                        echo "<option></option>";
-                        while ($row = $r_set->fetch_assoc()) {
-                            // echo"<option value=$row[VENDOR_ID]>Vendor $row[VENDOR_ID]: $row[v_name]</option>";
-                            echo "<option value=" . $row['VENDOR_ID'] . ">" . $row['v_name'] . "</option>";
-                        }
-                        echo "</select>";
-                    }
-                    ?>
-                    <br>
-                    <span> <?php if (isset($vendor_error)) echo $vendor_error; ?> </span> -->
-
-                
-
-                <br>
-
-               
-                    <!-- Asking for date purchased -->
-                    <!-- <label for="prod_date_purchased"> Date Purchased: </label><br>
-                    <input type="text" id="prod_date_purchased" name="prod_date_purchased" value="<?php if (isset($_POST['prod_date_purchased'])) echo $_POST['prod_date_purchased']; ?>">
-                    <br>
-                    <span> <?php if (isset($purchase_date_error)) echo $purchase_date_error; ?> </span>
-                    <br> -->
-               
-
-                    <!-- need to add validation to be a # -->
-                    <!-- <label for="prod_purchase_cost"> Purchase Cost: </label><br>
-                    <input type="text" id="prod_purchase_cost" name="prod_purchase_cost" value="<?php if (isset($_POST['prod_purchase_cost'])) echo $_POST['prod_purchase_cost']; ?>">
-                    <br>
-                    <span> <?php if (isset($purchase_cost_error)) echo $purchase_cost_error; ?> </span>
-                    <br> -->
-    
-
-                <!-- <div>
-                    <input type="submit" name="submit" value="Submit Form"><br>
-                </div> -->
-
                 </form>
-                </div>
-            </div>
-
-    
-
     </main>
 </body>
-
 </html>
