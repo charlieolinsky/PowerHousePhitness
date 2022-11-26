@@ -14,7 +14,7 @@
 </head>
 <body>
     <div>
-        <h3>Employee Privileges: </h3>
+        <h3>Employee Portal - General Employee </h3>
         <a href="equip-rental-employee.php">Manage Equipment Rental</a><br>
 
         <br><br><!--Hi Erica! I know how much you love these break statements xoxo -charlie -->

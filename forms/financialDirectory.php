@@ -14,7 +14,7 @@
 </head>
 <body>
     <div>
-        <h3>Finance: </h3>
+        <h3>Employee Portal - Finance Personnel </h3>
         <a href="../classes/FinancialReports.php">Reports</a>
 
         <br><br><!--Hi Erica! I know how much you love these break statements xoxo -charlie -->
