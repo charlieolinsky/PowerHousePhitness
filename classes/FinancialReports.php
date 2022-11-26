@@ -79,7 +79,7 @@ $result2 = $dbconn->query($query);
                     Sales and Tax Summary
                     </td>
                     <td class="test-result-table-header-cell">
-                        YTD
+                        Daily Sales
                     </td>
                 </tr>
             </thead>
