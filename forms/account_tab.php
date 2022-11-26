@@ -29,6 +29,7 @@
   <!-- <main>  -->
     <div class="equip-title">
         <h1 style="color: var(--primary-color)">My Account</h1>
+        <a href="../UI/index.php">Return Home</a>
     </div>
    
       <!-- <div class = "account-info"> -->

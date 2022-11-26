@@ -14,11 +14,6 @@
 </head>
 <body>
     <div>
-        <h3>Employee Privileges: </h3>
-        <a href="equip-rental-employee.php">Manage Equipment Rental</a>
-
-        <br> <!--Hi Erica! I know how much you love these break statements xoxo -charlie -->
-
         <h3>Finance: </h3>
         <a href="../classes/FinancialReports.php">Reports</a>
 
