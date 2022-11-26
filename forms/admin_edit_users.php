@@ -24,12 +24,14 @@ if (isset($_GET['role'])){
     $id = $_GET["id"];
     $role = $_GET["newRole"];
     User::setMembershipLevel($role, $id);
+    header("Location: ../forms/admin_edit_users.php?userID=".$id."&getID=Submit");
 }
 // calling method from user class to reset firstname
 if (isset($_GET['fn'])) {
     $id = $_GET["id"];
     $fName = ucfirst($_GET["newName"]);
     User::setFirstName($fName, $id);
+    header("Location: ../forms/admin_edit_users.php?userID=".$id."&getID=Submit");
 }
 
 // calling method from user class to reset lastname
@@ -37,6 +39,7 @@ if (isset($_GET['ln'])) {
   $id = $_GET["id"];
   $lName = ucfirst($_GET["newLname"]);
   User::setLastName($lName, $id);
+  header("Location: ../forms/admin_edit_users.php?userID=".$id."&getID=Submit");
 }
 // calling method from user class to reset password
 if (isset($_GET['pass'])) {
@@ -62,7 +65,8 @@ if ( ! preg_match("/[0-9]/", $_GET["newPassword"])) {
 if (isset($_GET['remove_user']))
 {
   $id = $_GET["id"];
-  User::removeUser($id);
+  User::adminRemoveUser($id);
+  header("Location: ../forms/admin_edit_users.php?userID=".$id."&getID=Submit");
 }
 
 ?>
