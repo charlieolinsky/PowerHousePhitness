@@ -54,14 +54,11 @@ require_once("../classes/ShoppingCart.php");
                 <label for="cnum">Card number </label>
                 <input type="text" id="cnum" name="cardnunmber" placeholder="1111-2222-3333-4444"><br><br>
                 
-                <div class="row">
-                    <div class="col-50">
-                        <label for="expdate">Exp Date</label>
-                        <input type="text" id="expdate" name="expdate" placeholder="MM/YY"><br><br>
-                        <label for="cvv">CVV</label>
-                        <input type="text" id="cvv" name="cvv" placeholder="123"><br><br>
-                    </div>
-                </div>
+                <label for="expdate">Exp Date</label>
+                <input type="text" id="expdate" name="expdate" placeholder="MM/YY"><br><br>
+                
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="123"><br><br>
 
                 <input type="submit" value="Place Order" onClick="submit()">
                     
