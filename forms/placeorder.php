@@ -12,11 +12,19 @@ foreach ($_SESSION['cart'] as $key => $val) {
         //if the place order button is clicked 
         if (isset(($_POST['placeorder']))) {
             $instock = $row['prod_quantity'];
+            $totalrented = $row['total_rented'];
+
             //update the prod quantity in the prod-data table 
             $updateInStock = "UPDATE `prod-data` SET prod_quantity=$instock-$val WHERE PROD_ID=$key";
+            $updateIsRented = "UPDATE `prod-data` SET total_rented=$totalrented+$val WHERE PROD_ID=$key";
+
             if ($dbconn->query($updateInStock) === TRUE) {
                 // echo "quantity decreased";
             }
+            if ($dbconn->query($updateIsRented) === TRUE) {
+                // echo "total rented updated";
+            }
+            //clear the cart and start a new session
                 unset($_SESSION['order_id']);
                 $_SESSION['cart'] = array();
         

@@ -129,6 +129,9 @@
 
                             <input type="hidden" name="PROD_ID" value="<?php echo $rows['PROD_ID'] ?>">
                             <input type="hidden" name="total_rented" value="<?php echo $rows['total_rented'] ?>">
+                            <input type="hidden" name="prod_quantity" value="<?php echo $rows['prod_quantity'] ?>">
+
+                            
 
                     </div>
                 </form>
