@@ -93,14 +93,24 @@ public static function removeUser($id)
 {
     include("../sql/connect.php");
 
-    $sql = "DELETE FROM user_table WHERE USER_ID = $id";
-        if ($dbconn->query($sql) === TRUE) {
-            //echo "Record updated successfully";
-            header("Location: ../UI/loginUI.php"); //ui/index.php
-            exit;
-        } else {
-            echo "Error updating record: " . $dbconn->error;
-        }
+    //Disable foreign key checks to allow for user deletion 
+    $DB_EDIT_1 = $dbconn->query("SET FOREIGN_KEY_CHECKS=0");
+    if(!$DB_EDIT_1){echo "DB_EDIT_1 Failed: Foreign Key Error";}
+
+    //Query
+    $sql = "DELETE FROM user_table WHERE USER_ID = $id;"."DELETE FROM user_address WHERE USER_ID = $id";
+    if ($dbconn->multi_query($sql) === TRUE) {
+        //echo "Record updated successfully";
+        header("Location: ../UI/loginUI.php"); //ui/index.php
+    } else {
+        echo "Error updating record: " . $dbconn->error;
+    }
+    
+    //Re-enable foriegn key checks 
+    $DB_EDIT_2 = $dbconn->query("SET FOREIGN_KEY_CHECKS=1");
+    if(!$DB_EDIT_2){echo "DB_EDIT_2 Failed: Foreign Key Error";}
+
+    die();
 }
 public static function setFirstName($fn, $id)
 {  
