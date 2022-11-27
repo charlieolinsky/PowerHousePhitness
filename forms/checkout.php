@@ -26,7 +26,9 @@ require_once("../sql/connect.php");
     <div>
         <h3>Billing Address</h3>
         <!-- <form name="placeOrder" action="placeorder.php" onsubmit="submit()"> -->
-        <form action="../forms/placeorder.php" method="POST" onsubmit="submit()">
+        <!-- <form action="../forms/placeorder.php" method="POST" onsubmit="submit()"> -->
+        <form action="../forms/placeorder.php" method="POST">
+
 
 
             <label for="fname"> First Name </label>
@@ -68,8 +70,6 @@ require_once("../sql/connect.php");
             <input type="text" name="cvv" placeholder="123" required><br><br>
 
             <input type="submit" value="Place Order" name="placeorder">
-
-            <!-- <input type="submit" value="Place Order" name="checkout"> -->
 
 
             <!-- </form> -->
@@ -117,8 +117,6 @@ require_once("../sql/connect.php");
             <?php
 
                 }
-
-                
             }
 
             if (empty($_SESSION['cart'])) {
@@ -126,6 +124,10 @@ require_once("../sql/connect.php");
             } else {
                 echo "<tr><td colspan='4'> Total Price: $" . number_format($grand_total, 2) . "</td></tr";
             }
+
+
+
+
             ?>
 
 
@@ -134,7 +136,7 @@ require_once("../sql/connect.php");
 
     </div>
 </body>
-
+<!-- 
 <script>
     function submit() {
         if ($.trim($("fname").val()) === "" || $.trim($("lname").val()) === "")
@@ -145,13 +147,31 @@ require_once("../sql/connect.php");
             return false;
         }
     }
-</script>
+</script> -->
 
 </html>
 
+
 <?php
-$addr = "INSERT INTO 'user_address' ('address1', 'address2', 'city', 'st', 'zip') VALUES ('$_POST[adr1]', '$_POST[adr2]', '$_POST[city]', '$_POST[state]', '$_POST[zip]')";
-if (mysqli_query($dbconn, $addr)) {
-    echo "Address updated";
-}
+// $USER_ID = $_SESSION['user_id'];
+// $adr1 = $_POST['adr1'];
+// $adr2 = $_POST['adr2'];
+// $state = $_POST['state'];
+// $city = $_POST['city'];
+// $zip = $_POST['zip'];
+
+// echo $USER_ID;
+// echo $adr1;
+
+
+
+// if (isset($_POST['placeorder'])) {
+
+//     $addr = "INSERT INTO user_address (`USER_ID`, `address1`, `address2`, `city`, `st`, `zip`)  
+//             VALUES ($USER_ID, $adr1, $adr2, $city, $state, $zip)";
+//     if ($dbconn->query($addr) === TRUE) {
+//         echo "Address updated";
+//     }
+// }
+
 ?>

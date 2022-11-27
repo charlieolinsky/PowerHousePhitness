@@ -1,16 +1,20 @@
 <?php
 require_once("../classes/ShoppingCart.php");
 
+
 //go through each item in the cart and grab its original quantity from the prod data table
 foreach ($_SESSION['cart'] as $key => $val) {
     //get the quanitity for that product 
     $query = "SELECT * FROM `prod-data` WHERE PROD_ID=$key;";
     $result = $dbconn->query($query);
+
     //for each prod in the array
     while ($row = $result->fetch_assoc()) {
 
         //if the place order button is clicked 
         if (isset(($_POST['placeorder']))) {
+
+            //grab values from table
             $instock = $row['prod_quantity'];
             $totalrented = $row['total_rented'];
 
@@ -25,12 +29,25 @@ foreach ($_SESSION['cart'] as $key => $val) {
                 // echo "total rented updated";
             }
             //clear the cart and start a new session
-                unset($_SESSION['order_id']);
-                $_SESSION['cart'] = array();
-        
+            unset($_SESSION['order_id']);
+            $_SESSION['cart'] = array();
+
+
+
+            //query to add the user address into the user_address table 
+            $addr = "INSERT INTO user_address (`USER_ID`, `address1`, `address2`, `city`, `st`, `zip`)  
+                     VALUES ('" . $_SESSION['user_id'] . "', 
+                            '" . $_POST['adr1'] . "', 
+                            '" . $_POST['adr2'] . "', 
+                            '" . $_POST['city'] . "', 
+                            '" . $_POST['state'] . "', 
+                            '" . $_POST['zip'] . "')";
+
+            if ($dbconn->query($addr) === TRUE) {
+                // echo "Address updated";
+            }
         }
     }
-
 }
 
 ?>
