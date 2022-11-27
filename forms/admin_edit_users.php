@@ -142,7 +142,7 @@ if (isset($_GET['remove_user']))
       <!-- <button class="btn delete account">Delete Account</button> -->
       <form action="../forms/admin_edit_users.php" method="GET">  
       <input type="name" placeholder="Confirm user ID" name="id" required>
-      <input type="submit" name = "remove_user" value = "Delete Account">
+      <input type="submit" name = "remove_user" onclick="return confirm('Are you sure you want to delete this account?')" value = "Delete Account">
       </dl>
 </div>
 </main>

@@ -171,7 +171,7 @@ if (isset($_POST['remove_user']))
         </div>
         <br>
           <form action="../forms/account_tab_edit.php" method="POST">  
-          <input type="submit" class="btn cart-btn" name="remove_user" value="Delete Account">
+          <input type="submit" class="btn cart-btn" name="remove_user" onclick="return confirm('Are you sure you want to delete this account?')" value="Delete Account">
       </div>
 
 
