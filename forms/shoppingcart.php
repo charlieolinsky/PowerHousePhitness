@@ -42,6 +42,7 @@ require_once("../classes/ShoppingCart.php");
 
                     $sub = $val * $row['prod_price'];
                     $grand_total += $sub;
+                    // $current = $row['prod_quantity'];
 
             ?>
                     <tr>

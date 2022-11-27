@@ -1,6 +1,7 @@
 <?php
 
 require_once("../classes/ShoppingCart.php");
+require_once("../sql/connect.php");
 
 
 ?>
@@ -25,43 +26,46 @@ require_once("../classes/ShoppingCart.php");
     <div>
         <h3>Billing Address</h3>
         <!-- <form name="placeOrder" action="placeorder.php" onsubmit="submit()"> -->
-        <form action="../forms/placeorder.php" method="POST">
+        <form action="../forms/placeorder.php" method="POST" onsubmit="submit()">
 
 
             <label for="fname"> First Name </label>
             <input type="text" name="fname" placeholder="First Name" required><br><br>
 
             <label for="lname"> Last Name </label>
-            <input type="text" name="lname" placeholder="Last Name"><br><br>
+            <input type="text" name="lname" placeholder="Last Name" required><br><br>
 
             <label for="email"> Email </label>
-            <input type="text" name="email" placeholder="you@example.com"><br><br>
+            <input type="text" name="email" placeholder="you@example.com" required><br><br>
 
-            <label for="adr"> Address </label>
-            <input type="text" name="adr" placeholder="Address"><br><br>
+            <label for="adr"> Address 1 </label>
+            <input type="text" name="adr1" placeholder="Address" required><br><br>
+
+            <label for="adr"> Address 2 </label>
+            <input type="text" name="adr2" placeholder="Address"><br><br>
 
             <label for="city"> City </label>
-            <input type="text" name="city" placeholder="New Paltz"><br><br>
+            <input type="text" name="city" placeholder="New Paltz" required><br><br>
 
             <label for="state"> State </label>
-            <input type="text" name="state" placeholder="New York">
+            <input type="text" name="state" placeholder="New York" required>
 
             <label for="zip"> Zip </label>
-            <input type="text" name="zip" placeholder="12561"><br><br>
+            <input type="text" name="zip" placeholder="12561" required><br><br>
 
 
             <h3> Payment Information </h3>
             <label for="cname">Name on Card</label>
-            <input type="text" name="cname" placeholder="John M Doe"><br><br>
+            <input type="text" name="cname" placeholder="John M Doe" required><br><br>
 
             <label for="cnum">Card number </label>
-            <input type="text" name="cnum" placeholder="1111-2222-3333-4444"><br><br>
+            <input type="tel" name="cnum" inputmode="numeric" pattern="[0-9\s]{13, 19}" maxlength="19" placeholder="1111-2222-3333-4444" required><br><br>
 
             <label for="expdate">Exp Date</label>
-            <input type="text" name="expdate" placeholder="MM/YY"><br><br>
+            <input type="text" name="expdate" placeholder="MM/YY" required><br><br>
 
             <label for="cvv">CVV</label>
-            <input type="text" name="cvv" placeholder="123"><br><br>
+            <input type="text" name="cvv" placeholder="123" required><br><br>
 
             <input type="submit" value="Place Order" name="placeorder">
 
@@ -144,3 +148,10 @@ require_once("../classes/ShoppingCart.php");
 </script>
 
 </html>
+
+<?php
+$addr = "INSERT INTO 'user_address' ('address1', 'address2', 'city', 'st', 'zip') VALUES ('$_POST[adr1]', '$_POST[adr2]', '$_POST[city]', '$_POST[state]', '$_POST[zip]')";
+if (mysqli_query($dbconn, $addr)) {
+    echo "Address updated";
+}
+?>
