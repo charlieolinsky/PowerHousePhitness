@@ -48,4 +48,13 @@ if (isset(($_POST['addToCart']))) { //updating the quantity from add to cart but
     }
 }
 
+if(isset($_POST['checkout']))
+{
+    if(empty($_SESSION['cart']))
+    {
+        header("location: ../forms/empty.php");
+        exit();
+    }
+}
+
 ?>
