@@ -6,8 +6,6 @@
         $s = new Session(); 
 
         //Fetch Post 
-
-        //print_r($_POST);
         $cName = $_POST['cName'];
         $iuid = $_POST['iuid'];
         $mCap= $_POST['mCap'];
@@ -16,8 +14,6 @@
         $cDay = $_POST['cDay'];
         $cPic = $_POST['cPic'];
         $cDesc = $_POST['cDesc'];
-
-        //print_r($_SESSION);
 
         //Fetch Session Data
         $classToEdit = $s->read('classes_dropdown');
@@ -85,9 +81,7 @@
                 
             }
         }
-
-
-
+        die("FATAL ERROR");
 
        
     }
