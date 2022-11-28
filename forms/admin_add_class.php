@@ -55,6 +55,9 @@
             <input type="submit" name="submit" id="submit">Submit</button> 
         </form>
     </div>
+
+    <br><br><br><!--Hi Erica! I know how much you love these break statements xoxo -charlie -->
+    <a href="adminDirectory.php">Return to Admin Portal</a> 
     
 </body>
 </html>

@@ -21,7 +21,8 @@
         <h3>Administrator</h3>
         <a href="admin_search_users.php">Edit a User</a><br>
         <a href="admin-inventory-home.php">Manage Inventory</a><br>
-        <a href="admin_add_class.php">Add a Class</a>
+        <a href="admin_add_class.php">Add New Class</a><br>
+        <a href="admin_select_class.php">Edit Existing Class</a>
 
         <br> <!--Hi Erica! I know how much you love these break statements xoxo -charlie -->
 
