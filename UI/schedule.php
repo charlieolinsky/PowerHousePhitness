@@ -165,7 +165,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                      </td>
                                      <td></td>
                                      <td>
-                                         <strong>Body work</strong>
+                                         <strong>Body Work</strong>
                                          <span>11:00 am - 5:20 pm</span>
                                      </td>
                                      <td></td>
@@ -182,7 +182,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                          <span>2:00 pm - 4:00 pm</span>
                                      </td>
                                      <td>
-                                         <strong>Power lifting</strong>
+                                         <strong>Power Lifting</strong>
                                          <span>3:00 pm - 6:00 pm</span>
                                      </td>
                                      <td></td>
@@ -210,7 +210,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <strong>Body work</strong>
+                                        <strong>Body Work</strong>
                                          <span>4:00 pm - 5:20 pm</span>
                                     </td>
                                   </tr> 
