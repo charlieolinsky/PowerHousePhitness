@@ -84,7 +84,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
         </div>
     </nav>
 
-
+<!----------------------------------------- MEMBERSHIP --------------------------------------->
 
     <section class="class section" id="membership">
         <div class="container">
@@ -160,14 +160,236 @@ https://www.tooplate.com/view/2119-gymso-fitness
         </div>
     </section>
 
+    <!----------------------------------------- CLASSES --------------------------------------->
+
     <section class="class section" id="classes">
         <div class="container">
-            
             <div class="row">
                 <div class="col-lg-12 col-12 text-center mb-5">
-                    <h6 data-aos="fade-up">Schedule a Class With Us!</h6>
-                    <h2 data-aos="fade-up" data-aos-delay="200" href="schedule.php">Available Classes</h2>
+                    <h6 data-aos="fade-up">Schedule a class with us</h6>
+
+                    <h2 data-aos="fade-up" data-aos-delay="200">Our Available Classes</h2>
+
+                     <!-- Schedule Link -->
+                    <a href="schedule.php" data-aos="fade-up" data-aos-delay="200">View Our Schedule</a>
+                
                 </div>
+                    
+            <!-- YOGA -->
+                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
+                    <div class="class-thumb">
+                        <img src="images/class/yoga-class.webp" class="img-fluid" alt="Yoga Class">
+
+                        <div class="class-info">
+                            <h3 class="mb-1">Yoga</h3>
+
+                            <span><strong>Free with Premium</strong></span>
+
+                            <span class="class-price">_/30</span>
+
+                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p> 
+                            <p class="mt-3"> Note: Membership fee will be due on the 1st of every month </p> -->
+
+                            <div style="text-align: center">
+                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Power Fitness -->
+                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
+                    <div class="class-thumb">
+                        <img src="images/class/powerfitness-class.jpeg" class="img-fluid" alt="Power Fitness Class">
+
+                        <div class="class-info">
+                            <h3 class="mb-1">Power Fitness</h3>
+
+                            <span><strong>Free with Premium</strong></span>
+
+                            <span class="class-price">_/30</span>
+
+                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+
+                            <div style="text-align: center">
+                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Boxing -->
+                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
+                    <div class="class-thumb">
+                        <img src="images/class/boxing-class.webp" class="img-fluid" alt="Boxing Class">
+
+                        <div class="class-info">
+                            <h3 class="mb-1">Boxing</h3>
+
+                            <span><strong>Free with Premium</strong></span>
+
+                            <span class="class-price">_/30</span>
+
+                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+
+                            <div style="text-align: center">
+                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aerobics -->
+                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
+                    <div class="class-thumb">
+                        <img src="images/class/aerobics-class.jpeg" class="img-fluid" alt="Aerobics Class">
+
+                        <div class="class-info">
+                            <h3 class="mb-1">Aerobics</h3>
+
+                            <span><strong>Free with Premium</strong></span>
+
+                            <span class="class-price">_/30</span>
+
+                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+
+                            <div style="text-align: center">
+                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cardio -->
+                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
+                    <div class="class-thumb">
+                        <img src="images/class/cardio-class2.webp" class="img-fluid" alt="Cardio Class">
+
+                        <div class="class-info">
+                            <h3 class="mb-1">Cardio</h3>
+
+                            <span><strong>Free with Premium</strong></span>
+
+                            <span class="class-price">_/30</span>
+
+                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+
+                            <div style="text-align: center">
+                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Body work -->
+                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
+                    <div class="class-thumb">
+                        <img src="images/class/bodyWork-class.jpeg" class="img-fluid" alt="Body Work Class">
+
+                        <div class="class-info">
+                            <h3 class="mb-1">Body Work</h3>
+
+                            <span><strong>Free with Premium</strong></span>
+
+                            <span class="class-price">_/30</span>
+
+                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+
+                            <div style="text-align: center">
+                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zumba -->
+                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
+                    <div class="class-thumb">
+                        <img src="images/class/zumba-class.jpeg" class="img-fluid" alt="Zumba Class">
+
+                        <div class="class-info">
+                            <h3 class="mb-1">Zumba</h3>
+
+                            <span><strong>Free with Premium</strong></span>
+
+                            <span class="class-price">_/30</span>
+
+                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+
+                            <div style="text-align: center">
+                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Power Lifting -->
+                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
+                    <div class="class-thumb">
+                        <img src="images/class/powerlifting-class.jpeg" class="img-fluid" alt="Power Lifting Class">
+
+                        <div class="class-info">
+                            <h3 class="mb-1">Power Lifting</h3>
+
+                            <span><strong>Free with Premium</strong></span>
+
+                            <span class="class-price">_/30</span>
+
+                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+
+                            <div style="text-align: center">
+                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Crossfit -->
+                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
+                    <div class="class-thumb">
+                        <img src="images/class/crossfit-class2.jpeg" class="img-fluid" alt="Crossfit Class">
+
+                        <div class="class-info">
+                            <h3 class="mb-1">Crossfit</h3>
+
+                            <span><strong>Free with Premium</strong></span>
+
+                            <span class="class-price">_/30</span>
+
+                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+
+                            <div style="text-align: center">
+                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meditation & Hot Yoga -->
+                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
+                    <div class="class-thumb">
+                        <img src="images/class/hotyoga-class.jpeg" class="img-fluid" alt="Meditation & Hot Yoga Class">
+
+                        <div class="class-info">
+                            <h3 class="mb-1">Meditation & </h3>
+                            <h3 class="mb-1">Hot Yoga</h3>
+
+                            <span><strong>Free with Premium</strong></span>
+
+                            <span class="class-price">_/30</span>
+
+                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+
+                            <div style="text-align: center">
+                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
             </div>
 
 
@@ -189,73 +411,6 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
             </div>
 
-            <!----------------------------------------------------------------------------------------------------->
-            
-
-            <div class="column">
-
-                <div class="class-signup">
-                    <div class="row">
-                        <h3 class="mb-1">Yoga</h3>
-                    </div>
-                </div>
-                
-                <div class="class-signup">
-                    <div class="row">
-                        <h3 class="mb-1">Power-Fitness</h3>
-                    </div>
-                </div>
-
-                <div class="class-signup">
-                    <div class="row">
-                        <h3 class="mb-1">Boxing</h3>
-                    </div>
-                </div>
-
-                <div class="class-signup">
-                    <div class="row">
-                        <h3 class="mb-1">Aerobics</h3>
-                    </div>
-                </div>
-
-                <div class="class-signup">
-                    <div class="row">
-                        <h3 class="mb-1">Cardio</h3>
-                    </div>
-                </div>
-
-                <div class="class-signup">
-                    <div class="row">
-                        <h3 class="mb-1">Bodywork</h3>
-                    </div>
-                </div>
-
-                <div class="class-signup">
-                    <div class="row">
-                        <h3 class="mb-1">Zumba</h3>
-                    </div>
-                </div>
-
-                <div class="class-signup">
-                    <div class="row">
-                        <h3 class="mb-1">Power-Lifting</h3>
-                    </div>
-                </div>
-
-                <div class="class-signup">
-                    <div class="row">
-                        <h3 class="mb-1">Cross-Fit</h3>
-                    </div>
-                </div>
-
-                <div class="class-signup">
-                    <div class="row">
-                        <h3 class="mb-1">Meditation & Hot Yoga</h3>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
     </section>        
 
 
