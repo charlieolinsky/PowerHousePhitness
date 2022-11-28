@@ -106,7 +106,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                                  <span class="class-price">$15</span>
 
-                                 <p class="mt-3">If you already have a PHP User account, no need to sign up! You may use the gym, rent equipment, and particpate in classes for a fee when you use PHP utilities.</p>
+                                 <p class="mt-3">If you already have a PHP User account, no need to sign up! You may use the gym, rent equipment, and particpate in classes for a fee when you use PHP utilities</p>
                                  <br>
                              </div>
                          </div>
@@ -123,7 +123,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                                  <span class="class-price">$25</span>
 
-                                 <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>
+                                 <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees <br> </p>
                                  <p class="mt-3"> Note: Membership fee will be due on the 1st of every month </p>
                              </div>
                          </div>
@@ -143,7 +143,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                                  <span class="class-price">$270</span>
 
-                                 <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees.</p>
+                                 <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees</p>
                                  <!-- <p class="mt-3"> Note: Save $30 a year with this plan </p> -->
                                  <br>
                                  <br>
@@ -187,8 +187,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                             <span class="class-price">_/30</span>
 
-                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p> 
-                            <p class="mt-3"> Note: Membership fee will be due on the 1st of every month </p> -->
+                            <p class="mt-3">Incorporates yoga postures, poses, gentle movement sequences, breath work, supported silent meditation, and guided relaxation to support increased awareness and mindfulness of the breath and body</p> 
+                            
 
                             <div style="text-align: center">
                                 <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
@@ -209,7 +209,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                             <span class="class-price">_/30</span>
 
-                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+                            <p class="mt-3">A blend of cardio and weights with a primary focus on improving overall strength. It incorporates high volume (reps) and low resistance (weight) workouts with short rest intervals and is geared to improve muscle tone and definition<br> </p> 
 
                             <div style="text-align: center">
                                 <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
@@ -230,7 +230,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                             <span class="class-price">_/30</span>
 
-                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+                            <p class="mt-3">Teaches the basic boxing stance, footwork, and skills while also gradually building up your stamina, strength, and endurance. This includes a cardio warmup, core work, and various boxing exercises followed by short recovery periods<br> </p> 
 
                             <div style="text-align: center">
                                 <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
@@ -251,7 +251,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                             <span class="class-price">_/30</span>
 
-                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+                            <p class="mt-3">Aims to work all muscle groups with a variety of strengthening and conditioning exercises for a complete workout. This includes circuit training, cardio exercises, body weight exercises and finishes with core training and stretching<br> </p> 
 
                             <div style="text-align: center">
                                 <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
@@ -272,7 +272,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                             <span class="class-price">_/30</span>
 
-                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+                            <p class="mt-3">An interval training sequence with high-intensity exercises. Starts with a warm-up followed by a cardio segment that gradually increases in intensity. It focuses on building cardiovascular fitness while improving muscular strength and endurance<br> </p> 
 
                             <div style="text-align: center">
                                 <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
@@ -293,7 +293,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                             <span class="class-price">_/30</span>
 
-                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+                            <p class="mt-3">Combines traditional and modern Pilates mat exercises to improve muscular balance and strength, fluidity and length.  You will build a stronger core and improve posture using props such as mini-stability balls, therabands, bolsters or foam rollers<br> </p> 
 
                             <div style="text-align: center">
                                 <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
@@ -314,7 +314,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                             <span class="class-price">_/30</span>
 
-                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+                            <p class="mt-3">An interval workout of aerobic fitness exercises based on Latin American dance rhythms. The class moves between high and low-intensity dance movements that are simple and designed to get your heart rate up and boost cardio endurance<br> </p> 
 
                             <div style="text-align: center">
                                 <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
@@ -323,19 +323,19 @@ https://www.tooplate.com/view/2119-gymso-fitness
                     </div>
                 </div>
 
-                <!-- Power Lifting -->
+                <!-- Powerlifting -->
                 <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
                     <div class="class-thumb">
                         <img src="images/class/powerlifting-class.jpeg" class="img-fluid" alt="Power Lifting Class">
 
                         <div class="class-info">
-                            <h3 class="mb-1">Power Lifting</h3>
+                            <h3 class="mb-1">Powerlifting</h3>
 
                             <span><strong>Free with Premium</strong></span>
 
                             <span class="class-price">_/30</span>
 
-                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+                            <p class="mt-3">For powerlifters looking to increase their muscularity and improve their max. This program is built around developing skill and strength using competition lifts, and aims to improve the most one can lift in their squat, bench press, and deadlift<br> </p> 
 
                             <div style="text-align: center">
                                 <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
@@ -356,7 +356,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                             <span class="class-price">_/30</span>
 
-                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+                            <p class="mt-3">A strength and conditioning workout class that is made up of functional movements performed at a high intensity level. These movements include actions that you perform in your day-to-day life, like squatting, pulling, pushing, and more<br> </p> 
 
                             <div style="text-align: center">
                                 <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
@@ -365,20 +365,19 @@ https://www.tooplate.com/view/2119-gymso-fitness
                     </div>
                 </div>
 
-                <!-- Meditation & Hot Yoga -->
+                <!-- Hot Yoga -->
                 <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
                     <div class="class-thumb">
                         <img src="images/class/hotyoga-class.jpeg" class="img-fluid" alt="Meditation & Hot Yoga Class">
 
                         <div class="class-info">
-                            <h3 class="mb-1">Meditation & </h3>
                             <h3 class="mb-1">Hot Yoga</h3>
 
                             <span><strong>Free with Premium</strong></span>
 
                             <span class="class-price">_/30</span>
 
-                            <!-- <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees. <br> </p>  -->
+                            <p class="mt-3">A movement based practice, flowing movement with breath. It is practiced in a hot room (95-105 degrees) focusing on linking breath and poses, and ending with a guided meditation that allows you to unwind your mind and finish relaxed and refreshed<br> </p> 
 
                             <div style="text-align: center">
                                 <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
@@ -386,19 +385,13 @@ https://www.tooplate.com/view/2119-gymso-fitness
                         </div>
                     </div>
                 </div>
-
-
-
-
+                
             </div>
 
 
              <!----------------------------------------- CLASS BACKEND TEST --------------------------------------->
 
             <div class="class-backend-test">
-                
-                <!-- Schedule Link -->
-                <a href="schedule.php">View Our Schedule</a>
                 
                 <!-- Example Class row -->
                 <div class="class-signup">

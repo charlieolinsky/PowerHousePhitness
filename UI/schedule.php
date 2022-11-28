@@ -95,6 +95,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                          <h6 data-aos="fade-up">Our Weekly Gym Schedule</h6>
 
                          <h2 class="text-white" data-aos="fade-up" data-aos-delay="200">Workout Days & Times</h2>
+                         <a href="services.php#classes" data-aos="fade-up" data-aos-delay="200">Register for Classes<a>
                       </div>
 
                       <div class="col-lg-12 py-5 col-md-12 col-12">
@@ -182,7 +183,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                          <span>2:00 pm - 4:00 pm</span>
                                      </td>
                                      <td>
-                                         <strong>Power Lifting</strong>
+                                         <strong>Powerlifting</strong>
                                          <span>3:00 pm - 6:00 pm</span>
                                      </td>
                                      <td></td>
@@ -226,7 +227,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                     </td>
                                     <td></td>
                                     <td>
-                                        <strong>Meditation & Hot Yoga</strong>
+                                        <strong>Hot Yoga (with Meditation)</strong>
                                         <span>5:30 pm - 8:00 pm</span>
                                     </td>
                                     <td></td>
