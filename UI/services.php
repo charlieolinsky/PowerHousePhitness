@@ -1,3 +1,16 @@
+<?php
+    include_once("../include/global_inc.php");
+    $s = new Session();
+
+    $res = $dbconn->query("SELECT * FROM classes");
+
+    // while($classRow = $res->fetch_assoc()){
+    //     print_r($classRow);
+    // }
+
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -162,34 +175,35 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
     <!----------------------------------------- CLASSES --------------------------------------->
 
+    <!-- HEADER --> 
     <section class="class section" id="classes">
+        <div class="col-lg-12 col-12 text-center mb-5">
+            <h6 data-aos="fade-up">Schedule a class with us</h6>
+            <h2 data-aos="fade-up" data-aos-delay="200">Our Available Classes</h2>
+
+            <!-- Schedule Link -->
+            <a href="schedule.php" data-aos="fade-up" data-aos-delay="200">View Our Schedule</a>
+            
+        </div>
+
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-12 text-center mb-5">
-                    <h6 data-aos="fade-up">Schedule a class with us</h6>
+                    <?php  while($classRow = $res->fetch_assoc()): ?>
 
-                    <h2 data-aos="fade-up" data-aos-delay="200">Our Available Classes</h2>
-
-                     <!-- Schedule Link -->
-                    <a href="schedule.php" data-aos="fade-up" data-aos-delay="200">View Our Schedule</a>
-                
-                </div>
-                    
-            <!-- YOGA -->
                 <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
                     <div class="class-thumb">
-                        <img src="images/class/yoga-class.webp" class="img-fluid" alt="Yoga Class">
+
+                        <img src=<?php echo "images/class/".$classRow['class_image'];?> class="img-fluid" alt="Class Image">
 
                         <div class="class-info">
-                            <h3 class="mb-1">Yoga</h3>
+                            <h3 class="mb-1"><?php echo $classRow['class_name'];?></h3>
 
                             <span><strong>Free with Premium</strong></span>
 
-                            <span class="class-price">_/30</span>
+                            <span class="class-price"> <?php echo $classRow['current_capacity'];?>/<?php echo $classRow['class_max_capacity'];?> </span>
 
-                            <p class="mt-3">Incorporates yoga postures, poses, gentle movement sequences, breath work, supported silent meditation, and guided relaxation to support increased awareness and mindfulness of the breath and body</p> 
+                            <p class="mt-3"><?php echo $classRow['class_description'];?></p> 
                             
-
                             <div style="text-align: center">
                                 <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
                             </div>
@@ -197,215 +211,10 @@ https://www.tooplate.com/view/2119-gymso-fitness
                     </div>
                 </div>
 
-                <!-- Power Fitness -->
-                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
-                    <div class="class-thumb">
-                        <img src="images/class/powerfitness-class.jpeg" class="img-fluid" alt="Power Fitness Class">
-
-                        <div class="class-info">
-                            <h3 class="mb-1">Power Fitness</h3>
-
-                            <span><strong>Free with Premium</strong></span>
-
-                            <span class="class-price">_/30</span>
-
-                            <p class="mt-3">A blend of cardio and weights with a primary focus on improving overall strength. It incorporates high volume (reps) and low resistance (weight) workouts with short rest intervals and is geared to improve muscle tone and definition<br> </p> 
-
-                            <div style="text-align: center">
-                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Boxing -->
-                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
-                    <div class="class-thumb">
-                        <img src="images/class/boxing-class.webp" class="img-fluid" alt="Boxing Class">
-
-                        <div class="class-info">
-                            <h3 class="mb-1">Boxing</h3>
-
-                            <span><strong>Free with Premium</strong></span>
-
-                            <span class="class-price">_/30</span>
-
-                            <p class="mt-3">Teaches the basic boxing stance, footwork, and skills while also gradually building up your stamina, strength, and endurance. This includes a cardio warmup, core work, and various boxing exercises followed by short recovery periods<br> </p> 
-
-                            <div style="text-align: center">
-                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Aerobics -->
-                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
-                    <div class="class-thumb">
-                        <img src="images/class/aerobics-class.jpeg" class="img-fluid" alt="Aerobics Class">
-
-                        <div class="class-info">
-                            <h3 class="mb-1">Aerobics</h3>
-
-                            <span><strong>Free with Premium</strong></span>
-
-                            <span class="class-price">_/30</span>
-
-                            <p class="mt-3">Aims to work all muscle groups with a variety of strengthening and conditioning exercises for a complete workout. This includes circuit training, cardio exercises, body weight exercises and finishes with core training and stretching<br> </p> 
-
-                            <div style="text-align: center">
-                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cardio -->
-                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
-                    <div class="class-thumb">
-                        <img src="images/class/cardio-class2.webp" class="img-fluid" alt="Cardio Class">
-
-                        <div class="class-info">
-                            <h3 class="mb-1">Cardio</h3>
-
-                            <span><strong>Free with Premium</strong></span>
-
-                            <span class="class-price">_/30</span>
-
-                            <p class="mt-3">An interval training sequence with high-intensity exercises. Starts with a warm-up followed by a cardio segment that gradually increases in intensity. It focuses on building cardiovascular fitness while improving muscular strength and endurance<br> </p> 
-
-                            <div style="text-align: center">
-                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Body work -->
-                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
-                    <div class="class-thumb">
-                        <img src="images/class/bodyWork-class.jpeg" class="img-fluid" alt="Body Work Class">
-
-                        <div class="class-info">
-                            <h3 class="mb-1">Body Work</h3>
-
-                            <span><strong>Free with Premium</strong></span>
-
-                            <span class="class-price">_/30</span>
-
-                            <p class="mt-3">Combines traditional and modern Pilates mat exercises to improve muscular balance and strength, fluidity and length.  You will build a stronger core and improve posture using props such as mini-stability balls, therabands, bolsters or foam rollers<br> </p> 
-
-                            <div style="text-align: center">
-                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Zumba -->
-                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
-                    <div class="class-thumb">
-                        <img src="images/class/zumba-class.jpeg" class="img-fluid" alt="Zumba Class">
-
-                        <div class="class-info">
-                            <h3 class="mb-1">Zumba</h3>
-
-                            <span><strong>Free with Premium</strong></span>
-
-                            <span class="class-price">_/30</span>
-
-                            <p class="mt-3">An interval workout of aerobic fitness exercises based on Latin American dance rhythms. The class moves between high and low-intensity dance movements that are simple and designed to get your heart rate up and boost cardio endurance<br> </p> 
-
-                            <div style="text-align: center">
-                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Powerlifting -->
-                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
-                    <div class="class-thumb">
-                        <img src="images/class/powerlifting-class.jpeg" class="img-fluid" alt="Power Lifting Class">
-
-                        <div class="class-info">
-                            <h3 class="mb-1">Powerlifting</h3>
-
-                            <span><strong>Free with Premium</strong></span>
-
-                            <span class="class-price">_/30</span>
-
-                            <p class="mt-3">For powerlifters looking to increase their muscularity and improve their max. This program is built around developing skill and strength using competition lifts, and aims to improve the most one can lift in their squat, bench press, and deadlift<br> </p> 
-
-                            <div style="text-align: center">
-                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Crossfit -->
-                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
-                    <div class="class-thumb">
-                        <img src="images/class/crossfit-class2.jpeg" class="img-fluid" alt="Crossfit Class">
-
-                        <div class="class-info">
-                            <h3 class="mb-1">Crossfit</h3>
-
-                            <span><strong>Free with Premium</strong></span>
-
-                            <span class="class-price">_/30</span>
-
-                            <p class="mt-3">A strength and conditioning workout class that is made up of functional movements performed at a high intensity level. These movements include actions that you perform in your day-to-day life, like squatting, pulling, pushing, and more<br> </p> 
-
-                            <div style="text-align: center">
-                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hot Yoga -->
-                <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
-                    <div class="class-thumb">
-                        <img src="images/class/hotyoga-class.jpeg" class="img-fluid" alt="Meditation & Hot Yoga Class">
-
-                        <div class="class-info">
-                            <h3 class="mb-1">Hot Yoga</h3>
-
-                            <span><strong>Free with Premium</strong></span>
-
-                            <span class="class-price">_/30</span>
-
-                            <p class="mt-3">A movement based practice, flowing movement with breath. It is practiced in a hot room (95-105 degrees) focusing on linking breath and poses, and ending with a guided meditation that allows you to unwind your mind and finish relaxed and refreshed<br> </p> 
-
-                            <div style="text-align: center">
-                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
+                <?php  endwhile;  ?>
             </div>
-
-
-             <!----------------------------------------- CLASS BACKEND TEST --------------------------------------->
-
-            <div class="class-backend-test">
-                
-                <!-- Example Class row -->
-                <div class="class-signup">
-                    <div class="row">
-                        <h3 class="mb-1">TEST: </h3>
-                        <input type="button" value="Make Reservation">
-                        
-                    </div>
-                </div>
-
-            </div>
-
-    </section>        
-
+        </div>
+    </section>
 
     <!-- Modal -->
     <div class="modal fade" id="membershipForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
