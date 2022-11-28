@@ -78,7 +78,11 @@
 
             <br><br><br><br>
             <input type="submit" value="Submit Changes" id="submit2"> 
+
         </form>
+
+        <br><br><br>
+        <a href="adminDirectory.php">Return Home</a>
     </body>
 </html>
 
