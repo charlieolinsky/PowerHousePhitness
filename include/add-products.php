@@ -1,6 +1,9 @@
 
 <?php
 
+include_once("../sql/connect.php");
+
+
 $sql = "INSERT INTO `prod-data` 
             (`prod_name`, 
             `prod_desc`,
@@ -23,18 +26,17 @@ VALUES
 
 
                   
-include_once("../forms/admin-inventory-new.php");
-include_once("../sql/connect.php");
+// include_once("../forms/admin-inventory-new.php");
 
 
 // var_dump($_POST); //to confirm that the data was added 
 
 if ($dbconn->query($sql) === TRUE) {
-	echo "New inventory item added successfully";
+  // $_POST = array();
+  echo "<p style='color:red; text-align:center'> New inventory item added successfully  <p>";
   } else {
-	echo "Error: " . $sql . "<br>" . $dbconn->error;
+	echo "Error:" . $dbconn->error;
   }
-
 
 
 $dbconn->close();

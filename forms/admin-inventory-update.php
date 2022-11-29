@@ -81,7 +81,9 @@
             <h1 style="color: var(--primary-color)">Update Inventory</h1>
         </div>
 
-        <form action="../include/update-product.php" method="POST">
+        <!-- <form action="../include/update-product.php" method="POST"> -->
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+
             <!-- <form action=<?php //echo $_SERVER['PHP_SELF']; 
                                 ?> method="POST"> -->
 
@@ -182,3 +184,5 @@
         </div>
 </body>
 </html>
+
+<?php include_once("../include/update-product.php"); ?>
