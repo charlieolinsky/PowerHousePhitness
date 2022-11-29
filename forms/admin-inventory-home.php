@@ -112,7 +112,9 @@
                             </h3>
                             <p><?php echo $rows['prod_desc']; ?></p>
                             <h5>
-                                <span style="color: var(--white-color)"><?php echo "Quantity owned: " . $rows['prod_quantity']; ?></span>
+                                <span style="color: var(--white-color)"><?php echo "Current avalible: " . $rows['prod_quantity']; ?></span>
+                                <br>
+                                <span style="color: var(--white-color)"><?php echo "Total checked out: " . $rows['total_rented']; ?></span>
                                 <br>
                                 <span style="color: var(--white-color)"><?php echo "Vendor purchased from: " . $rows['VENDOR_ID']; ?></span>
                                 <br>
