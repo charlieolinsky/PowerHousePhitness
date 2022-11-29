@@ -25,87 +25,79 @@ $updatedatepurch = "UPDATE `prod-data` SET prod_date_purchased='$_POST[prod_date
 $updatepurchcost = "UPDATE `prod-data` SET prod_purchase_cost='$_POST[prod_purchase_cost]' WHERE PROD_ID=$so";
 
 include_once("../sql/connect.php");
-include_once("../forms/admin-inventory-update.php");
+// include_once("../forms/admin-inventory-update.php");
 
 
 // var_dump($_POST); //to confirm that the data was added 
 
 
 if (!empty($prod_name)) {
-    // $updatedesc = "UPDATE 'prod-data' SET prod_desc=$prod_desc WHERE PROD_ID=$so";
 
     if ($dbconn->query($updatename) === TRUE) {
-        echo "Record updated successfully";
+        echo "<p style='color:red'> Record updated successfully <p>";
     } else {
         echo "Error updating record: " . $dbconn->error;
     }
 }
 
 if (!empty($prod_desc)) {
-    // $updatedesc = "UPDATE 'prod-data' SET prod_desc=$prod_desc WHERE PROD_ID=$so";
 
     if ($dbconn->query($updatedesc) === TRUE) {
-        echo "Record updated successfully";
+        echo "<p style='color:red'> Record updated successfully <p>";
     } else {
         echo "Error updating record: " . $dbconn->error;
     }
 }
 
 if (!empty($prod_image)) {
-    // $updateimage = "UPDATE 'prod-data' SET prod_image=$prod_image WHERE PROD_ID=$so";
 
     if ($dbconn->query($updateimage) === TRUE) {
-        echo "Record updated successfully";
+        echo "<p style='color:red'> Record updated successfully <p>";
     } else {
         echo "Error updating record: " . $dbconn->error;
     }
 }
 
 if (!empty($prod_price)) {
-    // $updateprice = "UPDATE 'prod-data' SET prod_price=$prod_price WHERE PROD_ID=$so";
 
     if ($dbconn->query($updateprice) === TRUE) {
-        echo "Record updated successfully";
+        echo "<p style='color:red'> Record updated successfully <p>";
     } else {
         echo "Error updating record: " . $dbconn->error;
     }
 }
 
 if (!empty($prod_quantity)) {
-    // $updatequant = "UPDATE 'prod-data' SET prod_quantity=$prod_quantity WHERE PROD_ID=$so";
 
     if ($dbconn->query($updatequant) === TRUE) {
-        echo "Record updated successfully";
+        echo "<p style='color:red'> Record updated successfully <p>";
     } else {
         echo "Error updating record: " . $dbconn->error;
     }
 }
 
 if (!empty($VENDOR_ID)) {
-    // $updatevendor = "UPDATE 'prod-data' SET VENDOR_ID=$VENDOR_ID WHERE PROD_ID=$so";
 
     if ($dbconn->query($updatevendor) === TRUE) {
-        echo "Record updated successfully";
+        echo "<p style='color:red'> Record updated successfully <p>";
     } else {
         echo "Error updating record: " . $dbconn->error;
     }
 }
 
 if (!empty($prod_date_purchased)) {
-    // $updatedatepurch = "UPDATE 'prod-data' SET prod_date_purchased=$prod_date_purchased WHERE PROD_ID=$so";
 
     if ($dbconn->query($updatedatepurch) === TRUE) {
-        echo "Record updated successfully";
+        echo "<p style='color:red'> Record updated successfully <p>";
     } else {
         echo "Error updating record: " . $dbconn->error;
     }
 }
 
 if (!empty($prod_purchase_cost)) {
-    // $updatepurchcost = "UPDATE 'prod-data' SET prod_purchase_cost=$prod_purchase_cost WHERE PROD_ID=$so";
 
     if ($dbconn->query($updatepurchcost) === TRUE) {
-        echo "Record updated successfully";
+        echo "<p style='color:red'> Record updated successfully <p>";
     } else {
         echo "Error updating record: " . $dbconn->error;
     }
