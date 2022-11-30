@@ -13,9 +13,28 @@ include_once("../sql/connect.php");
 
 if (isset($_GET['getID'])) {
     $id = $_GET['userID'];
-    $sql = "SELECT * FROM user_table WHERE USER_ID = '$id'";
+    $sql = "SELECT COUNT(*) FROM user_table WHERE USER_ID = '$id'";
     $result = $dbconn->query($sql);
-    $user = $result->fetch_assoc();
+    while($row = mysqli_fetch_assoc($result))
+   {
+      $num_rows = $row['COUNT(*)'];
+   }
+    if($num_rows == 0)
+    {
+     echo "User Not Found";
+     echo "<br>";
+     echo "<br>";
+     echo "<a href='admin_search_users.php' title='search'>Go Back</a>";
+     exit;
+     //<a href='my-page.html' title='My Page'>My Page</a>
+     // header("Location: ../forms/admin_search_users.php");
+    }
+    else 
+    {
+    $sql2 = "SELECT * FROM user_table WHERE USER_ID = '$id'";
+    $result2 = $dbconn->query($sql2);
+    $user = $result2->fetch_assoc();
+    }
     //var_dump($user);
 }
 

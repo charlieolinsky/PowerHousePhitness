@@ -7,6 +7,7 @@
 session_start();
 include_once("../include/global_inc.php");
 
+
 ?>
 <html>
   <head>
