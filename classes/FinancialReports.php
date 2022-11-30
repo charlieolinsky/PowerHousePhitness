@@ -55,11 +55,11 @@ $resultClasses = $dbconn->query($query);
         }
         </style>
     </head>
-    <body>
-        <h1 class="header">
+    <body style="text-align: center">
+        <h1 class="header" style="margin-left: -200px">
             Z Report
         </h1>
-        <table class="table" cellspacing="0">
+        <table class="table" cellspacing="0" style="margin-left: auto; margin-right: auto">
             <thead>
                 <tr>
                     <td class="table-header-cell">
@@ -177,10 +177,10 @@ $resultClasses = $dbconn->query($query);
     <body>
 
         <h1 class="header">
-         Equipment
+         Sales by Item
         </h1>
 
-        <table class="table" cellspacing="0">
+        <table class="table" cellspacing="0" style="margin-left: auto; margin-right: auto">
             <thead>
                 <tr>
                     <td class="table-header-cell">
@@ -260,11 +260,11 @@ $resultClasses = $dbconn->query($query);
     <head>
     </head>
     <body>
-        <h1 class="header">
+        <h1 class="header" style="margin-left: -200px">
          Classes
         </h1>
 
-        <table class="table" cellspacing="0">
+        <table class="table" cellspacing="0" style="margin-left: auto; margin-right: auto">
             <thead>
                 <tr>
                     <td class="table-header-cell">
