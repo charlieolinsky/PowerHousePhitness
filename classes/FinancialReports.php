@@ -29,6 +29,21 @@ $result2 = $dbconn->query($query);
 $query = "SELECT CLASS_ID, class_name, current_capacity FROM `classes`";
 $resultClasses = $dbconn->query($query);
 
+// get membership details
+// num basic members
+$query = "SELECT COUNT(*) FROM user_table WHERE roles = '1'";
+$resultCountBasic = $dbconn->query($query);
+while($row = mysqli_fetch_assoc($resultCountBasic))
+{
+  $numBasicMembers = $row['COUNT(*)'];
+}
+// num premium
+$query = "SELECT COUNT(*) FROM user_table WHERE roles = '2'";
+$resultCountPremium = $dbconn->query($query);
+while($row = mysqli_fetch_assoc($resultCountPremium))
+{
+  $numPremium = $row['COUNT(*)'];
+}
 ?>
 <html>
     <head>
@@ -159,10 +174,10 @@ $resultClasses = $dbconn->query($query);
                 </tr>
                 <tr class="values">
                     <td class="cell">
-                        Memberships:
+                        Daily Gym Fee:
                     </td>
                     <td class="description-cell">
-                        <!-- *simulated amount from memberships* -->
+                        <!-- *simulated amount from non-members paying per day* -->
                         <?php 
                         echo "$530.00"; // this is just to simulate since there are no values in the db
                         ?>
@@ -177,7 +192,7 @@ $resultClasses = $dbconn->query($query);
     <body>
 
         <h1 class="header" style="margin-left: -200px">
-         Sales by Item
+         Equipment
         </h1>
 
         <table class="table" cellspacing="0" style="margin-left: auto; margin-right: auto">
@@ -323,6 +338,101 @@ $resultClasses = $dbconn->query($query);
             <?php
         }
             ?>
+            </tbody>
+        </table>
+        <!-- Memberships -->
+<html>
+    <head>
+    </head>
+    <body>
+        <h1 class="header" style="margin-left: -200px">
+         Memberships
+        </h1>
+
+        <table class="table" cellspacing="0" style="margin-left: auto; margin-right: auto">
+            <thead>
+                <tr>
+                    <td class="table-header-cell">
+                        Membership Type
+                    </td>
+                    <td class="table-header-cell">
+                        Membership cost
+                    </td>
+                    <td class="table-header-cell">
+                        Num. Members
+                    </td>
+                    <td class="table-header-cell">
+                        Total Amount
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+        <div>
+          <tbody>
+                <tr class="values">
+                    <td class="cell">
+                    <h5><?php 
+                    echo "Basic Member";
+                    ?></h5>
+                    <td class="cell">
+                    <h5><?php echo "$0";?></h5>
+                    </td>
+                    <td class="cell">
+                    <h5><?php 
+                        echo $numBasicMembers;
+                    ?></h5>
+                    </td>
+                    <td class="cell">
+                    <h5><?php 
+                    echo "$0";
+                    ?></h5>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr class="values">
+                    <td class="cell">
+                    <h5><?php 
+                    echo "Premium-Monthly";
+                    ?></h5>
+                    <td class="cell">
+                    <h5><?php echo "$25";?></h5>
+                    </td>
+                    <td class="cell">
+                    <h5><?php 
+                        echo $numPremium;
+                    ?></h5>
+                    </td>
+                    <td class="cell">
+                    <h5><?php 
+                    echo "$". $numPremium*25 . "/month";
+                    ?></h5>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr class="values">
+                    <td class="cell">
+                    <h5><?php 
+                    echo "Premium-Yearly";
+                    ?></h5>
+                    <td class="cell">
+                    <h5><?php echo "$270";?></h5>
+                    </td>
+                    <td class="cell">
+                    <h5><?php 
+                        echo "6";
+                    ?></h5>
+                    </td>
+                    <td class="cell">
+                    <h5><?php 
+                     echo "$" . 6*270 . "/year";
+                    ?></h5>
+                    </td>
+                </tr>
+            </tbody>
+                        </div>
+                </form>
             </tbody>
         </table>
     </body>
