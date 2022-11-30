@@ -109,12 +109,12 @@ if (isset($_POST['remove_user']))
               <div class="form-popup" id="myForm">
               <form action="../forms/account_tab_edit.php" method="POST">   
 
-              <label for="newName"><b>Edit First Name:</b></label>
+              <!-- <label for="newName"><b>Edit First Name:</b></label> -->
               <input type="name" placeholder="Enter new first name" name="newName" required>
               </form>
               </div>
           </div>
-          <input type="submit" class="btn edit-btn" name="fn" value="Submit">
+          <input type="submit" class="btn edit-btn" name="fn" value="Submit" style="margin-top: 5px">
 
           <br><br>
 
@@ -132,12 +132,12 @@ if (isset($_POST['remove_user']))
               <div class="form-popup" id="myForm">
               <form action="../forms/account_tab_edit.php" method="POST">  
   
-                <label for="newLname"><b>Edit Last Name:</b></label>
+                <!-- <label for="newLname"><b>Edit Last Name:</b></label> -->
                 <input type="name" placeholder="Enter new last name" name="newLname" required>
               </form>
               </div>
           </div>
-          <input type="submit" class="btn edit-btn" name="ln" value="Submit">
+          <input type="submit" class="btn edit-btn" name="ln" value="Submit" style="margin-top: 5px">
 
           <br><br>
 
@@ -151,27 +151,26 @@ if (isset($_POST['remove_user']))
             <div class="form-popup" id="myForm">
             <form action="../forms/account_tab_edit.php" method="POST">  
 
-              <label for="newAddress"><b>Password:</b></label>
+              <!-- <label for="newAddress"><b>Password:</b></label> -->
               <input type="password" placeholder="Enter new password" name="newPassword" required>
               <input type="password" placeholder="Confirm password" name="vPass" required>
 
            </form>
           </div>
         </div>
-        <input type="submit" class="btn edit-btn" name="pass" value="Submit">
+        <input type="submit" class="btn edit-btn" name="pass" value="Submit" style="margin-top: 5px">
 
       </div>
 
       <br> 
 
       <div class="column">
-        <div class="row" style="justify-content: space-around">
           <a href="../UI/services.php#membership">Upgrade Your Membership</a>
+          <br>
           <a href="cancelMembership.php">Cancel Your Membership</a>
-        </div>
-        <br>
+          <br>
           <form action="../forms/account_tab_edit.php" method="POST">  
-          <input type="submit" class="btn cart-btn" name="remove_user" onclick="return confirm('Are you sure you want to delete this account?')" value="Delete Account">
+          <input type="submit" class="btn cart-btn" name="remove_user" onclick="return confirm('Are you sure you want to delete this account?')" value="Delete Account" style="margin-top: 10px">
       </div>
 
 
