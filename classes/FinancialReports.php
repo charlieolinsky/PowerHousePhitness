@@ -176,7 +176,7 @@ $resultClasses = $dbconn->query($query);
     </head>
     <body>
 
-        <h1 class="header">
+        <h1 class="header" style="margin-left: -200px">
          Sales by Item
         </h1>
 
