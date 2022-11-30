@@ -17,6 +17,9 @@ $result = $dbconn->query($query);
 $query = "SELECT * FROM `cart_items`";
 $result2 = $dbconn->query($query);
 
+// get class details
+$query = "SELECT CLASS_ID, class_name, current_capacity FROM `classes`";
+$resultClasses = $dbconn->query($query);
 
 ?>
 <html>
@@ -244,7 +247,75 @@ $result2 = $dbconn->query($query);
             ?>
             </tbody>
         </table>
-    </body>
-</html>
+<!-- Classes -->
+<html>
+    <head>
+    </head>
+    <body>
+        <h1 class="header">
+         Classes
+        </h1>
+
+        <table class="table" cellspacing="0">
+            <thead>
+                <tr>
+                    <td class="table-header-cell">
+                        Class Code
+                    </td>
+                    <td class="table-header-cell">
+                        Class Name
+                    </td>
+                    <td class="table-header-cell">
+                        Occupants
+                    </td>
+                    <td class="table-header-cell">
+                        Cost
+                    </td>
+                    <td class="table-header-cell">
+                        Total Amount
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+        while ($rows = $resultClasses->fetch_assoc()) {
+        ?>
+        <div>
+          <tbody>
+                <tr class="values">
+                    <td class="cell">
+                    <h5><?php 
+
+                    $ids = array($rows['CLASS_ID']);
+                    $index = 0;
+                    echo $ids[$index];
+                    ?></h5>
+                    </td>
+                    <td class="description-cell">
+                    <h5><?php echo $rows['class_name']; ?></h5>
+                    </td>
+                    <td class="cell">
+                    <h5><?php echo $rows['current_capacity']; ?></h5>
+                    </td>
+                    <td class="cell">
+                    <h5><?php 
+                        echo "$10";
+                    ?></h5>
+                    </td>
+                    <td class="cell">
+                    <h5><?php 
+                    echo $rows['current_capacity']*10;
+                    $index++;
+                    ?></h5>
+                    </td>
+                </tr>
+            </tbody>
+                        </div>
+                </form>
+            <?php
+        }
+            ?>
+            </tbody>
+        </table>
     </body>
 </html>
