@@ -88,7 +88,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
     </nav>
 
 
-    <!-- ABOUT PAGE -->
+    <!-- ABOUT INFO-->
     <section class="about section" id="about">
         <div class="my-container">
             <div class="row" >
@@ -97,10 +97,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                             <span style="color: var(--primary-color)">Hello, we are PHP!</span>
                         </h2>
                        
-                        <p data-aos="fade-up" data-aos-delay="400">You are NOT allowed to redistribute this HTML template downloadable ZIP file on any template collection site. You are allowed to use this template for your personal or business websites.</p>
-
-                        <p data-aos="fade-up" data-aos-delay="500">If you have any question regarding <a rel="nofollow" href="https://www.tooplate.com/view/2119-gymso-fitness" target="_parent">Gymso Fitness HTML template</a>, you can <a rel="nofollow" href="https://www.tooplate.com/contact" target="_parent">contact Tooplate</a> immediately. Thank you.</p>
-
+                        <p data-aos="fade-up" data-aos-delay="400">The team at Power House Phitness offers many years of dedication and knowledge in Software Engineering, as well as proficiency in many technical skills such as HTML, CSS, JavaScript, PHP, and SQL. All of them ensure that your experience with Power House Phitness is impeccable as they come to the company with precision, poise, and pizazz</p>
                     </div>
             </div>      
         </div>  
@@ -119,7 +116,11 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                         <span style="color: var(--primary-color)">Beesanne Kurzum</span>
                                     </h3>
                                     <h4 class="mb-1">
-                                        <span style="color: var(--white-color)">Inventory & Data Management</span>
+                                        <span style="color: var(--white-color)">Inventory</span>
+                                        <br>
+                                        <span style="color: var(--white-color)">Data Management</span>
+                                        <br>
+                                        <span style="color: var(--white-color)">Shopping Cart</span>
                                     </h4>
                                 </div>
                              </div>
@@ -137,9 +138,13 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                         <span style="color: var(--primary-color)">Charles Olinsky</span>
                                     </h3>
                                         <h4 class="mb-1">
-                                            <span style="color: var(--white-color)">Group Leader</span>
+                                            <strong style="color: var(--white-color)">Group Leader</strong>
                                             <br>
-                                            <span style="color: var(--white-color)">Security & Sessions</span>
+                                            <span style="color: var(--white-color)">Security</span>
+                                            <br>
+                                            <span style="color: var(--white-color)">Sessions</span>
+                                            <br>
+                                            <span style="color: var(--white-color)">Services</span>
                                         </h4>
                                 </div>
                              </div>
@@ -157,7 +162,9 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                         <span style="color: var(--primary-color)">Erica Dubie</span>
                                     </h3>
                                     <h4 class="mb-1">
-                                        <span style="color: var(--white-color)">User Interface & Services</span>
+                                        <span style="color: var(--white-color)">User Interface</span>
+                                        <br>
+                                        <span style="color: var(--white-color)">Services</span>
                                     </h4>
                                 </div>
                              </div>
@@ -175,7 +182,9 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                         <span style="color: var(--primary-color)">Olamide Kumapayi</span>
                                     </h3>
                                     <h4 class="mb-1">
-                                        <span style="color: var(--white-color)">Shopping Cart & Receipts</span>
+                                        <span style="color: var(--white-color)">Shopping Cart</span>
+                                        <br>
+                                        <span style="color: var(--white-color)">Receipts</span>
                                     </h4>
                                 </div>
                              </div>
@@ -193,7 +202,9 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                         <span style="color: var(--primary-color)">Christina Rodriguez</span>
                                     </h3>
                                     <h4 class="mb-1">
-                                        <span style="color: var(--white-color)">Users & Financial Reports</span>
+                                        <span style="color: var(--white-color)">Users</span>
+                                        <br>
+                                        <span style="color: var(--white-color)">Financial Reports</span>
                                     </h4>
                                 </div>
                              </div>
@@ -201,6 +212,17 @@ https://www.tooplate.com/view/2119-gymso-fitness
                 </div>
 
                 </div>
+
+                <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
+                        <h2 class="mb-4">
+                            <span style="color: var(--primary-color)">Works Cited</span>
+                        </h2>
+                       
+                        <p>"You are NOT allowed to redistribute this HTML template downloadable ZIP file on any template collection site. You are allowed to use this template for your personal or business websites."</p>
+
+                        <p>If you have any question regarding <a rel="nofollow" href="https://www.tooplate.com/view/2119-gymso-fitness" target="_parent">Gymso Fitness HTML template</a>, you can <a rel="nofollow" href="https://www.tooplate.com/contact" target="_parent">contact Tooplate</a> immediately. Thank you.</p>
+
+                    </div>
             </div>
         </div>
             
