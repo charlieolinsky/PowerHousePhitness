@@ -8,8 +8,6 @@
 
 <!DOCTYPE html>
 
-<!-- code to hold the what will appear on the admin-inventory page  -->
-
 <html lang="en">
 
 <head>
