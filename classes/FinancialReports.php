@@ -191,8 +191,8 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
     </head>
     <body>
 
-        <h1 class="header" style="margin-left: -200px">
-         Equipment
+        <h1 class="header">
+         Sales by Item
         </h1>
 
         <table class="table" cellspacing="0" style="margin-left: auto; margin-right: auto">
