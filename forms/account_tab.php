@@ -105,19 +105,28 @@
                       <?php
                         $userID = $s->read('user_id');
                       // var_dump($userID);
+                      /////testing
+                      $sql = "SELECT COUNT(*) FROM user_address WHERE USER_ID = '$userID'";
+                      $result = $dbconn->query($sql);
+                      while($row = mysqli_fetch_assoc($result))
+                     {
+                        $num_rows = $row['COUNT(*)'];
+                     }
+                      if($num_rows == 0)
+                      {
+                       echo "No address on file";
+                      }
+                      else 
+                    {
+                      /////testing
                         $sql = "SELECT address1, address2, city, st, zip FROM `user_address` WHERE USER_ID = '$userID'";
                         $result = mysqli_query($dbconn, $sql);
                         $rows = $result->fetch_assoc();
                         //var_dump($rows);
                         $address = array($rows);
                         //echo $address[0];
-                        if (!$rows['address1']==NULL){
-                        echo ucwords($rows['address1']) . ucwords($rows['address2']) .", ". ucwords($rows['city']) .", ". strtoupper($rows['st']) .", ". $rows['zip'];
-                        }
-                        else 
-                        {
-                          echo "";
-                        }
+                        echo ucwords($rows['address1']) . ucwords($rows['address2']) .", ". ucwords($rows['city']) .", ". strtoupper($rows['st']) .", ". $rows['zip'];                      
+                    }
                       ?>
           </h4>
         </div>
