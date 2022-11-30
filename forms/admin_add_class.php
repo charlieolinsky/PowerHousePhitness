@@ -1,10 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADMIN</title>
+    <title>Add Class</title>
+
+    <link rel="stylesheet" href="../UI/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../UI/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../UI/css/aos.css">
+    <link rel="stylesheet" href="../UI/css/tooplate-php-style.css">
 
     <script type="text/javascript">
         <?php 
@@ -13,51 +20,71 @@
         ?>
     </script>
 </head>
-<body>
-    <h1>Add a New Class</h1>
+<body style="background-color: var(--dark-color); text-align: center">
+    <div class="admin-title">
+        <h1 style="color: var(--primary-color)">Add New Class</h1>
+    </div>
+    <!-- <h1>Add a New Class</h1> -->
 
-    <div>
+    <div class="inventory-container">
         <form action="addClass.php" method="POST">
+            <div class="column" style= "text-align: center">
+                <div class="row" style="justify-content: center">
+                
+                    <!-- Class Name label and input -->
+                    <label for="cName" style= "margin-left: 10px; margin-right: 5px">Class Name</label>
+                    <input type="text" id="cName" name="cName" required>
 
-            <br>
-            <label for="cName">Class Name</label>
-            <input type="text" id="cName" name="cName" required>
+                    <!-- Class Day label and input -->
+                    <label for="cDay" style= "margin-left: 10px; margin-right: 5px">Class Day</label>
+                    <input type="text" id="cDay" name="cDay" required>
+                </div>
 
-            <br>
-            <label for="iuid">Instructor ID</label>
-            <input type="text" id="iuid" name="iuid" required>
+                <div class="row" style="margin-top: 15px; justify-content: center">
 
-            <br>
-            <label for="mCap">Max Capacity</label>
-            <input type="number" id="mCap" name="mCap" required>
+                    <!-- Max Capacity label and input -->
+                    <label for="mCap" style= "margin-left: 10px; margin-right: 5px">Max Capacity</label>
+                    <input type="number" id="mCap" name="mCap" required>
 
-            <br>
-            <label for="sTime">Start Time</label>
-            <input type="time" id="sTime" name="sTime" required>
+                     <!-- Instructor ID label and input -->
+                    <label for="iuid" style= "margin-left: 10px; margin-right: 5px">Instructor ID</label>
+                    <input type="text" id="iuid" name="iuid" required>
+                </div>
 
-            <br>
-            <label for="eTime">End Time</label>
-            <input type="time" id="eTime" name="eTime" required>
+                <div class="row" style="margin-top: 15px; justify-content: center">
+                    <!-- Start Time label and input -->
+                    <label for="sTime" style= "margin-left: 10px; margin-right: 5px">Start Time</label>
+                    <input type="time" id="sTime" name="sTime" required>
 
-            <br>
-            <label for="cDay">Class Day</label>
-            <input type="text" id="cDay" name="cDay" required>
+                    <!-- End Time label and input -->
+                    <label for="eTime" style= "margin-left: 10px; margin-right: 5px">End Time</label>
+                    <input type="time" id="eTime" name="eTime" required>
+            
+                </div>
 
-            <br>
-            <label for="cPic">Select a file: </label>
-            <input type="file" id="cPic" name="cPic">
+                <div class="row" style="margin-top: 15px; margin-left:70px; justify-content: center">
+                    <!-- Select File label and input -->
+                    <label for="cPic"  style= "margin-left: 10px; margin-right: 5px">Select a file: </label>
+                    <input type="file" id="cPic" name="cPic">
+                </div>
 
-            <br>
-            <label for="cDesc">Class Description: </label>
-            <textarea rows="5" cols="33" id="cDesc" name="cDesc"></textarea>
-
-            <br><br>
-            <input type="submit" name="submit" id="submit">Submit</button> 
+                <div class="column" style="margin-top: 15px; justify-content: center">
+                    <!-- Class Description label and input -->
+                    <label for="cDesc">Class Description: </label>
+                    <br>
+                    <textarea rows="5" cols="33" id="cDesc" name="cDesc"></textarea>
+                    <br>
+                    <button type="submit" class="form-control mt-3" id="submit-button" name="submit" style="width: 275px; margin-left: 143px">Submit Item</button>
+                </div>
+            </div>
         </form>
     </div>
 
-    <br><br><br><!--Hi Erica! I know how much you love these break statements xoxo -charlie -->
-    <a href="adminDirectory.php">Return to Admin Portal</a> 
+    <div style="margin-top:620px">
+        <a href="adminDirectory.php" class="btn custom-btn bg-color">Return to Admin Portal</a>
+     </div>
+
+   
     
 </body>
 </html>
