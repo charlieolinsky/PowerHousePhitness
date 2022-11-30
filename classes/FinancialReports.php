@@ -10,6 +10,14 @@
        $totalSales = $row['sum'];
    }
    
+   // get class totals 
+   $sql ="SELECT SUM(current_capacity) AS quant FROM classes";
+   $resultSum = mysqli_query($dbconn, $sql);
+   while($row3 = mysqli_fetch_assoc($resultSum))
+   {
+    
+       $classTotals = $row3['quant']*10;
+   }
 // get product details
 $query = "SELECT PROD_ID, prod_name, prod_price FROM `prod-data`";
 $result = $dbconn->query($query);
@@ -65,12 +73,11 @@ $resultClasses = $dbconn->query($query);
             <tbody>
                 <tr class="values">
                     <td class="cell">
-                        Total net sales:
+                        Total Sales:
                     </td>
                     <td class="description-cell">
                         <?php
-                        // +750 from simulating memberships and classes
-                        echo "$" . round($totalSales+750, 2);
+                          echo "$" . round(($totalSales + 530 + $classTotals )*1.08, 2);
                         ?>
                     </td>
                 </tr>
@@ -80,7 +87,7 @@ $resultClasses = $dbconn->query($query);
                     </td>
                     <td class="description-cell">
                     <?php    
-                    echo "$" . round(($totalSales+750)*.08, 2); 
+                    echo "$" . round(($totalSales + 530 + $classTotals)*.08, 2); 
                     ?>              
                     </td>
                 </tr>
@@ -90,7 +97,8 @@ $resultClasses = $dbconn->query($query);
                     </td>
                     <td class="description-cell">
                         <?php 
-                         echo "$" . round(($totalSales+750)*1.08, 2);
+                         // +530 from simulating memberships
+                         echo "$" . round($totalSales + 530 + $classTotals, 2);
                         ?>
                     </td>
                 </tr>
@@ -101,7 +109,7 @@ $resultClasses = $dbconn->query($query);
                     <td class="description-cell">
                         <!-- *debit total* -->
                         <?php 
-                        echo "$" . round(($totalSales+750)*.7, 2);
+                        echo "$" . round(($totalSales + 530 + $classTotals)*1.08*.7, 2);
                         ?>
                     </td>
                 </tr>
@@ -112,7 +120,7 @@ $resultClasses = $dbconn->query($query);
                     <td class="description-cell">
                         <!-- credit total* -->
                         <?php 
-                        echo "$" . round(($totalSales+750)*.3, 2);
+                        echo "$" . round(($totalSales + 530 + $classTotals)*1.08*.3, 2);
                         ?>
                     </td>
                 </tr>
@@ -121,9 +129,9 @@ $resultClasses = $dbconn->query($query);
                         Discounts:
                     </td>
                     <td class="description-cell">
-                        <!-- *total discounts* -->
+                        <!-- *total discounts simulated* -->
                         <?php 
-                        echo "$" . round($totalSales*.10, 2);
+                        echo "$" . round($totalSales*.10, 2); 
                         ?>
                     </td>
                 </tr>
@@ -143,9 +151,9 @@ $resultClasses = $dbconn->query($query);
                         Classes:
                     </td>
                     <td class="description-cell">
-                        <!-- *simulate amount from classes* -->
+                        <!-- *amount from classes* -->
                         <?php 
-                        echo "$220.00";
+                          echo "$" . $classTotals;
                         ?>
                     </td>
                 </tr>
@@ -154,9 +162,9 @@ $resultClasses = $dbconn->query($query);
                         Memberships:
                     </td>
                     <td class="description-cell">
-                        <!-- *simulate amount from memberships* -->
+                        <!-- *simulated amount from memberships* -->
                         <?php 
-                        echo "$530.00";
+                        echo "$530.00"; // this is just to simulate since there are no values in the db
                         ?>
                     </td>
                 </tr>
@@ -169,7 +177,7 @@ $resultClasses = $dbconn->query($query);
     <body>
 
         <h1 class="header">
-         Sales by Item
+         Equipment
         </h1>
 
         <table class="table" cellspacing="0">
