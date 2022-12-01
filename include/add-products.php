@@ -32,7 +32,7 @@ VALUES
 
 
 
-}          
+     
 
 
 // include_once("../forms/admin-inventory-new.php");
@@ -49,5 +49,7 @@ if ($dbconn->query($sql) === TRUE) {
 
 
 $dbconn->close();
+
+}
 ?>
 
