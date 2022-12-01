@@ -154,7 +154,29 @@
 
                             <!-- submit button goes here. Name button addToCart -->
                             <!-- Need submit button -->
-                            <input type="submit" class="btn cart-btn mt-3" name="addToCart" value="Add to Cart ">
+                            <!-- <input type="submit" class="btn cart-btn mt-3" name="addToCart" value="Add to Cart"  <?php if($rows['prod_quantity'] <= 0 ) {?> disabled="disabled" <?php } ?> > -->
+
+                     
+                            <?php 
+                            $status;
+                            if ($rows['prod_quantity'] <= 0 ){
+                                $status = 'outofstock';
+                            } else{
+                                $status = 'instock';                            
+                            }
+                            ?> 
+                            <input 
+                                    type="submit" 
+                                    class="btn cart-btn mt-3" 
+                                    name="addToCart" 
+                                    value="<?php 
+                                            if($status == 'outofstock'){?>Currently Unavailble <?php ; } 
+                                            if($status == 'instock'){?> Add to Cart <?php ;} ?>"
+            
+                                            <?php if ($status == 'outofstock'){ ?> disabled <?php } ?>
+                                    >
+
+                            
                             
                         </div>
                     </form>
