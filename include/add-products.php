@@ -16,8 +16,6 @@ and isset($_POST['prod_quantity'])  and isset($_POST['VENDOR_ID']) and isset($_P
   $purchcost = $_POST['prod_purchase_cost'] ;
 
 
-}          
-
 $sql = "INSERT INTO `prod-data` 
 (`prod_name`, 
 `prod_desc`,
@@ -32,6 +30,9 @@ VALUES
 
 
 
+
+
+}          
 
 
 // include_once("../forms/admin-inventory-new.php");
