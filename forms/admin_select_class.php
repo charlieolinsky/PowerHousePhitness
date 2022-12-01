@@ -58,7 +58,7 @@
         </div>
     </div>
 
-    <div style="margin-top:290px">
+    <div style="margin-top:250px">
         <a href="adminDirectory.php" class="btn custom-btn bg-color">Return to Admin Portal</a>
     </div>
     
