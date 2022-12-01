@@ -15,8 +15,8 @@
 
     <script type="text/javascript">
         <?php 
-            include_once("../classes/Roles.php");
-            Roles::minAccess(5, "../UI/index.php"); 
+            // include_once("../classes/Roles.php");
+            // Roles::minAccess(5, "../UI/index.php"); 
         ?>
     </script>
 </head>
