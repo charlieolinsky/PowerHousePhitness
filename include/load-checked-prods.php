@@ -17,7 +17,6 @@ if (isset($_POST['return'])) {
     $rented = $_POST['total_rented'];
     $so = $_POST['PROD_ID'];
     $instock = $_POST['prod_quantity'];
-    echo $instock;
 
 
     $minus = 1;
