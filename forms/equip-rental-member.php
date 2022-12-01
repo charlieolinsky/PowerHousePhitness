@@ -170,7 +170,7 @@
                                     class="btn cart-btn mt-3" 
                                     name="addToCart" 
                                     value="<?php 
-                                            if($status == 'outofstock'){?>Currently Unavailble <?php ; } 
+                                            if($status == 'outofstock'){?>Currently Unavailable <?php ; } 
                                             if($status == 'instock'){?> Add to Cart <?php ;} ?>"
             
                                             <?php if ($status == 'outofstock'){ ?> disabled <?php } ?>
