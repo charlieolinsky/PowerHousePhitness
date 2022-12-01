@@ -24,7 +24,6 @@
     <div class="admin-title">
         <h1 style="color: var(--primary-color)">Add New Class</h1>
     </div>
-    <!-- <h1>Add a New Class</h1> -->
 
     <div class="inventory-container">
         <form action="addClass.php" method="POST">

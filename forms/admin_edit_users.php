@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <?php
 
 //session_start();
@@ -90,80 +88,158 @@ if (isset($_GET['remove_user']))
 
 ?>
 
-<html>
-  <head>
-    <title>My Account Tab</title>
-  </head>
-<body>
-<main> 
-<h1>Account Info</h1>
-<div class = "account-info">
-    <dl>
-    <dt>User ID: 
-        <?php
-          echo $id;
-        ?>   
-    </dt>
-    <br>
-    <dt>User Role: 
-        <?php
-          echo $user['roles'];
-        ?>   
-           <!-- The form -->
-      <div class="form-popup" id="myForm">
-      <form action="../forms/admin_edit_users.php" method="GET">   
-            <label for="newRole"><b>Edit Role</b></label>
-            <input type="name" placeholder="Enter new role" name="newRole" required>
-            <input type="name" placeholder="Confirm user ID" name="id" required>
-            <input type="submit" name = "role" value = "Submit">
-          </form>
-      </div>
-    </dt>
-    <br>
-        <dt>First Name: 
-        <?php
-            echo $user["fname"];
-        ?>
-           <!-- The form -->
-      <div class="form-popup" id="myForm">
-      <form action="../forms/admin_edit_users.php" method="GET">   
-            <label for="newName"><b>Edit First Name</b></label>
-            <input type="name" placeholder="Enter new first name" name="newName" required>
-            <input type="name" placeholder="Confirm user ID" name="id" required>
-            <input type="submit" name = "fn" value = "Submit">
-            <!-- <button type="submit" class="btn">Submit</button> -->
-          </form>
-      </div>
-        <br>    
-        Last Name: 
-        <?php
-          echo $user["lname"];
-        ?>
-           <!-- The form -->
-      <div class="form-popup" id="myForm">
-      <form action="../forms/admin_edit_users.php" method="GET">  
-            <label for="newLname"><b>Edit Last Name</b></label>
-            <input type="name" placeholder="Enter new last name" name="newLname" required>
-            <input type="name" placeholder="Confirm user ID" name="id" required>
-            <input type="submit" name = "ln" value = "Submit">
-          </form>
-      </div>
-        <br>    
-            <label for="newAddress"><b>Change Password</b></label>
-            <input type="password" placeholder="Enter new password" name="newPassword" required>
-            <input type="password" placeholder="Confirm password" name="vPass" required>
-            <input type="name" placeholder="Confirm user ID" name="id" required>
+<!DOCTYPE html>
 
-            <input type="submit" name = "pass" value = "Submit">
-          </form>
-      </div>
-      <br>
-      <!-- <button class="btn delete account">Delete Account</button> -->
-      <form action="../forms/admin_edit_users.php" method="GET">  
-      <input type="name" placeholder="Confirm user ID" name="id" required>
-      <input type="submit" name = "remove_user" onclick="return confirm('Are you sure you want to delete this account?')" value = "Delete Account">
-      </dl>
-</div>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+
+    <link rel="stylesheet" href="../UI/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../UI/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../UI/css/aos.css">
+    <link rel="stylesheet" href="../UI/css/tooplate-php-style.css">
+
+</head>
+
+<body style="background-color: var(--dark-color)">
+<main style="text-align: center">
+        <!-- Page Title -->
+        <div class="admin-title">
+            <h1 style="color: var(--primary-color)">
+            <?php
+              echo $user["fname"];
+            ?> 
+
+            <?php
+              echo $user["lname"];
+            ?>
+
+            - Account Info</h1>
+        </div>
+
+        <div class="inventory-container" style="margin-top: 400px">
+          <div class="column"> 
+              <h5>
+                <!-- Display User ID -->
+                User ID: 
+                <?php
+                  echo $id;
+                ?>
+                <br><br>
+                <!-- Display User Role -->
+                User Role: 
+                <?php
+                  echo $user['roles'];
+                ?>   
+              </h5>
+
+              <!-- Edit User Role Input -->
+              <form action="../forms/admin_edit_users.php" method="GET">   
+                <div class="row">
+                  <div class="form-popup" id="myForm">
+                      <input type="name" placeholder="Enter new role value" name="newRole" required>
+                      <input type="name" placeholder="Confirm user ID" name="id" required>
+                  </div>
+                </div>
+
+                <!-- Edit User Role Submit Button -->
+                <input type="submit" class="btn edit-btn" name = "role" value = "Submit" style="margin-top: 10px">
+              </form>
+
+              <br>
+
+              <!-- Display First Name -->
+              <h5>
+                First Name: 
+                <?php
+                  echo $user["fname"];
+                ?>
+              </h5>
+
+              <!-- Edit User First Name Input -->
+              <form action="../forms/admin_edit_users.php" method="GET">   
+                <div class="row">
+                  <div class="form-popup" id="myForm">
+                      <!-- <label for="newName"><b>Edit First Name</b></label> -->
+                      <input type="name" placeholder="Enter new first name" name="newName" required>
+                      <input type="name" placeholder="Confirm user ID" name="id" required>
+                      <!-- <input type="submit" name = "fn" value = "Submit"> -->
+                  </div>
+                </div>
+
+                <!-- Edit First Name Submit Button -->
+                <input type="submit" class="btn edit-btn" name = "fn" value = "Submit" style="margin-top: 10px">
+              </form>
+
+              <br>
+
+              <!-- Display Last Name -->
+              <h5>
+                Last Name: 
+                <?php
+                  echo $user["lname"];
+                ?>
+              </h5>
+
+              <!-- Edit User Last Name Input -->
+              <form action="../forms/admin_edit_users.php" method="GET">  
+                <div class="row">
+                  <div class="form-popup" id="myForm">
+                        <input type="name" placeholder="Enter new last name" name="newLname" required>
+                        <input type="name" placeholder="Confirm user ID" name="id" required>
+                    </div>
+                </div>
+
+                <!-- Edit Last Name Submit Button -->
+                <input type="submit" class="btn edit-btn" name = "ln" value = "Submit" style="margin-top: 10px">
+              </form>
+
+              <br>
+
+              <!-- Change Password Title -->
+              <h5>Change Password</h5>
+
+              <!-- Edit Password Input-->
+              <form action="../forms/admin_edit_users.php" method="GET">  
+                <div class="row">
+                  <div class="form-popup" id="myForm">
+                    <input type="password" placeholder="Enter new password" name="newPassword" required>
+                    <input type="password" placeholder="Confirm password" name="vPass" required>
+                  </div>
+                </div>
+
+                <!-- Confirm User ID Input -->
+                <div class= "row" style="justify-content: center; margin-top: 5px">
+                  <input type="name" placeholder="Confirm user ID" name="id" required>
+                </div>
+
+                <!-- Change Password Submit Button -->
+                <input type="submit" class="btn edit-btn" name = "pass" value = "Submit" style="margin-top: 10px">
+              </form>
+            
+              <br><br>
+
+              <!-- Change Password Title -->
+              <h5>Delete Account</h5>
+
+              <!-- Delete Account Label and Button -->
+              <div class="column" style="justify-content: center">
+                <form action="../forms/admin_edit_users.php" method="GET">  
+                <input type="name" placeholder="Confirm user ID" name="id" required>
+                <br>
+                <input type="submit" class="btn edit-btn" style="margin-top: 5px" name = "remove_user" onclick="return confirm('Are you sure you want to delete this account?')" value = "Delete Account">
+              </div>
+
+          </div>
+        </div>
+
+        <div style="margin-top:850px">
+          <a href="adminDirectory.php" class="btn custom-btn bg-color">Return to Admin Portal</a>
+        </div>
 </main>
 </body>
 </html>

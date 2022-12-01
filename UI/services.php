@@ -1,16 +1,35 @@
 <?php
     include_once("../include/global_inc.php");
+    Roles::minAccess(1, '../UI/loginUI.php');
     $s = new Session();
-
+    
+    //all class data
     $res = $dbconn->query("SELECT * FROM classes");
+    
+    //intialize uid, State array, and Form index
+    $uid = $s->read('user_id');
+    $state = array([]); 
+    $formID = 1;  
 
-    // while($classRow = $res->fetch_assoc()){
-    //     print_r($classRow);
-    // }
+    //Attendance 
+    $userClassList = array();
+    $class_id_req = $dbconn -> query("SELECT CLASS_ID FROM class_attendance WHERE `USER_ID`=$uid");
+    while($class = $class_id_req->fetch_assoc()){
+        print_r($class);
+        array_push($userClassList, $class);
+    }
 
+    //custom in_array() for multi-dimensional arrays 
+    function in_array_r($needle, $haystack, $strict = false) {
+        foreach ($haystack as $item) {
+            if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && in_array_r($needle, $item, $strict))) {
+                return true;
+            }
+        }
+        return false;
+    }
     
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -188,7 +207,44 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
         <div class="container">
             <div class="row">
-                    <?php  while($classRow = $res->fetch_assoc()): ?>
+                <?php  
+                    $uID = $s->read('user_id');
+
+                    while($classRow = $res->fetch_assoc()): 
+                    
+                        $cID = $classRow['CLASS_ID'];
+
+                        // Save State
+                        array_push($state,[
+                            'class_name'=> $classRow['class_name'],
+                            'current_capacity' => $classRow['current_capacity'],
+                            'max_capacity' => $classRow['class_max_capacity'],
+                            'CLASS_ID' => $classRow['CLASS_ID']
+                        ]);
+                        
+                        //DEBUG 
+                        // echo "<br> uID: ".$uid;
+                        // echo "<br> User Class List: "; 
+                        // print_r($userClassList)."<br>";
+                        // echo "<br> cID: ".$cID;
+
+
+                        //Set submit button status
+                        $submit; 
+                        if(in_array_r($cID, $userClassList)){
+                            $submit = 'cancel'; 
+                        }
+                        elseif($classRow['current_capacity'] < $classRow['class_max_capacity']){
+                            $submit = 'signUp';
+                        }
+                        elseif($classRow['current_capacity'] == $classRow['class_max_capacity']){
+                            $submit = 'full';
+                        } 
+                        
+                        
+                        //WHILE LOOP CONTINUES BELOW 
+                    
+                ?>
 
                 <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
                     <div class="class-thumb">
@@ -197,21 +253,45 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
                         <div class="class-info">
                             <h3 class="mb-1"><?php echo $classRow['class_name'];?></h3>
-
                             <span><strong>Free with Premium</strong></span>
-
                             <span class="class-price"> <?php echo $classRow['current_capacity'];?>/<?php echo $classRow['class_max_capacity'];?> </span>
-
                             <p class="mt-3"><?php echo $classRow['class_description'];?></p> 
+
+                            <!-- Sign In Button -->
+                            <form action='http://localhost/CPS353-POS/forms/classSignUp.php' method='POST'>
+
+                                <!-- Submit Button  -->
+                                <div style="text-align: center">
+                                    <input 
+                                        type="submit" 
+                                        class="btn class-btn bordered mt-3" 
+                                        name=<?php 
+                                            if($submit == 'signUp'){ echo "signUp_".$formID; }
+                                            if($submit == 'cancel'){ echo "cancel_".$formID; }
+                                            if($submit == 'full'){ echo "full_".$formID; } 
+                                        ?> 
+                                        value=<?php 
+                                            if($submit == 'signUp'){ echo "sign-up"; } 
+                                            if($submit == 'cancel'){ echo "cancel"; }
+                                            if($submit == 'full'){ echo "full"; }
+                                        ?> 
+                                        <?php if ($submit == 'full'){ ?> disabled <?php } ?>
+
+                                        <?php $formID += 1  ?>
+                                    >
+                                </div>
+                                
+                            </form>
                             
-                            <div style="text-align: center">
-                                <input type="submit" class="btn class-btn bordered mt-3" name="signUp" value="Sign Up">
-                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- WHILE LOOP ENDS  -->
+                <?php  endwhile; 
+                    //save state to session 
+                    $s->write('state', $state);
+                ?>
 
-                <?php  endwhile;  ?>
             </div>
         </div>
     </section>
