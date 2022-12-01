@@ -82,7 +82,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
     echo "<p align = 'center', style = 'color:red'> LOGIN FAILED"; 
-    $is_invalid = true;
+
+     $is_invalid = true;
 }
 
 ?>

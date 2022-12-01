@@ -256,12 +256,12 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
                     $result4 = mysqli_query($dbconn, $sql);
                     while($row4 = mysqli_fetch_assoc($result4))
                     {
-                        echo $row4['total'];
+                        echo "$" . $row4['total'];
                     }
                     $index++;
                     ?></h5>
                     </td>
-                </tr>
+                </tr> 
             </tbody>
                         </div>
                 </form>
@@ -327,7 +327,7 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
                     </td>
                     <td class="cell">
                     <h5><?php 
-                    echo $rows['current_capacity']*10;
+                    echo "$" . $rows['current_capacity']*10;
                     $index++;
                     ?></h5>
                     </td>
