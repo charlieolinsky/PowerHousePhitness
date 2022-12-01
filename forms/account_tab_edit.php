@@ -111,10 +111,10 @@ if (isset($_POST['remove_user']))
 
               <!-- <label for="newName"><b>Edit First Name:</b></label> -->
               <input type="name" placeholder="Enter new first name" name="newName" required>
+              <input type="submit" class="btn edit-btn" name="fn" value="Submit" style="margin-top: 5px">
               </form>
               </div>
           </div>
-          <input type="submit" class="btn edit-btn" name="fn" value="Submit" style="margin-top: 5px">
 
           <br><br>
 
@@ -134,10 +134,10 @@ if (isset($_POST['remove_user']))
   
                 <!-- <label for="newLname"><b>Edit Last Name:</b></label> -->
                 <input type="name" placeholder="Enter new last name" name="newLname" required>
+                <input type="submit" class="btn edit-btn" name="ln" value="Submit" style="margin-top: 5px">
               </form>
               </div>
           </div>
-          <input type="submit" class="btn edit-btn" name="ln" value="Submit" style="margin-top: 5px">
 
           <br><br>
 
@@ -154,11 +154,11 @@ if (isset($_POST['remove_user']))
               <!-- <label for="newAddress"><b>Password:</b></label> -->
               <input type="password" placeholder="Enter new password" name="newPassword" required>
               <input type="password" placeholder="Confirm password" name="vPass" required>
+              <input type="submit" class="btn edit-btn" name="pass" value="Submit" style="margin-top: 5px">
 
            </form>
           </div>
         </div>
-        <input type="submit" class="btn edit-btn" name="pass" value="Submit" style="margin-top: 5px">
 
       </div>
 
