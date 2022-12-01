@@ -4,7 +4,7 @@
 
     if(isset($_SESSION["msg"]) && isset($_SESSION["nextUrl"]) && isset($_SESSION["docTitle"]) && isset($_SESSION["nextName"])){
         $msg = $s->read("msg");
-        $next = $s->read("nextURL");
+        $next = $s->read("nextUrl");
         $doc = $s->read("docTitle");
         $nextN = $s->read("nextName");
     }
@@ -26,7 +26,7 @@
         <link rel="stylesheet" href="../UI/css/aos.css">
         <link rel="stylesheet" href="../UI/css/tooplate-php-style.css">
 
-        <title><?php echo $doc; ?></title>
+        <title><?= $doc; ?></title>
     </head>
     <body>
         <!-- NAV BAR -->
@@ -93,8 +93,8 @@
         <!-- Redirect Message -->
         <br><br><br><br>
         <main style="text-align: center">
-            <h2><?php echo $s->read("msg"); ?></h2>
-            <a href=<?php echo $next; ?>><?php echo $nextN; ?></a>  
+            <h2><?= $msg ?></h2>
+            <a href=<?= $next ?>> <?= $nextN; ?></a>  
         </main>
         
     </body>
