@@ -30,7 +30,7 @@
         ?>
     </script>
 </head>
-<body style="background-color: var(--dark-color)">
+<body style="background-color: var(--dark-color); text-align: center">
     <div class="admin-title" style= "margin-top:275px">
         <h1 style="color: var(--primary-color)">Edit Class</h1>
     </div>
@@ -58,7 +58,7 @@
         </div>
     </div>
 
-    <div style="margin-top:310px">
+    <div style="margin-top:290px">
         <a href="adminDirectory.php" class="btn custom-btn bg-color">Return to Admin Portal</a>
     </div>
     
