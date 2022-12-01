@@ -90,35 +90,8 @@
         </div>
   
 
-        <!-- <div class="rental-products"> -->
         <!-- FILE TO QUERY DATA  -->
         <?php
-
-        //start session 
-        //TESTING CODE TO ADD ITEM TO AN INDIVIDUALS CLASS
-        // session_start();
-        // if (isset($_POST['add'])) {
-        //     if (isset($_SESSION['cart'])) {
-        //         $item_array_id = array_column($_SESSION['cart'], "prod_id");
-        //         $count = count($_SESSION['cart']);
-        //         $item_array = array(
-        //             'prod_id' => $_POST['prod_id']
-        //         );
-        //         $_SESSION['cart'][$count] = $item_array;
-        //     } else {
-        //         $item_array = array(
-        //             'prod_id' => $_POST['prod_id']
-        //         );
-        //         //create new session
-        //         $_SESSION['cart'][0] = $item_array;
-        //         print_r($_SESSION['cart']);
-        //     }
-        // }
-        //END OF CODE TESTING 
-        // session_destroy();
-
-
-
         include_once("../include/load-product-rentals.php");
         ?>
 
@@ -129,34 +102,34 @@
         ?>
             <div class="equip-container">
                 <div class="row">
-            
-                    <form action="../forms/shoppingcart.php" method="POST">
-                    <!-- <form action="../include/shoppingcartTest.php" method="POST">                  -->
-                 
+
+                    <!-- form to add items to the cart -->
+                    <form action="../forms/shoppingcart.php" method="POST">                 
 
                         <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12">
                             <div class="equip-info">
-                                <?php echo "<img src=$rows[prod_image]>" ?>
+                                <!-- display image -->
+                                <?php echo "<img src=$rows[prod_image]>" ?>  
                             </div>
                         </div>
                         <div class="equip-description">
+                            <!-- display name -->
                             <h3 class="mb-1"> <?php echo $rows['prod_name']; ?> </h3>
+                            <!-- display description -->
                             <p><?php echo $rows['prod_desc']; ?></p>
                             <h4 class="mb-1">
+                                <!-- display price -->
                                 <span style="color: var(--primary-color)"><?php echo "$" . $rows['prod_price']; ?></span>
                             </h4>
 
                            
-
+                            <!-- hidden fields needed to pass data to cart -->
                             <input type="hidden" name="PROD_ID" value="<?php echo $rows['PROD_ID'] ?>">
                             <input type="hidden" name="prod_price" value="<?php echo $rows['prod_price'] ?>">
                             <input type="hidden" name="prod_name" value="<?php echo $rows['prod_name'] ?>">
 
-                            <!-- submit button goes here. Name button addToCart -->
-                            <!-- Need submit button -->
-                            <!-- <input type="submit" class="btn cart-btn mt-3" name="addToCart" value="Add to Cart"  <?php if($rows['prod_quantity'] <= 0 ) {?> disabled="disabled" <?php } ?> > -->
 
-                     
+                            <!-- setting the button text, if out of stock disable -->
                             <?php 
                             $status;
                             if ($rows['prod_quantity'] <= 0 ){
@@ -164,6 +137,7 @@
                             } else{
                                 $status = 'instock';                            
                             }
+
                             ?> 
                             <input 
                                     type="submit" 

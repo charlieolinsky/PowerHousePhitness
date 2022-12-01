@@ -83,12 +83,8 @@
             <h1 style="color: var(--primary-color)">Add Inventory Item</h1>
         </div>
 
-        <!-- this line works! -- nvm this doesnt work anymore lmfao -->
+        <!-- FORM TO ADD NEW ITEMS -->
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
-
-            <!-- this line doesnt do datavalidation but DOES insert into b -->
-            <!-- <form action="../include/add-products.php" method="POST" enctype="multipart/form-data"> -->
-            <!-- <form action="admin-inventory-new.php" method="POST"> -->
 
             <!-- data validation -->
             <?php
@@ -135,11 +131,11 @@
                 }
             }
             ?>
-
+            <!-- ASKING FOR USER INPUT  -->
             <div class="inventory-container">
                 <div class="row">
                     <div class="column" style="padding: 4px">
-                        <!-- the name="__" field is what connects this form to the querying file -->
+                        <!-- asking for name input -->
                         <label for="prod_name"> Item Name:</label><br>
                         <input type="text" id="prod_name" name="prod_name" 
                         value="<?php if ((isset($_POST['prod_name'])) and (!isset($name_error))) echo $_POST['prod_name']; ?>">
@@ -154,7 +150,7 @@
 
                         <br><br>
 
-                        <!-- need to add validation to be a # -->
+                        <!-- asking for price-->
                         <label for="prod_price"> Item Price: </label><br>
                         <input type="text" id="prod_price" name="prod_price" value="<?php if ((isset($_POST['prod_price'])) and (!isset($price_error))) echo $_POST['prod_price']; ?>">
                         <br><span> <?php if (isset($price_error)) echo $price_error; ?> </span>
@@ -164,7 +160,7 @@
                     <br>
 
                     <div class="column" style="padding: 4px">
-                        <!-- need to add validation to be a # -->
+                        <!-- asking for quantity -->
                         <label for="prod_quantity">Item Quantity: </label><br>
                         <input type="text" id="prod_quantity" name="prod_quantity" value="<?php if ((isset($_POST['prod_quantity'])) and (!isset($quantity_error))) echo $_POST['prod_quantity']; ?>">
                         <!-- value is making the form hold its value after submit if there wa an error -->
@@ -179,16 +175,12 @@
 
                         <br><br>
 
-                        <!-- need to add validation to be a # -->
+                        <!-- asking for prod cost-->
                         <label for="prod_purchase_cost"> Purchase Cost: </label><br>
                         <input type="text" id="prod_purchase_cost" name="prod_purchase_cost" value="<?php if ((isset($_POST['prod_purchase_cost'])) and (!isset($purchase_cost_error))) echo $_POST['prod_purchase_cost']; ?>">
                         <br><span> <?php if (isset($purchase_cost_error)) echo $purchase_cost_error; ?> </span>
 
                         <br>
-
-                        <!-- Need to add a way to upload-->
-                        <!-- <label for="prod_image"> Item Image: </label><br>
-                            <input type="file" name="prod_image"> -->
                     </div>
                 </div>
 
@@ -202,7 +194,6 @@
                     echo "<SELECT name='VENDOR_ID'>";
                     echo "<option></option>";
                     while ($row = $r_set->fetch_assoc()) {
-                        // echo"<option value=$row[VENDOR_ID]>Vendor $row[VENDOR_ID]: $row[v_name]</option>";
                         echo "<option value=" . $row['VENDOR_ID'] . ">" . $row['v_name'] . "</option>";
                     }
                     echo "</select>";
@@ -217,6 +208,7 @@
                 <input type="file" name="prod_image">
 
                 <br>
+                <!-- SUBMIT BUTTON -->
                 <button type="submit" class="form-control" id="submit-button" name="submit">Submit Item</button>
             </div>
         </form>
