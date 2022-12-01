@@ -86,7 +86,7 @@
         </div>
 
         <!-- this line works! -- nvm this doesnt work anymore lmfao -->
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
 
             <!-- this line doesnt do datavalidation but DOES insert into b -->
             <!-- <form action="../include/add-products.php" method="POST" enctype="multipart/form-data"> -->
