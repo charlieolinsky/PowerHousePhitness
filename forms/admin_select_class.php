@@ -57,6 +57,10 @@
             <input type="submit" class="btn edit-btn" id="submit1" value="Edit" style="margin-top: 5px; width: 100px">
         </div>
     </div>
+
+    <div style="margin-top:310px">
+        <a href="adminDirectory.php" class="btn custom-btn bg-color">Return to Admin Portal</a>
+    </div>
     
 </body>
 </html>
