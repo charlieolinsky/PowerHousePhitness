@@ -1,7 +1,10 @@
 <?php
 
 // require_once("../include/global_inc.php");
-SESSION_START();
+include_once("../include/global_inc.php");
+// SESSION_START();
+
+$s = new Session(); 
 
 require_once("../sql/connect.php");
 
@@ -61,7 +64,15 @@ if(isset($_POST['checkout']))
 {
     if(empty($_SESSION['cart']))
     {
-        header("location: ../forms/empty.php");
-        exit();
+        // header("location: ../forms/empty.php");
+        // exit();
+        $r = new Redirect("
+        Oops.. your shopping cart is empty :/ <br> Please add items to your cart", 
+        "equip-rental-member.php", 
+        "Error", 
+        "Continue Shopping
+    ",);  
+    
+    header("Location: redirectPage.php");
     }
 }
