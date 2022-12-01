@@ -36,17 +36,26 @@ if (isset(($_POST['addToCart']))) { //updating the quantity from add to cart but
     } //bad input
 
 } else { //updating the quantity from shopping cart input 
-    if (isset($_POST['PROD_ID'])) {
+    if (isset($_POST['quantity'])) {
         $so = $_POST['PROD_ID'];
         $quantity = $_POST['quantity'];
         // $quantity = 1;
-        if ($quantity > 0 && filter_var($quantity, FILTER_VALIDATE_INT)) {
+        $query = "SELECT * FROM `prod-data` WHERE PROD_ID=$so;";
+        $result = $dbconn->query($query);
+        while ($row = $result->fetch_assoc()) {
+            $instock = $row['prod_quantity'];
+        
+        if ($quantity > 0 && filter_var($quantity, FILTER_VALIDATE_INT) && $instock >=  $quantity ) {
             $_SESSION['cart'][$so] = $quantity;
         } else if ($quantity == 0) {
             unset($_SESSION['cart'][$so]);
+        }elseif($instock < $quantity){
+            echo "only ". $instock . " items avaliable";
         }
     }
 }
+}
+
 
 if(isset($_POST['checkout']))
 {
@@ -56,5 +65,3 @@ if(isset($_POST['checkout']))
         exit();
     }
 }
-
-?>

@@ -39,7 +39,6 @@ require_once("../classes/ShoppingCart.php");
                 $result = $dbconn->query($query);
                 while ($row = $result->fetch_assoc()) {
 
-
                     $sub = $val * $row['prod_price'];
                     $grand_total += $sub;
                     // $current = $row['prod_quantity'];
@@ -51,10 +50,11 @@ require_once("../classes/ShoppingCart.php");
                         <td> <?php echo "$" . $row['prod_price'] ?></td>
                         <td>
                             <form action="../forms/shoppingcart.php" method='POST'>
-                                <input value='<?php echo $val ?>' name='quantity'>
+                                <input type="number" value='<?php echo $val ?>' name='quantity'>
                                 <input type='hidden' value='<?php echo $key ?>' name='PROD_ID'>
                                 <input type='submit'>
                             </form>
+                            
                         </td>
                         <td> <?php echo "$" . number_format($sub, 2) ?></td>
                     </tr>
