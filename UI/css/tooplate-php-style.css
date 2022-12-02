@@ -639,14 +639,15 @@ https://www.tooplate.com/view/2119-gymso-fitness
     background: var(--white-color);
     border-radius: 0 0 2px 2px;
     box-shadow: 6px 0 38px rgba(20,20,20,0.10);
-    padding: 15px;
+    padding: 20px;
     margin: 5px;
     margin-top: 10px;
     margin-left: 15px;
     margin-bottom: 15px;
-    /* width: min-content; */
+    width: 300px;
     align-items: center;
     text-align: center;
+    justify-content: center;
   }
 
   /*---------------------------------------

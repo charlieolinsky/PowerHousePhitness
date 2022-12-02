@@ -21,6 +21,69 @@ require_once("../classes/ShoppingCart.php");
 
 
 <body>
+    <!-- NAV BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+
+            <!-- PHP Logo -->
+            <a class="navbar-brand" href="adminDirectory.php"><span style="color: var(--primary-color)">P</span>ower <span style="color: var(--primary-color)">H</span>ouse <span style="color: var(--primary-color)">P</span>hitness</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Create list of links/buttons for different pages -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-lg-auto">
+                    <!-- Add and link Index page -->
+                    <li class="nav-item">
+                        <a href="index.php" class="nav-link smoothScroll">Home</a>
+                    </li>
+
+                    <!-- Add and link About page -->
+                    <li class="nav-item">
+                        <a href="about.php" class="nav-link">About Us</a>
+                    </li>
+
+                    <!-- Create dropdown menu -->
+                    <li class="dropdown">
+                        <button class="dropbtn" id="dropdownMenuButton" data-toggle="dropdown"> Services
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+
+                        <div class="dropdown-content">
+                            <a href="services.php#classes">Classes </a>
+                            <a href="services.php#membership">Memberships </a>
+                            <a href="..\forms\equip-rental-member.php">Equipment </a>
+                        </div>
+                    </li>
+
+                    <!-- Add and link Schedule page -->
+                    <li class="nav-item">
+                        <a href="schedule.php" class="nav-link">Schedule</a>
+                    </li>
+
+                    <!-- Add and link contact section -->
+                    <li class="nav-item">
+                        <a href="index.php#contact" class="nav-link smoothScroll">Contact</a>
+                    </li>
+                </ul>
+
+                <!-- Add User icon -->
+                <ul class="social-icon ml-lg-3">
+                    <li><a href="../forms/account_tab.php" class="fa fa-user"></a></li>
+                </ul>
+
+                <!-- Add shopping cart icon with link -->
+                <ul class="social-icon ml-lg-3">
+                    <li><a href="../forms/shoppingcart.php" class="fa fa-shopping-cart"></a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <br><br><br>
 
     <!-- Shopping Cart Title -->
     <div class="equip-title">
@@ -98,48 +161,35 @@ require_once("../classes/ShoppingCart.php");
             <?php  endwhile; ?>
             <?php endforeach; ?>
                 
-        
-        <br>
+            <br>
 
+            <div class="total-container">
+                <div class = "column">
+                    <!-- Total Price Display -->
+                    <h5><strong>
+                        <?php 
+                        if (empty($_SESSION['cart'])) {
+                            echo "<tr><td colspan='4'> Your Cart is Empty </td></tr";
+                        } else {
+                            echo"<tr><td colspan='4'> Total: $" . number_format($grand_total, 2) . "</td></tr";
+                        }
+                        ?>
+                    </strong></h5>
 
-            
-        </div>
+                    <div class = "row">
+                        <!-- Clear Cart Button -->
+                        <form action="../forms/shoppingcart.php" method="POST">
+                            <input type="submit" class="btn edit-btn" name="clear" value="Clear Cart" style="margin-left: 5px">
+                        </form>
 
-        <div>
-            <!-- <form action="../forms/checkout.php" method="POST">
-                <input type="submit" name="checkout" value="Check Out">
-            </form> -->
-             
-        </div>
+                        <!-- Checkout Button -->
+                        <form action="../forms/checkout.php" method="POST">
+                            <input type="submit" class="btn edit-btn" name="checkout" value="Check Out" style="margin-left: 5px; margin-right: 5px">
+                        </form>
+                    </div>
+                </div>
+            </div>
     </div>
-
-    <div class="total-container">
-            <!-- Total Price Display -->
-            <div>
-                <h5><strong>
-                    <?php 
-                    if (empty($_SESSION['cart'])) {
-                        echo "<tr><td colspan='4'> Your Cart is Empty </td></tr";
-                    } else {
-                        echo"<tr><td colspan='4'> Grand Total: $" . number_format($grand_total, 2) . "</td></tr";
-                    }
-                    ?>
-                </strong></h5>
-            </div>
-
-            <br><br>
-
-            <div class="row" style="text-align: center">
-                <!-- Clear Cart Button -->
-                <form action="../forms/shoppingcart.php" method="POST">
-                    <input type="submit" class="btn edit-btn" name="clear" value="Clear Cart">
-                </form>
-
-                <form action="../forms/checkout.php" method="POST">
-                    <input type="submit" class="btn edit-btn" name="checkout" value="Check Out">
-                </form>
-
-            </div>
 
 
 </body>
@@ -210,7 +260,7 @@ require_once("../classes/ShoppingCart.php");
         $addtocart = "INSERT INTO `cart_items` (`PROD_ID`, `ORDER_ID`, `item_cost`, `quantity`) 
                     VALUES ( $so, $sessionOrder, $sub, $quantity)";
         if (mysqli_query($dbconn, $addtocart)) {
-            echo "Item added to cart";
+            // echo "Item added to cart";
         }
     }
 
