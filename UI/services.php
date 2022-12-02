@@ -7,7 +7,7 @@
     try{
         $res = $dbconn->query("SELECT * FROM classes");
     } catch (Exception $e) {
-        $r = new Redirect($e->getMessage(),"../UI/services.php","ERROR","Return to Services"); 
+        $r = new Redirect($e->getMessage(),"../UI/index.php","ERROR","Return to Home"); 
         header("Location: ../forms/redirectPage.php");
         die();
     }

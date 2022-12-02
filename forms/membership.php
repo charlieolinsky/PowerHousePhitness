@@ -7,29 +7,40 @@
 
         Roles::minAccess(1, "../UI/loginUI.php"); 
 
+        //Ensure an option was selected
         if(!isset($_POST['cBox1']) && !isset($_POST['cBox2'])){
-            die("Please select a membership option");
+            $r = new Redirect("Please select a membership option.","../UI/services.php","ERROR","Return to Services"); 
+            header("Location: redirectPage.php");
+            die();
         }
 
-        //Check email exists in DB
         $email = trim($_POST['cf-email']);
-        $stmt = $dbconn -> prepare("SELECT * FROM user_table WHERE email=?");
-
-        //check for db error 
-        if (!$stmt){   
-            die("SQL error: " . $dbconn->error);
+        try {
+            $stmt = $dbconn -> prepare("SELECT * FROM user_table WHERE email=?");
+        } catch (Exception $e){
+            $r = new Redirect($e->getMessage(),"../UI/index.php","ERROR","Return to Home"); 
+            header("Location: ../forms/redirectPage.php");
+            die();
         }
 
         //bind values to prepared statement 
         $stmt -> bind_param("s", $email); 
         
         //attempt query, throw error if email is unregistered 
-        $stmt -> execute();
+        try{
+            $stmt -> execute();
+        } catch(Exception $e){
+            $r = new Redirect($e->getMessage(),"../UI/index.php","ERROR","Return to Home"); 
+            header("Location: ../forms/redirectPage.php");
+            die();
+        }
         $res = $stmt->get_result(); 
         $row = $res->fetch_assoc(); 
 
         if($row == 0){
-            die("Oops! The email you entered is not registered with PHP. Please try again."); 
+            $r = new Redirect("Oops! The email you entered is not registered with PHP.<br> Please try again.","../UI/services.php","ERROR","Return to Services"); 
+            header("Location: ../forms/redirectPage.php");
+            die();
         }
 
         //If the user is registered already as a free-member, we need to upgrade their membership.
@@ -41,19 +52,24 @@
             $s->write('roles', 2);
 
             if($res){
-                header("Location: memberSuccess.php");
-                die();  
+                $r = new Redirect("You are now a Premium Member!<br> Thank you for choosing PHP","../UI/index.php","Thank You!","Return Home"); 
+                header("Location: ../forms/redirectPage.php");
+                die();
             }
             else{
-                die("Update Query Failed");
+                $r = new Redirect("There was a problem on our end... this is awkward","../UI/index.php","ERROR","Return Home"); 
+                header("Location: ../forms/redirectPage.php");
+                die();
             }
         }
         else{
-            header("Location: memberAlready.php");
+            $r = new Redirect("You are already a Premium Member! <br>Thank you for choosing PHP","../UI/index.php","Thank You!","Return Home"); 
+            header("Location: ../forms/redirectPage.php");
+            die();
         }
     }
     else {
         header("Location: ../UI/loginUI.php");
-        
+        die(); 
     }
 ?>
