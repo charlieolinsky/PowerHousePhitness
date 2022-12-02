@@ -4,7 +4,13 @@
     $s = new Session();
     
     //all class data
-    $res = $dbconn->query("SELECT * FROM classes");
+    try{
+        $res = $dbconn->query("SELECT * FROM classes");
+    } catch (Exception $e) {
+        $r = new Redirect($e->getMessage(),"../UI/services.php","ERROR","Return to Services"); 
+        header("Location: ../forms/redirectPage.php");
+        die();
+    }
     
     //intialize uid, State array, and Form index
     $uid = $s->read('user_id');
@@ -13,7 +19,15 @@
 
     //Attendance 
     $userClassList = array();
-    $class_id_req = $dbconn -> query("SELECT CLASS_ID FROM class_attendance WHERE `USER_ID`=$uid");
+
+    try{
+        $class_id_req = $dbconn -> query("SELECT CLASS_ID FROM class_attendance WHERE `USER_ID`=$uid");
+    } catch(Exception $e){
+        $r = new Redirect($e->getMessage(),"../UI/services.php","ERROR","Return to Services"); 
+        header("Location: ../forms/redirectPage.php");
+        die();
+    }
+
     while($class = $class_id_req->fetch_assoc()){
         print_r($class);
         array_push($userClassList, $class);
@@ -258,7 +272,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                             <p class="mt-3"><?php echo $classRow['class_description'];?></p> 
 
                             <!-- Sign In Button -->
-                            <form action='http://localhost/CPS353-POS/forms/classSignUp.php' method='POST'>
+                            <form action='../forms/classSignUp.php' method='POST'>
 
                                 <!-- Submit Button  -->
                                 <div style="text-align: center">
