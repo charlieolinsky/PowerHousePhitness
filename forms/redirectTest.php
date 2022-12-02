@@ -21,5 +21,5 @@
         "Return Home
     ");  
     
-    header("Location: redirectPage.php");
+    header("Location: redirectPage.php"); //
 ?>

@@ -1,3 +1,6 @@
+<?php
+    include_once("../include/global_inc.php");
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -84,7 +87,7 @@
         </div>
 
         <!-- FORM TO ADD NEW ITEMS -->
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+        <form action="../include/add-products.php" method="POST" enctype="multipart/form-data">
 
             <!-- data validation -->
             <?php
@@ -211,7 +214,8 @@
                 <!-- SUBMIT BUTTON -->
                 <button type="submit" class="form-control" id="submit-button" name="submit">Submit Item</button>
             </div>
-        </form>
+            </form>
+
         <div style="margin-top:660px">
             <a href="admin-inventory-home.php" class="btn custom-btn bg-color">Return to Admin Home</a>
         </div>
@@ -220,5 +224,3 @@
 </body>
 
 </html>
-
-<?php require_once("../include/add-products.php"); ?>
