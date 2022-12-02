@@ -111,6 +111,7 @@ if (isset($_POST['remove_user']))
 
               <!-- <label for="newName"><b>Edit First Name:</b></label> -->
               <input type="name" placeholder="Enter new first name" name="newName" required>
+              <br>
               <input type="submit" class="btn edit-btn" name="fn" value="Submit" style="margin-top: 5px">
               </form>
               </div>
@@ -134,6 +135,7 @@ if (isset($_POST['remove_user']))
   
                 <!-- <label for="newLname"><b>Edit Last Name:</b></label> -->
                 <input type="name" placeholder="Enter new last name" name="newLname" required>
+                <br>
                 <input type="submit" class="btn edit-btn" name="ln" value="Submit" style="margin-top: 5px">
               </form>
               </div>
@@ -154,6 +156,7 @@ if (isset($_POST['remove_user']))
               <!-- <label for="newAddress"><b>Password:</b></label> -->
               <input type="password" placeholder="Enter new password" name="newPassword" required>
               <input type="password" placeholder="Confirm password" name="vPass" required>
+              <br>
               <input type="submit" class="btn edit-btn" name="pass" value="Submit" style="margin-top: 5px">
 
            </form>
