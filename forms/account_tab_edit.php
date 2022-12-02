@@ -179,21 +179,14 @@ if (isset($_POST['remove_user']))
 
     </div>
 
-    <!-- <dl>
-        
-        </dt>
+      <div style="margin-top:650px; text-align: center">
+            <a href="account_tab.php" class="btn custom-btn bg-color">Return to Account Tab</a>
+        </div>
 
-        <dt>
-        <br>    --> 
         
      
       <br>
-      <!-- <button class="btn delete account">Delete Account</button> -->
-      <!-- <form action="../forms/account_tab_edit.php" method="POST">  
-      <input type="submit" name = "remove_user" value = "Delete Account"> 
-      </dl> -->
-      <!-- <a href="../UI/services.php#membership">Upgrade Your Membership</a>
-      <a href="cancelMembership.php">Cancel Your Membership</a> -->
+
 </div>
 </main>
 </body>
