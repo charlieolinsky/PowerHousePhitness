@@ -13,12 +13,13 @@
     <link rel="stylesheet" href="../UI/css/aos.css">
     <link rel="stylesheet" href="../UI/css/tooplate-php-style.css">
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         <?php 
             // include_once("../classes/Roles.php");
             // Roles::minAccess(5, "../UI/index.php"); 
         ?>
-    </script>
+    </script> -->
+    
 </head>
 <body style="background-color: var(--dark-color); text-align: center">
     <div class="admin-title">

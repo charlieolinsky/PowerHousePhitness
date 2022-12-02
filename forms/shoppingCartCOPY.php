@@ -32,10 +32,9 @@ require_once("../classes/ShoppingCart.php");
 
     <!-- Shopping Cart Item: Image, Name, Price, Quantity, Subtotal Container -->
     <div style="text-align: center">
-        <br>
-        <!-- <form action="../forms/shoppingcart.php" method="POST">
+        <form action="../forms/shoppingcart.php" method="POST">
             <input type="submit" name="clear" value="Clear Cart">
-        </form> -->
+        </form>
 
             <?php
 
@@ -98,48 +97,36 @@ require_once("../classes/ShoppingCart.php");
             <?php  endwhile; ?>
             <?php endforeach; ?>
                 
+            
+
+            <!-- <?php 
+            if (empty($_SESSION['cart'])) {
+                echo "<tr><td colspan='4'> Your Cart is Empty </td></tr";
+            } else {
+                echo "<tr><td colspan='4'> Grand Total: $" . number_format($grand_total, 2) . "</td></tr";
+            }
+            ?> -->
         
         <br>
-
-
-            
+        <div class="cart-container">
+            <h5>
+                <?php 
+                if (empty($_SESSION['cart'])) {
+                    echo "<tr><td colspan='4'> Your Cart is Empty </td></tr";
+                } else {
+                    echo "<tr><td colspan='4'> Grand Total: $" . number_format($grand_total, 2) . "</td></tr";
+                }
+                ?>
+            </h5>
         </div>
 
         <div>
-            <!-- <form action="../forms/checkout.php" method="POST">
+            <form action="../forms/checkout.php" method="POST">
                 <input type="submit" name="checkout" value="Check Out">
-            </form> -->
+            </form>
              
         </div>
     </div>
-
-    <div class="total-container">
-            <!-- Total Price Display -->
-            <div>
-                <h5><strong>
-                    <?php 
-                    if (empty($_SESSION['cart'])) {
-                        echo "<tr><td colspan='4'> Your Cart is Empty </td></tr";
-                    } else {
-                        echo"<tr><td colspan='4'> Grand Total: $" . number_format($grand_total, 2) . "</td></tr";
-                    }
-                    ?>
-                </strong></h5>
-            </div>
-
-            <br><br>
-
-            <div class="row" style="text-align: center">
-                <!-- Clear Cart Button -->
-                <form action="../forms/shoppingcart.php" method="POST">
-                    <input type="submit" class="btn edit-btn" name="clear" value="Clear Cart">
-                </form>
-
-                <form action="../forms/checkout.php" method="POST">
-                    <input type="submit" class="btn edit-btn" name="checkout" value="Check Out">
-                </form>
-
-            </div>
 
 
 </body>
@@ -224,7 +211,7 @@ require_once("../classes/ShoppingCart.php");
         $updateOrder = "UPDATE `cart` SET grand_total=$grand_total WHERE ORDER_ID=$sessionOrder";
 
         if ($dbconn->query($addtocart) === TRUE) {
-            // echo "Item added to cart<br>";
+            echo "Item added to cart<br>";
             //update the grand total 
             if ($dbconn->query($updateOrder) === TRUE) {
                 // echo "total updated<br>";

@@ -184,7 +184,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                     <h4 class="mb-1">
                                         <span style="color: var(--white-color)">Shopping Cart</span>
                                         <br>
-                                        <span style="color: var(--white-color)">Receipts</span>
+                                        <span style="color: var(--white-color)">Checkout</span>
                                     </h4>
                                 </div>
                              </div>

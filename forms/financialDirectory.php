@@ -37,7 +37,7 @@
                 <ul class="navbar-nav ml-lg-auto">
                     <!-- Add and link Index page -->
                     <li class="nav-item">
-                        <a href="index.php" class="nav-link smoothScroll">Home</a>
+                        <a href="../UI/index.php" class="nav-link smoothScroll">Home</a>
                     </li>
 
                     <!-- Add and link About page -->
