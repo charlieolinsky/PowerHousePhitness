@@ -1,8 +1,8 @@
 
 <?php
 
-  include_once("global_inc.php");
-  $s = new Session();
+  // include_once("global_inc.php");
+  // $s = new Session();
 
 
 
@@ -43,7 +43,10 @@
 
     //This wont display anything.
     if ($dbconn->query($sql) === TRUE) {
-      echo 'add-product-success', "<p style='color:red; text-align:center'> New inventory item added successfully  <p>";
+      echo "<meta http-equiv='refresh' content='0'>";
+      echo "<p style='color:red; text-align:center'> New inventory item added successfully  <p>";
+      // echo 'add-product-success', "<p style='color:red; text-align:center'> New inventory item added successfully  <p>";
+
     } else {
       echo "Error:" . $dbconn->error;
     }
