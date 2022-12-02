@@ -41,6 +41,7 @@ if (isset(($_POST['addToCart']))) { //updating the quantity from add to cart but
 } else { //updating the quantity from shopping cart input 
     if (isset($_POST['quantity'])) {
         $so = $_POST['PROD_ID'];
+        echo $so;
         $quantity = $_POST['quantity'];
         // $quantity = 1;
         $query = "SELECT * FROM `prod-data` WHERE PROD_ID=$so;";
@@ -53,7 +54,8 @@ if (isset(($_POST['addToCart']))) { //updating the quantity from add to cart but
         } else if ($quantity == 0) {
             unset($_SESSION['cart'][$so]);
         }elseif($instock < $quantity){
-            echo "only ". $instock . " items avaliable";
+            $out = "only ". $instock . " items avaliable";
+            // echo "only ". $instock . " items avaliable";
         }
     }
 }

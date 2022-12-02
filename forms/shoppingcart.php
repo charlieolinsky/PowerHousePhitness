@@ -148,8 +148,12 @@ require_once("../classes/ShoppingCart.php");
                                     <input type='hidden' value='<?php echo $key ?>' name='PROD_ID'>
                                     <!-- Update Quantity Button -->
                                     <input type="submit" class="btn edit-btn" value = "Update" style="margin-top: 10px">
+                                    <p style="font-size: 10px"><?php echo $out; ?></p>
+
                                 </form>
-                        </div>
+
+                        </div>                               
+
 
                         <!-- Subtotal -->
                         <div class="column" style="margin-left: 100px">
@@ -308,7 +312,7 @@ require_once("../classes/ShoppingCart.php");
 
         //run the update queries 
         if ($dbconn->query($deletequant) === TRUE) {
-            echo "<br>removed from cart";
+            // echo "<br>removed from cart";
             // if ($dbconn->query($updateSub) === TRUE) {
             //     echo "<br>sub updated";
             if ($dbconn->query($updateOrder) === TRUE) {
