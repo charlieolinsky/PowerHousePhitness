@@ -74,7 +74,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                     </li>
                 </ul>
 
-                <!-- Add User icon -->
+                <!-- Add User icon with link-->
                 <ul class="social-icon ml-lg-3">
                         <li><a href="../forms/account_tab.php" class="fa fa-user"></a></li>
                 </ul>
