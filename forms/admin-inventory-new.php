@@ -103,7 +103,6 @@
                 if (empty($_POST['prod_desc'])) {
                     $desc_error = "Please enter an item description";
                 }
-                //Image Validation
 
                 //Price Validation
                 if (empty($_POST['prod_price'])) {
@@ -151,7 +150,10 @@
 
                         <!-- asking for prod description -->
                         <label for="prod_desc"> Item Description:</label><br>
-                        <input type="text" id="prod_desc" name="prod_desc" value="<?php if ((isset($_POST['prod_desc'])) and (!isset($desc_error))) echo $_POST['prod_desc']; ?>">
+                        <input type="text" id="prod_desc" name="prod_desc" 
+                        value="<?php if ((isset($_POST['prod_desc'])) and (!isset($desc_error))){
+                            echo $_POST['prod_desc']; 
+                        }?>">
                         <br><span> <?php if (isset($desc_error)) echo $desc_error; ?> </span>
 
                         <br><br>
