@@ -33,7 +33,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
             <button type="submit" class="form-control" id="submit-button" name="submit">Login</button>
             <label class="text-small text-muted" for="signup-agree"> <a href="registerUI.php">Create an account</a> 
             <br>
-            <label class="text-small text-muted" for="signup-agree"> <a href="services.php#membership">Not a member? Click to join</a>
+            <!-- <label class="text-small text-muted" for="signup-agree"> <a href="services.php#membership">Not a member? Click to join</a> -->
         </form>
     </div>
 
