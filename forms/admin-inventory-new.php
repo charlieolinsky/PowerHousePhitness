@@ -89,7 +89,7 @@
         </div>
 
         <!-- FORM TO ADD NEW ITEMS -->
-        <form action="../include/add-products.php" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
 
             <!-- data validation -->
             <?php
@@ -226,3 +226,5 @@
 </body>
 
 </html>
+
+<?php require_once("../include/add-products.php"); ?>
