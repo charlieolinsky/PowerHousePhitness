@@ -46,5 +46,10 @@ include_once("../include/global_inc.php");
           </div>
 
 </main>
+  <!-- Return Admin Home Button -->
+    <div style="margin-top:300px; text-align: center">
+      <a href="adminDirectory.php" class="btn custom-btn bg-color">Return to Admin Portal</a>
+    </div>
+
 </body>
 </html>
