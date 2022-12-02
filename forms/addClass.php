@@ -5,8 +5,8 @@
     $cName = $_POST['cName'];
     $iuid = $_POST['iuid'];
     $mCap= $_POST['mCap'];
-    $sTime = mysqli_real_escape_string($dbconn, $_POST['sTime']);
-    $eTime = mysqli_real_escape_string($dbconn, $_POST['eTime']);
+    $sTime = $_POST['sTime'];
+    $eTime = $_POST['eTime'];
     $cDay = $_POST['cDay'];
     $cPic = $_POST['cPic'];
     $cDesc = $_POST['cDesc'];
@@ -25,7 +25,9 @@
         $stmt->execute(); 
     }catch(Exception $e){
         $dbconn->query("SET FOREIGN_KEY_CHECKS=1");
-        die($e->getMessage()); 
+        $r = new Redirect($e->getMessage(),"../UI/index.php","ERROR","Return Home"); 
+        header("Location: redirectPage.php");
+        die();
     }
     
     //Add Foreign Key Constraint

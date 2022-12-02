@@ -92,7 +92,7 @@
 
         <!-- Redirect Message -->
         <br><br><br><br>
-        <main style="text-align: center">
+        <main style="text-align: center; text-transform: inherit">
             <h2><?= $msg ?></h2>
             <a href=<?= $next ?>> <?= $nextN; ?></a>  
         </main>
