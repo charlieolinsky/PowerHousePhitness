@@ -31,9 +31,9 @@ https://www.tooplate.com/view/2119-gymso-fitness
             <input type="text" class="form-control" name="email" placeholder="Email" required>
             <input type="password" class="form-control" name="pword" placeholder="Password" required>
             <button type="submit" class="form-control" id="submit-button" name="submit">Login</button>
-            <label class="text-small text-muted" for="signup-agree"> <a href="registerUI.php">Create an account</a> 
+            <label class="text-small text-muted" for="signup-agree"> <a href="registerUI.php">Create an Account</a> 
             <br>
-            <!-- <label class="text-small text-muted" for="signup-agree"> <a href="services.php#membership">Not a member? Click to join</a> -->
+            <label class="text-small text-muted" for="signup-agree"> <a href="index.php">Return Home</a>
         </form>
     </div>
 
