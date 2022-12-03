@@ -166,7 +166,7 @@
                 </div>
             </div>   
             
-            <br>
+            <!-- <br> -->
 
              <!-- Need to add a way to upload-->
              <label for="prod_image"> Item Image: </label><br>
