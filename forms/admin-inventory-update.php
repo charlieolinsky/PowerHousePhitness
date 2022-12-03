@@ -82,12 +82,9 @@
             <h1 style="color: var(--primary-color)">Update Inventory</h1>
         </div>
 
-        <!-- <form action="../include/update-product.php" method="POST"> -->
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
-            <!-- <form action=<?php //echo $_SERVER['PHP_SELF']; 
-                                ?> method="POST"> -->
-
+    
 
         <div class = "inventory-container">
             <div class="row">
@@ -176,6 +173,15 @@
                 <input type="file" name="prod_image">
 
             <br><br>
+
+             <!-- Delete Item Button -->
+             <div class="column" style="justify-content: center">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">  
+                <!-- <form action="../include/update-product.php" method="POST">   -->
+                <input type="submit" class="btn edit-btn" style="margin-top: 5px" name ="delete" value="Delete Item"
+                onclick="return confirm('Are you sure you want to delete this item?')">
+              </div>
+
 
             <button type="submit" class="form-control" id="submit-button" name="submit">Update</button>
         </div>
