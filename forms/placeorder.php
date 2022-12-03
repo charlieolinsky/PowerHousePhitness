@@ -18,10 +18,11 @@
                 $instock = $row['prod_quantity'];
                 $totalrented = $row['total_rented'];
 
-                //update the prod quantity in the prod-data table 
+                //queries to update prod quantity in the prod-data table 
                 $updateInStock = "UPDATE `prod-data` SET prod_quantity=$instock-$val WHERE PROD_ID=$key";
                 $updateIsRented = "UPDATE `prod-data` SET total_rented=$totalrented+$val WHERE PROD_ID=$key";
-
+                
+                // run the queries 
                 if ($dbconn->query($updateInStock) === TRUE) {
                     // echo "quantity decreased";
                 }
@@ -33,8 +34,7 @@
                 $_SESSION['cart'] = array();
 
 
-
-                //query to add the user address into the user_address table 
+                // QUERIES TO ADD THE USER ADDRESS TO THE USER_ADDRESS TABLE
                 $addr = "INSERT INTO user_address (`USER_ID`, `address1`, `address2`, `city`, `st`, `zip`)  
                         VALUES ('" . $_SESSION['user_id'] . "', 
                                 '" . $_POST['adr1'] . "', 
@@ -42,7 +42,7 @@
                                 '" . $_POST['city'] . "', 
                                 '" . $_POST['state'] . "', 
                                 '" . $_POST['zip'] . "')";
-
+                // run the query 
                 if ($dbconn->query($addr) === TRUE) {
                     // echo "Address updated";
                 }
@@ -50,6 +50,7 @@
         }
     }
 
+    // redirect to a new page when order is places
     $r = new Redirect(
         "Your Order Has Been Placed! <br> Thank you for ordering with PHP",
         "../forms/equip-rental-member.php",

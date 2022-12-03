@@ -22,8 +22,7 @@
             <!-- PHP Logo -->
             <a class="navbar-brand" href="../forms/adminDirectory.php"><span style="color: var(--primary-color)">P</span>ower <span style="color: var(--primary-color)">H</span>ouse <span style="color: var(--primary-color)">P</span>hitness</a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -50,7 +49,7 @@
                             <a href="../UI/services.php#classes">Classes </a>
                             <a href="../UI/services.php#membership">Memberships </a>
                             <a href="../forms/equip-rental-member.php">Equipment </a>
-                        </div> 
+                        </div>
                     </li>
 
                     <!-- Add and link Schedule page -->
@@ -66,12 +65,12 @@
 
                 <!-- Add User icon with link -->
                 <ul class="social-icon ml-lg-3">
-                        <li><a href="../forms/account_tab.php" class="fa fa-user"></a></li>
+                    <li><a href="../forms/account_tab.php" class="fa fa-user"></a></li>
                 </ul>
 
                 <!-- Add shopping cart icon with link -->
                 <ul class="social-icon ml-lg-3">
-                        <li><a href="../forms/shoppingcart.php" class="fa fa-shopping-cart"></a></li>
+                    <li><a href="../forms/shoppingcart.php" class="fa fa-shopping-cart"></a></li>
                 </ul>
             </div>
 
@@ -110,44 +109,41 @@
                 <!-- DISPLAY PROD INFORMATION  -->
                 <div class="admin-description">
                     <h3 class="mb-1">
+                        <!-- display name -->
                         <span style="color: var(--primary-color)"><?php echo $rows['prod_name']; ?></span>
                     </h3>
+                    <!-- display description -->
                     <p><?php echo $rows['prod_desc']; ?></p>
                     <h5>
+                        <!-- display in stock -->
                         <span style="color: var(--white-color)"><?php echo "Current available: " . $rows['prod_quantity']; ?></span>
                         <br>
+                        <!-- display total rented -->
                         <span style="color: var(--white-color)"><?php echo "Total checked out: " . $rows['total_rented']; ?></span>
                         <br>
+                        <!-- display vendor  -->
                         <span style="color: var(--white-color)"><?php echo "Vendor purchased from: " . $rows['VENDOR_ID']; ?></span>
                         <br>
+                        <!-- display last time item was purchased -->
                         <span style="color: var(--white-color)"><?php echo "Last purchase date: " . $rows['prod_date_purchased']; ?></span>
                         <br>
+                        <!-- display last purchase price -->
                         <span style="color: var(--white-color)"><?php echo "Last purchase price: $" . $rows['prod_purchase_cost']; ?></span>
                     </h5>
 
                     <h4 class="mb-1">
+                        <!-- display rental cost -->
                         <span style="color: var(--primary-color)"><?php echo "Rental cost: $" . $rows['prod_price']; ?></span>
                     </h4>
                 </div>
-                </form>
             </div>
         </div>
 
-
-        </div>
-        </div>
-        </form>
-
+    <!-- END PHP WHILE LOOP -->
     <?php
     }
     ?>
-    </div>
 
-    </div>
-
-
-    <!-- <input type="button" name="Add New" value="Add New"> -->
-    </div>
 </body>
 
 </html>
