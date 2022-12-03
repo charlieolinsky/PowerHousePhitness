@@ -8,11 +8,12 @@ $s = new Session();
 
 require_once("../sql/connect.php");
 
+//starting a session called cart
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'];
 }
 
-//clear cart
+//clearing the cart cart
 if (isset($_POST['clear'])) {
     unset($_SESSION['order_id']);
     $_SESSION['cart'] = array();
@@ -29,9 +30,9 @@ if (isset(($_POST['addToCart']))) { //updating the quantity from add to cart but
 
     if ($quantity > 0 && filter_var($quantity, FILTER_VALIDATE_INT)) {        //checks if quantity entered is an int
         //buy
-        if (isset($_SESSION['cart'][$so])) {     // check if prod is in array already
+        if (isset($_SESSION['cart'][$so])) {     // check if prod is in array already, if so increase the quantity by 1
             $_SESSION['cart'][$so] += $quantity;
-        } else {
+        } else {    //if prod not alraedy in array, add it
             $_SESSION['cart'][$so] = $quantity;
         }
     } else {
@@ -53,7 +54,7 @@ if (isset(($_POST['addToCart']))) { //updating the quantity from add to cart but
                 $_SESSION['cart'][$so] = $quantity; 
                 // if 0 entered
             } else if ($quantity == 0) { 
-                //clear cart
+                //cif quantity = 0, remove item from cart
                 unset($_SESSION['cart'][$so]); 
                 //if quant entered is more than instock
             } elseif ($instock < $quantity) { 
@@ -64,18 +65,18 @@ if (isset(($_POST['addToCart']))) { //updating the quantity from add to cart but
     }
 }
 
-
+// if cart is empty, and user tries to check out
 if (isset($_POST['checkout'])) {
     if (empty($_SESSION['cart'])) {
         // header("location: ../forms/empty.php");
         // exit();
         $r = new Redirect(
             "
-        Oops.. your shopping cart is empty :/ <br> Please add items to your cart",
+            Oops.. your shopping cart is empty :/ <br> Please add items to your cart",
             "equip-rental-member.php",
             "Error",
             "Continue Shopping
-    ",
+            ",
         );
 
         header("Location: redirectPage.php");
