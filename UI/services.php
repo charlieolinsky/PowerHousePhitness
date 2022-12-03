@@ -29,7 +29,7 @@
     }
 
     while($class = $class_id_req->fetch_assoc()){
-        print_r($class);
+        //print_r($class);
         array_push($userClassList, $class);
     }
 
