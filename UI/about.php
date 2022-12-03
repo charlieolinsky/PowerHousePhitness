@@ -92,138 +92,145 @@ https://www.tooplate.com/view/2119-gymso-fitness
     <section class="about section" id="about">
         <div class="my-container">
             <div class="row" >
-                    <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
-                        <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">
-                            <span style="color: var(--primary-color)">Hello, we are PHP!</span>
-                        </h2>
+                <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
+                    <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <span style="color: var(--primary-color)">Hello, we are PHP!</span>
+                    </h2>
                        
-                        <p data-aos="fade-up" data-aos-delay="400">The team at Power House Phitness offers many years of dedication and knowledge in Software Engineering, as well as proficiency in many technical skills such as HTML, CSS, JavaScript, PHP, and SQL. All of them ensure that your experience with Power House Phitness is impeccable as they come to the company with precision, poise, and pizazz</p>
-                    </div>
+                    <p data-aos="fade-up" data-aos-delay="400">The team at Power House Phitness offers many years of dedication and knowledge in Software Engineering, as well as proficiency in many technical skills such as HTML, CSS, JavaScript, PHP, and SQL. All of them ensure that your experience with Power House Phitness is impeccable as they come to the company with precision, poise, and pizazz</p>
+                </div>
             </div>      
         </div>  
           
                 
-                <!-- ABOUT BEESANNE -->
-                <div class="full-container">
-                    <div class="about-container">
-                        <div class="row">
-                            <!-- <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"> -->
-                                <div class="about-info">
-                                    <img src="images/team/beesanne.jpg" alt="Beesanne Kurzum">
-                                </div>   
-                                <div class="about-title">
-                                    <h3 class="mb-1"> 
-                                        <span style="color: var(--primary-color)">Beesanne Kurzum</span>
-                                    </h3>
-                                    <h4 class="mb-1">
-                                        <span style="color: var(--white-color)">Inventory</span>
-                                        <br>
-                                        <span style="color: var(--white-color)">Data Management</span>
-                                        <br>
-                                        <span style="color: var(--white-color)">Shopping Cart</span>
-                                    </h4>
-                                </div>
-                             </div>
-                    </div>  
-
-                    <!-- ABOUT CHARLIE -->
-                    <div class="about-container">
-                        <div class="row">
-                            <!-- <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"> -->
-                                <div class="about-info">
-                                    <img src="images/team/charles.jpg" alt="Charles Olinsky">
-                                </div>   
-                                <div class="about-title">
-                                    <h3 class="mb-1"> 
-                                        <span style="color: var(--primary-color)">Charles Olinsky</span>
-                                    </h3>
-                                        <h4 class="mb-1">
-                                            <strong style="color: var(--white-color)">Group Leader</strong>
-                                            <br>
-                                            <span style="color: var(--white-color)">Security</span>
-                                            <br>
-                                            <span style="color: var(--white-color)">Sessions</span>
-                                            <br>
-                                            <span style="color: var(--white-color)">Services</span>
-                                        </h4>
-                                </div>
-                             </div>
-                    </div>        
-
-                    <!-- ABOUT ERICA -->
-                    <div class="about-container">
-                        <div class="row">
-                            <!-- <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"> -->
-                                <div class="about-info">
-                                    <img src="images/team/erica.jpg" alt="Erica Dubie">
-                                </div>   
-                                <div class="about-title">
-                                    <h3 class="mb-1"> 
-                                        <span style="color: var(--primary-color)">Erica Dubie</span>
-                                    </h3>
-                                    <h4 class="mb-1">
-                                        <span style="color: var(--white-color)">User Interface</span>
-                                        <br>
-                                        <span style="color: var(--white-color)">Services</span>
-                                    </h4>
-                                </div>
-                             </div>
-                    </div> 
-
-                    <!-- ABOUT OLAMIDE -->
-                    <div class="about-container">
-                        <div class="row">
-                            <!-- <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"> -->
-                                <div class="about-info">
-                                    <img src="images/team/olamide.jpg" alt="Olamide Kumapayi">
-                                </div>   
-                                <div class="about-title">
-                                    <h3 class="mb-1"> 
-                                        <span style="color: var(--primary-color)">Olamide Kumapayi</span>
-                                    </h3>
-                                    <h4 class="mb-1">
-                                        <span style="color: var(--white-color)">Shopping Cart</span>
-                                        <br>
-                                        <span style="color: var(--white-color)">Checkout</span>
-                                    </h4>
-                                </div>
-                             </div>
-                    </div> 
-
-                    <!-- ABOUT CHRISTINA -->
-                    <div class="about-container">
-                        <div class="row">
-                            <!-- <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"> -->
-                                <div class="about-info">
-                                    <img src="images/team/christina.jpg" alt="Christina Rodriguez">
-                                </div>   
-                                <div class="about-title">
-                                    <h3 class="mb-1"> 
-                                        <span style="color: var(--primary-color)">Christina Rodriguez</span>
-                                    </h3>
-                                    <h4 class="mb-1">
-                                        <span style="color: var(--white-color)">Users</span>
-                                        <br>
-                                        <span style="color: var(--white-color)">Financial Reports</span>
-                                    </h4>
-                                </div>
-                             </div>
-                    </div> 
-                </div>
-
-                </div>
-
-                <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
-                        <h2 class="mb-4">
-                            <span style="color: var(--primary-color)">Works Cited</span>
-                        </h2>
-                       
-                        <p>"You are NOT allowed to redistribute this HTML template downloadable ZIP file on any template collection site. You are allowed to use this template for your personal or business websites."</p>
-
-                        <p>If you have any question regarding <a rel="nofollow" href="https://www.tooplate.com/view/2119-gymso-fitness" target="_parent">Gymso Fitness HTML template</a>, you can <a rel="nofollow" href="https://www.tooplate.com/contact" target="_parent">contact Tooplate</a> immediately. Thank you.</p>
-
+        <!-- ABOUT BEESANNE -->
+        <div class="full-container">
+            <div class="about-container">
+                <div class="row">
+                    <!-- Team Member Photo -->
+                    <div class="about-info">
+                        <img src="images/team/beesanne.jpg" alt="Beesanne Kurzum">
+                    </div>   
+                    <!-- Team Member Name -->
+                    <div class="about-title">
+                        <h3 class="mb-1"> 
+                            <span style="color: var(--primary-color)">Beesanne Kurzum</span>
+                        </h3>
+                        <!-- Team Member Roles -->
+                        <h4 class="mb-1">
+                            <span style="color: var(--white-color)">Inventory</span>
+                            <br>
+                            <span style="color: var(--white-color)">Data Management</span>
+                            <br>
+                            <span style="color: var(--white-color)">Shopping Cart</span>
+                        </h4>
                     </div>
-            </div>
+                </div>
+            </div>  
+
+            <!-- ABOUT CHARLIE -->
+            <div class="about-container">
+                <div class="row">
+                    <!-- Team Member Photo -->
+                    <div class="about-info">
+                        <img src="images/team/charles.jpg" alt="Charles Olinsky">
+                    </div>   
+                    <!-- Team Member Name -->
+                    <div class="about-title">
+                        <h3 class="mb-1"> 
+                            <span style="color: var(--primary-color)">Charles Olinsky</span>
+                        </h3>
+                        <!-- Team Member Roles -->
+                        <h4 class="mb-1">
+                            <strong style="color: var(--white-color)">Group Leader</strong>
+                            <br>
+                            <span style="color: var(--white-color)">Security</span>
+                            <br>
+                            <span style="color: var(--white-color)">Sessions</span>
+                            <br>
+                            <span style="color: var(--white-color)">Services</span>
+                        </h4>
+                    </div>
+                </div>
+            </div>        
+
+            <!-- ABOUT ERICA -->
+            <div class="about-container">
+                <div class="row">
+                    <!-- Team Member Photo -->
+                    <div class="about-info">
+                        <img src="images/team/erica.jpg" alt="Erica Dubie">
+                    </div>   
+                    <!-- Team Member Name -->
+                    <div class="about-title">
+                        <h3 class="mb-1"> 
+                            <span style="color: var(--primary-color)">Erica Dubie</span>
+                        </h3>
+                        <!-- Team Member Roles -->
+                        <h4 class="mb-1">
+                            <span style="color: var(--white-color)">User Interface</span>
+                            <br>
+                            <span style="color: var(--white-color)">Services</span>
+                        </h4>
+                    </div>
+                 </div>
+            </div> 
+
+            <!-- ABOUT OLAMIDE -->
+            <div class="about-container">
+                <div class="row">
+                    <!-- Team Member Photo -->
+                    <div class="about-info">
+                        <img src="images/team/olamide.jpg" alt="Olamide Kumapayi">
+                    </div>   
+                    <!-- Team Member Name -->
+                    <div class="about-title">
+                        <h3 class="mb-1"> 
+                            <span style="color: var(--primary-color)">Olamide Kumapayi</span>
+                        </h3>
+                        <!-- Team Member Roles -->
+                        <h4 class="mb-1">
+                            <span style="color: var(--white-color)">Shopping Cart</span>
+                            <br>
+                            <span style="color: var(--white-color)">Checkout</span>
+                        </h4>
+                    </div>
+                </div>
+            </div> 
+
+            <!-- ABOUT CHRISTINA -->
+            <div class="about-container">
+                <div class="row">
+                    <!-- Team Member Photo -->
+                    <div class="about-info">
+                        <img src="images/team/christina.jpg" alt="Christina Rodriguez">
+                    </div>   
+                    <!-- Team Member Name -->
+                    <div class="about-title">
+                        <h3 class="mb-1"> 
+                            <span style="color: var(--primary-color)">Christina Rodriguez</span>
+                        </h3>
+                        <!-- Team Member Roles -->
+                        <h4 class="mb-1">
+                            <span style="color: var(--white-color)">Users</span>
+                            <br>
+                            <span style="color: var(--white-color)">Financial Reports</span>
+                        </h4>
+                    </div>
+                </div>
+            </div> 
+
+        </div>
+
+        <!-- Credits to template owner & creator -->
+        <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
+            <h2 class="mb-4">
+                <span style="color: var(--primary-color)">Works Cited</span>
+            </h2>
+            
+            <p>"You are NOT allowed to redistribute this HTML template downloadable ZIP file on any template collection site. You are allowed to use this template for your personal or business websites."</p>
+
+            <p>If you have any question regarding <a rel="nofollow" href="https://www.tooplate.com/view/2119-gymso-fitness" target="_parent">Gymso Fitness HTML template</a>, you can <a rel="nofollow" href="https://www.tooplate.com/contact" target="_parent">contact Tooplate</a> immediately. Thank you.</p>
         </div>
             
     </section> 
