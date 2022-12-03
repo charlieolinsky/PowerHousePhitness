@@ -88,8 +88,9 @@
             <h1 style="color: var(--primary-color)">Add Inventory Item</h1>
         </div>
 
+
         <!-- FORM TO ADD NEW ITEMS -->
-        <form action="../include/add-products.php" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
 
             <!-- data validation -->
             <?php
@@ -102,7 +103,6 @@
                 if (empty($_POST['prod_desc'])) {
                     $desc_error = "Please enter an item description";
                 }
-                //Image Validation
 
                 //Price Validation
                 if (empty($_POST['prod_price'])) {
@@ -150,7 +150,10 @@
 
                         <!-- asking for prod description -->
                         <label for="prod_desc"> Item Description:</label><br>
-                        <input type="text" id="prod_desc" name="prod_desc" value="<?php if ((isset($_POST['prod_desc'])) and (!isset($desc_error))) echo $_POST['prod_desc']; ?>">
+                        <input type="text" id="prod_desc" name="prod_desc" 
+                        value="<?php if ((isset($_POST['prod_desc'])) and (!isset($desc_error))){
+                            echo $_POST['prod_desc']; 
+                        }?>">
                         <br><span> <?php if (isset($desc_error)) echo $desc_error; ?> </span>
 
                         <br><br>
@@ -182,7 +185,8 @@
 
                         <!-- asking for prod cost-->
                         <label for="prod_purchase_cost"> Purchase Cost: </label><br>
-                        <input type="text" id="prod_purchase_cost" name="prod_purchase_cost" value="<?php if ((isset($_POST['prod_purchase_cost'])) and (!isset($purchase_cost_error))) echo $_POST['prod_purchase_cost']; ?>">
+                        <input type="text" id="prod_purchase_cost" name="prod_purchase_cost" 
+                        value="<?php if ((isset($_POST['prod_purchase_cost'])) and (!isset($purchase_cost_error))) echo $_POST['prod_purchase_cost']; ?>">
                         <br><span> <?php if (isset($purchase_cost_error)) echo $purchase_cost_error; ?> </span>
 
                         <br>
@@ -215,6 +219,10 @@
                 <br>
                 <!-- SUBMIT BUTTON -->
                 <button type="submit" class="form-control" id="submit-button" name="submit">Submit Item</button>
+
+            
+
+
             </div>
             </form>
 
@@ -222,7 +230,13 @@
             <a href="admin-inventory-home.php" class="btn custom-btn bg-color">Return to Admin Home</a>
         </div>
 
+
     </main>
 </body>
 
 </html>
+
+<?php require_once("../include/add-products.php"); ?>
+
+
+

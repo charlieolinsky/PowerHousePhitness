@@ -1,6 +1,8 @@
+
 <?php
 require_once("../classes/ShoppingCart.php");
 ?>
+
 
 <!DOCTYPE html>
 
@@ -148,8 +150,12 @@ require_once("../classes/ShoppingCart.php");
                                     <input type='hidden' value='<?php echo $key ?>' name='PROD_ID'>
                                     <!-- Update Quantity Button -->
                                     <input type="submit" class="btn edit-btn" value = "Update" style="margin-top: 10px">
+                                    <p style="font-size: 10px"><?php echo $out; ?></p>
+
                                 </form>
-                        </div>
+
+                        </div>                               
+
 
                         <!-- Subtotal -->
                         <div class="column" style="margin-left: 100px">
@@ -201,7 +207,15 @@ require_once("../classes/ShoppingCart.php");
 
 
 
-<!-- //code to adding to tables -->
+
+
+
+<!-- 
+ ____________________________________________________
+                 CODE FOR TABLES 
+ ____________________________________________________ 
+-->
+
 <?php
     //variables for tables 
     $USER_ID = $_SESSION['user_id'];
@@ -230,6 +244,7 @@ require_once("../classes/ShoppingCart.php");
     }
     $tablesub = $subtotal;
 
+    
 
     if (isset($_SESSION[$sub])) {
         $cost = $_SESSION['prod_price'];
@@ -308,7 +323,7 @@ require_once("../classes/ShoppingCart.php");
 
         //run the update queries 
         if ($dbconn->query($deletequant) === TRUE) {
-            echo "<br>removed from cart";
+            // echo "<br>removed from cart";
             // if ($dbconn->query($updateSub) === TRUE) {
             //     echo "<br>sub updated";
             if ($dbconn->query($updateOrder) === TRUE) {
@@ -316,4 +331,5 @@ require_once("../classes/ShoppingCart.php");
             }
         }
     }
-?>
+
+    ?>

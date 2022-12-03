@@ -4,7 +4,7 @@
 include_once("../include/global_inc.php");
 // SESSION_START();
 
-$s = new Session(); 
+$s = new Session();
 
 require_once("../sql/connect.php");
 
@@ -42,37 +42,46 @@ if (isset(($_POST['addToCart']))) { //updating the quantity from add to cart but
     if (isset($_POST['quantity'])) {
         $so = $_POST['PROD_ID'];
         $quantity = $_POST['quantity'];
-        // $quantity = 1;
         $query = "SELECT * FROM `prod-data` WHERE PROD_ID=$so;";
         $result = $dbconn->query($query);
         while ($row = $result->fetch_assoc()) {
+            //save current quantity to variable
             $instock = $row['prod_quantity'];
-        
-        if ($quantity > 0 && filter_var($quantity, FILTER_VALIDATE_INT) && $instock >=  $quantity ) {
-            $_SESSION['cart'][$so] = $quantity;
-        } else if ($quantity == 0) {
-            unset($_SESSION['cart'][$so]);
-        }elseif($instock < $quantity){
-            echo "only ". $instock . " items avaliable";
+            //if quantity entered is valid and less than total stock
+            if ($quantity > 0 && filter_var($quantity, FILTER_VALIDATE_INT) && $instock >=  $quantity) {
+                //add that quantity to cart
+                $_SESSION['cart'][$so] = $quantity; 
+                // if 0 entered
+            } else if ($quantity == 0) { 
+                //clear cart
+                unset($_SESSION['cart'][$so]); 
+                //if quant entered is more than instock
+            } elseif ($instock < $quantity) { 
+                //set msg to how much is in stock
+                $out = "only " . $instock . " items avaliable";
+            }
         }
     }
 }
-}
 
 
-if(isset($_POST['checkout']))
-{
-    if(empty($_SESSION['cart']))
-    {
+if (isset($_POST['checkout'])) {
+    if (empty($_SESSION['cart'])) {
         // header("location: ../forms/empty.php");
         // exit();
-        $r = new Redirect("
-        Oops.. your shopping cart is empty :/ <br> Please add items to your cart", 
-        "equip-rental-member.php", 
-        "Error", 
-        "Continue Shopping
-    ",);  
-    
-    header("Location: redirectPage.php");
+        $r = new Redirect(
+            "
+        Oops.. your shopping cart is empty :/ <br> Please add items to your cart",
+            "equip-rental-member.php",
+            "Error",
+            "Continue Shopping
+    ",
+        );
+
+        header("Location: redirectPage.php");
     }
 }
+
+
+
+?>

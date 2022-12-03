@@ -1,6 +1,17 @@
 <?php
-    require_once("../classes/ShoppingCart.php");
-    require_once("../sql/connect.php");
+
+require_once("../classes/ShoppingCart.php");
+require_once("../sql/connect.php");
+
+//if not logged in redirect to log in
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    include_once('../include/global_inc.php');
+    Roles::minAccess(1, "../UI/loginUI.php");
+    $s = new Session();
+}
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -238,43 +249,4 @@
                 
 
     </body>
-
-    <!-- 
-    <script>
-        function submit() {
-            if ($.trim($("fname").val()) === "" || $.trim($("lname").val()) === "")
-            // var empt = document.forms['firstname'].value;
-            // if (empt == "")
-            {
-                alert('Please fill out this field.');
-                return false;
-            }
-        }
-    </script> -->
-
 </html>
-
-
-<?php
-// $USER_ID = $_SESSION['user_id'];
-// $adr1 = $_POST['adr1'];
-// $adr2 = $_POST['adr2'];
-// $state = $_POST['state'];
-// $city = $_POST['city'];
-// $zip = $_POST['zip'];
-
-// echo $USER_ID;
-// echo $adr1;
-
-
-
-// if (isset($_POST['placeorder'])) {
-
-//     $addr = "INSERT INTO user_address (`USER_ID`, `address1`, `address2`, `city`, `st`, `zip`)  
-//             VALUES ($USER_ID, $adr1, $adr2, $city, $state, $zip)";
-//     if ($dbconn->query($addr) === TRUE) {
-//         echo "Address updated";
-//     }
-// }
-
-?>
