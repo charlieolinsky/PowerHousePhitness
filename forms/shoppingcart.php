@@ -1,6 +1,8 @@
+
 <?php
 require_once("../classes/ShoppingCart.php");
 ?>
+
 
 <!DOCTYPE html>
 
@@ -205,7 +207,15 @@ require_once("../classes/ShoppingCart.php");
 
 
 
-<!-- //code to adding to tables -->
+
+
+
+<!-- 
+ ____________________________________________________
+                 CODE FOR TABLES 
+ ____________________________________________________ 
+-->
+
 <?php
     //variables for tables 
     $USER_ID = $_SESSION['user_id'];
@@ -234,6 +244,7 @@ require_once("../classes/ShoppingCart.php");
     }
     $tablesub = $subtotal;
 
+    
 
     if (isset($_SESSION[$sub])) {
         $cost = $_SESSION['prod_price'];
@@ -320,4 +331,5 @@ require_once("../classes/ShoppingCart.php");
             }
         }
     }
-?>
+
+    ?>
