@@ -11,7 +11,7 @@
     
     if($userRank == 2)
     {
-        echo "Downgrade Condtion met";
+        //echo "Downgrade Condtion met";
         
         $sql = $dbconn->prepare("UPDATE user_table SET roles=1 WHERE USER_ID=$userID");
         if(!$sql){
