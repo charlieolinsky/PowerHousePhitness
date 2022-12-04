@@ -16,14 +16,14 @@ if (isset($_POST['submit'])) {
     $prod_purchase_cost = $_POST['prod_purchase_cost'];
 
     // CREATING THE QUERIES TO UPDATE A PRODUCT 
-    $updatename = "UPDATE `prod-data` SET prod_name='$prod_name' WHERE PROD_ID=$so";
-    $updatedesc = "UPDATE `prod-data` SET prod_desc='$prod_desc' WHERE PROD_ID=$so";
-    $updateimage = "UPDATE `prod-data` SET prod_image= '../UI/images/prod_images/$prod_image' WHERE PROD_ID=$so";
-    $updateprice = "UPDATE `prod-data` SET prod_price='$prod_price ' WHERE PROD_ID=$so";
-    $updatequant = "UPDATE `prod-data` SET prod_quantity='$prod_quantity' WHERE PROD_ID=$so";
-    $updatevendor = "UPDATE `prod-data` SET VENDOR_ID='$VENDOR_ID ' WHERE PROD_ID=$so";
-    $updatedatepurch = "UPDATE `prod-data` SET prod_date_purchased='$prod_date_purchased ' WHERE PROD_ID=$so";
-    $updatepurchcost = "UPDATE `prod-data` SET prod_purchase_cost='$prod_purchase_cost' WHERE PROD_ID=$so";
+    $updatename = "UPDATE `prod_data` SET prod_name='$prod_name' WHERE PROD_ID=$so";
+    $updatedesc = "UPDATE `prod_data` SET prod_desc='$prod_desc' WHERE PROD_ID=$so";
+    $updateimage = "UPDATE `prod_data` SET prod_image= '../UI/images/prod_images/$prod_image' WHERE PROD_ID=$so";
+    $updateprice = "UPDATE `prod_data` SET prod_price='$prod_price ' WHERE PROD_ID=$so";
+    $updatequant = "UPDATE `prod_data` SET prod_quantity='$prod_quantity' WHERE PROD_ID=$so";
+    $updatevendor = "UPDATE `prod_data` SET VENDOR_ID='$VENDOR_ID ' WHERE PROD_ID=$so";
+    $updatedatepurch = "UPDATE `prod_data` SET prod_date_purchased='$prod_date_purchased ' WHERE PROD_ID=$so";
+    $updatepurchcost = "UPDATE `prod_data` SET prod_purchase_cost='$prod_purchase_cost' WHERE PROD_ID=$so";
 
 
 
@@ -116,7 +116,7 @@ if (isset($_POST['delete'])) {
     // grab the prod id that was selected 
     $so = $_POST['PROD_ID'];
     // create the delete query
-    $deleteprod = "DELETE FROM `prod-data` WHERE PROD_ID=$so";
+    $deleteprod = "DELETE FROM `prod_data` WHERE PROD_ID=$so";
     $deletefromcart = "DELETE FROM cart_items WHERE PROD_ID=$so";
     // run query to remove item from cart table 
     if ($dbconn->query($deletefromcart) === TRUE) {

@@ -5,7 +5,7 @@
     //go through each item in the cart and grab its original quantity from the prod data table
     foreach ($_SESSION['cart'] as $key => $val) {
         //get the quanitity for that product 
-        $query = "SELECT * FROM `prod-data` WHERE PROD_ID=$key;";
+        $query = "SELECT * FROM `prod_data` WHERE PROD_ID=$key;";
         $result = $dbconn->query($query);
 
         //for each prod in the array
@@ -18,9 +18,9 @@
                 $instock = $row['prod_quantity'];
                 $totalrented = $row['total_rented'];
 
-                //queries to update prod quantity in the prod-data table 
-                $updateInStock = "UPDATE `prod-data` SET prod_quantity=$instock-$val WHERE PROD_ID=$key";
-                $updateIsRented = "UPDATE `prod-data` SET total_rented=$totalrented+$val WHERE PROD_ID=$key";
+                //queries to update prod quantity in the prod_data table 
+                $updateInStock = "UPDATE `prod_data` SET prod_quantity=$instock-$val WHERE PROD_ID=$key";
+                $updateIsRented = "UPDATE `prod_data` SET total_rented=$totalrented+$val WHERE PROD_ID=$key";
                 
                 // run the queries 
                 if ($dbconn->query($updateInStock) === TRUE) {

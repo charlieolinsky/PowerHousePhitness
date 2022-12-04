@@ -85,10 +85,10 @@ CREATE TABLE `order_data` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prod-data`
+-- Table structure for table `prod_data`
 --
 
-CREATE TABLE `prod-data` (
+CREATE TABLE `prod_data` (
   `PROD_ID` int(11) NOT NULL,
   `prod_name` varchar(255) DEFAULT NULL,
   `prod_desc` varchar(255) DEFAULT NULL,
@@ -101,10 +101,10 @@ CREATE TABLE `prod-data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `prod-data`
+-- Dumping data for table `prod_data`
 --
 
-INSERT INTO `prod-data` (`PROD_ID`, `prod_name`, `prod_desc`, `prod_image`, `prod_price`, `prod_quantity`, `VENDOR_ID`, `prod_date_purchased`, `prod_purchase_cost`) VALUES
+INSERT INTO `prod_data` (`PROD_ID`, `prod_name`, `prod_desc`, `prod_image`, `prod_price`, `prod_quantity`, `VENDOR_ID`, `prod_date_purchased`, `prod_purchase_cost`) VALUES
 (19, 'Basketball - Large', 'This is a regulation sized basketball ', '../UI/images/prod_images/basketball.jpg', 5, 6, 1, '10/23/2022', 20.99),
 (20, 'Basketball-Small', '*Basketball Description*', '../UI/images/prod_images/basketball-small.jpg', 5, 6, 1, '', 15.99),
 (21, 'Soccer Ball', '*Soccer Ball Description', '../UI/images/prod_images/soccerball.jpg', 5, 3, 1, '', 19.99),
@@ -231,9 +231,9 @@ ALTER TABLE `order_data`
   ADD KEY `USER_ID` (`USER_ID`);
 
 --
--- Indexes for table `prod-data`
+-- Indexes for table `prod_data`
 --
-ALTER TABLE `prod-data`
+ALTER TABLE `prod_data`
   ADD PRIMARY KEY (`PROD_ID`),
   ADD KEY `VENDOR_ID` (`VENDOR_ID`);
 
@@ -281,9 +281,9 @@ ALTER TABLE `order_data`
   MODIFY `ORDER_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `prod-data`
+-- AUTO_INCREMENT for table `prod_data`
 --
-ALTER TABLE `prod-data`
+ALTER TABLE `prod_data`
   MODIFY `PROD_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
@@ -321,10 +321,10 @@ ALTER TABLE `keys_table`
   ADD CONSTRAINT `keys_table_ibfk_1` FOREIGN KEY (`ROLE_ID`) REFERENCES `user_login` (`ROLE_ID`);
 
 --
--- Constraints for table `prod-data`
+-- Constraints for table `prod_data`
 --
-ALTER TABLE `prod-data`
-  ADD CONSTRAINT `prod-data_ibfk_1` FOREIGN KEY (`VENDOR_ID`) REFERENCES `vendor_id` (`VENDOR_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `prod_data`
+  ADD CONSTRAINT `prod_data_ibfk_1` FOREIGN KEY (`VENDOR_ID`) REFERENCES `vendor_id` (`VENDOR_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `roles`

@@ -84,10 +84,10 @@ CREATE TABLE `order_detail` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prod-data`
+-- Table structure for table `prod_data`
 --
 
-CREATE TABLE `prod-data` (
+CREATE TABLE `prod_data` (
   `PROD_ID` int(11) NOT NULL,
   `prod_name` varchar(255) DEFAULT NULL,
   `prod_desc` varchar(255) DEFAULT NULL,
@@ -100,10 +100,10 @@ CREATE TABLE `prod-data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `prod-data`
+-- Dumping data for table `prod_data`
 --
 
-INSERT INTO `prod-data` (`PROD_ID`, `prod_name`, `prod_desc`, `prod_image`, `prod_price`, `prod_quantity`, `VENDOR_ID`, `prod_date_purchased`, `prod_purchase_cost`) VALUES
+INSERT INTO `prod_data` (`PROD_ID`, `prod_name`, `prod_desc`, `prod_image`, `prod_price`, `prod_quantity`, `VENDOR_ID`, `prod_date_purchased`, `prod_purchase_cost`) VALUES
 (19, 'Basketball - Large', 'This is a regulation sized basketball ', '../UI/images/prod_images/basketball.jpg', 5, 6, 1, '10/23/2022', 20.99),
 (20, 'Basketball-Small', '*Basketball Description*', '../UI/images/prod_images/basketball-small.jpg', 5, 6, 0, '', 15.99),
 (21, 'Soccer Ball', '*Soccer Ball Description', '../UI/images/prod_images/soccerball.jpg', 5, 3, 0, '', 19.99),
@@ -284,9 +284,9 @@ ALTER TABLE `order_detail`
   ADD KEY `ORDER_ID` (`ORDER_ID`);
 
 --
--- Indexes for table `prod-data`
+-- Indexes for table `prod_data`
 --
-ALTER TABLE `prod-data`
+ALTER TABLE `prod_data`
   ADD PRIMARY KEY (`PROD_ID`);
 
 --
@@ -345,9 +345,9 @@ ALTER TABLE `order_detail`
   MODIFY `ORDER_DETAIL_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `prod-data`
+-- AUTO_INCREMENT for table `prod_data`
 --
-ALTER TABLE `prod-data`
+ALTER TABLE `prod_data`
   MODIFY `PROD_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
@@ -394,7 +394,7 @@ ALTER TABLE `keys_table`
 -- Constraints for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  ADD CONSTRAINT `order_detail_ibfk_1` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `prod-data` (`PROD_ID`),
+  ADD CONSTRAINT `order_detail_ibfk_1` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `prod_data` (`PROD_ID`),
   ADD CONSTRAINT `order_detail_ibfk_2` FOREIGN KEY (`ORDER_ID`) REFERENCES `orders` (`ORDER_ID`);
 
 --

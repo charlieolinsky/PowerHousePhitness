@@ -4,7 +4,7 @@
 include_once("../sql/connect.php");
 
 // select all the items in prod data 
-$query = "SELECT * FROM `prod-data`;";
+$query = "SELECT * FROM `prod_data`;";
 $result = $dbconn->query($query);
 
 // close connection

@@ -230,10 +230,10 @@ CREATE TABLE `payment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prod-data`
+-- Table structure for table `prod_data`
 --
 
-CREATE TABLE `prod-data` (
+CREATE TABLE `prod_data` (
   `PROD_ID` int(11) NOT NULL,
   `prod_name` varchar(255) DEFAULT NULL,
   `prod_desc` varchar(255) DEFAULT NULL,
@@ -247,10 +247,10 @@ CREATE TABLE `prod-data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `prod-data`
+-- Dumping data for table `prod_data`
 --
 
-INSERT INTO `prod-data` (`PROD_ID`, `prod_name`, `prod_desc`, `prod_image`, `prod_price`, `prod_quantity`, `VENDOR_ID`, `prod_date_purchased`, `prod_purchase_cost`, `total_rented`) VALUES
+INSERT INTO `prod_data` (`PROD_ID`, `prod_name`, `prod_desc`, `prod_image`, `prod_price`, `prod_quantity`, `VENDOR_ID`, `prod_date_purchased`, `prod_purchase_cost`, `total_rented`) VALUES
 (19, 'Basketball - Large', 'This is a size 7 basketball with 29.5\" circumference', '../UI/images/prod_images/basketball.jpg', 5.50, 3, 1, '10/23/2022', '20.99', 4),
 (20, 'Basketball-Small', 'This is a size 6 basketball with 28.5\" circumference', '../UI/images/prod_images/basketball-small.jpg', 5.00, 3, 1, '10/28/22', '15.99', 5),
 (21, 'Soccer Ball', 'This is a size 5 soccer ball with a 28\" circumference ', '../UI/images/prod_images/soccerball.jpg', 5.00, 5, 1, '10/28/22', '19.99', 3),
@@ -418,9 +418,9 @@ ALTER TABLE `payment`
   ADD KEY `ORDER_ID` (`ORDER_ID`);
 
 --
--- Indexes for table `prod-data`
+-- Indexes for table `prod_data`
 --
-ALTER TABLE `prod-data`
+ALTER TABLE `prod_data`
   ADD PRIMARY KEY (`PROD_ID`),
   ADD KEY `VENDOR_ID` (`VENDOR_ID`);
 
@@ -474,9 +474,9 @@ ALTER TABLE `payment`
   MODIFY `PAYMENT_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `prod-data`
+-- AUTO_INCREMENT for table `prod_data`
 --
-ALTER TABLE `prod-data`
+ALTER TABLE `prod_data`
   MODIFY `PROD_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 
 --
@@ -517,7 +517,7 @@ ALTER TABLE `cart`
 -- Constraints for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  ADD CONSTRAINT `cart_items_ibfk_1` FOREIGN KEY (`PROD_ID`) REFERENCES `prod-data` (`PROD_ID`),
+  ADD CONSTRAINT `cart_items_ibfk_1` FOREIGN KEY (`PROD_ID`) REFERENCES `prod_data` (`PROD_ID`),
   ADD CONSTRAINT `cart_items_ibfk_2` FOREIGN KEY (`ORDER_ID`) REFERENCES `cart` (`ORDER_ID`);
 
 --
@@ -533,10 +533,10 @@ ALTER TABLE `payment`
   ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`ORDER_ID`) REFERENCES `cart` (`ORDER_ID`);
 
 --
--- Constraints for table `prod-data`
+-- Constraints for table `prod_data`
 --
-ALTER TABLE `prod-data`
-  ADD CONSTRAINT `prod-data_ibfk_1` FOREIGN KEY (`VENDOR_ID`) REFERENCES `vendor_id` (`VENDOR_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `prod_data`
+  ADD CONSTRAINT `prod_data_ibfk_1` FOREIGN KEY (`VENDOR_ID`) REFERENCES `vendor_id` (`VENDOR_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `user_address`

@@ -5,7 +5,7 @@
 include_once("../sql/connect.php");
 
 // query to get any items that are rented 
-$query = "SELECT * FROM `prod-data` WHERE `total_rented`>0";
+$query = "SELECT * FROM `prod_data` WHERE `total_rented`>0";
 $result = $dbconn->query($query);
 
 
@@ -18,9 +18,9 @@ if (isset($_POST['return'])) {
     $minus = 1;
 
     // create a query to return an item
-    $checkin = "UPDATE `prod-data` SET total_rented=$rented-$minus WHERE PROD_ID=$so";
+    $checkin = "UPDATE `prod_data` SET total_rented=$rented-$minus WHERE PROD_ID=$so";
     // create a query to update the amount instock
-    $updateInStock = "UPDATE `prod-data` SET prod_quantity=$instock+$minus WHERE PROD_ID=$so";
+    $updateInStock = "UPDATE `prod_data` SET prod_quantity=$instock+$minus WHERE PROD_ID=$so";
 
     // if both queries are successful refresh the page 
     if (mysqli_query($dbconn, $checkin) and mysqli_query($dbconn, $updateInStock)) {

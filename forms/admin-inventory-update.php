@@ -93,7 +93,7 @@
                         <?php
                         include_once("../sql/connect.php");
                         // query to get the items information
-                        $namequery = "SELECT * FROM `prod-data`";
+                        $namequery = "SELECT * FROM `prod_data`";
                         // loop through all the items and display their name in a dropdown
                         if ($r_set = $dbconn->query($namequery)) {
                             echo "<SELECT name='PROD_ID'>";
