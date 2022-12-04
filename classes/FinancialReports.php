@@ -19,7 +19,7 @@
        $classTotals = $row3['quant']*10;
    }
 // get product details
-$query = "SELECT PROD_ID, prod_name, prod_price FROM `prod-data`";
+$query = "SELECT PROD_ID, prod_name, prod_price FROM `prod_data`";
 $result = $dbconn->query($query);
 // get sales 
 $query = "SELECT * FROM `cart_items`";
