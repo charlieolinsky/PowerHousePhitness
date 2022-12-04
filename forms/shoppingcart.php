@@ -312,12 +312,10 @@ if ($tablequant == 0) {
     //run the update queries 
     if ($dbconn->query($deletequant) === TRUE) {
         // echo "<br>removed from cart";
-        if ($dbconn->query($updateSub) === TRUE) {
-            //     echo "<br>sub updated";
-            if ($dbconn->query($updateOrder) === TRUE) {
-                // echo "<br>order deleted";
-            }
+        if ($dbconn->query($updateOrder) === TRUE) {
+            // echo "<br>order deleted";
         }
     }
 }
+
 ?>
