@@ -87,7 +87,7 @@
                 include_once("../sql/connect.php");
 
                 // query to get only the vendor ID for the dropdown menu
-                $namequery = "SELECT * FROM `prod_data`";
+                $namequery = "SELECT * FROM `prod-data`";
                 if ($r_set = $dbconn->query($namequery)) {
                     echo "<SELECT name='PROD_ID'>";
                     while ($row = $r_set->fetch_assoc()) {

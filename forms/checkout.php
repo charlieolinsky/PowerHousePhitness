@@ -7,6 +7,7 @@ require_once("../sql/connect.php");
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     include_once('../include/global_inc.php');
     Roles::minAccess(1, "../UI/loginUI.php");
+    $s = new Session();
 }
 
 
@@ -82,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 //go through each item in the cart and display its information from the prod data table
                                 foreach ($_SESSION['cart'] as $key => $val): 
 
-                                    $query = "SELECT * FROM `prod_data` WHERE PROD_ID=$key;";
+                                    $query = "SELECT * FROM `prod-data` WHERE PROD_ID=$key;";
                                     $result = $dbconn->query($query);
                                     while ($row = $result->fetch_assoc()): 
 
@@ -132,6 +133,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <!-- Billing Address -->
                 <div class="inventory-container" style="width: max-content; margin-top: 0px; margin-left: -172px; display:flex; flex-direction: column">
                     <h3>Billing Address</h3>
+                    <!-- <form name="placeOrder" action="placeorder.php" onsubmit="submit()"> -->
+                    <!-- <form action="../forms/placeorder.php" method="POST" onsubmit="submit()"> -->
+                    <!-- <form action="../forms/placeorder.php" method="POST"> -->
+
                     <div class="row">
                         <div class="column" style="text-align: center">
                             <!-- First name label and input -->
@@ -239,7 +244,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 </div>   
 
                 <input type="submit" class="btn checkout-btn" value="Place Order" name="placeorder">
-        </form>   
+        </form>
+        
+                
 
     </body>
 </html>
