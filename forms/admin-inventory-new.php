@@ -1,5 +1,5 @@
 <?php
-    include_once("../include/global_inc.php");
+include_once("../include/global_inc.php");
 ?>
 <!DOCTYPE html>
 
@@ -19,15 +19,14 @@
 </head>
 
 <body style="background-color: var(--dark-color)">
-     <!-- NAV BAR -->
-     <nav class="navbar navbar-expand-lg fixed-top">
+    <!-- NAV BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
 
             <!-- PHP Logo -->
             <a class="navbar-brand" href="../forms/adminDirectory.php"><span style="color: var(--primary-color)">P</span>ower <span style="color: var(--primary-color)">H</span>ouse <span style="color: var(--primary-color)">P</span>hitness</a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -54,7 +53,7 @@
                             <a href="../UI/services.php#classes">Classes </a>
                             <a href="../UI/services.php#membership">Memberships </a>
                             <a href="../forms/equip-rental-member.php">Equipment </a>
-                        </div> 
+                        </div>
                     </li>
 
                     <!-- Add and link Schedule page -->
@@ -70,12 +69,12 @@
 
                 <!-- Add User icon with link -->
                 <ul class="social-icon ml-lg-3">
-                        <li><a href="../forms/account_tab.php" class="fa fa-user"></a></li>
+                    <li><a href="../forms/account_tab.php" class="fa fa-user"></a></li>
                 </ul>
 
                 <!-- Add shopping cart icon with link -->
                 <ul class="social-icon ml-lg-3">
-                        <li><a href="../forms/shoppingcart.php" class="fa fa-shopping-cart"></a></li>
+                    <li><a href="../forms/shoppingcart.php" class="fa fa-shopping-cart"></a></li>
                 </ul>
             </div>
 
@@ -142,8 +141,9 @@
                     <div class="column" style="padding: 4px">
                         <!-- asking for name input -->
                         <label for="prod_name"> Item Name:</label><br>
-                        <input type="text" id="prod_name" name="prod_name" 
-                        value="<?php if ((isset($_POST['prod_name'])) and (!isset($name_error))) echo $_POST['prod_name']; ?>">
+                         <!-- value is making the form hold its value after submit if there was an error -->
+                        <input type="text" id="prod_name" name="prod_name" value="<?php if ((isset($_POST['prod_name'])) and (!isset($name_error))) echo $_POST['prod_name']; ?>">
+                        <!-- display error if value is invalid  -->
                         <br><span> <?php if (isset($name_error)) echo $name_error; ?> </span>
 
                         <br><br>
@@ -151,9 +151,10 @@
                         <!-- asking for prod description -->
                         <label for="prod_desc"> Item Description:</label><br>
                         <input type="text" id="prod_desc" name="prod_desc" 
-                        value="<?php if ((isset($_POST['prod_desc'])) and (!isset($desc_error))){
-                            echo $_POST['prod_desc']; 
-                        }?>">
+                                value="<?php if ((isset($_POST['prod_desc'])) and (!isset($desc_error))) {
+                                    echo $_POST['prod_desc'];
+                                } ?>">
+                        <!-- display error if value is invalid  -->
                         <br><span> <?php if (isset($desc_error)) echo $desc_error; ?> </span>
 
                         <br><br>
@@ -161,6 +162,7 @@
                         <!-- asking for price-->
                         <label for="prod_price"> Item Price: </label><br>
                         <input type="text" id="prod_price" name="prod_price" value="<?php if ((isset($_POST['prod_price'])) and (!isset($price_error))) echo $_POST['prod_price']; ?>">
+                        <!-- display error if value is invalid  -->
                         <br><span> <?php if (isset($price_error)) echo $price_error; ?> </span>
 
                     </div>
@@ -171,7 +173,7 @@
                         <!-- asking for quantity -->
                         <label for="prod_quantity">Item Quantity: </label><br>
                         <input type="text" id="prod_quantity" name="prod_quantity" value="<?php if ((isset($_POST['prod_quantity'])) and (!isset($quantity_error))) echo $_POST['prod_quantity']; ?>">
-                        <!-- value is making the form hold its value after submit if there wa an error -->
+                        <!-- display error if value is invalid  -->
                         <br><span> <?php if (isset($quantity_error)) echo $quantity_error; ?> </span>
 
                         <br><br>
@@ -179,14 +181,15 @@
                         <!-- Asking for date purchased -->
                         <label for="prod_date_purchased"> Date Purchased: </label><br>
                         <input type="text" id="prod_date_purchased" name="prod_date_purchased" value="<?php if ((isset($_POST['prod_date_purchased'])) and (!isset($purchase_date_error))) echo $_POST['prod_date_purchased']; ?>">
+                        <!-- display error if value is invalid  -->                       
                         <br><span> <?php if (isset($purchase_date_error)) echo $purchase_date_error; ?> </span>
 
                         <br><br>
 
                         <!-- asking for prod cost-->
                         <label for="prod_purchase_cost"> Purchase Cost: </label><br>
-                        <input type="text" id="prod_purchase_cost" name="prod_purchase_cost" 
-                        value="<?php if ((isset($_POST['prod_purchase_cost'])) and (!isset($purchase_cost_error))) echo $_POST['prod_purchase_cost']; ?>">
+                        <input type="text" id="prod_purchase_cost" name="prod_purchase_cost" value="<?php if ((isset($_POST['prod_purchase_cost'])) and (!isset($purchase_cost_error))) echo $_POST['prod_purchase_cost']; ?>">
+                        <!-- display error if value is invalid  -->                      
                         <br><span> <?php if (isset($purchase_cost_error)) echo $purchase_cost_error; ?> </span>
 
                         <br>
@@ -197,17 +200,20 @@
                 <label for="VENDOR_ID">Vendor: </label><br>
                 <?php
                 include_once("../sql/connect.php");
-                // query to get only the vendor ID for the dropdown menu
+                // query to get the vendor info for the dropdown menu
                 $vendorquery = "SELECT * FROM vendor_id";
                 if ($r_set = $dbconn->query($vendorquery)) {
                     echo "<SELECT name='VENDOR_ID'>";
                     echo "<option></option>";
-                    while ($row = $r_set->fetch_assoc()) {
+                    // for each vendor id
+                    while ($row = $r_set->fetch_assoc()) { 
+                        // display the name in a dropdown
                         echo "<option value=" . $row['VENDOR_ID'] . ">" . $row['v_name'] . "</option>";
                     }
                     echo "</select>";
                 }
                 ?>
+                <!-- display error if value is invalid  -->
                 <br><span> <?php if (isset($vendor_error)) echo $vendor_error; ?> </span>
 
                 <br>
@@ -220,23 +226,18 @@
                 <!-- SUBMIT BUTTON -->
                 <button type="submit" class="form-control" id="submit-button" name="submit">Submit Item</button>
 
-            
-
-
             </div>
-            </form>
+        </form>
+        <!-- END FORM -->
 
         <div style="margin-top:660px">
             <a href="admin-inventory-home.php" class="btn custom-btn bg-color">Return to Admin Home</a>
         </div>
-
 
     </main>
 </body>
 
 </html>
 
+<!-- include file for running queries  -->
 <?php require_once("../include/add-products.php"); ?>
-
-
-
