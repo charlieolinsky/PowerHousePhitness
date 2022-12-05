@@ -3,16 +3,15 @@
 // THIS INCLUDES ERROR HANDLING- password requirements, verify match, checks if a field was left empty 
 
 class User {
+
 //properties
 private $id;
 private $firstName; 
 private $lastName;
-private $address; // mailing/billing address ?
+private $address;
 private $email;
 private $phoneNumber;
-private $password; //username will be email
-private $lockerNumber; // default null -------------> table for locker # and combo pairs?
-private $lockerCombo; // deafult null
+private $password;
 private $membershipLevel; // default 1 (free member)
 
 //methods
@@ -26,7 +25,7 @@ public function _User($n, $ln, $em, $pass)
 
 public function createUser(){
     
-    /********************Check Fields ***************/
+    /********************Check Fields from the register form ***************/
     if (empty($_POST["fname"])) {
         die("Name is required");
     }
@@ -62,6 +61,8 @@ public function createUser(){
     
     /***********Begin Query ************************/
     include_once("../sql/connect.php");  
+
+    // added new user to the database
     $stmt = $dbconn -> prepare("INSERT INTO user_table (email, passcode, fname, lname)
             VALUES (?,?,?,?)");
     
@@ -97,7 +98,7 @@ public static function removeUser($id)
     $DB_EDIT_1 = $dbconn->query("SET FOREIGN_KEY_CHECKS=0");
     if(!$DB_EDIT_1){echo "DB_EDIT_1 Failed: Foreign Key Error";}
 
-    //Query
+    //Query - deleting user from db
     $sql = "DELETE FROM user_table WHERE USER_ID = $id;"."DELETE FROM user_address WHERE USER_ID = $id";
     if ($dbconn->multi_query($sql) === TRUE) {
         //echo "Record updated successfully";
@@ -115,7 +116,7 @@ public static function removeUser($id)
 public static function adminRemoveUser($id)
 {
     include("../sql/connect.php");
-
+    // deleting user from db
     $sql = "DELETE FROM user_table WHERE USER_ID = $id";
     if ($dbconn->query($sql) === TRUE) {
         header("Location: ../forms/admin_search_users.php"); //ui/index.php
@@ -127,58 +128,33 @@ public static function adminRemoveUser($id)
 }
 public static function setFirstName($fn, $id)
 {  
+    // method for a user or admin to re-set name
     include("../sql/connect.php");
 
-    $sql = $dbconn->query("UPDATE user_table SET fname = '$fn' WHERE USER_ID = '$id'");
-        // if ($dbconn->query($sql) === TRUE) {
-        //     echo "Record updated successfully";
-        //     header("Location: ../forms/account_tab.php"); //ui/index.php
-        //     exit;
-        // } else {
-        //     echo "Error updating record: " . $dbconn->error;
-        // }              
+    $sql = $dbconn->query("UPDATE user_table SET fname = '$fn' WHERE USER_ID = '$id'");     
 }
 public static function setLastName($ln, $id)
 { 
+    // method for a user or admin to re-set last name
     include("../sql/connect.php");
 
     $sql = $dbconn->query("UPDATE user_table SET lname = '$ln' WHERE USER_ID = '$id'");
-        // if ($dbconn->query($sql) === TRUE) {
-        //     echo "Record updated successfully";
-        //    // header("Location: ../forms/login.php"); //ui/index.php
-        //     exit;
-        // } else {
-        //     echo "Error updating record: " . $dbconn->error;
-        // }
 }
 public static function setPassword($pass, $id)
 {      
-
+    // method for a user or admin to re-set password
     include("../sql/connect.php");
 
     $password_hash = password_hash($pass, PASSWORD_DEFAULT);
 
     $sql = $dbconn->query("UPDATE user_table SET passcode = '$password_hash' WHERE USER_ID = '$id'");
-        // if ($dbconn->query($sql) === TRUE) {
-        //     echo "Record updated successfully";
-        //     //header("Location: ../forms/login.php"); //ui/index.php
-        //     exit;
-        // } else {
-        //     echo "Error updating record: " . $dbconn->error;
-        // } 
 }
 public static function setMembershipLevel($role, $id)
 {    
+    // method for admin to change a users role
     include("../sql/connect.php");
 
     $sql = $dbconn->query("UPDATE user_table SET roles = '$role' WHERE USER_ID = '$id'");
-        // if ($dbconn->query($sql) === TRUE) {
-        //     //echo "Record updated successfully";
-        //     //header("Location: ../forms/login.php"); //ui/index.php
-        //     exit;
-        // } else {
-        //     echo "Error updating record: " . $dbconn->error;
-        // }
 }
 }
 ?>
