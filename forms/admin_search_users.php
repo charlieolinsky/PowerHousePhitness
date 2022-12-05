@@ -8,6 +8,32 @@ session_start();
 include_once("../include/global_inc.php");
 
 
+
+
+if (isset($_GET['getID'])) {
+  $id = $_GET['userID'];
+  $sql = "SELECT COUNT(*) FROM user_table WHERE USER_ID = '$id'";
+  $result = $dbconn->query($sql);
+  while($row = mysqli_fetch_assoc($result))
+ {
+    $num_rows = $row['COUNT(*)'];
+ }
+  if($num_rows == 0)
+  {
+   echo "<p align = 'center', style = 'color:red', top:5px> USER NOT FOUND"; 
+  }
+  else 
+  {
+    $id = $_GET['userID'];
+    $_SESSION["get_id"] = $id;
+    header("Location: ../forms/admin_edit_users.php");
+  }
+}
+
+
+
+
+
 ?>
 <html lang="en">
 
@@ -32,7 +58,9 @@ include_once("../include/global_inc.php");
 
           <div class="inventory-container" style="padding: 20px; margin-top: 115px">
             <dl>
-            <form action="../forms/admin_edit_users.php" method="GET">   
+              <!-- form for admin to enter a user id  -->
+              <!-- this form calls method from admin_edit_users.php -->
+            <form action="../forms/admin_search_users.php" method="GET">   
               <h3>Enter User ID</h3>
               <br><br>
 
@@ -40,8 +68,6 @@ include_once("../include/global_inc.php");
               <input type="name" placeholder="Enter a user ID" name="userID" required>
               <br>
               <input type="submit" class="btn cart-btn mt-3" name="getID" value="Submit">
-              <!-- <input type="submit" name = "getID" value = "Submit"> -->
-              <!-- <button type="submit" class="btn">Submit</button> -->
             </form>
           </div>
 
