@@ -122,7 +122,7 @@
 
             <h3>Finance Personnel </h3>
             <!-- Reports button -->
-            <a href="../classes/FinancialReports.php" class="btn edit-btn bg-color" style="margin-top: 5px; min-width: -webkit-fill-available">Reports</a>
+            <a href="../forms/FinancialReports.php" class="btn edit-btn bg-color" style="margin-top: 5px; min-width: -webkit-fill-available">Reports</a>
 
             <br><br>
             <a href="../UI/index.php" class="btn class-btn bordered mt-3" style="margin-top: 5px; min-width: -webkit-fill-available">Return Home</a>
