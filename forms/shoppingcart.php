@@ -214,6 +214,8 @@ require_once("../classes/ShoppingCart.php");
 
 <?php
 //if the user is logged in and there is a cart in session
+$dbconn->query("SET FOREIGN_KEY_CHECKS=0");
+
 if (isset($_SESSION['cart']) and (isset($_SESSION['user_id']) )) {
 
     //if the user is logged int set the userID variable
@@ -353,7 +355,6 @@ if (isset($_SESSION['cart']) and (isset($_SESSION['user_id']) )) {
             }
         }
 
-        $dbconn->query("SET FOREIGN_KEY_CHECKS=1");
 
     }
 }
