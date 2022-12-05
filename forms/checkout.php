@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                                                 <!-- Product Price -->
                                                 <td>
-                                                    <h4 style="color: var(--primary-color); margin-bottom: 15px"> <?php echo "$" . $row['prod_price'] ?> </h4>
+                                                    <h4 style="color: var(--primary-color); margin-bottom: 15px"> <?php echo "$" . number_format($sub,2) ?> </h4>
                                                 </td>
                                             </div> 
                                         </tr>
