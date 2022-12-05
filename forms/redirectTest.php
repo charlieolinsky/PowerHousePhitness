@@ -10,6 +10,8 @@
         2. A URL where the user can be sent to next (generally the index or login page)
         3. A title for the doccument (appears at the top of the tab on the browser)
         4. The name of your redirect link. (name of param 2).
+        
+    ************Do not forget to include the header and die statements on lines 24 and 25*************
 
         SHOWN BELOW 
     */
@@ -20,6 +22,6 @@
         "Error", 
         "Return Home
     ");  
-    
-    header("Location: redirectPage.php"); //
+    header("Location: redirectPage.php"); 
+    die()
 ?>
