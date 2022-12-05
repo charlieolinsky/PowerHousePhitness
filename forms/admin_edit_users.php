@@ -1,39 +1,18 @@
 <?php
 
-//session_start();
+session_start();
 //$session = new Session();
 include_once("../classes/User.php");
 include_once("../classes/roles.php");
 include_once("../sql/connect.php");
 
-// keeps rerunning through lines 13-21??
-// loses the value of 'id' and 'user'when hit submit 
 
-if (isset($_GET['getID'])) {
-    $id = $_GET['userID'];
-    $sql = "SELECT COUNT(*) FROM user_table WHERE USER_ID = '$id'";
-    $result = $dbconn->query($sql);
-    while($row = mysqli_fetch_assoc($result))
-   {
-      $num_rows = $row['COUNT(*)'];
-   }
-    if($num_rows == 0)
-    {
-     echo "User Not Found";
-     echo "<br>";
-     echo "<br>";
-     echo "<a href='admin_search_users.php' title='search'>Go Back</a>";
-     exit;
-     //<a href='my-page.html' title='My Page'>My Page</a>
-     // header("Location: ../forms/admin_search_users.php");
-    }
-    else 
-    {
+if ($_SESSION["get_id"]) {
+    $id = $_SESSION['get_id'];
+    // echo $get_id;
     $sql2 = "SELECT * FROM user_table WHERE USER_ID = '$id'";
     $result2 = $dbconn->query($sql2);
     $user = $result2->fetch_assoc();
-    }
-    //var_dump($user);
 }
 
 // calling method from user class to reset role 
@@ -238,6 +217,7 @@ if (isset($_GET['remove_user']))
         </div>
 
         <div style="margin-top:850px">
+          <a href="admin_search_users.php" class="btn custom-btn bg-color">Return to Search</a>
           <a href="adminDirectory.php" class="btn custom-btn bg-color">Return to Admin Portal</a>
         </div>
 </main>
