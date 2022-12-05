@@ -9,38 +9,35 @@ if (
 
   $dbconn->query("SET FOREIGN_KEY_CHECKS=0");
 
-  //set the input variables
-  $prodname = $_POST['prod_name'];
-  $desc = $_POST['prod_desc'];
-  $img = $_FILES['prod_image']['name'];
-  $price =  $_POST['prod_price'];
-  $quant = $_POST['prod_quantity'];
-  $vendor = $_POST['VENDOR_ID'];
-  $purchdate = $_POST['prod_date_purchased'];
-  $purchcost = $_POST['prod_purchase_cost'];
+  //  QUERY TO INSERT ITEM 
+  $sql = $dbconn->prepare("INSERT INTO `prod_data` 
+(`prod_name`, `prod_desc`, `prod_image`, `prod_price`, `prod_quantity`, `VENDOR_ID`, `prod_date_purchased`, `prod_purchase_cost`)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
 
-  //query to insert item
-  $sql = "INSERT INTO `prod_data` (prod_name, prod_desc, prod_image, 
-  prod_price, prod_quantity, VENDOR_ID, prod_date_purchased, prod_purchase_cost)
-    VALUES 
-    ( '$prodname', '$desc', '../UI/images/prod_images/" . $_FILES['prod_image']['name'] . "', 
-    $price,  $quant, $vendor, '$purchdate', $purchcost)";
+  $sql->bind_param("sssiiisi", $prodname, $desc, $img, $price, $quant, $vendor, $purchdate, $purchcost);
 
+  //if the data validation is good begin executing the query
+  if (
+    !isset($name_error) and !isset($desc_error) and !isset($price_error) and !isset($quantity_error)
+    and !isset($purchase_date_error) and !isset($purchase_cost_error) and !isset($vendor_error)
+  ) {
+    // SETTING THE VARIABLES
+    $prodname = $_POST['prod_name'];
+    $desc = $_POST['prod_desc'];
+    $img = "../UI/images/prod_images/" . $_FILES['prod_image']['name'];
+    $price =  $_POST['prod_price'];
+    $quant = $_POST['prod_quantity'];
+    $vendor = $_POST['VENDOR_ID'];
+    $purchdate = $_POST['prod_date_purchased'];
+    $purchcost = $_POST['prod_purchase_cost'];
 
-    // $result = $dbconn->query($sql);
-  //run the query, if success then display success and refresh the page after 3 seconds
-  if ($dbconn->query($sql)=== TRUE ) {
-    // echo "<meta http-equiv='refresh' content='3'>";
+    // EXECUTING THE QUERY!
+    $sql->execute();
     echo "<p style='color:red; text-align:center'> New inventory item added successfully  <p>";
-  } else {
-    echo "Error:" . $dbconn->error;
   }
 
-
   $dbconn->query("SET FOREIGN_KEY_CHECKS=1");
-
-  // header("Location: ../forms/admin-inventory-new.php");
 
 
   $dbconn->close();
