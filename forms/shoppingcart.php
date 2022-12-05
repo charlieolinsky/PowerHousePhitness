@@ -336,17 +336,16 @@ if (isset($_SESSION['cart']) and (isset($_SESSION['user_id']))) {
     }
     // deleting the item from the cart 
     if ($tablequant == 0) {
-        //queries to update line items 
-        $deletequant = "DELETE FROM cart_items WHERE (ORDER_ID=$sessionOrder AND PROD_ID=$so)";
+        //preparing the delete from cart query
+        $deletequant = $dbconn->prepare("DELETE FROM cart_items WHERE (ORDER_ID=? AND PROD_ID=?)");
+        $deletequant->bind_param('ii', $sessionOrder, $so);
+        $deletequant->execute();
+
+        //query to update order total
         $updateOrder = "UPDATE cart SET grand_total=$grand_total WHERE ORDER_ID=$sessionOrder";
 
-        //run the update queries 
-        // mysqli_query($dbconn, $deletequant);
-        if ($dbconn->query($deletequant) === TRUE) {
-            // echo "<br>removed from cart";
-            if ($dbconn->query($updateOrder) === TRUE) {
-                // echo "<br>order deleted";
-            }
+        if ($dbconn->query($updateOrder) === TRUE) {
+            // echo "<br>order deleted";
         }
     }
 }
