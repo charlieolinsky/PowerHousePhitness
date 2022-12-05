@@ -95,12 +95,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                             <div class="cart-info" style="width: max-content">
                                                 <!-- Product Name -->
                                                 <td>
-                                                    <h4 style="text-align: left; margin-bottom: 15px; margin-right: 450px"> <?php echo $row['prod_name'] ?> </h4>
+                                                    <h4 style="text-align: left; margin-bottom: 15px; margin-right: 450px"> <strong> <?php echo $row['prod_name'] ?> </strong> <?php echo "x".$val ?> </h4>
                                                 </td>
 
-                                                <td>
+                                                <!-- <td>
                                                     <h4 style="margin-left:-550px"> <?php echo "x".$val ?> </h4>
-                                                </td>
+                                                </td> -->
 
                                                 <!-- Product Price -->
                                                 <td>
