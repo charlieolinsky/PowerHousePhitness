@@ -92,7 +92,7 @@
         <div class="inventory-container" style="margin-top: 100px">
             <div class="column">
                 <h3>Finance Personnel</h3>
-                <a href="../classes/FinancialReports.php" class="btn edit-btn bg-color" style="margin-top: 10px; min-width: -webkit-fill-available">Reports</a>
+                <a href="../forms/FinancialReports.php" class="btn edit-btn bg-color" style="margin-top: 10px; min-width: -webkit-fill-available">Reports</a>
                 <br>
                 <a href="../UI/index.php" class="btn class-btn bordered mt-3" style="margin-top: 5px; min-width: -webkit-fill-available">Return Home</a>
             </div>
