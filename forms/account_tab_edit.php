@@ -9,10 +9,6 @@ $s = new Session();
 if (isset($_POST['fn'])) {
     $fName = ucfirst($_POST["newName"]);
     $id = $s->read('user_id');
-
-    //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
-    //$user -> setFirstName($name, $id);
-    //User::setFirstName($name, $id);
     $s->write('fname', $fName);
     User::setFirstName($fName, $id);
 }
@@ -22,9 +18,6 @@ if (isset($_POST['ln'])) {
   $lName = ucfirst($_POST["newLname"]);
   $id = $s->read('user_id');
   $s->write('lname', $lName);
-  //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
-  //$user -> setFirstName($name, $id);
-  //User::setFirstName($name, $id);
   User::setLastName($lName, $id);
 }
 
@@ -32,11 +25,7 @@ if (isset($_POST['ln'])) {
 if (isset($_POST['add'])) {
   $address = $_POST["newAddress"];
   $id = $s->read('user_id');
-
-  //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
-  //$user -> setFirstName($name, $id);
-  //User::setFirstName($name, $id);
-    User::setFirstName($address, $id);
+  User::setFirstName($address, $id);
 }
 // calling method from user class to reset password
 if (isset($_POST['pass'])) {
@@ -56,13 +45,9 @@ if ( ! preg_match("/[0-9]/", $_POST["newPassword"])) {
 }
   $pass = $_POST["newPassword"];
   $id = $s->read('user_id');
-
-  //$user = new User($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email'], $_SESSION['pword']); 
-  //$user -> setFirstName($name, $id);
-  //User::setFirstName($name, $id);
-    User::setPassword($pass, $id);
+  User::setPassword($pass, $id);
 }
-
+//  method to delete user from the db
 if (isset($_POST['remove_user']))
 {
   $id = $s->read('user_id');

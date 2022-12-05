@@ -68,6 +68,7 @@
             <h4 style="color: var(--dark-color)">
               Membership Level: 
                   <?php
+                  // displays the name of the role based on the number in the db
                     if($s->read('roles') == 1)
                     {
                       echo "Free Member";
@@ -105,26 +106,25 @@
                       <?php
                         $userID = $s->read('user_id');
                       // var_dump($userID);
-                      /////testing
                       $sql = "SELECT COUNT(*) FROM user_address WHERE USER_ID = '$userID'";
                       $result = $dbconn->query($sql);
                       while($row = mysqli_fetch_assoc($result))
                      {
                         $num_rows = $row['COUNT(*)'];
                      }
-                      if($num_rows == 0)
+                      if($num_rows == 0) 
                       {
+                        // if there is no stored address for this particular user
                        echo "No address on file";
                       }
                       else 
                     {
-                      /////testing
+                      // if there is a stored address for the user, display address
                         $sql = "SELECT address1, address2, city, st, zip FROM `user_address` WHERE USER_ID = '$userID'";
                         $result = mysqli_query($dbconn, $sql);
                         $rows = $result->fetch_assoc();
                         //var_dump($rows);
                         $address = array($rows);
-                        //echo $address[0];
                         echo ucwords($rows['address1']) . ucwords($rows['address2']) .", ". ucwords($rows['city']) .", ". strtoupper($rows['st']) .", ". $rows['zip'];                      
                     }
                       ?>

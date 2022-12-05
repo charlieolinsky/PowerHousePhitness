@@ -3,6 +3,7 @@
 
    Roles::minAccess(4, "../forms/denied.php");
 
+   // gets total for all sales 
    $sql ="SELECT SUM(grand_total) AS sum FROM cart";
    $result = mysqli_query($dbconn, $sql);
    while($row = mysqli_fetch_assoc($result))
@@ -29,15 +30,14 @@ $result2 = $dbconn->query($query);
 $query = "SELECT CLASS_ID, class_name, current_capacity FROM `classes`";
 $resultClasses = $dbconn->query($query);
 
-// get membership details
-// num basic members
+// count number of basic members
 $query = "SELECT COUNT(*) FROM user_table WHERE roles = '1'";
 $resultCountBasic = $dbconn->query($query);
 while($row = mysqli_fetch_assoc($resultCountBasic))
 {
   $numBasicMembers = $row['COUNT(*)'];
 }
-// num premium
+// count number of premium members
 $query = "SELECT COUNT(*) FROM user_table WHERE roles = '2'";
 $resultCountPremium = $dbconn->query($query);
 while($row = mysqli_fetch_assoc($resultCountPremium))
@@ -50,6 +50,7 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
         <title>
             Z Report
         </title>
+        <!-- Style for Reports -->
         <style type="text/css">
             h1 {
             padding-left: 190px;
@@ -70,12 +71,14 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
         }
         </style>
     </head>
+    <!-- code for Z-Report -->
     <body style="text-align: center">
         <h1 class="header" style="margin-left: -200px">
             Z Report
         </h1>
         <table class="table" cellspacing="0" style="margin-left: auto; margin-right: auto">
             <thead>
+                <!-- Collumn Headers -->
                 <tr>
                     <td class="table-header-cell">
                     Sales and Tax Summary
@@ -92,6 +95,7 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
                     </td>
                     <td class="description-cell">
                         <?php
+                        // 530 is a simulated value for "daily fees" (i.e someone payong to use the gym for the day)
                           echo "$" . round(($totalSales + 530 + $classTotals )*1.08, 2);
                         ?>
                     </td>
@@ -102,6 +106,7 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
                     </td>
                     <td class="description-cell">
                     <?php    
+                    // +530 from simulating daily fees
                     echo "$" . round(($totalSales + 530 + $classTotals)*.08, 2); 
                     ?>              
                     </td>
@@ -112,7 +117,7 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
                     </td>
                     <td class="description-cell">
                         <?php 
-                         // +530 from simulating memberships
+                         // +530 from simulating daily fees
                          echo "$" . round($totalSales + 530 + $classTotals, 2);
                         ?>
                     </td>
@@ -122,8 +127,9 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
                         Debit:
                     </td>
                     <td class="description-cell">
-                        <!-- *debit total* -->
+                        <!-- *debit total simulated* -->
                         <?php 
+                         // +530 from simulating daily fees
                         echo "$" . round(($totalSales + 530 + $classTotals)*1.08*.7, 2);
                         ?>
                     </td>
@@ -133,7 +139,7 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
                         Credit:
                     </td>
                     <td class="description-cell">
-                        <!-- credit total* -->
+                        <!-- *credit total simulated* -->
                         <?php 
                         echo "$" . round(($totalSales + 530 + $classTotals)*1.08*.3, 2);
                         ?>
@@ -179,7 +185,7 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
                     <td class="description-cell">
                         <!-- *simulated amount from non-members paying per day* -->
                         <?php 
-                        echo "$530.00"; // this is just to simulate since there are no values in the db
+                        echo "$530.00";
                         ?>
                     </td>
                 </tr>
@@ -194,7 +200,7 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
         <h1 class="header" style="margin-left: -200px">
          Equipment
         </h1>
-
+          <!-- Collumn Headers -->
         <table class="table" cellspacing="0" style="margin-left: auto; margin-right: auto">
             <thead>
                 <tr>
@@ -227,21 +233,25 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
                 <tr class="values">
                     <td class="cell">
                     <h5><?php 
-
+                    // displaying the item code
                     $ids = array($rows['PROD_ID']);
                     $index = 0;
                     echo $ids[$index];
                     ?></h5>
                     </td>
                     <td class="description-cell">
-                    <h5><?php echo $rows['prod_name']; ?></h5>
-                    </td>
-                    <td class="cell">
-                    <h5><?php echo $rows['prod_price']; ?></h5>
+                    <h5><?php 
+                    // displaying the item name
+                    echo $rows['prod_name']; ?></h5>
                     </td>
                     <td class="cell">
                     <h5><?php 
-                    
+                    // displaying the item price
+                    echo $rows['prod_price']; ?></h5>
+                    </td>
+                    <td class="cell">
+                    <h5><?php 
+                    // getting and displaying the total times each item was rented (sales)
                     $sql ="SELECT SUM(quantity) AS quant FROM cart_items WHERE PROD_ID = $ids[$index]";
                     $result3 = mysqli_query($dbconn, $sql);
                     while($row3 = mysqli_fetch_assoc($result3))
@@ -252,12 +262,14 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
                     </td>
                     <td class="cell">
                     <h5><?php 
+                    // displays the total amount of sales from each item
                     $sql ="SELECT SUM(item_cost) AS total FROM cart_items WHERE PROD_ID = $ids[$index]";
                     $result4 = mysqli_query($dbconn, $sql);
                     while($row4 = mysqli_fetch_assoc($result4))
                     {
                         echo "$" . $row4['total'];
                     }
+                    // increments to next item
                     $index++;
                     ?></h5>
                     </td>
@@ -275,6 +287,7 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
     <head>
     </head>
     <body>
+        <!-- Collumn Headers -->
         <h1 class="header" style="margin-left: -200px">
          Classes
         </h1>
@@ -308,26 +321,33 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
                 <tr class="values">
                     <td class="cell">
                     <h5><?php 
-
+                    // displays the class id 
                     $ids = array($rows['CLASS_ID']);
                     $index = 0;
                     echo $ids[$index];
                     ?></h5>
                     </td>
                     <td class="description-cell">
-                    <h5><?php echo $rows['class_name']; ?></h5>
-                    </td>
-                    <td class="cell">
-                    <h5><?php echo $rows['current_capacity']; ?></h5>
+                    <h5><?php 
+                    // displays the class name
+                    echo $rows['class_name']; ?></h5>
                     </td>
                     <td class="cell">
                     <h5><?php 
+                    // displays the current capacity (# people signed up)
+                    echo $rows['current_capacity']; ?></h5>
+                    </td>
+                    <td class="cell">
+                    <h5><?php 
+                        // arbitrary cost for classes 
                         echo "$10";
                     ?></h5>
                     </td>
                     <td class="cell">
                     <h5><?php 
+                    // sales (# of people signed up * class cost)
                     echo "$" . $rows['current_capacity']*10;
+                    // increments to next class
                     $index++;
                     ?></h5>
                     </td>
@@ -348,7 +368,7 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
         <h1 class="header" style="margin-left: -200px">
          Memberships
         </h1>
-
+        <!-- Collumn Headers -->
         <table class="table" cellspacing="0" style="margin-left: auto; margin-right: auto">
             <thead>
                 <tr>
@@ -375,7 +395,9 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
                     echo "Basic Member";
                     ?></h5>
                     <td class="cell">
-                    <h5><?php echo "$0";?></h5>
+                    <h5><?php 
+                    // no payments for basic members 
+                    echo "$0";?></h5>
                     </td>
                     <td class="cell">
                     <h5><?php 
@@ -396,7 +418,9 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
                     echo "Premium-Monthly";
                     ?></h5>
                     <td class="cell">
-                    <h5><?php echo "$25";?></h5>
+                    <h5><?php 
+                    // monthly cost for premium members
+                    echo "$25";?></h5>
                     </td>
                     <td class="cell">
                     <h5><?php 
@@ -405,6 +429,7 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
                     </td>
                     <td class="cell">
                     <h5><?php 
+                    // monthly sales for premium memberships
                     echo "$". $numPremium*25 . "/month";
                     ?></h5>
                     </td>
@@ -417,10 +442,13 @@ while($row = mysqli_fetch_assoc($resultCountPremium))
                     echo "Premium-Yearly";
                     ?></h5>
                     <td class="cell">
-                    <h5><?php echo "$270";?></h5>
+                    <h5><?php echo 
+                    // $270 is the yearly fee
+                    "$270";?></h5>
                     </td>
                     <td class="cell">
                     <h5><?php 
+                    // this is an arbitrary number representing the number of members who paid yearly (we currently do not have this available in the db)
                         echo "6";
                     ?></h5>
                     </td>
