@@ -109,9 +109,9 @@ require_once("../classes/ShoppingCart.php");
         if (isset($_SESSION['cart'])) {
             foreach ($_SESSION['cart'] as $key => $val) :
 
-            $query = "SELECT * FROM `prod_data` WHERE PROD_ID=$key";
-            $result = $dbconn->query($query);
-            while ($row = $result->fetch_assoc()) :
+                $query = "SELECT * FROM `prod_data` WHERE PROD_ID=$key";
+                $result = $dbconn->query($query);
+                while ($row = $result->fetch_assoc()) :
 
 
                     $sub = $val * $row['prod_price'];
@@ -216,7 +216,7 @@ require_once("../classes/ShoppingCart.php");
 //if the user is logged in and there is a cart in session
 $dbconn->query("SET FOREIGN_KEY_CHECKS=0");
 
-if (isset($_SESSION['cart']) and (isset($_SESSION['user_id']) )) {
+if (isset($_SESSION['cart']) and (isset($_SESSION['user_id']))) {
 
     //if the user is logged int set the userID variable
     if (isset($_SESSION['user_id'])) {
@@ -277,9 +277,13 @@ if (isset($_SESSION['cart']) and (isset($_SESSION['user_id']) )) {
         }
     }
 
+    //setting quantity entered variable
+    global $quant;
+    if (isset($_POST['quantity'])) $quant = $_POST['quantity'];
+
 
     //if this is the first item in the cart
-    if (count($cart) == 1 and $tablequant == 1) {
+    if (count($cart) == 1 and $tablequant == 1 and $quant <= $instock) {
         // if (count($cart) == 1) {
 
         //create new order query
@@ -296,19 +300,9 @@ if (isset($_SESSION['cart']) and (isset($_SESSION['user_id']) )) {
         }
     }
 
-    global $quant;
-    if(isset($_POST['quantity'])) $quant = $_POST['quantity'];
-
     //if there are items in the cart already but this is the first of this item being added
-    if (count($cart) > 1 and $tablequant == 1 and $quant<= $instock) {
-        // if (count($cart) > 1 and $_POST['quantity'] <= $instock) {
+    if (count($cart) > 1 and $tablequant == 1 and $quant <= $instock) {
 
-        // echo "entered: " . $_POST['quantity'];
-        // echo "entered: " . $quant;
-
-        // echo "ef: ". $tablequant;
-        // echo "<br>stock: " .$instock;
-        // if (count($cart) > 1) {
         //add item to cart query
         $addtocart = "INSERT INTO cart_items (PROD_ID, ORDER_ID, item_cost, quantity) 
             VALUES ( $so, $sessionOrder, $sub, $quantity)";
@@ -343,7 +337,7 @@ if (isset($_SESSION['cart']) and (isset($_SESSION['user_id']) )) {
     // deleting the item from the cart 
     if ($tablequant == 0) {
         //queries to update line items 
-        $deletequant = "DELETE FROM cart_items WHERE ORDER_ID=$sessionOrder AND PROD_ID=$so";
+        $deletequant = "DELETE FROM cart_items WHERE (ORDER_ID=$sessionOrder AND PROD_ID=$so)";
         $updateOrder = "UPDATE cart SET grand_total=$grand_total WHERE ORDER_ID=$sessionOrder";
 
         //run the update queries 
@@ -354,8 +348,6 @@ if (isset($_SESSION['cart']) and (isset($_SESSION['user_id']) )) {
                 // echo "<br>order deleted";
             }
         }
-
-
     }
 }
 ?>
