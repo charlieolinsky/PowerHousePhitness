@@ -25,17 +25,8 @@
     </head>
 
     <body>
-        <!-- <h1>Register</h1>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="POST">    
-
-            First Name: <input type="text" name="fname"><br>
-            Last Name: <input type="text" name="lname"><br>
-            Email: <input type="email" name="email"><br>
-            New Password: <input type="password" name="pword"><br>
-            Verify Password: <input type="password" name="vpword"><br>
-            <button type="submit" name="submit"> Create</button>
-
-        </form> -->
+   
+        <!-- Registration form that self-calls the method below -->
         <body style="background-color:#171819"></body>
             <div class = "login-container">
                 `<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="POST">    
@@ -54,6 +45,7 @@
 </html>
 
 <?php 
+   // code to set variables to be used as paramters for the User class ""createUser" method.
     include_once("../classes/User.php");
 
     if (isset($_POST['fname'])) {
