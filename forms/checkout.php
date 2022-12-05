@@ -98,6 +98,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                                     <h4 style="text-align: left; margin-bottom: 15px; margin-right: 450px"> <?php echo $row['prod_name'] ?> </h4>
                                                 </td>
 
+                                                <td>
+                                                    <h4 style="margin-left:-550px"> <?php echo "x".$val ?> </h4>
+                                                </td>
+
                                                 <!-- Product Price -->
                                                 <td>
                                                     <h4 style="color: var(--primary-color); margin-bottom: 15px"> <?php echo "$" . number_format($sub,2) ?> </h4>
