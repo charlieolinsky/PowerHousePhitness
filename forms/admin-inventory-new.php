@@ -240,4 +240,4 @@ include_once("../include/global_inc.php");
 </html>
 
 <!-- include file for running queries  -->
-<?php require_once("../include/add-products.php"); ?>
+<?php include_once("../include/add-products.php"); ?>

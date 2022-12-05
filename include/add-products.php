@@ -21,15 +21,16 @@ if (
 
 
   //query to insert item
-  $sql = "INSERT INTO `prod-data` (`prod_name`, `prod_desc`,`prod_image`, 
-  `prod_price`, `prod_quantity`, `VENDOR_ID`, `prod_date_purchased`,`prod_purchase_cost`)
+  $sql = "INSERT INTO `prod_data` (prod_name, prod_desc, prod_image, 
+  prod_price, prod_quantity, VENDOR_ID, prod_date_purchased, prod_purchase_cost)
     VALUES 
     ( '$prodname', '$desc', '../UI/images/prod_images/" . $_FILES['prod_image']['name'] . "', 
-    '$price',  '$quant', '$vendor', '$purchdate', '$purchcost')";
+    $price,  $quant, $vendor, '$purchdate', $purchcost)";
 
 
+    // $result = $dbconn->query($sql);
   //run the query, if success then display success and refresh the page after 3 seconds
-  if ($dbconn->query($sql) === TRUE) {
+  if ($dbconn->query($sql)=== TRUE ) {
     // echo "<meta http-equiv='refresh' content='3'>";
     echo "<p style='color:red; text-align:center'> New inventory item added successfully  <p>";
   } else {
@@ -39,7 +40,7 @@ if (
 
   $dbconn->query("SET FOREIGN_KEY_CHECKS=1");
 
-  header("Location: ../forms/admin-inventory-new.php");
+  // header("Location: ../forms/admin-inventory-new.php");
 
 
   $dbconn->close();
