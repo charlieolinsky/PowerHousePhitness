@@ -109,15 +109,9 @@ require_once("../classes/ShoppingCart.php");
         if (isset($_SESSION['cart'])) {
             foreach ($_SESSION['cart'] as $key => $val) :
 
-<<<<<<< Updated upstream
             $query = "SELECT * FROM `prod_data` WHERE PROD_ID=$key;";
             $result = $dbconn->query($query);
             while ($row = $result->fetch_assoc()) :
-=======
-                $query = "SELECT * FROM `prod_data` WHERE PROD_ID=$key;";
-                $result = $dbconn->query($query);
-                while ($row = $result->fetch_assoc()) :
->>>>>>> Stashed changes
 
 
                     $sub = $val * $row['prod_price'];
