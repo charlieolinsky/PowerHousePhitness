@@ -109,7 +109,7 @@ require_once("../classes/ShoppingCart.php");
         if (isset($_SESSION['cart'])) {
             foreach ($_SESSION['cart'] as $key => $val) :
 
-            $query = "SELECT * FROM `prod_data` WHERE PROD_ID=$key;";
+            $query = "SELECT * FROM `prod_data` WHERE PROD_ID=$key";
             $result = $dbconn->query($query);
             while ($row = $result->fetch_assoc()) :
 
@@ -215,6 +215,7 @@ require_once("../classes/ShoppingCart.php");
 <?php
 //if the user is logged in and there is a cart in session
 if (isset($_SESSION['cart']) and (isset($_SESSION['user_id']) )) {
+
     //if the user is logged int set the userID variable
     if (isset($_SESSION['user_id'])) {
         $USER_ID = $_SESSION['user_id'];
@@ -289,7 +290,7 @@ if (isset($_SESSION['cart']) and (isset($_SESSION['user_id']) )) {
         $addtocart = "INSERT INTO cart_items (PROD_ID, ORDER_ID, item_cost, quantity) 
                     VALUES ( $so, $sessionOrder, $sub, $quantity)";
         if (mysqli_query($dbconn, $addtocart)) {
-            echo "Item added to cart";
+            // echo "Item added to cart";
         }
     }
 
@@ -301,10 +302,10 @@ if (isset($_SESSION['cart']) and (isset($_SESSION['user_id']) )) {
         // if (count($cart) > 1 and $_POST['quantity'] <= $instock) {
 
         // echo "entered: " . $_POST['quantity'];
-        echo "entered: " . $quant;
+        // echo "entered: " . $quant;
 
-        echo "ef: ". $tablequant;
-        echo "<br>stock: " .$instock;
+        // echo "ef: ". $tablequant;
+        // echo "<br>stock: " .$instock;
         // if (count($cart) > 1) {
         //add item to cart query
         $addtocart = "INSERT INTO cart_items (PROD_ID, ORDER_ID, item_cost, quantity) 
@@ -314,10 +315,10 @@ if (isset($_SESSION['cart']) and (isset($_SESSION['user_id']) )) {
         $updateOrder = "UPDATE cart SET grand_total=$grand_total WHERE ORDER_ID=$sessionOrder";
 
         if ($dbconn->query($addtocart) === TRUE) {
-            echo "Item added to cart 2<br>";
+            // echo "Item added to cart 2<br>";
             //update the grand total 
             if ($dbconn->query($updateOrder) === TRUE) {
-                echo "total updated<br>";
+                // echo "total updated<br>";
             }
         }
         //if the item being added is already in the cart 
@@ -328,11 +329,11 @@ if (isset($_SESSION['cart']) and (isset($_SESSION['user_id']) )) {
         $updateOrder = "UPDATE cart SET grand_total=$grand_total WHERE ORDER_ID=$sessionOrder";
         //run the update queries 
         if ($dbconn->query($updateQuant) === TRUE) {
-            echo "<br>quantity updated";
+            // echo "<br>quantity updated";
             if ($dbconn->query($updateSub) === TRUE) {
-                echo "<br>sub updated";
+                // echo "<br>sub updated";
                 if ($dbconn->query($updateOrder) === TRUE) {
-                    echo "<br>grand total updated";
+                    // echo "<br>grand total updated";
                 }
             }
         }
@@ -351,6 +352,9 @@ if (isset($_SESSION['cart']) and (isset($_SESSION['user_id']) )) {
                 // echo "<br>order deleted";
             }
         }
+
+        $dbconn->query("SET FOREIGN_KEY_CHECKS=1");
+
     }
 }
 ?>
