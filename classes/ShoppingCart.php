@@ -43,7 +43,7 @@ if (isset(($_POST['addToCart']))) { //updating the quantity from add to cart but
     if (isset($_POST['quantity'])) {
         $so = $_POST['PROD_ID'];
         $quantity = $_POST['quantity'];
-        $query = "SELECT * FROM `prod-data` WHERE PROD_ID=$so;";
+        $query = "SELECT * FROM `prod_data` WHERE PROD_ID=$so;";
         $result = $dbconn->query($query);
         while ($row = $result->fetch_assoc()) {
             //save current quantity to variable
