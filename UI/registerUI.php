@@ -45,7 +45,7 @@
 </html>
 
 <?php 
-   // code to set variables to be used as paramters for the User class ""createUser" method.
+   // code to set variables to be used for the User class ""createUser" method.
     include_once("../classes/User.php");
 
     if (isset($_POST['fname'])) {
