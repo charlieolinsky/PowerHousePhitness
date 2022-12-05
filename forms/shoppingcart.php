@@ -108,7 +108,7 @@ require_once("../classes/ShoppingCart.php");
         //go through each item in the cart and display its information from the prod data table
         foreach ($_SESSION['cart'] as $key => $val) :
 
-            $query = "SELECT * FROM `prod-data` WHERE PROD_ID=$key;";
+            $query = "SELECT * FROM `prod_data` WHERE PROD_ID=$key;";
             $result = $dbconn->query($query);
             while ($row = $result->fetch_assoc()) :
 
