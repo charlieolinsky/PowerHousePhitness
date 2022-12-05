@@ -20,7 +20,7 @@ if (isset($_GET['getID'])) {
  }
   if($num_rows == 0)
   {
-   echo "<p align = 'center', style = 'color:red', top:5px> USER NOT FOUND"; 
+    echo "<p align = 'center', style = 'color:red'> USER NOT FOUND"; 
   }
   else 
   {
@@ -52,7 +52,7 @@ if (isset($_GET['getID'])) {
 
 <body style="background-color: var(--dark-color)">
   <main style="text-align: center">
-          <div class="admin-title" style="margin-top: 200px">
+          <div class="admin-title" style="margin-top: 100px">
               <h1 style="color: var(--primary-color)">Find a User</h1>
           </div>
 
