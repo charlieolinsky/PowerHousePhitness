@@ -22,7 +22,7 @@ Tooplate 2119 Gymso Fitness
 https://www.tooplate.com/view/2119-gymso-fitness
 -->
 </head>
-
+<!-- form for login which self-calls the method below -->
 <body style="background-color:#171819"></body>
 <login-title>P H P</login-title>
     <div class = "login-container">
@@ -51,24 +51,25 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 <?php
 
-$is_invalid = false;
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     include_once("../sql/connect.php");
     $mysqli = new mysqli ($server, $dbusername, $password, $db);  
     
+    // goes through the db to get all data from the person with the email entered
     $sql = sprintf("SELECT * FROM user_table
                     WHERE email = '%s'",
-                   $mysqli->real_escape_string($_POST["email"]));
+                    $_POST["email"]);
     
     $result = $mysqli->query($sql);
     $user = $result->fetch_assoc();
     
+    //checks that the hashed password entered matches whats in the database for the given email
     if ($user) {
         if (password_verify($_POST['pword'], $user['passcode'])) {
             include_once('../include/global_inc.php');
             
+            // creating session variables 
             $session = new Session();
             $session->write("user_id", $user["USER_ID"]);
             $session->write("email", $user["email"]);
@@ -77,13 +78,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $session->write("lname", $user["lname"]);
             $session->write("pword", $user["passcode"]); 
             
-            header("Location: index.php"); //ui/index.php
+            // if passwords match, brings you to the home page 
+            header("Location: index.php"); 
             die();
         }
     }
+    //if passwords dont match, error message
     echo "<p align = 'center', style = 'color:red'> LOGIN FAILED"; 
 
-     $is_invalid = true;
 }
 
 ?>
