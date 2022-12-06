@@ -26,7 +26,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
 <body style="background-color:#171819"></body>
 <login-title>P H P</login-title>
     <div class = "login-container">
-        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+        <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
             <h2 class="modal-title" id="membershipFormLabel">Login</h2>
             <input type="text" class="form-control" name="email" placeholder="Email" required>
             <input type="password" class="form-control" name="pword" placeholder="Password" required>
@@ -77,15 +77,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $session->write("fname", $user["fname"]);
             $session->write("lname", $user["lname"]);
             $session->write("pword", $user["passcode"]); 
-            
-            // if passwords match, brings you to the home page 
+        
             header("Location: index.php"); 
             die();
         }
     }
-    //if passwords dont match, error message
-    echo "<p align = 'center', style = 'color:red'> LOGIN FAILED"; 
-
+    echo "<p align = 'center', style = 'color:red'> LOGIN FAILED"; // if passwords dont match
 }
 
 ?>

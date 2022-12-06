@@ -64,7 +64,7 @@ public function createUser(){
 
     // added new user to the database
     $stmt = $dbconn -> prepare("INSERT INTO user_table (email, passcode, fname, lname)
-            VALUES (?,?,?,?)");
+            VALUES (?,?,?,?)"); // these are placeholders to be filled in on line 75
     
     if (!$stmt){   
         die("SQL error: " . $dbconn->error);
@@ -72,7 +72,7 @@ public function createUser(){
     $fname = ucfirst($_POST["fname"]);
     $lname = ucfirst($_POST["lname"]);
 
-    $stmt->bind_param("ssss",
+    $stmt->bind_param("ssss", 
                       $_POST["email"],
                       $password_hash,
                       $fname,
@@ -85,7 +85,6 @@ public function createUser(){
                     } catch (mysqli_sql_exception $e) {
                         if ($e->getCode() == 1062) {
                             die("The email you entered is already in use");
-                            //header("Location: register.php"); 
                         }
                     }                  
 }

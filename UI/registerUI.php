@@ -29,7 +29,7 @@
         <!-- Registration form that self-calls the method below -->
         <body style="background-color:#171819"></body>
             <div class = "login-container">
-                `<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="POST">    
+                `<form action="<?php $_SERVER["PHP_SELF"]?>" method="POST">    
                     <h2 class="modal-title" id="membershipFormLabel">Register</h2>
                     <input type="text" class="form-control" name="fname" placeholder="First Name" required>
                     <input type="text" class="form-control" name="lname" placeholder="Last Name" required>
@@ -37,6 +37,7 @@
                     <input type="password" class="form-control" name="pword" placeholder="Password" required>
                     <input type="password" class="form-control" name="vpword" placeholder="Re-type Password" required>
                     <button type="submit" class="form-control" id="submit-button" name="submit">Create Account</button>
+                    <label class="text-small text-muted" for="signup-agree"> <a href="loginUI.php">Already Registered? Sign in</a>
                 </form>
             </div>`
         
