@@ -83,7 +83,7 @@
 
     <main>
         <div class="equip-title">
-            <h1 style="color: var(--primary-color)">Equiptment Rental Portal</h1>
+            <h1 style="color: var(--primary-color)">Equipment Rental Portal</h1>
             <h4>Need to rent equipment while visiting our facility? We have a variety of options from basketballs
                 to shoot hoops, to frisbees to toss around our open gym!
             </h4>

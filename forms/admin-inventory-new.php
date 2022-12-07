@@ -93,45 +93,56 @@ include_once("../include/global_inc.php");
 
             <!-- data validation -->
             <?php
+            $isvalid = TRUE;
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 // Name Validation 
                 if (empty($_POST['prod_name'])) {
                     $name_error = "Please enter an item name";
+                    $isvalid = FALSE;
                 }
                 // Description Validation
                 if (empty($_POST['prod_desc'])) {
                     $desc_error = "Please enter an item description";
+                    $isvalid = FALSE;
                 }
 
                 //Price Validation
                 if (empty($_POST['prod_price'])) {
                     $price_error = "Please enter a price";
+                    $isvalid = FALSE;
                 } else if (!is_numeric($_POST['prod_price'])) {
                     $price_error = "Invalid input, please enter a number.";
+                    $isvalid = FALSE;
                 }
 
                 //Quantity Validation 
                 if (empty($_POST['prod_quantity'])) {
                     $quantity_error = "Please enter a quantity";
+                    $isvalid = FALSE;
                 } else if (!is_numeric($_POST['prod_quantity'])) {
                     $quantity_error = "Invalid input, please enter a number.";
+                    $isvalid = FALSE;
                 }
 
                 //Date Purchased Validation
                 if (empty($_POST['prod_date_purchased'])) {
                     $purchase_date_error = "Please enter a purchase date";
+                    $isvalid = FALSE;
                 }
 
                 //Purchase Price Validation
                 if (empty($_POST['prod_purchase_cost'])) {
                     $purchase_cost_error = "Please enter a price";
+                    $isvalid = FALSE;
                 } else if (!is_numeric($_POST['prod_purchase_cost'])) {
                     $purchase_cost_error = "Invalid input, please enter a number.";
+                    $isvalid = FALSE;
                 }
 
                 //Vendor Validation
                 if (empty($_POST['VENDOR_ID'])) {
                     $vendor_error = "Please select a Vendor";
+                    $isvalid = FALSE;
                 }
             }
             ?>
