@@ -23,7 +23,7 @@
         //Remove Foreign Key Constraint
         $dbconn->query("SET FOREIGN_KEY_CHECKS=0");
 
-        //Update Queries 
+        //Update Queries with error handling
         $res = $dbconn -> query("SELECT * FROM classes"); 
         while($row = $res->fetch_assoc()){
             if($row['class_name'] == $classToEdit){

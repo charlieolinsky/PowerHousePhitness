@@ -2,7 +2,6 @@
     include_once("../include/global_inc.php");
     $s = new Session(); 
 
-
     //Retrieve all Classes
     $all_classes = $dbconn->query("SELECT class_name FROM classes");
 ?>
@@ -41,7 +40,6 @@
                 <form action='admin_update_class.php' method="POST">
                     <label>Select a Class: </label>
 
-                    <!-- ERICA IN-LINE STYLE ALERT  -->
                     <select name="classes_dropdown" style="width: 300px;">
                         <?php
                             // use a while loop to fetch data from the $all_classes variable

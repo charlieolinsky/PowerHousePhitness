@@ -47,8 +47,10 @@
         $userID = $s->read('user_id');
         $userRank = $s->read('roles');
         
+        //query
         if($userRank == 1){ 
             $res = $dbconn -> query("UPDATE user_table SET roles = 2 WHERE USER_ID = $userID");
+            //update role in session
             $s->write('roles', 2);
 
             if($res){

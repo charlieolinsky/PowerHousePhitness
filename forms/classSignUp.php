@@ -9,8 +9,8 @@
 
         //fetch class data
         $state = $s->read('state'); 
-        //echo '<pre>'; print_r($state); echo '</pre>';
 
+        //Match type of submission with selected Form.
         $i = 0;
         for($i; $i<100; $i++){
             if(isset($_POST['signUp_'.$i])){
@@ -21,18 +21,13 @@
             }
         }
 
-        //print_r($submit);
-
+        //split into seperate pairs
         $split = explode('_', $submit);
         $submit = $split[0];
         $formID = $split[1]; 
 
-        // echo "SUBMIT: ".$submit."<br>";
-        // echo "FORM_ID: ".$formID."<br>";
-
         //Fetch Query Data 
         $formData = $state[$formID];
-        //print_r($formData);
 
         $cName = $formData['class_name'];
         $cCap = $formData['current_capacity'];
