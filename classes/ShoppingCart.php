@@ -9,19 +9,13 @@ $s = new Session();
 global $so;
 global $instock;
 
-if (isset($_SESSION['cart'])){
-    if (!isset($_SESSION['cart'])) {
-        $_SESSION['cart'];
-    }
-}
-
 
 require_once("../sql/connect.php");
 
 //starting a session called cart
-// if (!isset($_SESSION['cart'])) {
-//     $_SESSION['cart'];
-// }
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'];
+}
 
 //clearing the cart cart
 if (isset($_POST['clear'])) {
