@@ -33,7 +33,7 @@
                     <h2 class="modal-title" id="membershipFormLabel">Register</h2>
                     <input type="text" class="form-control" name="fname" placeholder="First Name" required>
                     <input type="text" class="form-control" name="lname" placeholder="Last Name" required>
-                    <input type="text" class="form-control" name="email" placeholder="Email" required>
+                    <input type="email" class="form-control" name="email" placeholder="Email" required>
                     <input type="password" class="form-control" name="pword" placeholder="Password" required>
                     <input type="password" class="form-control" name="vpword" placeholder="Re-type Password" required>
                     <button type="submit" class="form-control" id="submit-button" name="submit">Create Account</button>

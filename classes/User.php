@@ -10,7 +10,6 @@ private $firstName;
 private $lastName;
 private $address;
 private $email;
-private $phoneNumber;
 private $password;
 private $membershipLevel; // default 1 (free member)
 
@@ -26,30 +25,37 @@ public function _User($n, $ln, $em, $pass)
 public function createUser(){
     
     /********************Check Fields from the register form ***************/
-    if (empty($_POST["fname"])) {
-        die("Name is required");
+    if (strlen($_POST["fname"]) > 30) { // makes max length for first name = 30
+        die("<p align = 'center', style = 'color:red'> Name must not exceed 30 characters");
     }
-    if (empty($_POST["lname"])) {
-        die("Name is required");
+
+    if (!ctype_alpha($_POST["fname"])) { // verifies first name contains letters only 
+        die("<p align = 'center', style = 'color:red'> Name may only contain letters");
     }
-    if ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-        die("Valid email is required");
+
+    if (strlen($_POST["lname"]) > 30) { // makes max length for last name = 30
+        die("<p align = 'center', style = 'color:red'> Last name must not exceed 30 characters");
     }
-    
-    if (strlen($_POST["pword"]) < 8) {
-        die("Password must be at least 8 characters");
+
+    if (!ctype_alpha($_POST["lname"])) { // verifies last name contains letters only 
+        die("<p align = 'center', style = 'color:red'> Name may only contain letters");
     }
-    
-    if ( ! preg_match("/[a-z]/i", $_POST["pword"])) {
-        die("Password must contain at least one letter");
-    }
-    
-    if ( ! preg_match("/[0-9]/", $_POST["pword"])) {
-        die("Password must contain at least one number");
+
+    if (strlen($_POST["pword"]) < 8) { // makes min length for password = 8
+        die("<p align = 'center', style = 'color:red'> Password must be at least 8 characters");
     }
     
-    if ($_POST["pword"] !== $_POST["vpword"]) {
-        die("Passwords must match");
+    if ( ! preg_match("/[a-z]/i", $_POST["pword"])) { // verifies password contains at least one letter 
+        die("<p align = 'center', style = 'color:red'> Password must contain at least one letter");
+
+    }
+    
+    if ( ! preg_match("/[0-9]/", $_POST["pword"])) { // verifies password contains at least one number
+        die("<p align = 'center', style = 'color:red'> Password must contain at least one number");
+    }
+    
+    if ($_POST["pword"] !== $_POST["vpword"]) { // verifies passwords match
+        die("<p align = 'center', style = 'color:red'> Passwords do not match");
     }
 
 
@@ -84,7 +90,7 @@ public function createUser(){
                         exit;
                     } catch (mysqli_sql_exception $e) {
                         if ($e->getCode() == 1062) {
-                            die("The email you entered is already in use");
+                           echo "<p align = 'center', style = 'color:red'> EMAIL ALREADY IN USE";
                         }
                     }                  
 }
