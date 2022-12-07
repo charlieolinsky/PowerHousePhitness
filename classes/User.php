@@ -10,7 +10,6 @@ private $firstName;
 private $lastName;
 private $address;
 private $email;
-private $phoneNumber;
 private $password;
 private $membershipLevel; // default 1 (free member)
 
