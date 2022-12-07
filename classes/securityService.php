@@ -28,21 +28,17 @@
 
         
 
-        //XSS Protection 
-        public function xss_safe($data) //protects data from XSS Attacks
+        //XSS Attack Protection 
+        public function xss_safe($data)
         {
             return htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
         }
-
-
 
         //HTTP Only Cookies
         public function safeCookie($key, $value){
             $week = new DateTimeImmutable('+1 Hour'); 
             setcookie($key, $value, $week->getTimestamp(), '/', null, null, true);
         }
-
-
 
         //Password Hashing and Verification 
         public static function hp($pass)
@@ -53,8 +49,6 @@
         {
             return password_verify($attempt, $password); 
         }
-
-
 
         //CSRF Protection 
         public function getCSRFToken()

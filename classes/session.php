@@ -58,7 +58,6 @@
             }  
         }
         
-
         //Writes a value to the current session data.
         public static function write($key, $value)
         {
@@ -100,7 +99,6 @@
             return false;
         }
 
-        
         //Deletes a value from the current session data.
         public static function delete($key)
         {
@@ -111,7 +109,6 @@
             self::age();
         }
         
-
         //Echos current session data
         public static function dump()
         {
@@ -119,8 +116,6 @@
             print_r($_SESSION);
         }
         
-
-
         //Expires a session if it has been inactive for a specified amount of time.
         private static function age()
         {
@@ -157,8 +152,6 @@
             return $r;
         }
         
-
-
         //Closes the current session and releases session file lock.
         public static function close()
         {
@@ -169,7 +162,6 @@
             return true;
         }
         
-
         //Removes session data/cookies and destroys the current session.
         public static function destroy()
         {

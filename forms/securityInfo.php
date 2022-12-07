@@ -56,25 +56,21 @@
     
     /*****************************SQL Injection*******************************************/
 
-    $db = new PDO('mysql:host=127.0.0.1;dbname=test', 'root', '');
+    include_once("../include/global_inc.php");
 
     $email = "fakeemail@pos.com"; //Assume this comes from POST
     $attackEmail = "'';DROP TABLE testtable;"; 
 
     //this option allows SQL Injection:
-    //$unsafe = $db->query("SELECT * FROM testtable WHERE email ='{$email}'");
+    $unsafe = $db->query("SELECT * FROM testtable WHERE email =$email");
 
     //this option protects against SQL Injections by using a PDO prepare statement and placeholder.
+    $safe = $db->prepare("SELECT * FROM testtable WHERE email = ?");
+
+    $safe->execute('S',
+        $email,
+    );
     
-    $safe = $db->prepare("SELECT * FROM testtable WHERE email =:email");
-
-    $safe->execute([
-        'email' => $email,
-    ]);
-    
-    /*****************************SQL Injection*******************************************/
-
-
     /*****************************IP Spoofing ************************************************/
     
     // IP spoofing, or IP address spoofing, refers to the creation of Internet Protocol (IP) 
