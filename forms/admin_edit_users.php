@@ -84,7 +84,9 @@ if (isset($_GET['remove_user']))
 
 </head>
 
+<!-- Setting background color -->
 <body style="background-color: var(--dark-color)">
+<!-- align all 'main' components to center -->
 <main style="text-align: center">
         <!-- Page Title -->
         <div class="admin-title">
@@ -100,6 +102,7 @@ if (isset($_GET['remove_user']))
             - Account Info</h1>
         </div>
 
+        <!-- Container for user info -->
         <div class="inventory-container" style="margin-top: 400px">
           <div class="column"> 
               <h5>
@@ -216,6 +219,7 @@ if (isset($_GET['remove_user']))
           </div>
         </div>
 
+        <!-- Return to search & Return to Admin portal buttons -->
         <div style="margin-top:850px">
           <a href="admin_search_users.php" class="btn custom-btn bg-color">Return to Search</a>
           <a href="adminDirectory.php" class="btn custom-btn bg-color">Return to Admin Portal</a>

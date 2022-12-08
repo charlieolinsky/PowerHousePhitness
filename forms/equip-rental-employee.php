@@ -120,11 +120,12 @@
                         <h4 class="mb-1">
                             <span style="color: var(--primary-color)"><?php echo "$" . $rows['prod_price']; ?></span>
                         </h4>
-                        <!--  -->
+                        <!-- Text for total checked out -->
                         <h5>
                             <span><?php echo "Total Checked out: " . $rows['total_rented']; ?></span>
                         </h5>
 
+                            <!-- Return Item submit button -->
                             <input type="submit" class="btn cart-btn mt-3" name="return" value="Return Item">
 
                             <input type="hidden" name="PROD_ID" value="<?php echo $rows['PROD_ID'] ?>">

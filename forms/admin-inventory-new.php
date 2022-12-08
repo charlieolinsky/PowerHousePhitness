@@ -82,6 +82,7 @@ include_once("../include/global_inc.php");
     </nav>
 
     <br><br><br>
+    <!-- Page header title -->
     <main style="text-align: center">
         <div class="admin-title">
             <h1 style="color: var(--primary-color)">Add Inventory Item</h1>
@@ -241,6 +242,7 @@ include_once("../include/global_inc.php");
         </form>
         <!-- END FORM -->
 
+        <!-- Return to admin home button -->
         <div style="margin-top:660px">
             <a href="admin-inventory-home.php" class="btn custom-btn bg-color">Return to Admin Home</a>
         </div>

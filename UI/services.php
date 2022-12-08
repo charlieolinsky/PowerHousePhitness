@@ -133,19 +133,24 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
 <!----------------------------------------- MEMBERSHIP --------------------------------------->
 
+<!-- Membership Section -->
     <section class="class section" id="membership">
+        <!-- Member container -->
         <div class="container">
-             <div class="row">
-                     <div class="col-lg-12 col-12 text-center mb-5">
-                         <h6 data-aos="fade-up">Become a member today</h6>
+             <div class="row"> 
+                <!-- Section title with transitions -->
+                    <div class="col-lg-12 col-12 text-center mb-5">
+                        <h6 data-aos="fade-up">Become a member today</h6>
 
-                         <h2 data-aos="fade-up" data-aos-delay="200">Our Membership Plans</h2>
-                      </div>
+                        <h2 data-aos="fade-up" data-aos-delay="200">Our Membership Plans</h2>
+                    </div>
 
+                    <!-- Membership picture with transition and set size -->
                      <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="400">
                          <div class="class-thumb">
                              <img src="images/class/yoga-class.jpg" class="img-fluid" alt="Class">
 
+                             <!-- Membership description with set size -->
                              <div class="class-info">
                                  <h3 class="mb-1">Basic</h3>
 
@@ -159,10 +164,12 @@ https://www.tooplate.com/view/2119-gymso-fitness
                          </div>
                      </div>
 
+                      <!-- Membership picture with transition and set size -->
                      <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500">
                          <div class="class-thumb">
                              <img src="images/class/crossfit-class.jpg" class="img-fluid" alt="Class">
 
+                             <!-- Membership description with set size -->
                              <div class="class-info">
                                  <h3 class="mb-1">Premium</h3>
 
@@ -176,10 +183,12 @@ https://www.tooplate.com/view/2119-gymso-fitness
                          </div>
                      </div>
 
+                     <!-- Membership picture with transition and set size -->
                      <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="600">
                          <div class="class-thumb">
                              <img src="images/class/cardio-class.jpg" class="img-fluid" alt="Class">
 
+                             <!-- Membership description with set size -->
                              <div class="class-info">
                                  <h3 class="mb-1">Premium</h3>
 
@@ -191,7 +200,6 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                  <span class="class-price">$270</span>
 
                                  <p class="mt-3">Receive access to the gym, equipment rental, and classes with no other fees</p>
-                                 <!-- <p class="mt-3"> Note: Save $30 a year with this plan </p> -->
                                  <br>
                                  <br>
                              </div>
@@ -199,7 +207,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
                      </div>
 
              </div>
-             
+
+             <!-- Membership button with transition and set size -->
              <div class="button-container">
                     <a href="#" class="btn custom-btn bg-color mt-3" data-aos="fade-up" data-aos-delay="300" data-toggle="modal" data-target="#membershipForm">Become a member today</a>
              </div>
@@ -212,6 +221,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
     <!-- HEADER --> 
     <section class="class section" id="classes">
         <div class="col-lg-12 col-12 text-center mb-5">
+            <!-- Section title with set size and transition-->
             <h6 data-aos="fade-up">Schedule a class with us</h6>
             <h2 data-aos="fade-up" data-aos-delay="200">Our Available Classes</h2>
 
@@ -261,11 +271,14 @@ https://www.tooplate.com/view/2119-gymso-fitness
                     
                 ?>
 
+                <!-- Class image, transition, set size, and container layout -->
                 <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500" style="margin-top: 30px!important">
+                    <!-- Image thumb -->
                     <div class="class-thumb">
 
                         <img src=<?php echo "images/class/".$classRow['class_image'];?> class="img-fluid" alt="Class Image">
 
+                        <!-- Class info -->
                         <div class="class-info">
                             <h3 class="mb-1"><?php echo $classRow['class_name'];?></h3>
                             <span><strong>Free with Premium</strong></span>
@@ -315,44 +328,49 @@ https://www.tooplate.com/view/2119-gymso-fitness
     <div class="modal fade" id="membershipForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
 
+      <!-- Setting containers to hold title and form content -->
         <div class="modal-content">
           <div class="modal-header">
 
+          <!-- Title -->
             <h2 class="modal-title" id="membershipFormLabel">Membership Form</h2>
 
+            <!-- Close Bitton -->
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
 
+          <!-- Link to form and first name, last name, and email inputs -->
           <div class="modal-body">
             <form class="membership-form webform" action="../forms/membership.php" method="POST" role="form">
                 <input type="text" class="form-control" name="cf-fname" placeholder="First Name" required>
                 <input type="text" class="form-control" name="cf-lname" placeholder="Last Name" required>
                 <input type="email" class="form-control" name="cf-email" placeholder="Email">
 
-                <!-- <input type="tel" class="form-control" name="cf-phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> -->
-
-                <!-- <textarea class="form-control" rows="3" name="cf-message" placeholder="Additional Message"></textarea> -->
-
-
+                <!-- Payment info title -->
                 <h3> Payment Information </h3>
+                <!-- Inputs for payment info -->
                 <input type="text" class="form-control" id="cname" name="cf-cardname" placeholder="Cardholder Name">
                 <input type="text" class="form-control" id="cnum" name="cf-cardnunmber" placeholder="1111-2222-3333-4444">
                 <input type="text" class="form-control" id="expdate" name="cf-expdate" placeholder="MM/YY">
                 <input type="text" class="form-control" id="cvv" name="cf-cvv" placeholder="CVV">
 
+                <!-- Membership selection -->
                 <p class="mt-3">Select one:</p>
+                <!-- Monthly Premium checkbox -->
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" name="cBox1" id="monthly">
                     <label class="custom-control-label text-small text-muted" for="monthly"> Premium (Monthly)</label>
                 </div>
                 
+                <!-- Annual Premium checkbox -->
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" name="cBox2" id="annual">
                     <label class="custom-control-label text-small text-muted" for="annual"> Premium (Annual)</label>
                 </div>
 
+                <!-- Submit button -->
                 <button type="submit" class="form-control" id="submit-button" name="submit">Submit</button>
 
                 

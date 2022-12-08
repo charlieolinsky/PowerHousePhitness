@@ -32,6 +32,7 @@
 
     </head>
 
+    <!-- Setting background color -->
     <body style="background-color: var(--dark-color); text-align: center">
         <!-- Page Title -->
         <div class="admin-title">
@@ -44,6 +45,7 @@
                 while($data = mysqli_fetch_array($class_data, MYSQLI_ASSOC)):;
             ?>
 
+            <!-- Container holding all class info and inputs for new info -->
             <div class="inventory-container">
                 <div class="column">
                     <div class="row">
@@ -98,6 +100,7 @@
                     <textarea rows="5" cols="33" id="cDesc" name="cDesc"></textarea>
 
                 </div>
+                <!-- Submit button -->
                 <input type="submit" class="btn cart-btn" name ="submit2" value = "Submit Changes" style="margin-top: 10px">
             </div>
 
@@ -109,6 +112,7 @@
 
         </form>
 
+        <!-- Return to Admin portal button -->
         <div style="margin-top:660px">
             <a href="adminDirectory.php" class="btn custom-btn bg-color">Return to Admin Portal</a>
         </div>

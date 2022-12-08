@@ -23,19 +23,27 @@ https://www.tooplate.com/view/2119-gymso-fitness
 -->
 </head>
 <!-- form for login which self-calls the method below -->
-<body style="background-color:#171819"></body>
-<login-title>P H P</login-title>
-    <div class = "login-container">
-        <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
-            <h2 class="modal-title" id="membershipFormLabel">Login</h2>
-            <input type="text" class="form-control" name="email" placeholder="Email" required>
-            <input type="password" class="form-control" name="pword" placeholder="Password" required>
-            <button type="submit" class="form-control" id="submit-button" name="submit">Login</button>
-            <label class="text-small text-muted" for="signup-agree"> <a href="registerUI.php">Create an Account</a> 
-            <br>
-            <label class="text-small text-muted" for="signup-agree"> <a href="index.php">Return Home</a>
-        </form>
-    </div>
+    <!-- Setting background color of body div -->
+    <body style="background-color:#171819"></body>
+    <!-- Title -->
+        <login-title>P H P</login-title>
+        <!-- Container for login form -->
+            <div class = "login-container">
+                <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
+                    <!-- Form title -->
+                    <h2 class="modal-title" id="membershipFormLabel">Login</h2>
+                    <!-- Inputs -->
+                    <input type="text" class="form-control" name="email" placeholder="Email" required>
+                    <input type="password" class="form-control" name="pword" placeholder="Password" required>
+                    <!-- Login button -->
+                    <button type="submit" class="form-control" id="submit-button" name="submit">Login</button>
+                     <!-- Link to registerUI.php -->
+                    <label class="text-small text-muted" for="signup-agree"> <a href="registerUI.php">Create an Account</a> 
+                    <br>
+                    <!-- Link to index.php -->
+                    <label class="text-small text-muted" for="signup-agree"> <a href="index.php">Return Home</a>
+                </form>
+            </div>
 
     
        
