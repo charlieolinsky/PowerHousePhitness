@@ -120,6 +120,7 @@ require_once("../classes/ShoppingCart.php");
 
         ?>
 
+                    <!-- Create Item container & set position -->
                     <div class="cart-container" style="text-align: center">
                         <div class="column">
                             <!-- Cart Item Image -->

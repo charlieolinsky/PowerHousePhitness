@@ -152,6 +152,7 @@ if (isset($_POST['remove_user']))
 
       <br> 
 
+      <!-- Upgrade & Cancel Links -->
       <div class="column">
           <a href="../UI/services.php#membership">Upgrade Your Membership</a>
           <br>
@@ -164,6 +165,7 @@ if (isset($_POST['remove_user']))
 
     </div>
 
+    <!-- Return back button -->
       <div style="margin-top:650px; text-align: center">
             <a href="account_tab.php" class="btn custom-btn bg-color">Return to Account Tab</a>
         </div>

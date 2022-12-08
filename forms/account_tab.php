@@ -25,8 +25,9 @@
 
 </head>
 
+  <!-- setting background color -->
   <body style="background-color: var(--dark-color)">
-  <!-- <main>  -->
+  <!-- Page header title -->
     <div class="equip-title">
         <h1 style="color: var(--primary-color)">My Account</h1>
     </div>
@@ -63,6 +64,7 @@
 
     <!-- Membership Information -->
     <div class="profile-container">
+      <!-- Setting color, font, and position of container title -->
       <h2 style="color: var(--dark-color); font-size: 27px; margin-bottom: 20px; align-self: center">Membership</h2>
         <div class="profile-info">
             <h4 style="color: var(--dark-color)">

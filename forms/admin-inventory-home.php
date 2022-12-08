@@ -80,9 +80,11 @@
 
     <br><br><br><br>
 
+    <!-- Page header title -->
     <div class="admin-title">
         <h1 style="color: var(--primary-color)">CURRENT INVENTORY</h1>
     </div>
+    <!-- Add and Update Inventory buttons -->
     <div class="admin-title">
         <a href="admin-inventory-new.php" class="btn custom-btn bg-color mt-3">Add New Inventory Item</a>
         <a href="admin-inventory-update.php" class="btn custom-btn bg-color mt-3">Update Inventory Item</a>

@@ -50,23 +50,30 @@ if (isset($_GET['getID'])) {
 
 </head>
 
+<!-- Background color -->
 <body style="background-color: var(--dark-color)">
+<!-- Align 'main' to the center -->
   <main style="text-align: center">
+        <!-- Title of page (postion, color, font, size) -->
           <div class="admin-title" style="margin-top: 100px">
               <h1 style="color: var(--primary-color)">Find a User</h1>
           </div>
 
+          <!-- Conatiner holding all 'find a user' input & info -->
           <div class="inventory-container" style="padding: 20px; margin-top: 115px">
             <dl>
               <!-- form for admin to enter a user id  -->
               <!-- this form calls method from admin_edit_users.php -->
             <form action="../forms/admin_search_users.php" method="GET">   
+              <!-- Container title -->
               <h3>Enter User ID</h3>
               <br><br>
 
+              <!-- label and inputs for User ID -->
               <label for="userID"><b>User ID</b></label>
               <input type="name" placeholder="Enter a user ID" name="userID" required>
               <br>
+              <!-- Submit button -->
               <input type="submit" class="btn cart-btn mt-3" name="getID" value="Submit">
             </form>
           </div>

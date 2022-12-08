@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <h1 style="color: var(--primary-color)">Checkout</h1>
         </div>
 
-        <!-- <div class="column"> -->
+        <!-- Create container to hold order info (width, position, color) -->
                 <div class="inventory-container" style="margin-top: 180px; position: relative; width: max-content">
                     <table style="background-color: var(--white-color)">
                         <!-- Order Overview -->
@@ -134,8 +134,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         <form action="../forms/placeorder.php" method="POST">
                 <!-- Billing Address -->
+                <!-- Create Billing container to hold billing inputs (width, position, display, direction) -->
                 <div class="inventory-container" style="width: max-content; margin-top: 0px; margin-left: -172px; display:flex; flex-direction: column">
+                    <!-- Container title -->
                     <h3>Billing Address</h3>
+                    <!-- Rows & Columns to hold information and display it properly -->
                     <div class="row">
                         <div class="column" style="text-align: center">
                             <!-- First name label and input -->
@@ -212,6 +215,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
                 <!-- Payment Information -->
+                <!-- Create Billing container to hold payment info inputs (width, position, display, direction) -->
                 <div class="inventory-container" style="margin-top: 135px; position: relative; width: max-content; margin-left: 238px">
                     <h3>Payment Information</h3>
                     <div class="column">
@@ -242,6 +246,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     </div>
                 </div>   
 
+                <!-- Place Order submit button -->
                 <input type="submit" class="btn checkout-btn" value="Place Order" name="placeorder">
         </form>   
 

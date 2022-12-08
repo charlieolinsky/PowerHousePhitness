@@ -27,22 +27,26 @@
     <body>
    
         <!-- Registration form that self-calls the method below -->
+        <!-- Setting background color of body div -->
         <body style="background-color:#171819"></body>
+            <!-- Container for login form -->
             <div class = "login-container">
-                `<form action="<?php $_SERVER["PHP_SELF"]?>" method="POST">    
+                `<form action="<?php $_SERVER["PHP_SELF"]?>" method="POST"> 
+                    <!-- Form title -->   
                     <h2 class="modal-title" id="membershipFormLabel">Register</h2>
+                    <!-- Inputs -->
                     <input type="text" class="form-control" name="fname" placeholder="First Name" required>
                     <input type="text" class="form-control" name="lname" placeholder="Last Name" required>
                     <input type="email" class="form-control" name="email" placeholder="Email" required>
                     <input type="password" class="form-control" name="pword" placeholder="Password" required>
                     <input type="password" class="form-control" name="vpword" placeholder="Re-type Password" required>
+                    <!-- Create Account button -->
                     <button type="submit" class="form-control" id="submit-button" name="submit">Create Account</button>
+                    <!-- Link to loginUI.php -->
                     <label class="text-small text-muted" for="signup-agree"> <a href="loginUI.php">Already Registered? Sign in</a>
                 </form>
-            </div>`
-        
-    </body>
-
+            </div>`  
+        </body>
 </html>
 
 <?php 

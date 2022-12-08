@@ -21,11 +21,14 @@
     </script> -->
     
 </head>
+<!-- Setting background color -->
 <body style="background-color: var(--dark-color); text-align: center">
+    <!-- Page header title -->
     <div class="admin-title">
         <h1 style="color: var(--primary-color)">Add New Class</h1>
     </div>
 
+    <!-- Container holding form and all new class inputs -->
     <div class="inventory-container">
         <form action="addClass.php" method="POST">
             <div class="column" style= "text-align: center">
@@ -80,6 +83,7 @@
         </form>
     </div>
 
+    <!-- Return to Admin portal button -->
     <div style="margin-top:620px">
         <a href="adminDirectory.php" class="btn custom-btn bg-color">Return to Admin Portal</a>
      </div>

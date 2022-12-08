@@ -23,7 +23,7 @@
 
 </head>
 
-
+<!-- Setting background color -->
 <body style="background-color: var(--dark-color)">
     <!-- NAV BAR -->
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -89,6 +89,7 @@
     </nav>
 
     <br><br><br>
+    <!-- Page title (position, color, font, size) -->
     <main style="text-align: center">
         <div class="admin-title">
             <h1 style="color: var(--primary-color)">Admin Portal</h1>
@@ -96,6 +97,7 @@
 
     <div>
 
+    <!-- Container to hold all admin/employee options -->
     <div class="inventory-container">
         <div class="column">
             <h3>Administrator</h3>
@@ -125,8 +127,8 @@
             <a href="../forms/FinancialReports.php" class="btn edit-btn bg-color" style="margin-top: 5px; min-width: -webkit-fill-available">Reports</a>
 
             <br><br>
+            <!-- Return home button -->
             <a href="../UI/index.php" class="btn class-btn bordered mt-3" style="margin-top: 5px; min-width: -webkit-fill-available">Return Home</a>
-            <!-- <a href="../UI/index.php">Return Home</a> -->
         </div> 
     </div>
     

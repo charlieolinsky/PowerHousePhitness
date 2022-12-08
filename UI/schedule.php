@@ -87,21 +87,24 @@ https://www.tooplate.com/view/2119-gymso-fitness
         </div>
     </nav>
 
-    <!-- SCHEDULE -->
+    <!-- Schedule Section-->
     <section class="schedule section" id="schedule">
         <div class="container">
              <div class="row">
-
+                    <!-- Title with fade transition -->
                      <div class="col-lg-12 col-12 text-center">
                          <h6 data-aos="fade-up">Our Weekly Gym Schedule</h6>
-
                          <h2 class="text-white" data-aos="fade-up" data-aos-delay="200">Workout Days & Times</h2>
+                         <!-- Link to register for classes -->
                          <a href="services.php#classes" data-aos="fade-up" data-aos-delay="200">Register for Classes<a>
                       </div>
 
+                      <!-- Setting widths -->
                       <div class="col-lg-12 py-5 col-md-12 col-12">
+                        <!-- Creating classes table -->
                           <table class="table table-bordered table-responsive schedule-table" data-aos="fade-up" data-aos-delay="300">
 
+                          <!-- Table headers (Days of week) -->
                               <thead class="thead-light">
                                   <th><i class="fa fa-calendar"></i></th>
                                   <th>Mon</th>
@@ -113,6 +116,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                   <th>Sun</th>
                               </thead>
 
+                              <!-- All class times/days -->
                               <tbody>
                                   <tr>
                                      <td><small>7:00 am</small></td>
@@ -134,6 +138,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                      <td></td><!--Sunday-->
                                   </tr>
 
+                                  <!-- Style above ^ applies to the rest of the table -->
                                   <tr>
                                      <td><small>9:00 am</small></td>
                                      <td></td>

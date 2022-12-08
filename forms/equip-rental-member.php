@@ -82,6 +82,7 @@
     <br><br><br>
 
     <main>
+        <!-- Title and page description -->
         <div class="equip-title">
             <h1 style="color: var(--primary-color)">Equipment Rental Portal</h1>
             <h4>Need to rent equipment while visiting our facility? We have a variety of options from basketballs
