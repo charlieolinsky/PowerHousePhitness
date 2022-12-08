@@ -89,6 +89,7 @@
             <h1 style="color: var(--primary-color)">Finance Portal</h1>
         </div>
 
+        <!-- Display Finance Priviliges -->
         <div class="inventory-container" style="margin-top: 100px">
             <div class="column">
                 <h3>Finance Personnel</h3>

@@ -89,6 +89,7 @@
             <h1 style="color: var(--primary-color)">Employee Portal</h1>
         </div>
 
+        <!-- Display Employee Privileges -->
         <div class="inventory-container" style="margin-top: 100px">
             <div class="column">
                 <h3>General Employee</h3>

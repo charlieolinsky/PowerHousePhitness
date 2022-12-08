@@ -9,6 +9,8 @@
     $userRank = $s->read('roles');
     $userID = $s->read('user_id');
     
+
+    //Allow premium members to return back to free members.
     if($userRank == 2)
     {
         //echo "Downgrade Condtion met";
